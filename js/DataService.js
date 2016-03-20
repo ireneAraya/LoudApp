@@ -29,7 +29,8 @@ angular.module ('loudApp.services')
 				'personalId'	: 111133331,
 				'rol'			: 2,
 				'rId'			: 'p-1',
-				'image'			: '../img/'
+				'image'			: '../img/',
+				'company'		: 'Howarts'
 			},
 			{
 				'id'			: 3,
@@ -41,7 +42,8 @@ angular.module ('loudApp.services')
 				'personalId'	: 111144441,
 				'rol'			: 2,
 				'rId'			: 'p-2',
-				'image'			: '../img/'
+				'image'			: '../img/',
+				'company'		: 'Slytherin'
 			},
 			//rol 3 = cliente
 			{
