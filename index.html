@@ -9,33 +9,25 @@
 	<link rel="stylesheet" href="util/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-app="loudApp">	
-	<header>
-		<nav class="navbar">
-			<div class="container">
-			    <ul class="nav row">
-			    	<li class="dropdown col-xs-2">
-					    <button type="button" class="col-xs-2 dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-					    	<i class="fa fa-bars fa-3x"></i>
-					    </button>
-					    <ul class="dropdown-menu">
-					    	<li><a href="#">Cerrar Sesión</a></li>
-					    	<li><a href="#">Agregar Usuarios</a></li>
-					    	<li><a href="#">Promotores</a></li>
-					    	<li><a href="#">Cajeros</a></li>
-					    	<li><a href="#">Reportes</a></li>
-					    	<li><a href="#">Comprar Tiquetes</a></li>
-					    	<li><a href="#">Reservar Tiquetes</a></li>
-					    	<li><a href="#">Recordatorios</a></li>
-					    </ul>
-				    </li>
-				    <li class="col-xs-10">
-			      		<img src="img/logo.png" alt="Loud Logo" class="logo img-responsive" width="195px">
-			      	</li>
-			    </ul>
-		  </div><!-- /.container -->
-		</nav>
-	</header>
+<body ng-app="loudApp">
+	<nav class="navbar navbar-fixed-top">
+	  	<div class="container">
+		    <div class="navbar-header">
+		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainMenu" aria-expanded="false">
+		        	<i class="fa fa-bars fa-3x"></i>
+		      	</button>
+		      	<a class="navbar-brand" href="#"><img src="img/logo.png" alt="Loud Logo" class="logo img-responsive" width="195px"></a>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="mainMenu">
+		      	<ul class="nav navbar-nav navbar-right">
+		        	<li><a href="#">Ingresar</a></li>
+		        	<li><a href="#">Registrarse</a></li>
+		      	</ul>
+		    </div><!-- /.navbar-collapse -->
+	  	</div><!-- /.container -->
+	</nav>
+	
 	<div ng-view></div>
 
 <!--dependencias-->
@@ -53,6 +45,7 @@
 
 <!--controladores-->
 <script src="js/controllers.js"></script>
+<script src="js/NavbarCtrl.js"></script>
 <script src="js/EventsCtrl.js"></script>
 </body>
 </html>

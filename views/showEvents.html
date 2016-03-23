@@ -6,11 +6,11 @@
 	<div class="row">
 		<div class="col-xs-12 col-md-4" ng-repeat="event in data.events">
 			<div class="panel">
-				<li class="panel-body">
+				<div class="panel-body">
 					<img ng-src="{{event.image}}" alt="Fotografía del Evento" class="img-responsive" width="600px">
-					<h4 class="text-center">{{event.name}}</h4>
-					<p>{{event.date}} ~ {{ getEventLocation(event.location, 'name') }}</p>
-				</li>
+					<h3 class="text-center">{{event.name}}</h3>
+					<p class="text-center"><span><i class="fa fa-calendar-check-o"></i></span> {{event.date}} <span><i class="fa fa-map-marker"></i></span> {{ getEventLocation(event.location, 'name') }} </p>
+				</div>
 			</div>
 		</div>
 	</div>

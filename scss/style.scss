@@ -1,7 +1,8 @@
 $dark-red: #d3362d;
 $medium-red: #db4437;
 $light-red: #ed9d97;
-$gray: #7d7d7d;
+$dark-gray: #7d7d7d;
+$light-gray: #e5e5e5;
 
 body{
 	background:  $dark-red;
@@ -27,11 +28,11 @@ body{
 }
 
 .navbar{
-	padding: 10px;
 	background: #ffffff;
 	border-radius: 0;
 	
 	.fa-bars{
+		padding: 20px;
 		color: $dark-red;
 		
 		&:hover{
@@ -41,14 +42,32 @@ body{
 
 	.logo{
 		margin: 0 auto;
+		padding-top: 10px;
 	}
 
-	.dropdown-menu{
-		li a{
-			border-bottom: 1px solid $gray;
-			font-size: 32px;
-			color: $gray;	
-		}	
+	.navbar-brand{
+		float: none;
+	}
+
+	.navbar-nav>li>a{
+		font-size: 18px;
+		color: $dark-gray;
+		
+		@media (min-width: 768px){
+			margin-top: 40px;
+		}
+
+		@media (max-width: 768px) {
+			padding: 10px 40px;
+			border-bottom: 1px solid $light-gray;
+			text-align: right;
+		}
+	}
+
+	.navbar-collapse{
+		@media (max-width: 768px) {
+			border-top: 1px solid $light-gray;
+		}
 	}
 }
 
