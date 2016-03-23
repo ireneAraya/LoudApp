@@ -1,0 +1,55 @@
+$dark-red: #d3362d;
+$medium-red: #db4437;
+$light-red: #ed9d97;
+$gray: #7d7d7d;
+
+body{
+	background:  $dark-red;
+	font-family: 'Roboto', sans-serif; 
+	
+	button{
+		background: none;
+		border: none;
+	}
+
+	li{
+		list-style-type: none;
+	}
+
+	a{
+		text-decoration: none;
+	}
+
+	h1{
+		padding: 30px 0;
+		color: #ffffff;
+	}
+}
+
+.navbar{
+	padding: 10px;
+	background: #ffffff;
+	border-radius: 0;
+	
+	.fa-bars{
+		color: $dark-red;
+		
+		&:hover{
+			color: $light-red;
+		}
+	}
+
+	.logo{
+		margin: 0 auto;
+	}
+
+	.dropdown-menu{
+		li a{
+			border-bottom: 1px solid $gray;
+			font-size: 32px;
+			color: $gray;	
+		}	
+	}
+}
+
+@import 'events.scss';

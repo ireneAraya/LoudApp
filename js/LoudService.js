@@ -1,7 +1,36 @@
 angular.module ('loudApp.services')
 
-.service('LoudService', ['DataService',
-	function(DataService) {
-		
+.value('BaseURL', '/js/data.json')
+
+.service('LoudService',['$http', 'BaseURL',
+	function($http, BaseURL) {
+
+		var getDataFromJS = function () {
+
+			return $http({
+                method: "GET",
+                url: BaseURL
+            });
+
+		};
+
+		var getItem = function (object, id) {
+
+			var item;
+
+            for (var i = 0; i < object.length; i++) {
+                if (object[i].id == id) {
+                    item = object[i];
+                }
+            }
+
+            return item;
+		};
+
+		return {
+			getDataFromJS : getDataFromJS,
+			getItem : getItem
+		};
+	
 	}
 ])

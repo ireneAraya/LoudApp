@@ -5,18 +5,38 @@
 	<title>Loud</title>
 
 	<link rel="stylesheet" href="util/bootstrap/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="util/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-app="loudApp">
-
+<body ng-app="loudApp">	
 	<header>
-		
+		<nav class="navbar">
+			<div class="container">
+			    <ul class="nav row">
+			    	<li class="dropdown col-xs-2">
+					    <button type="button" class="col-xs-2 dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+					    	<i class="fa fa-bars fa-3x"></i>
+					    </button>
+					    <ul class="dropdown-menu">
+					    	<li><a href="#">Cerrar Sesión</a></li>
+					    	<li><a href="#">Agregar Usuarios</a></li>
+					    	<li><a href="#">Promotores</a></li>
+					    	<li><a href="#">Cajeros</a></li>
+					    	<li><a href="#">Reportes</a></li>
+					    	<li><a href="#">Comprar Tiquetes</a></li>
+					    	<li><a href="#">Reservar Tiquetes</a></li>
+					    	<li><a href="#">Recordatorios</a></li>
+					    </ul>
+				    </li>
+				    <li class="col-xs-10">
+			      		<img src="img/logo.png" alt="Loud Logo" class="logo img-responsive" width="195px">
+			      	</li>
+			    </ul>
+		  </div><!-- /.container -->
+		</nav>
 	</header>
-	
-	<main class="container app-container">
-		<div ng-view></div>
-	</main>
+	<div ng-view></div>
 
 <!--dependencias-->
 <script src="util/jquery/jquery.min.js"></script>
@@ -29,7 +49,6 @@
 
 <!--servicios-->
 <script src="js/services.js"></script>
-<script src="js/DataService.js"></script>
 <script src="js/LoudService.js"></script>
 
 <!--controladores-->
