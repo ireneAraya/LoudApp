@@ -4,16 +4,20 @@ angular.module('loudApp',[
     'loudApp.controllers',
 ])
 
-.config(['$routeProvider', 
+.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/showEvents.html',
                 controller : 'EventsCtrl'
             })
+            .when('/login', {
+                templateUrl: 'views/login.html',
+                controller : 'LoginCtrl'
+            })
             .when('/detail/:id', {
                 templateUrl: 'views/eventDetail.html',
-                controller : 'EventsCtrl' 
+                controller : 'EventsCtrl'
             })
             .otherwise({
         	   redirectTo: '/'

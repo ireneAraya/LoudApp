@@ -6,17 +6,17 @@ angular.module ('loudApp.services')
 	function($http, BaseURL) {
 
 		var getDataFromJS = function () {
-
 			return $http({
                 method: "GET",
                 url: BaseURL
             });
-
 		};
 
 		var getItem = function (object, id) {
 
 			var item;
+
+            console.log(id);
 
             for (var i = 0; i < object.length; i++) {
                 if (object[i].id == id) {
@@ -31,6 +31,6 @@ angular.module ('loudApp.services')
 			getDataFromJS : getDataFromJS,
 			getItem : getItem
 		};
-	
+
 	}
 ])
