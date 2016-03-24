@@ -19,7 +19,7 @@ angular.module ('loudApp.controllers')
 
         //Lama a la función getItem
         var currentID = $routeParams.id;
-        var event = LoudService.getItem($scope.data.events, currentID);
+        // var event = LoudService.getItem($scope.data.events, currentID);
 
         $scope.init();
 	}

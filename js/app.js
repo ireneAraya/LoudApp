@@ -15,7 +15,7 @@ angular.module('loudApp',[
                 templateUrl: 'views/login.html',
                 controller : 'LoginCtrl'
             })
-            .when('/detail/:id', {
+            .when('/event/:id', {
                 templateUrl: 'views/eventDetail.html',
                 controller : 'EventsCtrl'
             })
