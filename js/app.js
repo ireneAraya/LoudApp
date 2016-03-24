@@ -2,6 +2,8 @@ angular.module('loudApp',[
     'ngRoute',
     'loudApp.services',
     'loudApp.controllers',
+    'ngAnimate',
+    'ui.bootstrap'
 ])
 
 .config(['$routeProvider',
@@ -11,6 +13,9 @@ angular.module('loudApp',[
                 templateUrl: 'views/showEvents.html',
                 controller : 'EventsCtrl'
             })
+            // .when('/', {
+            //     templateUrl: 'views/buyTickets.html'
+            // })
             .when('/login', {
                 templateUrl: 'views/login.html',
                 controller : 'LoginCtrl'
@@ -20,7 +25,7 @@ angular.module('loudApp',[
                 controller : 'EventsCtrl'
             })
             .otherwise({
-        	   redirectTo: '/'
+        	   templateUrl: 'views/404.html'
             });
     }
 ])
