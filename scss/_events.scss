@@ -1,8 +1,14 @@
 .panel{
 	border: none;
-	background: $light-red;
+	border-radius: 0;
+	background: $medium-red;
 	
 	a{
 		color: #000000;
+	}
+
+	.btn{
+		border-radius: 0;
+		background: $light-red;
 	}
 }

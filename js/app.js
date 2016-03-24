@@ -11,6 +11,10 @@ angular.module('loudApp',[
                 templateUrl: 'views/showEvents.html',
                 controller : 'EventsCtrl'
             })
+            .when('/detail/:id', {
+                templateUrl: 'views/eventDetail.html',
+                controller : 'EventsCtrl' 
+            })
             .otherwise({
         	   redirectTo: '/'
             });
