@@ -41,7 +41,7 @@
        style="display: block;"
        ng-show="isOpen() && !moveInProgress"
        aria-hidden="{{!isOpen()}}">
-      <p class="message">select location from drop down.</p>
+      <p class="message">Seleccione un evento de la lista.</p>
 
       <ul class="dropdown-menu" role="listbox">
           <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
@@ -53,8 +53,7 @@
   </script>
 
   <div class='container-fluid typeahead-demo' ng-controller="TypeaheadCtrl">
-      <h4>Custom popup templates for typeahead's dropdown</h4>
-      <pre>Model: {{customPopupSelected | json}}</pre>
-      <input type="text" ng-model="customPopupSelected" placeholder="Custom popup template" uib-typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+      <label for="">Evento</label>
+      <input type="text" ng-model="customPopupSelected" placeholder="Busque el evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
   </div>
 </div>
