@@ -156,15 +156,21 @@
 	"events" : [
 		{
 			"id"			: 1,
-			"name"			: "Mark Antony en concierto",
+			"name"			: "Mark Anthony en concierto",
 			"date"			: "08/09/2016",
 			"startHour"		: "21:00",
 			"finishHour"	: "00:00",
 			"eventType"		: 1,
-			"description"	: "Mark Antony en Costa Rica",
+			"description"	: "Mark Anthony en Costa Rica",
 			"location"		: 1,
 			"status"		: 1,
-			"price"			: 35000,
+			"prices"		: 	[
+									{
+										"Sombra" 	: 35000,
+										"Platea" 	: 40000,
+										"VIP"		: 60000
+									}
+								],
 			"image"			: "../img/marcAnthony.jpg",
 			"promoTickets"	: 1
 		},
@@ -178,7 +184,12 @@
 			"description"	: "Actividad bailable con música en vivo",
 			"location"		: 2,
 			"status"		: 1,
-			"price"			: 5000,
+			"prices"		: 	[
+									{
+										"General" 	: 10000,
+										"VIP" 		: 20000
+									}
+								],
 			"image"			: "../img/SondeTK.jpg",
 			"promoTickets"	: 2
 		},
@@ -192,7 +203,13 @@
 			"description"	: "Gira mundial",
 			"location"		: 1,
 			"status"		: 1,
-			"price"			: 45000,
+			"prices"		: 	[
+									{
+										"Sombra" 	: 35000,
+										"Platea" 	: 40000,
+										"VIP"		: 60000
+									}
+								],
 			"image"			: "../img/ironMaiden.jpg",
 			"promoTickets"	: 2
 		},
@@ -206,7 +223,13 @@
 			"description"	: "Apoyar a la Sele, el equipo de todos",
 			"location"		: 3,
 			"status"		: 1,
-			"price"			: 30000,
+			"prices"		: 	[
+									{
+										"Sol"	 	: 8000,
+										"Sombra"	: 15000,
+										"Platea" 	: 20000
+									}
+								],
 			"image"			: "../img/sele.jpg",
 			"promoTickets"	: 2
 		}

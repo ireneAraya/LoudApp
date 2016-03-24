@@ -14,7 +14,7 @@ angular.module ('loudApp.controllers')
         };
 
         function otherFunctions () {
-            console.log($scope.data);
+            // console.log($scope.data);
         };
 
         $scope.init();
