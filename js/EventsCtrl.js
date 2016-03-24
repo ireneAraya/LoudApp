@@ -5,14 +5,13 @@ angular.module ('loudApp.controllers')
 	function($scope, LoudService) {
 
 		$scope.init = function() {
-            LoudService.getDataFromJS().then(function(respuesta) {
-                $scope.data = respuesta.data;
+            LoudService.getDataFromJS().then(function(response) {
+                $scope.data = response.data;
             }, function(razon) {
                 $scope.error = razon;
             });
         };
         
-
         $scope.getEventLocation = function (index, key) {
         	var location = LoudService.getItem($scope.data.location, index);
         	return location[key];

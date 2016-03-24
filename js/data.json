@@ -181,6 +181,34 @@
 			"price"			: 5000,
 			"image"			: "../img/SondeTK.jpg",
 			"promoTickets"	: 2
+		},
+		{
+			"id"			: 3,
+			"name"			: "Iron Maiden en Costa Rica",
+			"date"			: "28/03/2016",
+			"startHour"		: "19:00",
+			"finishHour"	: "23:00",
+			"eventType"		: 1,
+			"description"	: "Gira mundial",
+			"location"		: 1,
+			"status"		: 1,
+			"price"			: 45000,
+			"image"			: "../img/ironMaiden.jpg",
+			"promoTickets"	: 2
+		},
+		{
+			"id"			: 4,
+			"name"			: "Selección Nacional vs Jamaica",
+			"date"			: "29/03/2016",
+			"startHour"		: "18:00",
+			"finishHour"	: "28:00",
+			"eventType"		: 3,
+			"description"	: "Apoyar a la Sele, el equipo de todos",
+			"location"		: 3,
+			"status"		: 1,
+			"price"			: 30000,
+			"image"			: "../img/sele.jpg",
+			"promoTickets"	: 2
 		}
 	],
 
@@ -192,6 +220,10 @@
 		{
 			"id"			: 2,
 			"description"	: "dance"
+		},
+		{
+			"id"			: 3,
+			"description"	: "sports"
 		}
 	],
 
@@ -214,6 +246,16 @@
 			"scheme"		: "",
 			"geographicLoc"	: "9.918104, -84.048427",
 			"adress"		: "Contiguo al parqueo de Price Smart Zapote, San José",
+			"image"			: "../img/"
+		},
+		{
+			"id"			: 3,
+			"name"			: "Estadio Nacional",
+			"phone"			: "2222-0309",
+			"capacity"		: 35000,
+			"scheme"		: "",
+			"geographicLoc"	: "9.936768, -84.107852",
+			"adress"		: "La Sabana, Costa Rica",
 			"image"			: "../img/"
 		}
 	],
