@@ -25,7 +25,7 @@ angular.module('loudApp',[
                 controller : 'EventsCtrl'
             })
             .otherwise({
-        	   redirectTo: '/'
+        	   templateUrl: 'views/404.html'
             });
     }
 ])
