@@ -85,6 +85,20 @@ header{
 			border-top: 1px solid $light-gray;
 		}
 	}
+}
+
+.btn{
+	margin-top: 20px;
+	border-radius: 0;
+	background: $light-red;
+	line-height: 34px;
+	letter-spacing: 1px;
+	color: $dark-red;
+	
+	&:hover{
+		background: $dark-red;
+		color: $light-red;
+	}
 }	
 
 footer {
