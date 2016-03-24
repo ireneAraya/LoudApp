@@ -7,8 +7,8 @@ $light-gray: #e5e5e5;
 
 body{
 	background:  $dark-red;
-	font-family: 'Roboto', sans-serif; 
-	
+	font-family: 'Roboto', sans-serif;
+
 	button{
 		background: none;
 		border: none;
@@ -21,7 +21,7 @@ body{
 	a{
 		text-decoration: none;
 		color: $medium-gray;
-		
+
 		&:hover{
 			color: $dark-gray;
 		}
@@ -36,10 +36,10 @@ body{
 .navbar{
 	background: #ffffff;
 	border-radius: 0;
-}	
+}
 
 .navbar-nav>li>a{
-	
+
 	&:hover{
 		background: none;
 	}
@@ -47,11 +47,11 @@ body{
 
 header{
 	margin-bottom: 150px;
-	
+
 	.fa-bars{
 		padding: 20px;
 		color: $dark-red;
-		
+
 		&:hover{
 			color: $light-red;
 		}
@@ -68,7 +68,7 @@ header{
 
 	.navbar-nav>li>a{
 		font-size: 16px;
-		
+
 		@media (min-width: 768px){
 			margin-top: 40px;
 		}
@@ -94,12 +94,12 @@ header{
 	line-height: 34px;
 	letter-spacing: 1px;
 	color: $dark-red;
-	
+
 	&:hover{
 		background: $dark-red;
 		color: $light-red;
 	}
-}	
+}
 
 footer {
 	margin-top: 150px;
@@ -108,10 +108,11 @@ footer {
 		padding: 15px 0 10px 0;
 		color: $medium-gray;
 	}
-		
+
 	.navbar-nav{
 		float: none;
 	}
 }
 
 @import 'events.scss';
+@import 'tickets.scss';
