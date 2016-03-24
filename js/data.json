@@ -2,7 +2,7 @@
 	"users" : [
 		{
 			"id"			: 1,
-			"email" 		: "Harry@loud.com",
+			"email" 		: "harry@loud.com",
 			"password" 		: "Hedwig",
 			"name"			: "Harry",
 			"lastName"		: "Potter",
