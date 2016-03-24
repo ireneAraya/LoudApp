@@ -14,6 +14,7 @@ angular.module ('loudApp.services')
 
 		};
 
+		//Retorna el id del objeto
 		var getItem = function (object, id) {
 
 			var item;
@@ -28,8 +29,8 @@ angular.module ('loudApp.services')
 		};
 
 		return {
-			getDataFromJS : getDataFromJS,
-			getItem : getItem
+			getDataFromJS 	: getDataFromJS,
+			getItem 		: getItem
 		};
 	
 	}

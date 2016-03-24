@@ -1,8 +1,12 @@
 angular.module ('loudApp.controllers')
 
 .controller('EventsCtrl', [
-	'$scope', 'LoudService',
-	function($scope, LoudService) {
+	'$scope', '$routeParams', '$location', 'LoudService',
+	function($scope, $routeParams, $location, LoudService) {
+        var currentID = $routeParams.id;
+
+         //Lama a la función getItem
+        $scope.event = LoudService.getItem($scope.data.event, currentID);
 
 		$scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
