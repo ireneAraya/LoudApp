@@ -9,16 +9,20 @@ angular.module('loudApp',[
 .config(['$routeProvider',
     function($routeProvider) {
         $routeProvider
-            // .when('/', {
-            //     templateUrl: 'views/showEvents.html',
-            //     controller : 'EventsCtrl'
-            // })
-            .when('/detail/:id', {
-                templateUrl: 'views/eventDetail.html',
+            .when('/', {
+                templateUrl: 'views/showEvents.html',
                 controller : 'EventsCtrl'
             })
-            .when('/', {
-                templateUrl: 'views/buyTickets.html'
+            // .when('/', {
+            //     templateUrl: 'views/buyTickets.html'
+            // })
+            .when('/login', {
+                templateUrl: 'views/login.html',
+                controller : 'LoginCtrl'
+            })
+            .when('/event/:id', {
+                templateUrl: 'views/eventDetail.html',
+                controller : 'EventsCtrl'
             })
             .otherwise({
         	   redirectTo: '/'

@@ -6,14 +6,13 @@ angular.module ('loudApp.services')
 	function($http, BaseURL) {
 
 		var getDataFromJS = function () {
-
 			return $http({
                 method: "GET",
                 url: BaseURL
             });
-
 		};
 
+		//Retorna el id del objeto
 		var getItem = function (object, id) {
 
 			var item;
@@ -28,9 +27,9 @@ angular.module ('loudApp.services')
 		};
 
 		return {
-			getDataFromJS : getDataFromJS,
-			getItem : getItem
+			getDataFromJS 	: getDataFromJS,
+			getItem 		: getItem
 		};
-	
+
 	}
 ])
