@@ -17,8 +17,6 @@ angular.module ('loudApp.services')
 
 			var item;
 
-            console.log(id);
-
             for (var i = 0; i < object.length; i++) {
                 if (object[i].id == id) {
                     item = object[i];
