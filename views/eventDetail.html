@@ -1,8 +1,38 @@
 <main class="container">
-	<div class="row">
-		<h1 class="text-center">{{ event.name | uppercase}}</h1>
+	<h1 class="text-center">{{ event.name | uppercase}}</h1>
+	<div class="row event-info">
 		<div class="col-xs-6">
 			<img ng-src="{{event.image}}" alt="Fotografía del Evento" class="col-xs-12 img-responsive" width="600px">
+		</div>
+		<div class="col-xs-12 col-lg-6">
+			<div class="col-xs-6">
+				<h2 class="text-center">{{ getEventLocation(event.location, 'name') }}</h2>
+			</div>
+			<div class="col-xs-6">
+				<h2 class="text-center">{{ event.date }}</h2>
+			</div>
+			<div class="col-xs-12">	
+				<div class="info-item">
+					<h4>Precios</h4>
+					<table class="list-group">
+						<tr>
+							<td ng-repeat="price in event.prices">{{ price.place }} : {{ price.amount | currency:'¢' }}</td>
+						</tr>
+					</table>
+				</div>	
+			</div>
+			<div class="col-xs-12">
+				<div class="info-item">
+					<h4>Descripción</h4>
+					<p>{{ event.description }}</p>
+				</div>
+			</div>
+			<div class="col-xs-12 col-lg-6">
+				<button class="btn">RESERVAR</button>
+			</div>
+			<div class="col-xs-12 col-lg-6">
+				<button class="btn">COMPRAR</button>
+			</div>	
 		</div>
 	</div>
 </main>
