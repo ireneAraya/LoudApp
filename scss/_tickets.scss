@@ -9,6 +9,7 @@
             }
         }
         .dropdown-menu {
+            z-index: 9000;
             padding: 0 0 5px;
         }
         .btn {
@@ -28,4 +29,3 @@
         }
     }
 }
-
