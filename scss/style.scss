@@ -87,6 +87,10 @@ header{
 	}
 }
 
+.list-group{
+	margin: 5px 0;
+}
+
 .btn{
 	margin-top: 20px;
 	border-radius: 0;
@@ -98,6 +102,18 @@ header{
 	&:hover{
 		background: $dark-red;
 		color: $light-red;
+	}
+
+	&-facebook {
+		background: #3b5998;
+	}
+
+	&-twitter {
+		background: #55acee;
+	}
+
+	&-social {
+		color: #fff;
 	}
 }
 
