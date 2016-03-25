@@ -63,7 +63,7 @@ angular.module ('loudApp.controllers')
 
                 var otherFunctionsFB = function () {
                     console.log($scope.user);
-                }
+                };
             }
         };
 
@@ -71,6 +71,8 @@ angular.module ('loudApp.controllers')
             Facebook.getLoginStatus(function(response) {
                 if (response.status === "connected") {
                     window.FBUser = true;
+                } else {
+                    window.FBUser = false;
                 }
             }, true);
         }
@@ -78,26 +80,34 @@ angular.module ('loudApp.controllers')
         function loginFB () {
             Facebook.login(function(response) {
                 if (response.status == 'connected') {
-                    $scope.logged = true;
                     meFB();
                 }
             });
         };
 
-        function logoutFB () {
-            Facebook.logout(function() {
-                // $scope.$apply(function() {
-                $scope.user   = {};
-                $scope.logged = false;
-                // });
-            });
+        $scope.logoutFB = function () {
+
+            getLoginStatus();
+
+            $timeout(function () {
+                if (window.FBUser) {
+                    Facebook.logout(function (response) {});
+                    window.FBUser = false;
+                    window.FBuserData = {};
+                    otherFunctionsFB();
+                } else {
+                    console.log("Not user found. Please login");
+                }
+            }, 1000);
+
+            var otherFunctionsFB = function () {
+                console.log(window.FBUser, window.FBuserData);
+            }
         }
 
         function meFB () {
             Facebook.api('/me', function(response) {
-                // $scope.$apply(function() {
                 window.FBuserData = response;
-                // });
             });
         };
 
