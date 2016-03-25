@@ -25,20 +25,29 @@ angular.module ('loudApp.controllers')
                     userExists = false;
 
                 var userEmail = $scope.email,
-                    userPass = $scope.password;
+                    userPass = encodeValue($scope.password);
 
                 if (userEmail !== "" && userPass !== "") {
                     for (var i = 0; i < usersCollection.length; i++) {
                         var user = usersCollection[i];
 
-                        if (userEmail === user.email && userPass === user.password) {
+                        if (userEmail === user.email && decodeValue(userPass) === decodeValue(user.password)) {
                             userExists = true;
+                            this.error = true;
                         }
                     }
                 }
 
                 console.log(userExists);
             }
+        };
+
+        function decodeValue (string) {
+            return atob(string);
+        };
+
+        function encodeValue (string) {
+            return btoa(string);
         };
 
         $scope.init();
