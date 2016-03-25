@@ -2,8 +2,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('TypeaheadCtrl', [
-  '$scope', '$http',
-  function($scope, $http) {
+  '$scope',
+  function($scope) {
 
     var _selected;
     $scope.selected = undefined;
