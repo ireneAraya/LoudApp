@@ -207,7 +207,7 @@
 									{
 										"place"		: "VIP",
 										"amount" 	: 20000
-									},
+									}
 								],
 			"image"			: "../img/SondeTK.jpg",
 			"promoTickets"	: 2
@@ -234,7 +234,7 @@
 									{
 										"place"		: "VIP",
 										"amount" 	: 60000
-									},
+									}
 								],
 			"image"			: "../img/ironMaiden.jpg",
 			"promoTickets"	: 2
@@ -261,7 +261,7 @@
 									{
 										"place"		: "Platea",
 										"amount" 	: 20000
-									},
+									}
 								],
 			"image"			: "../img/sele.jpg",
 			"promoTickets"	: 2
