@@ -11,10 +11,20 @@
         .dropdown-menu {
             z-index: 9000;
             padding: 0 0 5px;
+            top: 188px !important;
+
+            .btn-default {
+                border-color: #fff;
+            }
+            button {
+                border-color: #ed9d97;
+            }
         }
         .btn {
             margin-top: 0;
             padding: 0 16px;
+        }
+        .btn:hover {
             border-color: #ed9d97;
         }
         .btn-info.active {
@@ -27,5 +37,18 @@
         .btn-group.pull-left button:first-child {
             margin-right: 5px;
         }
+        .hours-btn {
+            border-radius: 50%;
+            padding: 18px 10px;
+            border: 1px solid #fff;
+            color: #fff;
+            display: inline-block;
+            margin: 5px 25px;
+        }
     }
+}
+
+.form-group > .btn.next-btn {
+    padding: 10px 16px;
+    margin-top: 30px;
 }

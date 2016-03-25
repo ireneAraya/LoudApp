@@ -1,7 +1,8 @@
 <main class="container">
   <h1 class="text-center">Compra de entradas</h1>
-  <div class="row">
-    <div class="col-md-6">
+  <hr>
+  <div class="row row-centered">
+    <div class="col-md-6 col-centered">
       <form role="form" class="general-form">
         <script type="text/ng-template" id="customPopupTemplate.html">
           <div class="custom-popup-wrapper"
@@ -19,18 +20,33 @@
           </div>
         </script>
         <div class="form-group typeahead" ng-controller="TypeaheadCtrl">
-          <label for="">Evento</label>
+          <label for="">Seleccione el evento al que quiere asistir</label>
           <input type="text" ng-model="customPopupSelected" placeholder="Busque el evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
         </div>
         <div class="form-group" ng-controller="DatepickerCtrl">
-          <label for="">Fecha</label>
+          <label for="">Seleccione una fecha</label>
           <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
           <span class="input-group-btn">
             <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
         </div>
-        <!-- <a href="" class="btn">comprar</a> -->
+        <div class="form-group" ng-controller="DatepickerCtrl">
+          <label for="">Seleccione una hora</label>
+          <div>
+            <a href="" class="hours-btn">09:00</a>
+            <a href="" class="hours-btn">13:00</a>
+            <a href="" class="hours-btn">15:00</a>
+            <a href="" class="hours-btn">19:00</a>
+            <a href="" class="hours-btn">21:00</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <a href="" class="btn next-btn align-right">siguiente</a>
+        </div>
       </form>
     </div>
+    <!-- <div class="col-md-6">
+      <h1>bhdhbchd</h1>
+    </div> -->
   </div>
 </main>
