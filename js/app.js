@@ -12,11 +12,11 @@ angular.module('loudApp',[
         $routeProvider
             .when('/', {
                 templateUrl: 'views/showEvents.html',
-                controller : 'EventsCtrl'
+                 controller : 'EventsCtrl'
             })
-            // .when('/', {
-            //     templateUrl: 'views/buyTickets.html'
-            // })
+            /*.when('/', {
+                templateUrl: 'views/buyTickets.html'
+            })*/
             .when('/login', {
                 templateUrl: 'views/login.html',
                 controller : 'LoginCtrl'
