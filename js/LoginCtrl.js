@@ -1,8 +1,26 @@
 angular.module ('loudApp.controllers')
 
+.factory('facebookService', function($q) {
+    return {
+        getMyLastName: function() {
+            var deferred = $q.defer();
+            FB.api('/me', {
+                fields: 'last_name'
+            }, function(response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+            return deferred.promise;
+        }
+    }
+})
+
 .controller('LoginCtrl', [
-	'$scope', 'LoudService',
-	function($scope, LoudService) {
+	'$scope', 'LoudService', 'facebookService', '$window',
+	function($scope, LoudService, facebookService, $window) {
 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
@@ -42,13 +60,23 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.facebookLogin = function () {
-                (function(d, s, id){
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) {return;}
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/sdk.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, "script", "facebook-jssdk"));
+                $window.fbAsyncInit = function() {
+                    FB.init({
+                      appId: '1046016745413247',
+                      status: true,
+                      cookie: true,
+                      xfbml: true,
+                      version: 'v2.4'
+                    });
+                };
+
+                facebookService.getMyLastName()
+                    .then(function(response) {
+                        $scope.last_name = response.last_name;
+                    }
+               );
+
+                alert($scope.last_name);
             }
         };
 
