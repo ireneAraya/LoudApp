@@ -1,28 +1,58 @@
 <main class="container">
 	<div class="row">
         <ul class="nav col-md-6 col-md-offset-3">
-            <li class="col-xs-6 text-center"><a href="#/login">Login</a></li>
-            <li class="col-xs-6 text-center"><a href="#/register">Register</a></li>
+            <li class="col-xs-6 text-center"><a href="#/login">Ingresar</a></li>
+            <li class="col-xs-6 text-center"><a href="#/register">Crear Cuenta</a></li>
         </ul>
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-lg-6">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i></span>
-                    <input type="text" class="form-control" placeholder="E-mail address" aria-describedby="basic-addon1">
+
+        <!-- <div class="alert" ng-class="{ 'alert alert-danger':login.error, 'alert alert-sucess':login.success }"></div> -->
+        <form name="loginForm">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                        <input type="text" class="form-control" placeholder="Correo Electrónico" ng-model="email" required name="txtUserEmail">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="Contraseña" ng-model="password" required name="txtUserPassword">
+                    </div>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-lg-6">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon2"><i class="fa fa-lock"></i></span>
-                    <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+            <div class="row">
+                <div class="container">
+                    <a href="#/forgot">¿Olvidó su contraseña?</a>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="container">
+                    <button id="btnSubmit" class="btn col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-click="login()" ng-disabled="loginForm.$invalid">Ingresar</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="text-center">
+            <p>O ingresa con</p>
+
+            <button class="btn btn-social btn-facebook col-xs-12 col-sm-6 col-lg-6" ng-click="facebookLogin()">
+                <i class="fa fa-facebook"></i>
+                <span>Facebook</span>
+            </button>
+
+            <button class="btn btn-social btn-twitter col-xs-12 col-sm-6 col-lg-6">
+                <i class="fa fa-twitter"></i>
+                <span>Twitter</span>
+            </button>
         </div>
-
-        <a href=""></a>
 	</div>
+
+    <script></script>
 </main>

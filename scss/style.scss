@@ -7,8 +7,8 @@ $light-gray: #e5e5e5;
 
 body{
 	background:  $dark-red;
-	font-family: 'Roboto', sans-serif; 
-	
+	font-family: 'Roboto', sans-serif;
+
 	button{
 		background: none;
 		border: none;
@@ -21,7 +21,7 @@ body{
 	a{
 		text-decoration: none;
 		color: $medium-gray;
-		
+
 		&:hover{
 			color: $dark-gray;
 		}
@@ -36,10 +36,10 @@ body{
 .navbar{
 	background: #ffffff;
 	border-radius: 0;
-}	
+}
 
 .navbar-nav>li>a{
-	
+
 	&:hover{
 		background: none;
 	}
@@ -47,11 +47,11 @@ body{
 
 header{
 	margin-bottom: 150px;
-	
+
 	.fa-bars{
-		padding: 20px;
+		padding: 8px;
 		color: $dark-red;
-		
+
 		&:hover{
 			color: $light-red;
 		}
@@ -68,9 +68,9 @@ header{
 
 	.navbar-nav>li>a{
 		font-size: 16px;
-		
+
 		@media (min-width: 768px){
-			margin-top: 40px;
+			margin-top: 20px;
 		}
 
 		@media (max-width: 768px) {
@@ -98,12 +98,24 @@ header{
 	line-height: 34px;
 	letter-spacing: 1px;
 	color: $dark-red;
-	
+
 	&:hover{
 		background: $dark-red;
 		color: $light-red;
 	}
-}	
+
+	&-facebook {
+		background: #3b5998;
+	}
+
+	&-twitter {
+		background: #55acee;
+	}
+
+	&-social {
+		color: #fff;
+	}
+}
 
 footer {
 	margin-top: 150px;
@@ -112,10 +124,59 @@ footer {
 		padding: 15px 0 10px 0;
 		color: $medium-gray;
 	}
-		
+
 	.navbar-nav{
 		float: none;
 	}
 }
 
+/* Form */
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #fff !important;
+}
+
+.general-form > .form-group > label {
+	color: #fff;
+	font-weight: 100;
+}
+
+.general-form > .form-group > input {
+	background-color: #db4437;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	height: 60px;
+	font-weight: 400;
+}
+
+/* TypeAhead */
+
+.typeahead-demo .custom-popup-wrapper {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	background-color: #f9f9f9;
+}
+
+.typeahead-demo .custom-popup-wrapper > .message {
+	padding: 10px 20px;
+	border-bottom: 1px solid #ddd;
+	color: #868686;
+}
+
+.typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+	position: static;
+	float: none;
+	display: block;
+	min-width: 160px;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
 @import 'events.scss';
+@import 'tickets.scss';
