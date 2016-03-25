@@ -35,7 +35,7 @@
 	  	<div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		        <div class="modal-header">
-		          	<img ng-src="{{event.image}}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
+		          	<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
 		        </div>
 		        <div class="modal-body">
 		        	<h4 class="text-center">{{ event.name }}</h4>
@@ -43,7 +43,7 @@
 		        </div>
 		        <div class="modal-footer">
 		          	<button type="button" class="btn" data-dismiss="modal">CANCELAR</button>
-		          	<button type="button" class="btn" ng-click="erraseEvent()">ELIMINAR</button>
+		          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEvent()">ELIMINAR</button>
 		        </div>
 		    </div>
 	  	</div>

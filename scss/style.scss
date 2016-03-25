@@ -255,14 +255,15 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		}
 		
 		.modal-footer {
+			padding-top: 0;
 			text-align: center;
 			
-			.btn+.btn{
+			.btn+.btn {
 				margin-left: 15px;
 			}
 		}
 
-		.modal-header, .modal-footer{
+		.modal-header, .modal-footer {
 			border: none;
 		}
 	}

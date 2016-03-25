@@ -26,9 +26,23 @@ angular.module ('loudApp.services')
             return item;
 		};
 
+		/**Retorna la posición del objeto*/
+        var getItemIndex = function (object, targetID) {
+            var index;
+
+            for (var i = 0; i < object.length; i++) {
+                if (object[i].id == targetID) {
+                    index = i;
+                }
+            };
+
+            return index;
+        };
+
 		return {
 			getDataFromJS 	: getDataFromJS,
-			getItem 		: getItem
+			getItem 		: getItem,
+			getItemIndex	: getItemIndex
 		};
 
 	}
