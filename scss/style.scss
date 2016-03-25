@@ -189,5 +189,85 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	}
 }
 
+.table{
+	color: #ffffff;
+	
+	button{
+		padding-top: 15px;
+		
+		&:hover{
+			color: $dark-red;
+		}
+	}
+	
+	.info-td{
+		padding-left: 20px;
+		border-right: 0.5px solid #ffffff;
+	}
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	border-top: 0;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+	background: $light-red;
+}
+
+.table-striped>tbody>tr:nth-of-type(even){
+	background: $medium-red;
+}
+
+.circle-thumbnail {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  
+  border-radius: 50%;
+}
+
+.circle-thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+
+.modal-dialog{
+
+	@media (min-width: 768px){
+		width: 500px;
+	}
+
+	.modal-content {
+		border-radius: 0;
+		background: $medium-red;
+		color: #ffffff;
+		
+		img{
+			margin: 0 auto;
+		}
+		
+		.modal-footer {
+			padding-top: 0;
+			text-align: center;
+			
+			.btn+.btn {
+				margin-left: 15px;
+			}
+		}
+
+		.modal-header, .modal-footer {
+			border: none;
+		}
+	}
+}
+
 @import 'events.scss';
 @import 'tickets.scss';
