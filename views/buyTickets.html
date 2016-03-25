@@ -1,5 +1,4 @@
-
-<div>
+<form role="form">
   <script type="text/ng-template" id="customPopupTemplate.html">
     <div class="custom-popup-wrapper"
        ng-style="{top: position().top+'px', left: position().left+'px'}"
@@ -7,7 +6,6 @@
        ng-show="isOpen() && !moveInProgress"
        aria-hidden="{{!isOpen()}}">
       <p class="message">Seleccione un evento de la lista.</p>
-
       <ul class="dropdown-menu" role="listbox">
           <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
               ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
@@ -16,9 +14,18 @@
       </ul>
     </div>
   </script>
-
-  <div class='container-fluid typeahead-demo' ng-controller="TypeaheadCtrl">
-      <label for="">Evento</label>
-      <input type="text" ng-model="customPopupSelected" placeholder="Busque el evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+  <div class="form-group container-fluid typeahead" ng-controller="TypeaheadCtrl">
+    <label for="">Evento</label>
+    <input type="text" ng-model="customPopupSelected" placeholder="Busque el evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
   </div>
-</div>
+  <div class="form-group" ng-controller="DatepickerCtrl">
+    <label for="">Fecha</label>
+    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar">
+      <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+      </i></button>
+    </span>
+  </div>
+  <a href="" class="btn">comprar</a>
+</form>
