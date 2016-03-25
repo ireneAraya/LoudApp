@@ -45,9 +45,11 @@ body{
 	}
 }
 
-header{
-	margin-bottom: 150px;
+#current-view {
+	padding-top: 85;
+}
 
+header{
 	.fa-bars{
 		padding: 8px;
 		color: $dark-red;
@@ -181,7 +183,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .btn-back{
 	padding-top: 20px;
 	color : $light-red;
-	
+
 	&:hover{
 		color: $medium-red;
 	}
