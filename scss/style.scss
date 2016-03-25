@@ -178,5 +178,14 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	box-shadow: none;
 }
 
+.btn-back{
+	padding-top: 20px;
+	color : $light-red;
+	
+	&:hover{
+		color: $medium-red;
+	}
+}
+
 @import 'events.scss';
 @import 'tickets.scss';
