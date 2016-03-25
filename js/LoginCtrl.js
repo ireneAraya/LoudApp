@@ -1,26 +1,8 @@
 angular.module ('loudApp.controllers')
 
-.factory('facebookService', function($q) {
-    return {
-        getMyLastName: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {
-                fields: 'last_name'
-            }, function(response) {
-                if (!response || response.error) {
-                    deferred.reject('Error occured');
-                } else {
-                    deferred.resolve(response);
-                }
-            });
-            return deferred.promise;
-        }
-    }
-})
-
 .controller('LoginCtrl', [
-	'$scope', 'LoudService', 'facebookService', '$window',
-	function($scope, LoudService, facebookService, $window) {
+	'$scope', 'LoudService', '$window', '$timeout', 'Facebook',
+	function($scope, LoudService, $window, $timeout, Facebook) {
 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
@@ -55,29 +37,68 @@ angular.module ('loudApp.controllers')
                         }
                     }
                 }
-
-                console.log(userExists);
             };
 
             $scope.facebookLogin = function () {
-                $window.fbAsyncInit = function() {
-                    FB.init({
-                      appId: '1046016745413247',
-                      status: true,
-                      cookie: true,
-                      xfbml: true,
-                      version: 'v2.4'
-                    });
-                };
+                getLoginStatus();
 
-                facebookService.getMyLastName()
-                    .then(function(response) {
-                        $scope.last_name = response.last_name;
+                $scope.user = {};
+                $scope.logged = false;
+
+                $scope.byebye = false;
+                $scope.salutation = false;
+
+                $timeout(function () {
+                    if (!window.FBUser) {
+                        loginFB();
+                    } else {
+                        meFB();
+
+                        $timeout(function () {
+                            $scope.user = window.FBuserData;
+                            otherFunctionsFB();
+                        }, 1000);
                     }
-               );
+                }, 1000);
 
-                alert($scope.last_name);
+                var otherFunctionsFB = function () {
+                    console.log($scope.user);
+                }
             }
+        };
+
+        function getLoginStatus () {
+            Facebook.getLoginStatus(function(response) {
+                if (response.status === "connected") {
+                    window.FBUser = true;
+                }
+            }, true);
+        }
+
+        function loginFB () {
+            Facebook.login(function(response) {
+                if (response.status == 'connected') {
+                    $scope.logged = true;
+                    meFB();
+                }
+            });
+        };
+
+        function logoutFB () {
+            Facebook.logout(function() {
+                // $scope.$apply(function() {
+                $scope.user   = {};
+                $scope.logged = false;
+                // });
+            });
+        }
+
+        function meFB () {
+            Facebook.api('/me', function(response) {
+                // $scope.$apply(function() {
+                window.FBuserData = response;
+                // });
+            });
         };
 
         function decodeValue (string) {
