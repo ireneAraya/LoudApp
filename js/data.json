@@ -3,7 +3,7 @@
 		{
 			"id"			: 1,
 			"email" 		: "harry@loud.com",
-			"password" 		: "Hedwig",
+			"password" 		: "SGVkd2ln", // Hedwig
 			"name"			: "Harry",
 			"lastName"		: "Potter",
 			"personalIdType": 1,
@@ -15,7 +15,7 @@
 		{
 			"id"			: 2,
 			"email" 		: "albus@loud.com",
-			"password" 		: "fawkes",
+			"password" 		: "ZmF3a2Vz", // fawkes
 			"name"			: "Albus",
 			"lastName"		: "Dumbledore",
 			"personalIdType": 1,
@@ -28,7 +28,7 @@
 		{
 			"id"			: 3,
 			"email" 		: "severus@loud.com",
-			"password" 		: "doe",
+			"password" 		: "ZG9l", // doe
 			"name"			: "Severus",
 			"lastName"		: "Snape",
 			"personalIdType": 1,
@@ -41,7 +41,7 @@
 		{
 			"id"			: 4,
 			"email" 		: "ronald@loud.com",
-			"password" 		: "scabbers",
+			"password" 		: "c2NhYmJlcnM=", // scabbers
 			"name"			: "Ronald",
 			"lastName"		: "Weasley",
 			"personalIdType": 2,
@@ -63,7 +63,7 @@
 		{
 			"id"			: 5,
 			"email" 		: "hermione@loud.com",
-			"password" 		: "crookshanks",
+			"password" 		: "Y3Jvb2tzaGFua3M=", // crookshanks
 			"name"			: "Hermione",
 			"lastName"		: "Granger",
 			"personalIdType": 1,
@@ -85,7 +85,7 @@
 		{
 			"id"			: 6,
 			"email" 		: "ginny@loud.com",
-			"password" 		: "arnold",
+			"password" 		: "YXJub2xk", // arnold
 			"name"			: "Ginny",
 			"lastName"		: "Weasley",
 			"personalIdType": 2,
@@ -107,7 +107,7 @@
 		{
 			"id"			: 7,
 			"email"			: "neville@loud.com",
-			"password"		: "trevor",
+			"password"		: "dHJldm9y", // trevor
 			"name"			: "Neville",
 			"lastName"		: "Longbottom",
 			"personalIdType": 1,
@@ -119,7 +119,7 @@
 		{
 			"id"			: 8,
 			"email" 		: "luna@loud.com",
-			"password" 		: "snorkack",
+			"password" 		: "c25vcmthY2s=", // snorkack
 			"name"			: "Luna",
 			"lastName"		: "Lovewood",
 			"personalIdType": 2,
