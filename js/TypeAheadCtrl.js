@@ -1,4 +1,3 @@
-
 angular.module ('loudApp.controllers')
 
 .controller('TypeaheadCtrl', [
