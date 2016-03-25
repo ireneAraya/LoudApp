@@ -1,0 +1,16 @@
+<main class="container">
+	<h1 class="text-center">EVENTS</h1>
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-striped">
+				<tr class="row" ng-repeat="event in data.events">
+					<td class="col-xs-8">
+						<h4>{{ event.name }}</h4>
+						<p>{{ event.date }}</p>
+						<p>{{ event.startHour }}</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</main>
