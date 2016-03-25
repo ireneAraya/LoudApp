@@ -174,9 +174,16 @@
 			"status"		: 1,
 			"prices"		: 	[
 									{
-										"Sombra" 	: 35000,
-										"Platea" 	: 40000,
-										"VIP"		: 60000
+										"place"		: "Sombra",
+										"amount"	: 35000
+									},
+									{
+										"place"		: "Platea",
+										"amount" 	: 40000
+									},
+									{
+										"place"		: "VIP",
+										"amount" 	: 60000
 									}
 								],
 			"image"			: "../img/marcAnthony.jpg",
@@ -194,9 +201,13 @@
 			"status"		: 1,
 			"prices"		: 	[
 									{
-										"General" 	: 10000,
-										"VIP" 		: 20000
-									}
+										"place"		: "General",
+										"amount"	: 10000
+									},
+									{
+										"place"		: "VIP",
+										"amount" 	: 20000
+									},
 								],
 			"image"			: "../img/SondeTK.jpg",
 			"promoTickets"	: 2
@@ -213,10 +224,17 @@
 			"status"		: 1,
 			"prices"		: 	[
 									{
-										"Sombra" 	: 35000,
-										"Platea" 	: 40000,
-										"VIP"		: 60000
-									}
+										"place"		: "Sombra",
+										"amount"	: 35000
+									},
+									{
+										"place"		: "Platea",
+										"amount" 	: 40000
+									},
+									{
+										"place"		: "VIP",
+										"amount" 	: 60000
+									},
 								],
 			"image"			: "../img/ironMaiden.jpg",
 			"promoTickets"	: 2
@@ -233,10 +251,17 @@
 			"status"		: 1,
 			"prices"		: 	[
 									{
-										"Sol"	 	: 8000,
-										"Sombra"	: 15000,
-										"Platea" 	: 20000
-									}
+										"place"		: "Sol",
+										"amount"	: 8000
+									},
+									{
+										"place"		: "Sombra",
+										"amount" 	: 15000
+									},
+									{
+										"place"		: "Platea",
+										"amount" 	: 20000
+									},
 								],
 			"image"			: "../img/sele.jpg",
 			"promoTickets"	: 2

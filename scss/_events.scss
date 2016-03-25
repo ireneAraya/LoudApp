@@ -4,3 +4,25 @@
 	background: $medium-red;
 	color: #ffffff;
 }
+
+.event-info{
+	padding: 20px 0;
+	background: $medium-red;
+	color: #ffffff;
+	
+	td{
+		padding-left: 30px;
+	}
+
+	.info-item{
+		margin-bottom: 40px;
+	}
+
+	h2{
+		margin-bottom: 30px;
+	}
+
+	.btn{
+		width: 100%;
+	}
+}
