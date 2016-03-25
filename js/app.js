@@ -3,11 +3,12 @@ angular.module('loudApp',[
     'loudApp.services',
     'loudApp.controllers',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'facebook'
 ])
 
-.config(['$routeProvider',
-    function($routeProvider) {
+.config(['$routeProvider','FacebookProvider',
+    function($routeProvider, FacebookProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/showEvents.html',
@@ -31,5 +32,9 @@ angular.module('loudApp',[
             .otherwise({
         	   templateUrl: 'views/404.html'
             });
+
+        var myAppId = '1046016745413247';
+        FacebookProvider.setAppId(myAppId);
+        FacebookProvider.init(myAppId);
     }
 ])
