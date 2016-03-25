@@ -198,8 +198,9 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .table{
 	color: #ffffff;
 
-	button{
+	a{
 		padding-top: 15px;
+		color: #ffffff;
 
 		&:hover{
 			color: $dark-red;
