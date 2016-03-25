@@ -1,24 +1,35 @@
 <main class="container">
   <h1 class="text-center">Compra de entradas</h1>
   <div class="row">
-    <div class="col-xs-12 col-md-4">
+    <div class="col-md-6">
       <form role="form" class="general-form">
-        <div class="custom-popup-wrapper" ng-style="{top: position().top+'px', left: position().left+'px'}" style="display: block;" ng-show="isOpen() && !moveInProgress" aria-hidden="{{!isOpen()}}">
-          <p class="message">Seleccione un evento de la lista.</p>
-          <ul class="dropdown-menu" role="listbox">
-            <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }" ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
-              <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
-            </li>
-          </ul>
-        </div>
-        <div class="form-group" ng-controller="TypeaheadCtrl">
+        <script type="text/ng-template" id="customPopupTemplate.html">
+          <div class="custom-popup-wrapper"
+             ng-style="{top: position().top+'px', left: position().left+'px'}"
+             style="display: block;"
+             ng-show="isOpen() && !moveInProgress"
+             aria-hidden="{{!isOpen()}}">
+            <p class="message">Seleccione un evento de la lista.</p>
+            <ul class="dropdown-menu" role="listbox">
+                <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+                    ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+                    <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+                </li>
+            </ul>
+          </div>
+        </script>
+        <div class="form-group typeahead" ng-controller="TypeaheadCtrl">
           <label for="">Evento</label>
-          <input type="text" ng-model="customPopupSelected" placeholder="Busque el evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" class="form-control">
+          <input type="text" ng-model="customPopupSelected" placeholder="Busque el evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
         </div>
-        <div class="form-group" ng-controller="TypeaheadCtrl">
-          <label for="">Seleccione una fecha</label>
-
+        <div class="form-group" ng-controller="DatepickerCtrl">
+          <label for="">Fecha</label>
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
         </div>
+        <!-- <a href="" class="btn">comprar</a> -->
       </form>
     </div>
   </div>

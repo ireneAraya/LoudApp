@@ -1,0 +1,31 @@
+.general-form {
+    .form-group {
+        .input-group-btn {
+            button {
+                float: right;
+                position: relative;
+                margin-top: -60px;
+                padding: 12px 22px;
+            }
+        }
+        .dropdown-menu {
+            padding: 0 0 5px;
+        }
+        .btn {
+            margin-top: 0;
+            padding: 0 16px;
+            border-color: #ed9d97;
+        }
+        .btn-info.active {
+            color: #ed9d97;
+            background-color: #d3362d;
+            .text-info {
+                color: #ed9d97;
+            }
+        }
+        .btn-group.pull-left button:first-child {
+            margin-right: 5px;
+        }
+    }
+}
+

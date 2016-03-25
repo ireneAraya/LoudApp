@@ -100,6 +100,7 @@ header{
 	line-height: 34px;
 	letter-spacing: 1px;
 	color: $dark-red;
+	text-transform: uppercase;
 
 	&:hover{
 		background: $dark-red;
@@ -120,7 +121,10 @@ header{
 }
 
 footer {
-	margin-top: 150px;
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
 
 	.copyright-text{
 		padding: 15px 0 10px 0;
@@ -129,6 +133,9 @@ footer {
 
 	.navbar-nav{
 		float: none;
+	}
+	.navbar {
+		margin-bottom: 0;
 	}
 }
 
@@ -150,11 +157,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	box-shadow: none;
 	height: 60px;
 	font-weight: 400;
+	color: #fff;
 }
 
 /* TypeAhead */
 
-.typeahead-demo .custom-popup-wrapper {
+.typeahead .custom-popup-wrapper {
 	position: absolute;
 	top: 100%;
 	left: 0;
@@ -163,13 +171,13 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	background-color: #f9f9f9;
 }
 
-.typeahead-demo .custom-popup-wrapper > .message {
+.typeahead .custom-popup-wrapper > .message {
 	padding: 10px 20px;
 	border-bottom: 1px solid #ddd;
 	color: #868686;
 }
 
-.typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+.typeahead .custom-popup-wrapper > .dropdown-menu {
 	position: static;
 	float: none;
 	display: block;
@@ -191,15 +199,15 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 .table{
 	color: #ffffff;
-	
+
 	button{
 		padding-top: 15px;
-		
+
 		&:hover{
 			color: $dark-red;
 		}
 	}
-	
+
 	.info-td{
 		padding-left: 20px;
 		border-right: 0.5px solid #ffffff;
@@ -223,7 +231,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   width: 100px;
   height: 100px;
   overflow: hidden;
-  
+
   border-radius: 50%;
 }
 
@@ -249,15 +257,15 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		border-radius: 0;
 		background: $medium-red;
 		color: #ffffff;
-		
+
 		img{
 			margin: 0 auto;
 		}
-		
+
 		.modal-footer {
 			padding-top: 0;
 			text-align: center;
-			
+
 			.btn+.btn {
 				margin-left: 15px;
 			}
