@@ -10,7 +10,7 @@
 			<table class="table table-striped">
 				<tr class="row" ng-repeat="event in data.events">
 					<td class="col-xs-2">
-						<img ng-src="{{event.image}}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
+						<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
 					</td>
 					<td class="col-xs-8">
 						<div class="info-td">
@@ -21,18 +21,18 @@
 					</td>
 					<td class="col-xs-2">
 						<div class="row">
-							<button class="col-md-12"><i class="fa fa-pencil-square-o fa-2x text-center"></i></button>
+							<button class="col-xs-12"><i class="fa fa-pencil-square-o fa-2x text-center"></i></button>
 						</div>
 						<div class="row">
-							<button class="col-md-12"><i class="fa fa-trash fa-2x text-center" data-toggle="modal" data-target="#erraseEventModal"></i></button>
+							<button class="col-xs-12"><i class="fa fa-trash fa-2x text-center" data-toggle="modal" data-target="#erraseEventModal"></i></button>
 						</div>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
-	<div class="modal fade" id="erraseEventModal" tabindex="-1" aria-labelledby="Confimación de borrar	" role="dialog">
-	  	<div class="modal-dialog" role="document">
+	<div class="modal fade" id="erraseEventModal" tabindex="-1" aria-labelledby="Confimación de borrar" role="dialog">
+	  	<div class="modal-dialog">
 		    <div class="modal-content">
 		        <div class="modal-header">
 		          	<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
