@@ -33,6 +33,7 @@ angular.module ('loudApp.controllers')
 
                         if (userEmail === user.email && decodeValue(userPass) === decodeValue(user.password)) {
                             userExists = true;
+                            this.error = true;
                         }
                     }
                 }
