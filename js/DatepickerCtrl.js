@@ -8,9 +8,9 @@ angular.module ('loudApp.controllers')
   };
   $scope.today();
 
-  $scope.clear = function() {
-    $scope.dt = null;
-  };
+  // $scope.clear = function() {
+  //   $scope.dt = null;
+  // };
 
   $scope.inlineOptions = {
     customClass: getDayClass,
@@ -19,19 +19,11 @@ angular.module ('loudApp.controllers')
   };
 
   $scope.dateOptions = {
-    dateDisabled: disabled,
     formatYear: 'yy',
     maxDate: new Date(2020, 5, 22),
     minDate: new Date(),
     startingDay: 1
   };
-
-  // Disable weekend selection
-  function disabled(data) {
-    var date = data.date,
-      mode = data.mode;
-    return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-  }
 
   $scope.toggleMin = function() {
     $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
@@ -44,9 +36,9 @@ angular.module ('loudApp.controllers')
     $scope.popup1.opened = true;
   };
 
-  $scope.open2 = function() {
-    $scope.popup2.opened = true;
-  };
+  // $scope.open2 = function() {
+  //   $scope.popup2.opened = true;
+  // };
 
   $scope.setDate = function(year, month, day) {
     $scope.dt = new Date(year, month, day);
@@ -60,9 +52,9 @@ angular.module ('loudApp.controllers')
     opened: false
   };
 
-  $scope.popup2 = {
-    opened: false
-  };
+  // $scope.popup2 = {
+  //   opened: false
+  // };
 
   var tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);

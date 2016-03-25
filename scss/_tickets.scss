@@ -1,0 +1,29 @@
+.general-form {
+    .form-group {
+        .input-group-btn {
+            button {
+                float: right;
+                position: relative;
+                margin-top: -60px;
+                padding: 12px 22px;
+            }
+        }
+        .dropdown-menu {
+            padding: 0 0 5px;
+        }
+        .btn {
+            margin-top: 0;
+            padding: 0 16px;
+        }
+
+        .btn-success {
+            background-color: #ed9d97;
+            border-color: #ed9d97;
+        }
+
+        .btn-success:hover {
+            border-color: #ed9d97;
+        }
+    }
+}
+
