@@ -10,13 +10,13 @@ angular.module('loudApp',[
 .config(['$routeProvider','FacebookProvider',
     function($routeProvider, FacebookProvider) {
         $routeProvider
-            .when('/', {
-                templateUrl: 'views/showEvents.html',
-                 controller : 'EventsCtrl'
-            })
             // .when('/', {
-            //     templateUrl: 'views/buyTickets.html'
+            //     templateUrl: 'views/showEvents.html',
+            //      controller : 'EventsCtrl'
             // })
+            .when('/', {
+                templateUrl: 'views/buyTickets/buyTickets_cardInformation.html'
+            })
             .when('/login', {
                 templateUrl: 'views/login.html',
                 controller : 'LoginCtrl'
@@ -31,10 +31,6 @@ angular.module('loudApp',[
             })
             .when('/eventsList', {
                 templateUrl: 'views/eventsList.html',
-                controller: 'EventsCtrl'
-            })
-            .when('/editEvent/:id', {
-                templateUrl: 'views/editEvent.html',
                 controller: 'EventsCtrl'
             })
             .otherwise({
