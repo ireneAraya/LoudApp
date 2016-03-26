@@ -12,6 +12,14 @@ angular.module ('loudApp.services')
             });
 		};
 
+        var save = function (key, object) {
+            localStorage.setItem( key, angular.toJson(object) );
+        };
+
+        var verify = function (key) {
+            return angular.fromJson( localStorage.getItem(key) );
+        };
+
 		/**
          * Return the single item from a collection
          * @param  {object} object                      [The collection with all the data which you can to loop over]
@@ -46,6 +54,8 @@ angular.module ('loudApp.services')
         };
 
 		return {
+            save            : save,
+            verify          : verify,
 			getDataFromJS 	: getDataFromJS,
 			getItem 		: getItem,
 			getItemIndex	: getItemIndex

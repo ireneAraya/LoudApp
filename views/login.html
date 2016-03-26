@@ -53,6 +53,8 @@
             </button>
         </div>
 
-        <button class="btn" ng-click=logoutFB()>Logout</button>
+        <button class="btn" ng-click="logoutFB()" ng-show="user.bio">Logout</button>
+
+        <img src="{{ user.image }}" alt="{{ user.name }}" ng-show="user.image">
 	</div>
 </main>
