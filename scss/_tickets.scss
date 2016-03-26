@@ -52,3 +52,31 @@
     padding: 10px 16px;
     margin-top: 30px;
 }
+
+@media screen and (max-width: 400px) {
+
+    .typeahead {
+        .custom-popup-wrapper {
+            width: 92.5%;
+        }
+    }
+
+    .general-form {
+        .form-group {
+            .btn {
+                padding: 0 10px;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 769px) {
+
+    .typeahead {
+        .custom-popup-wrapper {
+            // width: 96%;
+        }
+    }
+
+}
