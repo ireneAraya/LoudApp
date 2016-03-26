@@ -45,6 +45,30 @@
             display: inline-block;
             margin: 5px 25px;
         }
+        .btn.cant-tickets-btn {
+            border: 2px solid #ed9d97;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            padding: 2px 13px;
+            background: none;
+            color: #ed9d97;
+            margin: -50px 9px;
+        }
+        .btn.cant-tickets-btn.minus-btn {
+            float: left;
+        }
+        .ticket-price {
+            float: right;
+        }
+        .subtotal-cant {
+            color: #fff;
+            margin-top: 45px;
+            position: absolute;
+        }
+        .ticket-type {
+            width: 43%;
+        }
     }
 }
 
