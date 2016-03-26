@@ -12,13 +12,19 @@ angular.module ('loudApp.services')
             });
 		};
 
-		//Retorna el id del objeto
-		var getItem = function (object, key, id) {
+		/**
+         * Return the single item from a collection
+         * @param  {object} object                      [The collection with all the data which you can to loop over]
+         * @param  {string} key                         [Used to identify the object[key] you will compare]
+         * @param  {string, integer, boolean} value     [The value you will use to compare the key]
+         * @return {object}                             [The single object from the collection]
+         */
+		var getItem = function (object, key, value) {
 
 			var item;
 
             for (var i = 0; i < object.length; i++) {
-                if (object[i][key] == id) {
+                if (object[i][key] == value) {
                     item = object[i];
                 }
             }
@@ -26,7 +32,7 @@ angular.module ('loudApp.services')
             return item;
 		};
 
-		/**Retorna la posición del objeto*/
+		// Retorna la posición del objeto
         var getItemIndex = function (object, targetID) {
             var index;
 
