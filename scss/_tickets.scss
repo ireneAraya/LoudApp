@@ -139,6 +139,59 @@
     margin-top: 30px;
 }
 
+.detail-buy-heading {
+    border-radius: 0;
+    background: #ed9d97;
+    line-height: 34px;
+    letter-spacing: 1px;
+    color: #d3362d;
+    text-transform: uppercase;
+    padding: 10px 23px;
+
+    span {
+        font-size: 1.2em;
+    }
+}
+
+.detail-buy {
+    .detail-buy-container {
+    border: 1px solid #fff;
+    border-top: 0;
+    padding: 10px 22px;
+        h3 {
+            color: #fff;
+            font-size: 1.2em;
+        }
+        p {
+            color: #fff;
+            font-weight: 100;
+        }
+    }
+    .detail-buy-information {
+        label {
+            color: #fff;
+            font-weight: 100;
+            margin-top: 15px;
+        }
+        input {
+            background-color: #db4437;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            height: 60px;
+            font-weight: 400;
+            color: #fff;
+        }
+    }
+    div {
+        .btn.next-btn {
+            width: 100%;
+            padding: 10px 16px;
+            font-size: 1.2em;
+        }
+    }
+}
+
 @media screen and (max-width: 400px) {
 
     .typeahead {
