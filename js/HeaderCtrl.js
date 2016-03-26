@@ -5,8 +5,6 @@ angular.module ('loudApp.controllers')
   function($scope, LoudService) {
     $scope.user = LoudService.verify("LoudApp__User") || {};
 
-    console.log($scope.user.name);
-
     if ($scope.user.name) {
       $scope.link = "#/profile";
     } else {
