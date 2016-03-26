@@ -7,11 +7,11 @@ angular.module ('loudApp.controllers')
 
     console.log($scope.user.name);
 
-    // if ($scope.user.name !== undefined) {
-    //   $scope.link = "#/login";
-    // } else {
-    //   $scope.link = "#/profile";
-    // }
+    if ($scope.user.name) {
+      $scope.link = "#/profile";
+    } else {
+      $scope.link = "#/login";
+    }
 
     $scope.$watch('user', function(newValue, oldValue) {
         $scope.user = newValue;

@@ -1,8 +1,9 @@
 angular.module ('loudApp.controllers')
 
 .controller('EventsCtrl', [
-	'$scope', '$routeParams', '$location', 'LoudService',
-	function($scope, $routeParams, $location, LoudService) {
+	'$scope', '$routeParams', '$location', 'LoudService', '$timeout',
+	function($scope, $routeParams, $location, LoudService, $timeout) {
+        $scope.eventsCol = LoudService.verify("LoudApp__Events") || {};
 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
@@ -13,39 +14,58 @@ angular.module ('loudApp.controllers')
             });
         };
 
+
         function otherFunctions () {
+            // $scope.eventsCol = $scope.data.events;
+
             $scope.getEventLocation = function (index, key) {
                 var location = LoudService.getItem($scope.data.location, "id", index);
                 return location[key];
             };
 
-            //Lama a la función getItem
-            var currentID = $routeParams.id;
-            $scope.event = LoudService.getItem($scope.data.events, "id", currentID);
+            // Solo cuando haya un ID en el URL definido
+            if ($routeParams.id) {
+                var currentID = $routeParams.id;
+                $scope.event = LoudService.getItem($scope.eventsCol, "id", currentID);
+                $scope.imageSource = $scope.event.image;
 
-            $scope.erraseEvent = function () {
-                if ($scope.data.events.lenght == 1) {
-                    $scope.data.events = [];
-                    $scope.lastID = 0;
-                } else {
-                    var target = LoudService.getItemIndex($scope.data.events, currentID);
-                    $scope.data.events.splice(target,1);
+                $scope.fileNameChanged = function (element) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $scope.$apply(function() {
+                            $scope.imageSource = e.target.result;
+                        });
+                    }
+                    reader.readAsDataURL(element.files[0]);
                 }
-                $location.path('/eventsList');
-                console.table($scope.data.events);
             }
 
-            $scope.imageSource = $scope.event.image;
-            $scope.fileNameChanged = function (element) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $scope.$apply(function() {
-                        $scope.imageSource = e.target.result;
-                    });
+            $scope.erraseEvent = function ($index) {
+                var target = LoudService.getItemIndex($scope.eventsCol, $index);
+
+                if ($scope.eventsCol.length == 1) {
+                    $scope.eventsCol = [];
+                } else {
+                    $scope.eventsCol.splice(target, 1);
                 }
-                reader.readAsDataURL(element.files[0]);
+
+                // $timeout(function () {
+                    var parent = document.getElementsByTagName("body")[0],
+                        child = parent.lastChild;
+
+                    parent.removeChild(child);
+                // }, 1000);
+
+
+                LoudService.save("LoudApp__Events", $scope.eventsCol);
+
+                $location.path('/eventsList');
             }
         };
+
+        $scope.$watch('eventsCol', function(newValue, oldValue) {
+            LoudService.save("LoudApp__Events", newValue);
+        }, true);
 
         $scope.init();
 	}

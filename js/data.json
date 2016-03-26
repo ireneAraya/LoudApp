@@ -163,7 +163,7 @@
 
 	"events" : [
 		{
-			"id"			: 1,
+			"id"			: 0,
 			"name"			: "Mark Anthony en concierto",
 			"date"			: "08/09/2016",
 			"startHour"		: "21:00",
@@ -186,11 +186,11 @@
 										"amount" 	: 60000
 									}
 								],
-			"image"			: "../img/marcAnthony.jpg",
+			"image"			: "/img/marcAnthony.jpg",
 			"promoTickets"	: 1
 		},
 		{
-			"id"			: 2,
+			"id"			: 1,
 			"name"			: "Baile con Tikizia",
 			"date"			: "07/10/2016",
 			"startHour"		: "18:00",
@@ -208,11 +208,11 @@
 										"amount" 	: 20000
 									}
 								],
-			"image"			: "../img/SondeTK.jpg",
+			"image"			: "/img/SondeTK.jpg",
 			"promoTickets"	: 2
 		},
 		{
-			"id"			: 3,
+			"id"			: 2,
 			"name"			: "Iron Maiden en Costa Rica",
 			"date"			: "28/03/2016",
 			"startHour"		: "19:00",
@@ -234,11 +234,11 @@
 										"amount" 	: 60000
 									}
 								],
-			"image"			: "../img/ironMaiden.jpg",
+			"image"			: "/img/ironMaiden.jpg",
 			"promoTickets"	: 2
 		},
 		{
-			"id"			: 4,
+			"id"			: 3,
 			"name"			: "Selección Nacional vs Jamaica",
 			"date"			: "29/03/2016",
 			"startHour"		: "18:00",
@@ -260,7 +260,7 @@
 										"amount" 	: 20000
 									}
 								],
-			"image"			: "../img/sele.jpg",
+			"image"			: "/img/sele.jpg",
 			"promoTickets"	: 2
 		}
 	],

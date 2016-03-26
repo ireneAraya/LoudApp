@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<table class="table table-striped">
-				<tr class="row" ng-repeat="event in data.events">
+				<tr class="row" ng-repeat="event in eventsCol">
 					<td class="col-xs-4 col-md-2 col-lg-2">
 						<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
 					</td>
@@ -24,28 +24,30 @@
 							<a href="#/editEvent/{{ event.id }}" class="col-xs-12 text-center"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 						</div>
 						<div class="row">
-							<a class="col-xs-12 text-center"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventModal"></i></a>
+							<a class="col-xs-12 text-center"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventModal-{{$index}}"></i></a>
+						</div>
+					</td>
+					<td>
+						<div class="modal fade" id="erraseEventModal-{{$index}}" tabindex="0" aria-labelledby="Confimación de borrar" role="dialog">
+						  	<div class="modal-dialog">
+							    <div class="modal-content">
+							        <div class="modal-header">
+							          	<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
+							        </div>
+							        <div class="modal-body">
+							        	<h4 class="text-center">{{ event.name }}</h4>
+							        	<p class="text-center">¿Está seguro que quiere borrar este evento?</p>
+							        </div>
+							        <div class="modal-footer">
+							          	<button type="button" class="btn" data-dismiss="modal">CANCELAR</button>
+							          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEvent($index)">ELIMINAR</button>
+							        </div>
+							    </div>
+						  	</div>
 						</div>
 					</td>
 				</tr>
 			</table>
 		</div>
-	</div>
-	<div class="modal fade" id="erraseEventModal" tabindex="-1" aria-labelledby="Confimación de borrar" role="dialog">
-	  	<div class="modal-dialog">
-		    <div class="modal-content">
-		        <div class="modal-header">
-		          	<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
-		        </div>
-		        <div class="modal-body">
-		        	<h4 class="text-center">{{ event.name }}</h4>
-		        	<p class="text-center">¿Está seguro que quiere borrar este evento?</p>
-		        </div>
-		        <div class="modal-footer">
-		          	<button type="button" class="btn" data-dismiss="modal">CANCELAR</button>
-		          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEvent()">ELIMINAR</button>
-		        </div>
-		    </div>
-	  	</div>
 	</div>
 </main>
