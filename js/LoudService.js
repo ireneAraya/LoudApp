@@ -13,12 +13,12 @@ angular.module ('loudApp.services')
 		};
 
 		//Retorna el id del objeto
-		var getItem = function (object, id) {
+		var getItem = function (object, key, id) {
 
 			var item;
 
             for (var i = 0; i < object.length; i++) {
-                if (object[i].id == id) {
+                if (object[i][key] == id) {
                     item = object[i];
                 }
             }

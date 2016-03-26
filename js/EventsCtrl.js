@@ -15,13 +15,13 @@ angular.module ('loudApp.controllers')
 
         function otherFunctions () {
             $scope.getEventLocation = function (index, key) {
-                var location = LoudService.getItem($scope.data.location, index);
+                var location = LoudService.getItem($scope.data.location, "id", index);
                 return location[key];
             };
 
             //Lama a la función getItem
             var currentID = $routeParams.id;
-            $scope.event = LoudService.getItem($scope.data.events, currentID);
+            $scope.event = LoudService.getItem($scope.data.events, "id", currentID);
 
             $scope.erraseEvent = function () {
                 if ($scope.data.events.lenght == 1) {
