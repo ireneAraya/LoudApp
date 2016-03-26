@@ -34,6 +34,17 @@ angular.module ('loudApp.controllers')
                 $location.path('/eventsList');
                 console.table($scope.data.events);
             }
+
+            $scope.imageSource = $scope.event.image;
+            $scope.fileNameChanged = function (element) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $scope.$apply(function() {
+                        $scope.imageSource = e.target.result;
+                    });
+                }
+                reader.readAsDataURL(element.files[0]);
+            }
         };
 
         $scope.init();
