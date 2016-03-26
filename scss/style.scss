@@ -302,5 +302,56 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	}
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    
+    font-weight: 100;
+    color: #ffffff;
+    
+    i{
+    	padding: 0 5px;
+    }
+
+    &:hover{
+    	color: $light-red;
+    }
+}
+
+.uib-timepicker {
+	.btn{
+		background: none;
+		color: #ffffff;
+		
+		&:hover{
+			border: none;
+			color: $light-red;
+		}
+	}
+
+	.btn-default{
+		border: none;
+	}
+
+	.uib-separator{
+		padding: 0 10px;
+		color: #ffffff;
+	}
+}
+
+.form-group .uib-time > input {
+	border: none;
+	border-radius: 0;
+	
+	background: $medium-red;
+	
+	color: #ffffff;
+}
+
 @import 'events.scss';
 @import 'tickets.scss';
