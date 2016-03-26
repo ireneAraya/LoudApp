@@ -69,6 +69,68 @@
         .ticket-type {
             width: 43%;
         }
+        /** SEATS **/
+        .screen-position,
+        .seat-row a {
+            border: 1px solid #fff;
+            padding: 18px 18px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+
+        }
+        .seat-row {
+            margin-top: 33px;
+            height: 23px;
+            div {
+                span {
+                    color: #fff;
+                    margin-right: 20px;
+                }
+                a {
+                    padding: 14px 18px;
+                }
+                .two-digit-seat {
+                    padding: 14px 14px;
+                }
+            }
+            .center-col-seats {
+                margin: 0 19px;
+            }
+        }
+        .seat-type {
+            div {
+                a {
+                    padding: 14px 22px;
+                    margin-left: 31px;
+                }
+                span {
+                    margin-left: 15px;
+                    font-weight: 100;
+                }
+                .sold {
+                    border-color: #4e4545;
+                }
+                .special-seat {
+                    border-color: #0c529f;
+                }
+                .your-seat {
+                    border-color: #0cf303;
+                }
+            }
+            .seat-type-second-col {
+                a {
+                    margin-left: 3px;
+                }
+                span {
+                    margin-right: 64px;
+                }
+            }
+        }
+        .seat-row-top {
+            margin-top: 50px;
+        }
+
     }
 }
 
@@ -90,17 +152,29 @@
             .btn {
                 padding: 0 10px;
             }
+            /** SEATS **/
+            .seat-row {
+                div {
+                    span {
+                    }
+                    a {
+                        padding: 6px 10px ;
+                    }
+                    .two-digit-seat {
+                        padding: 6px 6px ;
+                    }
+                }
+                .center-col-seats {
+                    margin: 0 3px ;
+                }
+            }
+            .seat-type {
+                div {
+                    a {
+                        padding: 5px 13px;
+                    }
+                }
+            }
         }
     }
-
-}
-
-@media screen and (max-width: 769px) {
-
-    .typeahead {
-        .custom-popup-wrapper {
-            // width: 96%;
-        }
-    }
-
 }
