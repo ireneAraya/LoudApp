@@ -16,7 +16,7 @@ angular.module ('loudApp.controllers')
 
 
         function otherFunctions () {
-            // $scope.eventsCol = $scope.data.events;
+            //$scope.eventsCol = $scope.data.events;
 
             $scope.getEventLocation = function (index, key) {
                 var location = LoudService.getItem($scope.data.location, "id", index);
