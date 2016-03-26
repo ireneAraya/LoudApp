@@ -17,7 +17,7 @@ angular.module ('loudApp.controllers')
 
             $scope.alerts = [
                 {type: "danger", msg: "Oh snap! There is an error with your login credentials, please review and try again."},
-                {type: "success", msg: "Welcome!"},
+                {type: "success", msg: "Welcome!"}
             ];
 
             $scope.login = function () {
@@ -33,10 +33,12 @@ angular.module ('loudApp.controllers')
 
                         if (userEmail === user.email && decodeValue(userPass) === decodeValue(user.password)) {
                             userExists = true;
-                            this.error = true;
                         }
                     }
                 }
+
+                $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
+                console.log($scope.user);
             };
 
             $scope.facebookLogin = function () {
@@ -118,6 +120,10 @@ angular.module ('loudApp.controllers')
         function encodeValue (string) {
             return btoa(string);
         };
+
+        function checkUser () {
+            return $scope.user;
+        }
 
         $scope.init();
 	}
