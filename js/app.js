@@ -21,6 +21,10 @@ angular.module('loudApp',[
                 templateUrl: 'views/login.html',
                 controller : 'LoginCtrl'
             })
+            .when('/profile', {
+                templateUrl: 'views/profile.html',
+                controller : 'ProfileCtrl'
+            })
             .when('/event/:id', {
                 templateUrl: 'views/eventDetail.html',
                 controller : 'EventsCtrl'

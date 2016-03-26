@@ -40,6 +40,19 @@ body{
 	}
 }
 
+button.btn {
+	outline: none;
+	-webkit-appearance: none;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		outline: none;
+	}
+}
+
 .navbar{
 	background: #ffffff;
 	border-radius: 0;
@@ -310,10 +323,10 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-    
+
     font-weight: 100;
     color: #ffffff;
-    
+
     i{
     	padding: 0 5px;
     }
@@ -327,7 +340,7 @@ input[type="file"] {
 	.btn{
 		background: none;
 		color: #ffffff;
-		
+
 		&:hover{
 			border: none;
 			color: $light-red;
@@ -347,11 +360,12 @@ input[type="file"] {
 .form-group .uib-time > input {
 	border: none;
 	border-radius: 0;
-	
+
 	background: $medium-red;
-	
+
 	color: #ffffff;
 }
 
 @import 'events.scss';
 @import 'tickets.scss';
+@import 'profile.scss';
