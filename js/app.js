@@ -15,7 +15,7 @@ angular.module('loudApp',[
                  controller : 'EventsCtrl'
             })
             // .when('/', {
-            //     templateUrl: 'views/buyTickets.html'
+            //     templateUrl: 'views/buyTickets/buyTickets_seats.html'
             // })
             .when('/login', {
                 templateUrl: 'views/login.html',
@@ -27,10 +27,6 @@ angular.module('loudApp',[
             })
             .when('/eventsList', {
                 templateUrl: 'views/eventsList.html',
-                controller: 'EventsCtrl'
-            })
-            .when('/editEvent/:id', {
-                templateUrl: 'views/editEvent.html',
                 controller: 'EventsCtrl'
             })
             .otherwise({
