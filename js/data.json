@@ -11,7 +11,7 @@
 			"personalId"	: 111122221,
 			"rol"			: 1,
 			"rId"			: "a-1",
-			"image"			: "../img/"
+			"image"			: "/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "fawkes",
@@ -24,7 +24,7 @@
 			"personalId"	: 111133331,
 			"rol"			: 2,
 			"rId"			: "p-1",
-			"image"			: "../img/",
+			"image"			: "/img/profilePlaceholder.png",
 			"company"		: "Howarts"
 		},
 		{
@@ -38,7 +38,7 @@
 			"personalId"	: 111144441,
 			"rol"			: 2,
 			"rId"			: "p-2",
-			"image"			: "../img/",
+			"image"			: "/img/profilePlaceholder.png",
 			"company"		: "Slytherin"
 		},
 		{
@@ -62,7 +62,7 @@
 								],
 			"imparment"		: "",
 			"specialCond"	: "",
-			"image"			: "../img/"
+			"image"			: "/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "crookshanks",
@@ -85,7 +85,7 @@
 								],
 			"imparment"		: "",
 			"specialCond"	: "",
-			"image"			: "../img/"
+			"image"			: "/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "arnold",
@@ -108,7 +108,7 @@
 								],
 			"imparment"		: "",
 			"specialCond"	: "",
-			"image"		: "../img/"
+			"image"		: "/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "trevor",
@@ -121,7 +121,7 @@
 			"personalId"	: 111188881,
 			"rol"			: 4,
 			"rId"			: "t-1",
-			"image"			: "../img/"
+			"image"			: "/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "snorkack",
@@ -134,7 +134,7 @@
 			"personalId"	: 111199991,
 			"rol"			: 4,
 			"rId"			: "t-1",
-			"image"			: "../img/"
+			"image"			: "/img/profilePlaceholder.png"
 		}
 	],
 
