@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('HeaderCtrl', [
-  '$scope', 'LoudService',
-  function($scope, LoudService) {
+  '$scope', 'LoudService', '$timeout',
+  function($scope, LoudService, $timeout) {
     $scope.user = LoudService.verify("LoudApp__User") || {};
 
     if ($scope.user.name) {
@@ -10,9 +10,5 @@ angular.module ('loudApp.controllers')
     } else {
       $scope.link = "#/login";
     }
-
-    $scope.$watch('user', function(newValue, oldValue) {
-        $scope.user = newValue;
-    }, true);
   }
 ])

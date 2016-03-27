@@ -12,7 +12,8 @@
 
 				<div class="panel-body row text-center">
 					<a class="btn" href="#/editProfile/{{ user.id }}"><i class="fa fa-pencil"></i> Edit</a>
-					<button class="btn" ng-click="logout()"><i class="fa fa-power-off"></i> Log Out</button>
+					<button class="btn" ng-click="logout()" ng-hide="user.verified"><i class="fa fa-power-off"></i> Log Out</button>
+					<button class="btn" ng-click="logoutFB()" ng-show="user.verified"><i class="fa fa-power-off"></i> Log Out</button>
 				</div>
 			</div>
 		</div>

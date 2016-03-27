@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('LoginCtrl', [
-	'$scope', 'LoudService', '$window', '$timeout', 'Facebook',
-	function($scope, LoudService, $window, $timeout, Facebook) {
+	'$scope', 'LoudService', '$window', '$timeout', 'Facebook', '$location',
+	function($scope, LoudService, $window, $timeout, Facebook, $location) {
 
         $scope.user = LoudService.verify("LoudApp__User") || {};
 
@@ -16,6 +16,10 @@ angular.module ('loudApp.controllers')
         };
 
         function otherFunctions () {
+            if ($scope.user.id) {
+                $location.path("/");
+            }
+
             $scope.$watch('user', function(newValue, oldValue) {
                 LoudService.save("LoudApp__User", newValue);
             }, true);
@@ -39,6 +43,7 @@ angular.module ('loudApp.controllers')
 
                 $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
                 LoudService.save("LoudApp__User", $scope.user);
+                $location.path("/");
             };
 
             $scope.facebookLogin = function () {
@@ -51,13 +56,13 @@ angular.module ('loudApp.controllers')
                             $scope.user = window.FBuserData;
                             otherFunctionsFB();
                         }, 3000);
+                    } else {
+                        meFB();
                     }
                 }, 1000);
 
                 var otherFunctionsFB = function () {
                     // Login with Facebook Callback
-                    // LoudService.save("LoudApp__User", $scope.user);
-
                     Facebook.api("/me/albums", function(response) {
                         // console.log(response);
                         for (album in response.data) {
@@ -76,8 +81,8 @@ angular.module ('loudApp.controllers')
                         $scope.user = LoudService.verify("LoudApp__User");
                         $scope.user.image = image;
                         LoudService.save("LoudApp__User", $scope.user);
+                        $location.path("/");
                     }, 2000);
-
                 };
             }
         };
@@ -103,7 +108,6 @@ angular.module ('loudApp.controllers')
         };
 
         $scope.logoutFB = function () {
-
             getLoginStatus();
 
             $timeout(function () {
@@ -126,6 +130,7 @@ angular.module ('loudApp.controllers')
             Facebook.api('/me', function(response) {
                 window.FBuserData = response;
                 LoudService.save("LoudApp__User", window.FBuserData);
+                $location.path("/");
             });
         };
 
