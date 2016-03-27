@@ -139,13 +139,6 @@
             font-size: 40px;
             color: #ed9d97;
         }
-        // .card-type-select {
-        //     background-image: url("../img/down-arrow.png");
-        //     background-repeat: no-repeat;
-        //     background-position: 96% 47%;
-        //     background-size: 34px 20px;
-        // }
-
     }
 }
 
@@ -154,7 +147,8 @@
     margin-top: 30px;
 }
 
-.detail-buy-heading {
+.detail-buy-heading,
+.buy-code {
     border-radius: 0;
     background: #ed9d97;
     line-height: 34px;
@@ -166,6 +160,28 @@
     span {
         font-size: 1.2em;
     }
+}
+
+.buy-code {
+    text-align: center;
+}
+
+.success-info {
+    width: 100%;
+    margin: 23px auto;
+    color: #fff;
+    font-weight: 100;
+}
+
+.success-buy {
+    font-size: 16px;
+    color: #fff;
+}
+
+.lights-image {
+    width: 25%;
+    margin-top: 40px;
+    margin-bottom: 15px;
 }
 
 .detail-buy {
