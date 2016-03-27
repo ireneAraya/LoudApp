@@ -130,6 +130,21 @@
         .seat-row-top {
             margin-top: 50px;
         }
+        .card-number {
+            padding-left: 80px;
+        }
+        .type-card-icon {
+            position: absolute;
+            margin: 27px -98px;
+            font-size: 40px;
+            color: #ed9d97;
+        }
+        // .card-type-select {
+        //     background-image: url("../img/down-arrow.png");
+        //     background-repeat: no-repeat;
+        //     background-position: 96% 47%;
+        //     background-size: 34px 20px;
+        // }
 
     }
 }
@@ -230,7 +245,8 @@
             }
         }
     }
-    .detail-buy {
+
+    .col-centered {
         width: 100%;
     }
 }
