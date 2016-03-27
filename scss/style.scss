@@ -5,7 +5,13 @@ $dark-gray: #4e4e4e;
 $medium-gray: #7d7d7d;
 $light-gray: #e5e5e5;
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body{
+	margin-bottom: 60px;
 	background-color:  $dark-red;
 	font-family: 'Roboto', sans-serif;
 
@@ -160,20 +166,28 @@ header{
     margin-right:-4px;
 }
 
-footer {
- 	margin-top: 85px;
+.footer { 
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	
 
 	.copyright-text{
-		padding: 15px 0 10px 0;
+		margin-bottom: 0;
+		padding: 15px 0;
 		color: $medium-gray;
+	}
+
+	.navbar{
+		padding: 5px 0;
+		margin-bottom: 0;
 	}
 
 	.navbar-nav{
 		float: none;
-	}
-	.navbar {
-		margin-bottom: 0;
-	}
+	}	
 }
 
 /* Form */
@@ -379,6 +393,10 @@ input[type="file"] {
 		}
 	}
 
+	.uib-time > input{
+		height: 40px;
+	}
+
 	.btn-default{
 		border: none;
 	}
@@ -395,7 +413,8 @@ input[type="file"] {
 
 	background: $medium-red;
 
-	color: #ffffff;
+	color: #ffffff;	
+
 }
 
 @import 'events.scss';
