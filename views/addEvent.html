@@ -1,5 +1,5 @@
 <main class="container">
-	<h1 class="text-center">EDITAR EVENTO</h1>
+	<h1 class="text-center">AGREGAR EVENTO</h1>
 
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
@@ -29,7 +29,7 @@
 			    </div>
 		        <div class="form-group col-xs-10">
 		          	<label for="">Evento</label>
-		          	<input type="text" ng-model="updatedEvent" placeholder="{{ event.name }}" class="form-control">
+		          	<input type="text" ng-model="newEvent" placeholder="Nombre del Evento" class="form-control">
 		        </div>
 				<div class="form-group col-xs-10" ng-controller="DatepickerCtrl">
 				    <label for="">Fecha</label>
@@ -40,7 +40,7 @@
 				</div>
 				<div class="form-group col-xs-10 col-xs-offset-2">
 				  	<label for="">Hora</label>
-				  	<input type="time" ng-model="updatedStartHour" placeholder="{{ event.startHour }}" class="form-control">
+				  	<input type="time" ng-model="newStartHour" class="form-control">
 				</div>
 				<div class="form-group typeahead col-xs-10 col-xs-offset-2" ng-controller="TypeaheadCtrl">
 				  	<label for="">Sitio</label>
@@ -52,17 +52,17 @@
 				</div>
 				<div class="form-group col-xs-10 col-lg-offset-2">
 		          	<label for="">Descripción</label>
-		          	<textarea type="text" ng-model="updatedEvent" placeholder="{{ event.description }}" class="form-control">></textarea>
+		          	<textarea type="text" ng-model="newDescription" placeholder="Descripción del evento" class="form-control">></textarea>
 		        </div>
 				<div class="form-group">
 					<label for="" class="col-xs-5 col-xs-offset-2">Locación</label>
 					<label for="" class="col-xs-5">Precio</label>
-					<div ng-repeat="price in event.prices">
+					<div>
 						<div class="col-xs-5 col-xs-offset-2">
-						  	<input type="text" class="form-control price-input" ng-model="updatedPlace" placeholder="{{ price.place }}" class="form-control">
+						  	<input type="text" class="form-control price-input" ng-model="newPlace" placeholder="Locación" class="form-control">
 						</div>
 						<div class="col-xs-5">
-						  	<input type="text" class="form-control price-input" ng-model="updatedPrice" placeholder="{{ price.amount | currency:'¢' }}" class="form-control">
+						  	<input type="text" class="form-control price-input" ng-model="newPrice" placeholder="Precio" class="form-control">
 						</div>
 					</div>	
 				</div>
@@ -72,7 +72,7 @@
 					</div>
 				</div>
 				<div class="form-group col-xs-10 col-xs-offset-2">
-				  <a href="" class="btn next-btn align-right">EDITAR</a>
+				  <a href="" class="btn next-btn align-right">AGREGAR</a>
 				</div>
 			</form>
 		</div>
