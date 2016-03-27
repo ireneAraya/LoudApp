@@ -40,6 +40,19 @@ body{
 	}
 }
 
+button.btn {
+	outline: none;
+	-webkit-appearance: none;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:active {
+		outline: none;
+	}
+}
+
 .navbar {
 	background: #ffffff;
 	border-radius: 0;
@@ -387,3 +400,4 @@ input[type="file"] {
 
 @import 'events.scss';
 @import 'tickets.scss';
+@import 'profile.scss';
