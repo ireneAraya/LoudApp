@@ -365,6 +365,10 @@ input[type="file"] {
 		}
 	}
 
+	.uib-time > input{
+		height: 40px;
+	}
+
 	.btn-default{
 		border: none;
 	}
@@ -381,7 +385,8 @@ input[type="file"] {
 
 	background: $medium-red;
 
-	color: #ffffff;
+	color: #ffffff;	
+
 }
 
 @import 'events.scss';
