@@ -15,7 +15,7 @@ angular.module('loudApp',[
                  controller : 'EventsCtrl'
             })
             // .when('/', {
-            //     templateUrl: 'views/buyTickets/buyTickets_cardInformation.html'
+            //     templateUrl: 'views/buyTickets/buyTickets_success.html'
             // })
             .when('/login', {
                 templateUrl: 'views/login.html',
