@@ -14,9 +14,26 @@ angular.module('loudApp',[
                 templateUrl: 'views/showEvents.html',
                  controller : 'EventsCtrl'
             })
-            // .when('/', {
-            //     templateUrl: 'views/buyTickets/buyTickets_success.html'
-            // })
+            // Buy Tickets
+            .when('/buyTickets', {
+                templateUrl: 'views/buyTickets/buyTickets_event.html'
+            })
+            .when('/buyTickets/tickets', {
+                templateUrl: 'views/buyTickets/buyTickets_cant.html'
+            })
+            .when('/buyTickets/tickets/seats', {
+                templateUrl: 'views/buyTickets/buyTickets_seats.html'
+            })
+            .when('/buyTickets/tickets/seats/detail', {
+                templateUrl: 'views/buyTickets/buyTickets_detail.html'
+            })
+            .when('/buyTickets/tickets/seats/detail/cardinformation', {
+                templateUrl: 'views/buyTickets/buyTickets_cardInformation.html'
+            })
+            .when('/buyTickets/tickets/seats/detail/cardinformation/success', {
+                templateUrl: 'views/buyTickets/buyTickets_success.html'
+            })
+            // Buy Tickets END
             .when('/login', {
                 templateUrl: 'views/login.html',
                 controller : 'LoginCtrl'
