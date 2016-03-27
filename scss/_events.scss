@@ -34,3 +34,18 @@
 		padding-top: 5px;
 	}
 }
+
+.btn.plus-btn {
+    border: 2px solid #ed9d97;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 10px 0 10px 30px;
+    padding: 2px 13px;
+    background: none;
+    color: #ed9d97;
+    
+    i{
+    	margin-right: 20px;
+    }
+}

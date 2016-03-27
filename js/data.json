@@ -170,7 +170,6 @@
 			"eventType"		: 1,
 			"description"	: "Mark Anthony en Costa Rica",
 			"location"		: 1,
-			"status"		: 1,
 			"prices"		: 	[
 									{
 										"place"		: "Sombra",
@@ -185,8 +184,7 @@
 										"amount" 	: 60000
 									}
 								],
-			"image"			: "/img/marcAnthony.jpg",
-			"promoTickets"	: 1
+			"image"			: "/img/marcAnthony.jpg"
 		},
 		{
 			"id"			: 1,
@@ -196,7 +194,6 @@
 			"eventType"		: 2,
 			"description"	: "Actividad bailable con música en vivo",
 			"location"		: 2,
-			"status"		: 1,
 			"prices"		: 	[
 									{
 										"place"		: "General",
@@ -207,8 +204,7 @@
 										"amount" 	: 20000
 									}
 								],
-			"image"			: "/img/SondeTK.jpg",
-			"promoTickets"	: 2
+			"image"			: "/img/SondeTK.jpg"
 		},
 		{
 			"id"			: 2,
@@ -218,7 +214,6 @@
 			"eventType"		: 1,
 			"description"	: "Gira mundial",
 			"location"		: 1,
-			"status"		: 1,
 			"prices"		: 	[
 									{
 										"place"		: "Sombra",
@@ -233,8 +228,7 @@
 										"amount" 	: 60000
 									}
 								],
-			"image"			: "/img/ironMaiden.jpg",
-			"promoTickets"	: 2
+			"image"			: "/img/ironMaiden.jpg"
 		},
 		{
 			"id"			: 3,
@@ -244,7 +238,6 @@
 			"eventType"		: 3,
 			"description"	: "Apoyar a la Sele, el equipo de todos",
 			"location"		: 3,
-			"status"		: 1,
 			"prices"		: 	[
 									{
 										"place"		: "Sol",
@@ -259,8 +252,7 @@
 										"amount" 	: 20000
 									}
 								],
-			"image"			: "/img/sele.jpg",
-			"promoTickets"	: 2
+			"image"			: "/img/sele.jpg"
 		}
 	],
 
