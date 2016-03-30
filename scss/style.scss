@@ -166,13 +166,13 @@ header{
     margin-right:-4px;
 }
 
-.footer { 
+.footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	/* Set the fixed height of the footer here */
 	height: 60px;
-	
+
 
 	.copyright-text{
 		margin-bottom: 0;
@@ -187,7 +187,7 @@ header{
 
 	.navbar-nav{
 		float: none;
-	}	
+	}
 }
 
 /* Form */
@@ -243,7 +243,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		z-index: 1000;
 		display: none;
 		background-color: #db4437;
-		width: 94.8%;
+		width: 95%;
 		top: 88px !important;
 
 		.message {
@@ -421,7 +421,7 @@ input[type="file"] {
 
 	background: $medium-red;
 
-	color: #ffffff;	
+	color: #ffffff;
 
 }
 
