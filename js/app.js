@@ -16,10 +16,12 @@ angular.module('loudApp',[
             })
             // Buy Tickets
             .when('/buyTickets', {
-                templateUrl: 'views/buyTickets/buyTickets_event.html'
+                templateUrl: 'views/buyTickets/buyTickets_event.html',
+                controller : 'TypeaheadCtrl'
             })
             .when('/buyTickets/tickets', {
                 templateUrl: 'views/buyTickets/buyTickets_cant.html'
+                // controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets/seats', {
                 templateUrl: 'views/buyTickets/buyTickets_seats.html'
