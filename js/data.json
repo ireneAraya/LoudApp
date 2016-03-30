@@ -259,15 +259,15 @@
 	"eventType" : [
 		{
 			"id"			: 1,
-			"description"	: "concert"
+			"description"	: "Concierto"
 		},
 		{
 			"id"			: 2,
-			"description"	: "dance"
+			"description"	: "Baile"
 		},
 		{
 			"id"			: 3,
-			"description"	: "sports"
+			"description"	: "Partido"
 		}
 	],
 

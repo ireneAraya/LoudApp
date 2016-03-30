@@ -5,21 +5,20 @@
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<form role="form" class="general-form row">
 				<script type="text/ng-template" id="customPopupTemplate.html">
-				  	<div class="col-xs-2 custom-popup-wrapper"
-				     ng-style="{top: position().top+'px', left: position().left+'px'}"
-				     style="display: block;"
-				     ng-show="isOpen() && !moveInProgress"
-				     aria-hidden="{{!isOpen()}}">
-				    	<p class="message">Seleccione sitio</p>
-				    	<ul class="dropdown-menu" role="listbox">
-				        	<li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
-				            ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
-				            	<div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl">           		
-				            	</div>
-				        	</li>
-				    	</ul>
-				  	</div>
-				</script>
+		          <div class="custom-popup-wrapper form-group"
+		             ng-style="{top: position().top+'px', left: position().left+'px'}"
+		             style="display: block;"
+		             ng-show="isOpen() && !moveInProgress"
+		             aria-hidden="{{!isOpen()}}">
+		            <p class="message">Seleccione un valor de la lista:</p>
+		            <ul class="dropdown-menu" role="listbox">
+		                <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+		                    ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+		                    <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+		                </li>
+		            </ul>
+		          </div>
+		        </script>
 				<div class="col-xs-2">
 					<img ng-src="{{ imageSource }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
 					<label for="file-upload" class="custom-file-upload">
@@ -44,15 +43,15 @@
 				</div>
 				<div class="form-group typeahead col-xs-10 col-xs-offset-2" ng-controller="TypeaheadCtrl">
 				  	<label for="">Sitio</label>
-				  	<input type="text" ng-model="customPopupSelected" placeholder="Busque el sitio aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+				  	<input type="text" ng-model="selected" placeholder="Busque el sitio aquí" uib-typeahead="site as site.name for site in sites | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
 				</div>
 				<div class="form-group typeahead col-xs-10 col-xs-offset-2" ng-controller="TypeaheadCtrl">
 				  	<label for="">Tipo de Evento</label>
-				  	<input type="text" ng-model="customPopupSelected" placeholder="Busque el tipo de evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+				  	<input type="text" ng-model="selected" placeholder="Busque el tipo de evento aquí" uib-typeahead="type as type.description for type in eventName | filter:{description:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
 				</div>
 				<div class="form-group col-xs-10 col-lg-offset-2">
 		          	<label for="">Descripción</label>
-		          	<textarea type="text" ng-model="updatedEvent" placeholder="{{ event.description }}" class="form-control">></textarea>
+		          	<textarea type="text" ng-model="updatedEvent" placeholder="{{ event.description }}" class="form-control"></textarea>
 		        </div>
 				<div class="form-group">
 					<label for="" class="col-xs-5 col-xs-offset-2">Locación</label>
