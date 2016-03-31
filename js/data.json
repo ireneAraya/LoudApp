@@ -271,7 +271,7 @@
 		}
 	],
 
-	"location" : [
+	"locations" : [
 		{
 			"id"			: 1,
 			"name"			: "Estadio Saprissa",
@@ -280,7 +280,7 @@
 			"scheme"		: "",
 			"geographicLoc"	: "9°57′56″N 84°04′32″O",
 			"adress"		: "San Juan de Tibás",
-			"image"			: "../img/"
+			"image"			: "/img/estadioSaprissa.jpg"
 		},
 		{
 			"id"			: 2,
@@ -290,7 +290,7 @@
 			"scheme"		: "",
 			"geographicLoc"	: "9.918104, -84.048427",
 			"adress"		: "Contiguo al parqueo de Price Smart Zapote, San José",
-			"image"			: "../img/"
+			"image"			: "/img/clubPeppers.jpg"
 		},
 		{
 			"id"			: 3,
@@ -300,7 +300,7 @@
 			"scheme"		: "",
 			"geographicLoc"	: "9.936768, -84.107852",
 			"adress"		: "La Sabana, Costa Rica",
-			"image"			: "../img/"
+			"image"			: "/img/estadioNacional.jpg"
 		}
 	],
 

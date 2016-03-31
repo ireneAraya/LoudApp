@@ -3,7 +3,7 @@ angular.module ('loudApp.controllers')
 .controller('EventsCtrl', [
 	'$scope', '$routeParams', '$location', 'LoudService', '$timeout',
 	function($scope, $routeParams, $location, LoudService, $timeout) {
-        $scope.eventsCol = LoudService.verify("LoudApp__Events") || {};
+        $scope.eventsCol = LoudService.verify('LoudApp__Events') || {};
 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
@@ -98,13 +98,13 @@ angular.module ('loudApp.controllers')
                     name        : $scope.newEvent,
                     date        : $scope.newDate,
                     startHour   : $scope.newStartHour,
-                    location    : $scope.newLocation,
-                    eventType   : $scope.newEventType,
+                    location    : $scope.location,
+                    eventType   : $scope.eventType,
                     description : $scope.newDescription
                 }
                 $scope.eventsCol.push(event);
 
-                console.table(event);
+                console.table($scope.event);
 
                 // Limpia el formulario, tanto en valores como en estado de variables
                 if ($scope.addEventForm) {
@@ -114,8 +114,8 @@ angular.module ('loudApp.controllers')
                   $scope.newEvent = "";
                   $scope.newDate = "";
                   $scope.newStartHour = "";
-                  $scope.newLocation = "";
-                  $scope.newEventType = "";
+                  $scope.location = "";
+                  $scope.eventType = "";
                   $scope.newDescription = "";
                 }
             }

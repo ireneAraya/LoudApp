@@ -61,6 +61,10 @@ angular.module('loudApp',[
                 templateUrl: 'views/addEvent.html',
                 controller: 'EventsCtrl'
             })
+            .when('/locationsList', {
+                templateUrl: 'views/locationsList.html',
+                controller: 'LocationsCtrl'
+            })
             .otherwise({
         	   templateUrl: 'views/404.html'
             });
