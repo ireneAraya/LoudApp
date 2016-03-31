@@ -22,7 +22,7 @@
 				<div class="col-xs-2">
 					<img ng-src="{{ imageSource }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
 					<label for="file-upload" class="custom-file-upload">
-   						 <i class="fa fa-camera"></i> Editar
+   						 <i class="fa fa-camera"></i> Cambiar
 					</label>
 					<input id="file-upload" ng-model="imageSource" type="file" onchange="angular.element(this).scope().fileNameChanged(this)" class="btn file-input"></input>
 			    </div>
@@ -31,11 +31,11 @@
 		          	<input type="text" ng-model="updatedEvent" placeholder="{{ event.name }}" class="form-control">
 		        </div>
 				<div class="form-group col-xs-10" ng-controller="DatepickerCtrl">
-				    <label for="">Fecha</label>
-				  	<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
-				  	<span class="input-group-btn">
-				    	<button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-				  	</span>
+				    <label for="">Seleccione una fecha</label>
+				    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="updatedDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+				    <span class="input-group-btn">
+				        <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+				    </span>
 				</div>
 				<div class="form-group col-xs-10 col-xs-offset-2">
 				  	<label for="">Hora</label>
@@ -67,11 +67,11 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-lg-2 col-lg-offset-2">
-						<a href="#/addEvent" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>AGREGAR LOCACIÓN Y PRECIO</a>
+						<button type="button" class="btn plus-btn"><i class="fa fa-plus"></i>AGREGAR LOCACIÓN Y PRECIO</button>
 					</div>
 				</div>
 				<div class="form-group col-xs-10 col-xs-offset-2">
-				  <a href="" class="btn next-btn align-right">EDITAR</a>
+				  <button class="btn next-btn align-right">EDITAR</button>
 				</div>
 			</form>
 		</div>
