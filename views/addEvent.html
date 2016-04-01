@@ -3,7 +3,7 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
-			<form role="form" class="general-form row">
+			<form role="form" name="addEventForm" class="general-form row">
 				<script type="text/ng-template" id="customPopupTemplate.html">
 				  	<div class="col-xs-2 custom-popup-wrapper"
 				     ng-style="{top: position().top+'px', left: position().left+'px'}"
@@ -21,11 +21,11 @@
 				  	</div>
 				</script>
 				<div class="col-xs-2">
-					<img ng-src="{{ imageSource }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
+					<img ng-src="{{ newImageSource }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
 					<label for="file-upload" class="custom-file-upload">
-   						 <i class="fa fa-camera"></i> Editar
+					   	<i class="fa fa-camera"></i> Cambiar
 					</label>
-					<input id="file-upload" ng-model="imageSource" type="file" onchange="angular.element(this).scope().fileNameChanged(this)" class="btn file-input"></input>
+					<input id="file-upload" ng-model="newImageSource" type="file" onchange="angular.element(this).scope().newImage(this)" class="btn file-input"></input>
 			    </div>
 		        <div class="form-group col-xs-10">
 		          	<label for="">Evento</label>
@@ -33,7 +33,7 @@
 		        </div>
 				<div class="form-group col-xs-10" ng-controller="DatepickerCtrl">
 				    <label for="">Fecha</label>
-				  	<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
+				  	<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="newDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
 				  	<span class="input-group-btn">
 				    	<button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
 				  	</span>
@@ -44,20 +44,20 @@
 				</div>
 				<div class="form-group typeahead col-xs-10 col-xs-offset-2" ng-controller="TypeaheadCtrl">
 				  	<label for="">Sitio</label>
-				  	<input type="text" ng-model="customPopupSelected" placeholder="Busque el sitio aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+				  	<input type="text" ng-model="location" placeholder="Busque el sitio aquí" uib-typeahead="site as site.name for site in sites | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
 				</div>
 				<div class="form-group typeahead col-xs-10 col-xs-offset-2" ng-controller="TypeaheadCtrl">
 				  	<label for="">Tipo de Evento</label>
-				  	<input type="text" ng-model="customPopupSelected" placeholder="Busque el tipo de evento aquí" uib-typeahead="state as state.name for state in eventName | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+				  	<input type="text" ng-model="eventType" placeholder="Busque el tipo de evento aquí" uib-typeahead="type as type.description for type in eventName | filter:{description:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
 				</div>
 				<div class="form-group col-xs-10 col-lg-offset-2">
 		          	<label for="">Descripción</label>
 		          	<textarea type="text" ng-model="newDescription" placeholder="Descripción del evento" class="form-control">></textarea>
 		        </div>
 				<div class="form-group">
-					<label for="" class="col-xs-5 col-xs-offset-2">Locación</label>
+					<label for="" class="col-xs-5 col-xs-offset-2">Zona</label>
 					<label for="" class="col-xs-5">Precio</label>
-					<div>
+					<div ng-repeat="priceInput in priceInputs">
 						<div class="col-xs-5 col-xs-offset-2">
 						  	<input type="text" class="form-control price-input" ng-model="newPlace" placeholder="Locación" class="form-control">
 						</div>
@@ -68,11 +68,11 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-lg-2 col-lg-offset-2">
-						<a href="#/addEvent" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>AGREGAR LOCACIÓN Y PRECIO</a>
+						<button type="button" class="btn plus-btn" ng-click="addPriceInputs()"><i class="fa fa-plus"></i>AGREGAR LOCACIÓN Y PRECIO</button>
 					</div>
 				</div>
 				<div class="form-group col-xs-10 col-xs-offset-2">
-				  <a href="" class="btn next-btn align-right">AGREGAR</a>
+				  <button class="btn next-btn align-right" ng-click="addEvent()">AGREGAR</button>
 				</div>
 			</form>
 		</div>

@@ -44,6 +44,7 @@ angular.module('loudApp',[
                 templateUrl: 'views/profile.html',
                 controller : 'ProfileCtrl'
             })
+            // Events
             .when('/event/:id', {
                 templateUrl: 'views/eventDetail.html',
                 controller : 'EventsCtrl'
@@ -59,6 +60,10 @@ angular.module('loudApp',[
             .when('/addEvent', {
                 templateUrl: 'views/addEvent.html',
                 controller: 'EventsCtrl'
+            })
+            .when('/locationsList', {
+                templateUrl: 'views/locationsList.html',
+                controller: 'LocationsCtrl'
             })
             .otherwise({
         	   templateUrl: 'views/404.html'
