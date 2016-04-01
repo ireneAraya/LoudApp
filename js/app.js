@@ -24,7 +24,7 @@ angular.module('loudApp',[
                 // controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets/seats', {
-                templateUrl: 'views/buyTickets/buyTickets_seats_stadium.html'
+                templateUrl: 'views/buyTickets/buyTickets_seats.html'
             })
             .when('/buyTickets/tickets/seats/detail', {
                 templateUrl: 'views/buyTickets/buyTickets_detail.html'
