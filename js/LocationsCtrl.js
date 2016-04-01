@@ -37,6 +37,24 @@ angular.module ('loudApp.controllers')
 
                 $location.path('/locationsList');
             }
+
+            // Editar Imagen
+            if ($routeParams.id) {
+                var currentID = $routeParams.id;
+                $scope.location = LoudService.getItem($scope.locationsCol, "id", currentID);
+                
+                $scope.imageSource = $scope.location.image;
+
+                $scope.fileNameChanged = function (element) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $scope.$apply(function() {
+                            $scope.imageSource = e.target.result;
+                        });
+                    }
+                    reader.readAsDataURL(element.files[0]);
+                }
+            };
         };
 
         $scope.$watch('locationsCol', function(newValue, oldValue) {

@@ -1,0 +1,33 @@
+<main class="container">
+	<h1 class="text-center">AGREGAR SITIO</h1>
+
+	<div class="row">
+		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
+			<form role="form" class="general-form row">
+				<div class="col-xs-2">
+					<img ng-src="{{ newImageSource }}" alt="Fotografía del Sitio" class="circle-thumbnail img-responsive">
+					<label for="file-upload" class="custom-file-upload">
+   						 <i class="fa fa-camera"></i> Cambiar
+					</label>
+					<input id="file-upload" ng-model="newImageSource" type="file" onchange="angular.element(this).scope().fileNameChanged(this)" class="btn file-input"></input>
+			    </div>
+		        <div class="form-group col-xs-10">
+		          	<label for="">Sitio</label>
+		          	<input type="text" ng-model="newLocation" placeholder="Nombre del Sitio" class="form-control">
+		        </div>
+		        <div class="form-group col-xs-10">
+		          	<label for="">Teléfono</label>
+		          	<input type="text" ng-model="newPhone" placeholder="Ej: 2222-2222" class="form-control">
+		        </div>
+		        <div class="form-group col-xs-10 col-xs-offset-2">
+		          	<label for="">Localización Geográfica</label>
+		          	<input type="text" ng-model="newGeographicLoc" placeholder="Coordenadas Geográficas" class="form-control">
+		        </div>
+		        <div class="form-group col-xs-10 col-lg-offset-2">
+		          	<label for="">Dirección</label>
+		          	<textarea type="text" ng-model="newAdress" placeholder="Dirección" class="form-control"></textarea>
+		        </div>
+			</form>
+		</div>
+	</div><!--.row-->
+</main>
