@@ -27,7 +27,7 @@ angular.module ('loudApp.controllers')
             if ($routeParams.id) {
                 var currentID = $routeParams.id;
                 $scope.event = LoudService.getItem($scope.eventsCol, "id", currentID);
-                
+
                 $scope.imageSource = $scope.event.image;
 
                 $scope.fileNameChanged = function (element) {
@@ -87,7 +87,7 @@ angular.module ('loudApp.controllers')
 
             //Agregar evento
             //$scope.lastID = LoudService.verify("taskLastID") || 0;
-            
+
             // $scope.addEvent = function () {
             //     $scope.lastID++
 
