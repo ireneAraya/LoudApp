@@ -2,7 +2,7 @@
   <h1 class="text-center">Compra de entradas</h1>
   <hr>
   <div class="row row-centered">
-    <div class="col-md-6 col-centered detail-buy">
+    <div class="col-md-6 col-centered detail-buy general-form" ng-controller="HeaderCtrl">
         <div class="detail-buy-heading">
           <span>Su compra</span>
         </div>
@@ -14,13 +14,13 @@
           <p>Asientos: <span>A1 - A2 - A3</span></p>
           <p>Total: <span>3000</span></p>
         </div>
-        <div class="detail-buy-information">
+        <div class="detail-buy-information form-group">
           <label for="">Nombre</label>
-          <input type="text" class="form-control"/>
+          <span class="form-control event-info"> {{ user.name }} </span>
         </div>
-        <div class="detail-buy-information">
+        <div class="detail-buy-information form-group">
           <label for="">Correo electrónico</label>
-          <input type="email" class="form-control"/>
+          <span class="form-control event-info"> {{ user.email }} </span>
         </div>
         <div class="form-group">
           <a href="#/buyTickets/tickets/seats/detail/cardinformation" class="btn next-btn align-right">siguiente</a>
