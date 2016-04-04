@@ -20,8 +20,8 @@ angular.module('loudApp',[
                 controller : 'TypeaheadCtrl'
             })
             .when('/buyTickets/tickets', {
-                templateUrl: 'views/buyTickets/buyTickets_cant.html'
-                // controller : 'buyticketsCtrl'
+                templateUrl: 'views/buyTickets/buyTickets_cant.html',
+                controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets/seats', {
                 templateUrl: 'views/buyTickets/buyTickets_seats.html'
