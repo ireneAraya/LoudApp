@@ -35,5 +35,5 @@ angular.module ('loudApp.controllers')
         $scope.sites = $scope.data.location;
         $scope.events = $scope.data.events;
       }
-  }  
+  }
 ])

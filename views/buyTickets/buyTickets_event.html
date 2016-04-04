@@ -20,17 +20,24 @@
           </div>
         </script>
         <div class="form-group typeahead" ng-controller="TypeaheadCtrl">
-          <label for="">Seleccione el evento al que quiere asistir</label>
-          <input type="text" ng-model="selected" placeholder="Busque el evento aquí" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+          <label for=""><i class="fa fa-hand-peace-o"></i> Seleccione el evento al que quiere asistir</label>
+          <div ng-if="noResults" class="alert alert-danger">
+            <span>¡No existen resultados de su búsqueda! Por favor, intente de nuevo.</span>
+          </div>
+          <input type="text" ng-model="selected" placeholder="Busque el evento aquí" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}"  ng-model="selected"  typeahead-popup-template-url="customPopupTemplate.html" class="form-control" typeahead-no-results="noResults">
+          <label for=""><i class="fa fa-calendar"></i> Fecha del evento</label>
+          <span class="form-control event-info">{{selected.date}}</span>
+          <label for=""><i class="fa fa-clock-o"></i> Hora del evento</label>
+          <span class="form-control event-info">{{selected.startHour}}</span>
         </div>
-        <div class="form-group" ng-controller="DatepickerCtrl">
+        <!-- <div class="form-group" ng-controller="DatepickerCtrl">
           <label for="">Seleccione una fecha</label>
           <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
           <span class="input-group-btn">
             <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
           </span>
-        </div>
-        <div class="form-group" ng-controller="DatepickerCtrl">
+        </div> -->
+        <!-- <div class="form-group" ng-controller="buyticketsCtrl">
           <label for="">Seleccione una hora</label>
           <div>
             <a href="" class="hours-btn">09:00</a>
@@ -39,7 +46,7 @@
             <a href="" class="hours-btn">19:00</a>
             <a href="" class="hours-btn">21:00</a>
           </div>
-        </div>
+        </div> -->
         <div class="form-group">
           <a href="#/buyTickets/tickets" class="btn next-btn align-right">siguiente</a>
         </div>

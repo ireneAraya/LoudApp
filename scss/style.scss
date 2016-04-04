@@ -203,9 +203,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		label {
 			color: #fff;
 			font-weight: 100;
+			i {
+				padding: 13px 10px 13px 0;
+			}
 		}
 
-		input, .select-style, textarea {
+		input, .select-style, textarea, .event-info {
 			background-color: #db4437;
 			border: 0;
 			border-radius: 0;
