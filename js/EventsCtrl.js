@@ -86,40 +86,6 @@ angular.module ('loudApp.controllers')
                 $scope.priceInputs.push({'id':'priceInput'+ newPriceInput});
             }
 
-            //Agregar evento
-            //$scope.lastID = LoudService.verify("taskLastID") || 0;
-
-            // $scope.addEvent = function () {
-            //     $scope.lastID++
-
-            //     //crea el objeto y lo agrega a la colección
-            //     var event = {
-            //         id          : $scope.lastID,
-            //         image       : $scope.newImageSource,
-            //         name        : $scope.newEvent,
-            //         date        : $scope.newDate,
-            //         startHour   : $scope.newStartHour,
-            //         location    : $scope.location,
-            //         eventType   : $scope.eventType,
-            //         description : $scope.newDescription
-            //     }
-            //     $scope.eventsCol.push(event);
-
-            //     console.table(event);
-
-            //     // Limpia el formulario, tanto en valores como en estado de variables
-            //     if ($scope.addEventForm) {
-            //       $scope.addEventForm.$setPristine();
-            //       $scope.addEventForm.$setUntouched();
-            //       $scope.newImageSource = "";
-            //       $scope.newEvent = "";
-            //       $scope.newDate = "";
-            //       $scope.newStartHour = "";
-            //       $scope.location = "";
-            //       $scope.newEventType = "";
-            //       $scope.newDescription = "";
-            //     }
-            // }
         };
 
         $scope.$watch('eventsCol', function(newValue, oldValue) {

@@ -277,7 +277,6 @@
 			"name"			: "Estadio Saprissa",
 			"phone"			: "2222-0009",
 			"capacity"		: 23000,
-			"scheme"		: "",
 			"geographicLoc"	: "9°57′56″N 84°04′32″O",
 			"adress"		: "San Juan de Tibás",
 			"image"			: "/img/estadioSaprissa.jpg"
@@ -287,7 +286,6 @@
 			"name"			: "Peppers Disco Club",
 			"phone"			: "2222-0809",
 			"capacity"		: 2000,
-			"scheme"		: "",
 			"geographicLoc"	: "9.918104, -84.048427",
 			"adress"		: "Contiguo al parqueo de Price Smart Zapote, San José",
 			"image"			: "/img/clubPeppers.jpg"
@@ -297,7 +295,6 @@
 			"name"			: "Estadio Nacional",
 			"phone"			: "2222-0309",
 			"capacity"		: 35000,
-			"scheme"		: "",
 			"geographicLoc"	: "9.936768, -84.107852",
 			"adress"		: "La Sabana, Costa Rica",
 			"image"			: "/img/estadioNacional.jpg"
