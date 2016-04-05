@@ -23,12 +23,18 @@ angular.module ('loudApp')
       if(/^(34)|^(37)/.test(ccnumber)) {
         cardType = "American Express";
         document.getElementById("card_replace").className = "fa fa-cc-amex";
-      } if (/^5[1-5]/.test(ccnumber)) {
+      }
+      if (/^5[1-5]/.test(ccnumber)) {
         cardType = "MasterCard";
         document.getElementById("card_replace").className = "fa fa-cc-mastercard";
-      } if (/^4/.test(ccnumber)) {
+      }
+      if (/^4/.test(ccnumber)) {
         cardType = "Visa"
         document.getElementById("card_replace").className = "fa fa-cc-visa";
       }
+      if (ccnumber.length == 1) {
+        document.getElementById("card_replace").className = "fa fa-credit-card";
+      }
+
     };
 }]);
