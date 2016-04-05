@@ -1,5 +1,6 @@
 angular.module('loudApp',[
     'ngRoute',
+    'loudApp.directives',
     'loudApp.services',
     'loudApp.controllers',
     'ngAnimate',
