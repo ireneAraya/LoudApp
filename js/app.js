@@ -5,6 +5,7 @@ angular.module('loudApp',[
     'loudApp.controllers',
     'ngAnimate',
     'ui.bootstrap',
+    'ngMessages',
     'facebook'
 ])
 
