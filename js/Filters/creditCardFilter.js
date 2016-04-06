@@ -33,7 +33,7 @@ angular.module ('loudApp')
         document.getElementById("card_replace").className = "fa fa-cc-visa";
       }
       if (ccnumber.length == 1) {
-        document.getElementById("card_replace").className = "fa fa-credit-card";
+        document.getElementById("card_replace").className = "fa fa-credit-card" ;
       }
 
     };
