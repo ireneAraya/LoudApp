@@ -14,22 +14,23 @@
 		        <div class="form-group col-xs-10">
 		          	<label for="">Sitio</label>
 		          	<input type="text" name="newLocation" ng-model="newLocation" placeholder="Nombre del Sitio" class="form-control" required>
-		          	<div ng-messages="addLocationForm.newLocation.$error" ng-if="addLocationForm.newLocation.$touched" class="help-block">
-		          	    <p ng-message="required">Este campo es obligatorio</p>
+		          	<div ng-messages="addLocationForm.newLocation.$error" ng-if="addLocationForm.newLocation.$touched" class="validate-messages">
+		          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 		          	</div>
 		        </div>
-		        <div class="form-group col-xs-10">
+		        <div class="form-group col-xs-10 pull-right">
 		          	<label for="">Teléfono</label>
 		          	<input type="text" name="newPhone" ng-model="newPhone" placeholder="2222-2222" class="form-control" valid-number required>
-		          	<div ng-messages="addLocationForm.newPhone.$error" ng-if="addLocationForm.newPhone.$dirty" class="help-block">
-		          	    <p ng-message="validNumber">El formato del teléfono debe ser 2222-2222</p>
+		          	<div ng-messages="addLocationForm.newPhone.$error" ng-if="addLocationForm.newPhone.$dirty" class="validate-messages">
+		          		<span ng-message="validNumber" class="alert alert-danger">El formato del teléfono debe ser 2222-2222</span>
 		          	</div>
+		          	<span ng-message="validNumber" class="alert alert-danger">El formato del teléfono debe ser 2222-2222</span>
 		        </div>
 		        <div class="form-group col-xs-10 col-xs-offset-2">
 		          	<label for="">Capacidad</label>
 		          	<input type="number" name="newCapacity" ng-model="newCapacity" placeholder="10000" class="form-control" required>
-		          	<div ng-messages="addLocationForm.newCapacity.$error" ng-if="addLocationForm.newCapacity.$touched" class="help-block">
-		          	    <p ng-message="required">Este campo es obligatorio</p>
+		          	<div ng-messages="addLocationForm.newCapacity.$error" ng-if="addLocationForm.newCapacity.$touched" class="validate-messages">
+		          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 		          	</div>
 		        </div>
 		        <div class="form-group col-xs-10 col-xs-offset-2">
@@ -41,7 +42,7 @@
 		        </div>
 		        <div class="form-group col-xs-10 col-lg-offset-2">
 		          	<label for="">Dirección</label>
-		          	<textarea type="text" ng-model="newAdress" placeholder="Dirección" class="form-control" required></textarea>
+		          	<textarea type="text" ng-model="newAdress" placeholder="Dirección" class="form-control event-info" required></textarea>
 		          	<div ng-messages="addLocationForm.newAdress.$error" ng-if="addLocationForm.newAdress.$touched" class="help-block">
 		          	    <p ng-message="required">Este campo es obligatorio</p>
 		          	</div>
