@@ -1,1 +1,1 @@
-angular.module ('loudApp.controllers', [])
+angular.module ('loudApp.controllers', ['ngResource'])

@@ -6,7 +6,8 @@ angular.module('loudApp',[
     'ngAnimate',
     'ui.bootstrap',
     'ngMessages',
-    'facebook'
+    'facebook',
+    'ngResource'
 ])
 
 .config(['$routeProvider','FacebookProvider',

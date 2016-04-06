@@ -33,7 +33,7 @@
 	<meta name="msapplication-config" content="/img/browserconfig.xml?v=pggmRz9A8B">
 	<meta name="theme-color" content="#ffffff">
 </head>
-<body ng-app="loudApp">
+<body ng-app="loudApp" ng-controller="myController">
 	<header ng-controller="HeaderCtrl">
 		<nav class="navbar navbar-fixed-top">
 		  	<div class="container">
@@ -46,14 +46,21 @@
 
 			    <div class="collapse navbar-collapse" id="mainMenu">
 			      	<ul class="nav navbar-nav navbar-right">
-			        	<li><a href="{{ link }}"><i class="fa fa-user"></i> {{ user.name || "Ingresar/Registar" }} </a></li>
-			        	<li><a href="#/buyTickets"><i class="fa fa-shopping-cart"></i> Comprar</a></li>
-			        	<li><a href="#/"><i class="fa fa-globe"></i> Idioma</a></li>
+			        	<li><a href="{{ link }}"><i class="fa fa-user"></i> {{ user.name || translation.SIGNIN_REGISTER }} </a></li>
+			        	<li><a href="#/buyTickets"><i class="fa fa-shopping-cart"></i> {{translation.BUY_MENU}}</a></li>
+			        	<li><a href="#/"><i class="fa fa-globe"></i> </a></li>
 			      	</ul>
 			    </div><!-- /.navbar-collapse -->
 		  	</div><!-- /.container -->
 		</nav>
 	</header>
+
+	<div class="language-select">
+		<select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
+			<option value="en">{{translation.ENGLISH}}</option>
+			<option value="es">{{translation.SPANISH}}</option>
+		</select>
+	</div>
 
 	<div id="current-view" ng-view></div>
 
@@ -115,6 +122,11 @@
 <script src="js/LoginCtrl.js"></script>
 <script src="js/HeaderCtrl.js"></script>
 <script src="js/ProfileCtrl.js"></script>
+
+<!-- Language -->
+<script data-require="angular-resource@1.2.14" data-semver="1.2.14" src="http://code.angularjs.org/1.2.14/angular-resource.js"></script>
+<script src="js/LanguageCtrl.js"></script>
+<script src="js/LanguageService.js"></script>
 
 </body>
 </html>

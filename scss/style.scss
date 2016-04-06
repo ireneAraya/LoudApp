@@ -44,6 +44,13 @@ body{
 	    border-top: 1px solid #fff;
 	    margin-bottom: 40px;
 	}
+
+	.language-select {
+		position: relative;
+		margin: 28px 58px;
+		float: right;
+		z-index: 10000;
+	}
 }
 
 button.btn {
