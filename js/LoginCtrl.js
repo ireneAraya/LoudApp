@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('LoginCtrl', [
-	'$scope', 'LoudService', '$window', '$timeout', 'LoudFB', '$location', '$q',
-	function($scope, LoudService, $window, $timeout, LoudFB, $location, $q) {
+	'$scope', 'LoudService', 'LoudFB', '$location', '$q', '$rootScope',
+	function($scope, LoudService, LoudFB, $location, $q, $rootScope) {
 
         $scope.user = LoudService.verify("LoudApp__User") || {};
 
@@ -16,9 +16,9 @@ angular.module ('loudApp.controllers')
         };
 
         function otherFunctions () {
-            // if ($scope.user.id) {
-            //     $location.path("/");
-            // }
+            if ($scope.user.id) {
+                $location.path("/");
+            }
 
             $scope.login = function () {
                 var usersCollection = $scope.data.users,
@@ -39,7 +39,7 @@ angular.module ('loudApp.controllers')
 
                 $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
                 LoudService.save("LoudApp__User", $scope.user);
-                // $location.path("/");
+                $location.path("/");
             };
 
             $scope.facebookLogin = function () {
@@ -62,10 +62,10 @@ angular.module ('loudApp.controllers')
                                                                     $scope.user.image = userPhotoURL;
 
                                                                     // Tells the HeaderCtrl that a user has logged in a session
-                                                                    $scope.$broadcast('userIsLoggedIn', FBUserData);
+                                                                    $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
 
                                                                     // Redirects to Homepage
-                                                                    // $location.path("/");
+                                                                    $location.path("/");
                                                                 });
                                                             });
                                                         }

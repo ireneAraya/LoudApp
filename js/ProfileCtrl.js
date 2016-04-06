@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('ProfileCtrl', [
-	'$scope', 'LoudService', '$location', '$timeout', 'LoudFB',
-	function($scope, LoudService, $location, $timeout, LoudFB) {
+	'$scope', 'LoudService', '$location', '$timeout', 'LoudFB', '$rootScope',
+	function($scope, LoudService, $location, $timeout, LoudFB, $rootScope) {
 
         $scope.user = LoudService.verify("LoudApp__User") || {};
 
@@ -37,6 +37,9 @@ angular.module ('loudApp.controllers')
                             // Removes the user data from localStorage
                             $scope.user = {};
                             LoudService.remove("LoudApp__FB_authResponse");
+
+                            // Tells the HeaderCtrl that a user has been disconnected
+                            $rootScope.$broadcast('userIsLoggedIn', { user : null });
 
                             // Redirects to the Homepage
                             $location.path("/");
