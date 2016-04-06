@@ -1,12 +1,13 @@
 angular.module ('loudApp.controllers')
 
 .controller('ProfileCtrl', [
-	'$scope', 'LoudService', '$location', '$timeout', 'Facebook',
-	function($scope, LoudService, $location, $timeout, Facebook) {
+	'$scope', 'LoudService', '$location', '$timeout', 'LoudFB', '$rootScope',
+	function($scope, LoudService, $location, $timeout, LoudFB, $rootScope) {
+
+        $scope.user = LoudService.verify("LoudApp__User") || {};
 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
-                $scope.user = LoudService.verify("LoudApp__User") || {};
                 otherFunctions();
             }, function(razon) {
                 $scope.error = razon;
@@ -20,47 +21,38 @@ angular.module ('loudApp.controllers')
                 $location.path('/login');
             }
 
+            // Main system logout function
             $scope.logout = function () {
                 $scope.user = {};
                 LoudService.save("LoudApp__User", $scope.user);
                 $location.path("/");
             }
 
+            // Facebook logout function
             $scope.logoutFB = function () {
-                getLoginStatus();
+                LoudFB.getLoginStatus().then(function (isLoggedIn) {
+                    if (isLoggedIn) {
+                        LoudFB.logout().then(function (response) {
 
-                $timeout(function () {
-                    if (window.FBUser) {
-                        Facebook.logout(function (response) {});
-                        window.FBUser = false;
-                        window.FBuserData = {};
-                        otherFunctionsFB();
+                            // Removes the user data from localStorage
+                            $scope.user = {};
+                            LoudService.remove("LoudApp__FB_authResponse");
+
+                            // Tells the HeaderCtrl that a user has been disconnected
+                            $rootScope.$broadcast('userIsLoggedIn', { user : null });
+
+                            // Redirects to the Homepage
+                            $location.path("/");
+                        });
                     }
-                }, 1000);
-
-                var otherFunctionsFB = function () {
-                    // Logout Callback
-                    $scope.user.image = null;
-                    $scope.user = {};
-                    $location.path("/");
-                }
-            }
-
-            function getLoginStatus () {
-                Facebook.getLoginStatus(function(response) {
-                    if (response.status === "connected") {
-                        window.FBUser = true;
-                    } else {
-                        window.FBUser = false;
-                    }
-                }, true);
-            }
-
-            $scope.$watch('user', function(newValue, oldValue) {
-                LoudService.save("LoudApp__User", newValue);
-            }, true);
+                });
+            };
         };
 
         $scope.init();
+
+        $scope.$watch('user', function(newValue, oldValue) {
+            LoudService.save("LoudApp__User", newValue);
+        }, true);
 	}
 ])

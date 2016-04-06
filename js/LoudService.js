@@ -16,6 +16,10 @@ angular.module ('loudApp.services')
             localStorage.setItem( key, angular.toJson(object) );
         };
 
+        var remove = function (keyName) {
+            localStorage.removeItem( keyName );
+        };
+
         var verify = function (key) {
             return angular.fromJson( localStorage.getItem(key) );
         };
@@ -55,6 +59,7 @@ angular.module ('loudApp.services')
 
 		return {
             save            : save,
+            remove          : remove,
             verify          : verify,
 			getDataFromJS 	: getDataFromJS,
 			getItem 		: getItem,

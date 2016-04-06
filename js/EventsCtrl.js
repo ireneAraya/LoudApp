@@ -16,10 +16,11 @@ angular.module ('loudApp.controllers')
 
 
         function otherFunctions () {
-            //$scope.eventsCol = $scope.data.events;
+            // $scope.eventsCol = $scope.data.events;
 
             $scope.getEventLocation = function (index, key) {
-                console.log(index);
+                // Se repiten los llamados
+                // console.log(index);
                 var location = LoudService.getItem($scope.data.locations, "id", index);
                 return location[key];
             };
@@ -85,7 +86,6 @@ angular.module ('loudApp.controllers')
                 var newPriceInput = $scope.priceInputs.length+1;
                 $scope.priceInputs.push({'id':'priceInput'+ newPriceInput});
             }
-
         };
 
         $scope.$watch('eventsCol', function(newValue, oldValue) {

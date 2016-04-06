@@ -1,0 +1,46 @@
+.session-tabs {
+    max-width: 580px;
+    margin: 70px auto 65px auto;
+
+    li {
+        padding: 0;
+        color: #fff;
+
+        &.active {
+            background: #fff;
+
+            a {
+                color: #7c7c7c;
+            }
+        }
+
+        a {
+            display: block;
+            color: #fff;
+        }
+    }
+}
+
+#loginForm {
+    .input-group-addon {
+        background: #e3746b;
+        border-radius: 0;
+        border: 0;
+        color: #fff;
+        min-width: 60px;
+
+        .fa {
+            padding: 10px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+        }
+    }
+
+    .form-control {
+        border-radius: 0;
+        background: #da453d;
+        border: 0;
+        padding: 25px 10px;
+        color: #fff;
+    }
+}
