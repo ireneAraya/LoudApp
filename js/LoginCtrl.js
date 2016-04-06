@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('LoginCtrl', [
-	'$scope', 'LoudService', '$window', '$timeout', 'Facebook', '$location',
-	function($scope, LoudService, $window, $timeout, Facebook, $location) {
+	'$scope', 'LoudService', '$window', '$timeout', 'LoudFB', '$location', '$q',
+	function($scope, LoudService, $window, $timeout, LoudFB, $location, $q) {
 
         $scope.user = LoudService.verify("LoudApp__User") || {};
 
@@ -16,13 +16,9 @@ angular.module ('loudApp.controllers')
         };
 
         function otherFunctions () {
-            if ($scope.user.id) {
-                $location.path("/");
-            }
-
-            $scope.$watch('user', function(newValue, oldValue) {
-                LoudService.save("LoudApp__User", newValue);
-            }, true);
+            // if ($scope.user.id) {
+            //     $location.path("/");
+            // }
 
             $scope.login = function () {
                 var usersCollection = $scope.data.users,
@@ -43,95 +39,40 @@ angular.module ('loudApp.controllers')
 
                 $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
                 LoudService.save("LoudApp__User", $scope.user);
-                $location.path("/");
+                // $location.path("/");
             };
 
             $scope.facebookLogin = function () {
-                getLoginStatus();
+                LoudFB.getLoginStatus().then(function (isLoggedIn) {
+                                                if (!isLoggedIn) {
+                                                    // Logs in the user with Facebook
+                                                    LoudFB.login().then(function (response) {
+                                                        if (response.status === "connected") {
+                                                            // Saves the @authResponse in the localStorage
+                                                            LoudService.save("LoudApp__FB_authResponse", response.authResponse);
 
-                $timeout(function () {
-                    if (!window.FBUser) {
-                        loginFB();
-                        $timeout(function () {
-                            $scope.user = window.FBuserData;
-                            otherFunctionsFB();
-                        }, 3000);
-                    } else {
-                        meFB();
-                    }
-                }, 1000);
+                                                            LoudFB.meFB().then(function (FBUserData) {
+                                                                // Saves the user info to localStorage
+                                                                LoudService.save("LoudApp__User", FBUserData);
 
-                var otherFunctionsFB = function () {
-                    // Login with Facebook Callback
-                    Facebook.api("/me/albums", function(response) {
-                        // console.log(response);
-                        for (album in response.data) {
-                            if (response.data[album].name == "Profile Pictures") {
-                                FB.api(response.data[album].id + "/photos", function(response) {
-                                    window.FBUserPicture = response.data[0].images[0].source;
-                                });
-                            }
-                        }
-                    }, {
-                        scope : "user_photos"
-                    });
+                                                                $scope.user = FBUserData;
 
-                    $timeout(function(){
-                        var image = (window.FBUserPicture) ? window.FBUserPicture : "/img/profilePlaceholder.png";
-                        $scope.user = LoudService.verify("LoudApp__User");
-                        $scope.user.image = image;
-                        LoudService.save("LoudApp__User", $scope.user);
-                        $location.path("/");
-                    }, 2000);
-                };
-            }
-        };
+                                                                LoudFB.getUserProfilePicture().then(function (userPhotoURL) {
+                                                                    // Sets the URL for the user photo
+                                                                    $scope.user.image = userPhotoURL;
 
-        function getLoginStatus () {
-            Facebook.getLoginStatus(function(response) {
-                if (response.status === "connected") {
-                    window.FBUser = true;
-                } else {
-                    window.FBUser = false;
-                }
-            }, true);
-        }
+                                                                    // Tells the HeaderCtrl that a user has logged in a session
+                                                                    $scope.$broadcast('userIsLoggedIn', FBUserData);
 
-        function loginFB () {
-            Facebook.login(function(response) {
-                if (response.status == 'connected') {
-                    meFB();
-                }
-            }, {
-                scope : "public_profile,email,user_friends,user_photos"
-            });
-        };
-
-        $scope.logoutFB = function () {
-            getLoginStatus();
-
-            $timeout(function () {
-                if (window.FBUser) {
-                    Facebook.logout(function (response) {});
-                    window.FBUser = false;
-                    window.FBuserData = {};
-                    otherFunctionsFB();
-                }
-            }, 1000);
-
-            var otherFunctionsFB = function () {
-                // Logout Callback
-                $scope.user.image = null;
-                $scope.user = {};
-            }
-        }
-
-        function meFB () {
-            Facebook.api('/me', function(response) {
-                window.FBuserData = response;
-                LoudService.save("LoudApp__User", window.FBuserData);
-                $location.path("/");
-            });
+                                                                    // Redirects to Homepage
+                                                                    // $location.path("/");
+                                                                });
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+            };
         };
 
         function decodeValue (string) {
@@ -143,5 +84,9 @@ angular.module ('loudApp.controllers')
         };
 
         $scope.init();
+
+        $scope.$watch('user', function(newValue, oldValue) {
+            LoudService.save("LoudApp__User", newValue);
+        }, true);
 	}
 ])

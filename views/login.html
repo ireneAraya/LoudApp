@@ -1,27 +1,26 @@
 <main class="container">
 	<div class="row">
-        <ul class="nav col-md-6 col-md-offset-3">
+        <h1 class="text-center">Inicio de Sesión</h1>
+        <ul class="nav col-md-6 col-md-offset-3 auth-pills">
             <li class="col-xs-6 text-center"><a href="#/login">Ingresar</a></li>
             <li class="col-xs-6 text-center"><a href="#/register">Crear Cuenta</a></li>
         </ul>
     </div>
 
     <div class="container">
-
-        <!-- <div class="alert" ng-class="{ 'alert alert-danger':login.error, 'alert alert-sucess':login.success }"></div> -->
         <form name="loginForm">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i></span>
-                        <input type="text" class="form-control" placeholder="Correo Electrónico" ng-model="email" required name="txtUserEmail">
+                        <input type="text" class="form-control" ng-model="email" required name="txtUserEmail" placeholder="email@me.com">
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" placeholder="Contraseña" ng-model="password" required name="txtUserPassword">
+                        <input type="password" class="form-control" ng-model="password" required name="txtUserPassword">
                     </div>
                 </div>
             </div>
@@ -52,7 +51,5 @@
                 <span>Twitter</span>
             </button>
         </div>
-
-        <button class="btn" ng-click="logoutFB()" ng-show="user.bio">Logout</button>
 	</div>
 </main>
