@@ -34,14 +34,14 @@
 		        </div>
 		        <div class="form-group col-xs-10 col-xs-offset-2">
 		          	<label for="">Localización Geográfica</label>
-		          	<input type="text" ng-model="newGeographicLoc" placeholder="Coordenadas Geográficas" class="form-control" required>
+		          	<input type="text" name="newGeographicLoc" ng-model="newGeographicLoc" placeholder="Coordenadas Geográficas" class="form-control" required>
 		          	<div ng-messages="addLocationForm.newGeographicLoc.$error" ng-if="addLocationForm.newGeographicLoc.$touched" class="help-block">
 		          	    <p ng-message="required">Este campo es obligatorio</p>
 		          	</div>
 		        </div>
 		        <div class="form-group col-xs-10 col-lg-offset-2">
 		          	<label for="">Dirección</label>
-		          	<textarea type="text" ng-model="newAdress" placeholder="Dirección" class="form-control event-info" required></textarea>
+		          	<textarea type="text" name="newAdress" ng-model="newAdress" placeholder="Dirección" class="form-control event-info" required></textarea>
 		          	<div ng-messages="addLocationForm.newAdress.$error" ng-if="addLocationForm.newAdress.$touched" class="help-block">
 		          	    <p ng-message="required">Este campo es obligatorio</p>
 		          	</div>
