@@ -24,7 +24,10 @@ angular.module ('loudApp.controllers')
             // Main system logout function
             $scope.logout = function () {
                 $scope.user = {};
-                LoudService.save("LoudApp__User", $scope.user);
+
+                // Tells the HeaderCtrl that a user has logged in a session
+                $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
+
                 $location.path("/");
             }
 

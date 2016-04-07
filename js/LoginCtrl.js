@@ -38,7 +38,11 @@ angular.module ('loudApp.controllers')
                 }
 
                 $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
-                LoudService.save("LoudApp__User", $scope.user);
+                $scope.user.facebook = false;
+
+                // Tells the HeaderCtrl that a user has logged in a session
+                $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
+
                 $location.path("/");
             };
 
@@ -51,29 +55,36 @@ angular.module ('loudApp.controllers')
                                                             // Saves the @authResponse in the localStorage
                                                             LoudService.save("LoudApp__FB_authResponse", response.authResponse);
 
-                                                            LoudFB.meFB().then(function (FBUserData) {
-                                                                // Saves the user info to localStorage
-                                                                LoudService.save("LoudApp__User", FBUserData);
-
-                                                                $scope.user = FBUserData;
-
-                                                                LoudFB.getUserProfilePicture().then(function (userPhotoURL) {
-                                                                    // Sets the URL for the user photo
-                                                                    $scope.user.image = userPhotoURL;
-
-                                                                    // Tells the HeaderCtrl that a user has logged in a session
-                                                                    $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
-
-                                                                    // Redirects to Homepage
-                                                                    $location.path("/");
-                                                                });
-                                                            });
+                                                            getFBUserData($scope);
                                                         }
                                                     });
+                                                } else {
+                                                    getFBUserData($scope);
                                                 }
                                             });
             };
         };
+
+        function getFBUserData ($scope) {
+            LoudFB.meFB().then(function (FBUserData) {
+                // Saves the user info to localStorage
+                LoudService.save("LoudApp__User", FBUserData);
+
+                $scope.user = FBUserData;
+
+                LoudFB.getUserProfilePicture().then(function (userPhotoURL) {
+                    // Sets the URL for the user photo
+                    $scope.user.image = userPhotoURL;
+                    $scope.user.facebook = true;
+
+                    // Tells the HeaderCtrl that a user has logged in a session
+                    $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
+
+                    // Redirects to Homepage
+                    $location.path("/");
+                });
+            });
+        }
 
         function decodeValue (string) {
             return atob(string);
