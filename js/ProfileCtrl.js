@@ -26,7 +26,7 @@ angular.module ('loudApp.controllers')
                 $scope.user = {};
 
                 // Tells the HeaderCtrl that a user has logged in a session
-                $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
+                $rootScope.$broadcast('userIsLoggedIn', { user : null });
 
                 $location.path("/");
             }

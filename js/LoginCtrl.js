@@ -84,7 +84,7 @@ angular.module ('loudApp.controllers')
                     $location.path("/");
                 });
             });
-        }
+        };
 
         function decodeValue (string) {
             return atob(string);
