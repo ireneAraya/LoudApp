@@ -21,6 +21,8 @@ angular.module ('loudApp.controllers')
             }
 
             $scope.login = function () {
+                $scope.logginUser = true;
+
                 var usersCollection = $scope.data.users,
                     userExists = false;
 
@@ -42,11 +44,12 @@ angular.module ('loudApp.controllers')
 
                 // Tells the HeaderCtrl that a user has logged in a session
                 $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
-
+                $scope.logginUser = false;
                 $location.path("/");
             };
 
             $scope.facebookLogin = function () {
+                $scope.logginUser = true;
                 LoudFB.getLoginStatus().then(function (isLoggedIn) {
                                                 if (!isLoggedIn) {
                                                     // Logs in the user with Facebook
@@ -79,6 +82,8 @@ angular.module ('loudApp.controllers')
 
                     // Tells the HeaderCtrl that a user has logged in a session
                     $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
+
+                    $scope.logginUser = false;
 
                     // Redirects to Homepage
                     $location.path("/");
