@@ -7,6 +7,15 @@
 	h4{
 		padding: 15px;
 	}
+
+	a {
+		color: #ffffff;
+		
+		&:hover{
+			text-decoration: none;
+			color: $light-red;
+		}
+	}
 }
 
 .event-info{
