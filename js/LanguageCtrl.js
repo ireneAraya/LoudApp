@@ -1,16 +1,24 @@
 angular.module ('loudApp.controllers')
 
 
-.controller('myController',['$scope', 'translationService',
+.controller('languageCtrl',['$scope', 'translationService',
 function ($scope, translationService){
+	// $scope.selectedLanguage = "es";
 
   //Run translation if selected language changes
-  $scope.translate = function(){
-       translationService.getTranslation($scope, $scope.selectedLanguage);
+  $scope.translate = function(a,b,c){
+  	var selectedLanguageC = $scope.selectedLanguage;
+  	console.log(a,b,c);
+	   var promise = translationService.getTranslation(a);
+	promise.then(function(response) {
+	  $scope.translation = response;
+	}, function(response) {
+	  $scope.translation = null;
+	});
    };
 
+
    //Init
-   $scope.selectedLanguage = 'es';
    $scope.translate();
 
 }]);

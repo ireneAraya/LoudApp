@@ -33,7 +33,7 @@
 	<meta name="msapplication-config" content="/img/browserconfig.xml?v=pggmRz9A8B">
 	<meta name="theme-color" content="#ffffff">
 </head>
-<body ng-app="loudApp" ng-controller="myController">
+<body ng-app="loudApp" ng-controller="languageCtrl">
 	<header ng-controller="HeaderCtrl">
 		<nav class="navbar navbar-fixed-top">
 		  	<div class="container">
@@ -48,19 +48,26 @@
 			      	<ul class="nav navbar-nav navbar-right">
 			        	<li><a href="{{ link }}"><i class="fa fa-user"></i> {{ user.name || translation.SIGNIN_REGISTER }} </a></li>
 			        	<li><a href="#/buyTickets"><i class="fa fa-shopping-cart"></i> {{translation.BUY_MENU}}</a></li>
-			        	<li><a href="#/"><i class="fa fa-globe"></i> </a></li>
+			        	<li><a href="#/"><i class="fa fa-globe"></i></a>
+			        		<div class="language-select">
+								<select class="form-control" ng-change="translate(selectedLanguage)" ng-model="selectedLanguage">
+									<option value="en">{{translation.ENGLISH}}</option>
+									<option value="es">{{translation.SPANISH}}</option>
+								</select>
+							</div>
+			        	</li>
 			      	</ul>
 			    </div><!-- /.navbar-collapse -->
 		  	</div><!-- /.container -->
 		</nav>
 	</header>
 
-	<div class="language-select">
+	<!-- <div class="language-select">
 		<select class="form-control" ng-change="translate()" ng-model="selectedLanguage">
 			<option value="en">{{translation.ENGLISH}}</option>
 			<option value="es">{{translation.SPANISH}}</option>
 		</select>
-	</div>
+	</div> -->
 
 	<div id="current-view" ng-view></div>
 
