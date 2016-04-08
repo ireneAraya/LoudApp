@@ -1,5 +1,17 @@
 angular.module ('loudApp.services')
 
+// .config(['FacebookProvider', function(FacebookProvider) {
+//     var myAppId = '1046016745413247';
+
+//     FacebookProvider.setAppId(myAppId);
+//     FacebookProvider.init(myAppId);
+// }])
+
+
+// angular.js:68 Uncaught Error: [$injector:modulerr] Failed to instantiate module loudApp due to:
+// Error: [$injector:modulerr] Failed to instantiate module loudApp.services due to:
+// Error: [$injector:unpr] Unknown provider: FacebookProvider
+
 .service('LoudFB',['Facebook', '$q',
 	function(Facebook, $q) {
 
