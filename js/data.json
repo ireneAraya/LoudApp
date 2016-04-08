@@ -277,7 +277,7 @@
 			"name"			: "Estadio Saprissa",
 			"phone"			: "2222-0009",
 			"capacity"		: 23000,
-			"geographicLoc"	: "9°57′56″N 84°04′32″O",
+			"geographicLoc"	: "9.967457, -84.076108",
 			"adress"		: "San Juan de Tibás",
 			"image"			: "/img/estadioSaprissa.jpg"
 		},
@@ -286,7 +286,7 @@
 			"name"			: "Peppers Disco Club",
 			"phone"			: "2222-0809",
 			"capacity"		: 2000,
-			"geographicLoc"	: "9.918104, -84.048427",
+			"geographicLoc"	: "9.918136, -84.049025",
 			"adress"		: "Contiguo al parqueo de Price Smart Zapote, San José",
 			"image"			: "/img/clubPeppers.jpg"
 		},

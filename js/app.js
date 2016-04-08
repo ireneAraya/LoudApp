@@ -1,5 +1,6 @@
 angular.module('loudApp',[
     'ngRoute',
+    'ngMap',
     'loudApp.directives',
     'loudApp.services',
     'loudApp.controllers',
@@ -79,10 +80,18 @@ angular.module('loudApp',[
             })
             .otherwise({
         	   templateUrl: 'views/404.html'
-            });
+            });        
 
         var myAppId = '1046016745413247';
         FacebookProvider.setAppId(myAppId);
         FacebookProvider.init(myAppId);
     }
 ])
+
+.config(function(NgMapProvider) {
+    NgMapProvider.setDefaultOptions({
+        marker: {
+            optimized: false
+        }
+    });
+});
