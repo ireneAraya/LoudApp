@@ -5,7 +5,7 @@ angular.module ('loudApp.directives')
     return {
         require: 'ngModel',
             link: function(scope, elm, attrs, ctrl){
-                var regex = /\(?([0-9]{4})\)?([ .-]?)([0-9]{4})/;
+                var regex = /\(?([0-9]{4})\)?([-]{1})([0-9]{4})/;
                 var validator = function(value){
                     ctrl.$setValidity('validNumber', regex.test(value));
                     return value;
