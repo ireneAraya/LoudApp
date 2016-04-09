@@ -5,7 +5,7 @@ angular.module ('loudApp.services')
 
             language = language || "es";
 
-            var languageFilePath = 'translation_' + language + '.json';
+            var languageFilePath = 'translation/translation_' + language + '.json';
 
             return $q(function(resolve, reject) {
 			    setTimeout(function() {

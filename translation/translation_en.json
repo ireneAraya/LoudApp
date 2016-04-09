@@ -1,0 +1,12 @@
+{
+    "ENGLISH" : "English",
+    "SPANISH" : "Spanish",
+    "SIGNIN_REGISTER" : "Sign In/Register",
+    "BUY_MENU" : "Buy",
+    "BUY_TICKETS" : "Buy tickets",
+    "SELECT_EVENT" : "Select the event you want to attend",
+    "SEARCH_EVENT" : "Search the event here",
+    "EVENT_DATE" : "Event date",
+    "EVENT_TIME" : "Event time",
+    "NEXT" : "Next"
+}

@@ -1,0 +1,12 @@
+{
+    "ENGLISH" : "Inglés",
+    "SPANISH" : "Español",
+    "SIGNIN_REGISTER" : "Ingresar/Registrar",
+    "BUY_MENU" : "Comprar",
+    "BUY_TICKETS" : "Compra de entradas",
+    "SELECT_EVENT" : "Seleccione el evento al que quiere asistir",
+    "SEARCH_EVENT" : "Busque el evento aquí",
+    "EVENT_DATE" : "Fecha del evento",
+    "EVENT_TIME" : "Hora del evento",
+    "NEXT" : "Siguiente"
+}
