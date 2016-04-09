@@ -48,8 +48,9 @@
 			      	<ul class="nav navbar-nav navbar-right">
 			        	<li><a href="{{ link }}"><i class="fa fa-user"></i> {{ user.name || translation.SIGNIN_REGISTER }} </a></li>
 			        	<li><a href="#/buyTickets"><i class="fa fa-shopping-cart"></i> {{translation.BUY_MENU}}</a></li>
-			        	<li><a href="#/"><i class="fa fa-globe"></i></a>
+			        	<li>
 			        		<div class="language-select">
+			        			<i class="fa fa-globe"></i>
 								<select class="form-control" ng-change="translate(selectedLanguage)" ng-model="selectedLanguage">
 									<option value="en">{{translation.ENGLISH}}</option>
 									<option value="es">{{translation.SPANISH}}</option>

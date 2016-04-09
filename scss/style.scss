@@ -46,10 +46,16 @@ body{
 	}
 
 	.language-select {
-		position: fixed;
-	    /*margin: 26px 0 0 89%;*/
-	    float: right;
-	    z-index: 10000;
+	    margin: 28px 0 0 20px;
+	    display: inline-flex;
+	    .fa.fa-globe {
+	    	float: left;
+    		margin: 9px 12px 0 0;
+    		color: #7d7d7d;
+	    }
+	    .form-control {
+	   		display: inline-block;
+	    }
 	}
 }
 
@@ -69,10 +75,6 @@ button.btn {
 .navbar {
 	background: #ffffff;
 	border-radius: 0;
-}
-
-.navbar-nav {
-	padding-right: 10%;
 }
 
 .navbar-nav > li > a{
@@ -111,7 +113,7 @@ header{
 		float: none;
 	}
 
-	.navbar-nav > li > a{
+	.navbar-nav > li > a {
 		font-size: 16px;
 		font-weight: 100;
 
@@ -123,6 +125,14 @@ header{
 			padding: 10px 40px;
 			border-bottom: 1px solid $light-gray;
 			text-align: right;
+		}
+	}
+
+	.navbar-nav > li > div {
+		@media (max-width: 768px) {
+		    float: right;
+		    margin: 0;
+		    padding: 10px 40px;
 		}
 	}
 
