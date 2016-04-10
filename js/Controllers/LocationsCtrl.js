@@ -104,6 +104,8 @@ angular.module ('loudApp.controllers')
                   $scope.newGeographicLoc = "";
                   $scope.newAdress = "";
                 }
+                
+                $location.path('/locationsList');
             }
 
         };

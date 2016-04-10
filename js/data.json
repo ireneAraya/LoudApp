@@ -165,7 +165,7 @@
 		{
 			"id"			: 0,
 			"name"			: "Mark Anthony en concierto",
-			"date"			: "08/09/2016",
+			"date"			: "17-09-2016",
 			"startHour"		: "21:00",
 			"eventType"		: 0,
 			"description"	: "Mark Anthony en Costa Rica",
@@ -189,7 +189,7 @@
 		{
 			"id"			: 1,
 			"name"			: "Baile con Tikizia",
-			"date"			: "07/10/2016",
+			"date"			: "07-10-2016",
 			"startHour"		: "18:00",
 			"eventType"		: 1,
 			"description"	: "Actividad bailable con música en vivo",
@@ -209,7 +209,7 @@
 		{
 			"id"			: 2,
 			"name"			: "Iron Maiden en Costa Rica",
-			"date"			: "28/03/2016",
+			"date"			: "28-05-2016",
 			"startHour"		: "19:00",
 			"eventType"		: 0,
 			"description"	: "Gira mundial",
@@ -233,7 +233,7 @@
 		{
 			"id"			: 3,
 			"name"			: "Selección Nacional vs Jamaica",
-			"date"			: "29/03/2016",
+			"date"			: "29/04/2016",
 			"startHour"		: "18:00",
 			"eventType"		: 2,
 			"description"	: "Apoyar a la Sele, el equipo de todos",

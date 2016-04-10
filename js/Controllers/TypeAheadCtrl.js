@@ -3,6 +3,7 @@ angular.module ('loudApp.controllers')
 .controller('TypeaheadCtrl', [
   '$scope', '$routeParams', '$location', 'LoudService',
     function($scope, $routeParams, $location, LoudService) {
+      $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
 
       LoudService.getDataFromJS().then(function(response) {
           $scope.data = angular.fromJson(response.data);
@@ -31,9 +32,10 @@ angular.module ('loudApp.controllers')
           getterSetter: true
         };
 
-        $scope.eventName = $scope.data.eventType;
-        $scope.sites = $scope.data.location;
+        $scope.eventTypes = $scope.data.eventType;
+        $scope.eventLocations = $scope.locationsCol;
         $scope.events = $scope.data.events;
+
       }
   }
 ])

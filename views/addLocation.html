@@ -24,6 +24,9 @@
 		          	<div ng-messages="addLocationForm.newPhone.$error" ng-if="addLocationForm.newPhone.$dirty" class="validate-messages">
 		          		<span ng-message="validNumber" class="alert alert-danger">El formato del teléfono debe ser 2222-2222</span>
 		          	</div>
+					<div ng-messages="addLocationForm.newPhone.$error" ng-if="addLocationForm.newPhone.$touched" class="validate-messages">
+		          		<span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+		        	</div>
 		        </div>
 		        <div class="form-group col-xs-10 col-xs-offset-2">
 		          	<label for="">Capacidad</label>
@@ -34,7 +37,10 @@
 		        </div>
 		        <div class="form-group col-xs-10 col-xs-offset-2">
 		          	<label for="">Localización Geográfica</label>
-		          	<input type="text" name="newGeographicLoc" ng-model="newGeographicLoc" placeholder="Coordenadas Geográficas" class="form-control" required>
+		          	<input type="text" name="newGeographicLoc" ng-model="newGeographicLoc" placeholder="2.222222, -2.222222" class="form-control" valid-geol required>
+		          	<div ng-messages="addLocationForm.newGeographicLoc.$error" ng-if="addLocationForm.newGeographicLoc.$dirty" class="validate-messages">
+		          	    <span ng-message="validGeol" class="alert alert-danger">El formato de la localización geográfica debe ser +/-2.222222, +/-2.222222</span>
+		          	</div>
 		          	<div ng-messages="addLocationForm.newGeographicLoc.$error" ng-if="addLocationForm.newGeographicLoc.$touched" class="validate-messages">
 		          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 		          	</div>
