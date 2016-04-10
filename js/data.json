@@ -274,10 +274,10 @@
 	"locations" : [
 		{
 			"id"			: 0,
-			"name"			: "Estadio Saprissa",
+			"name"			: "Estadio Ricardo Saprissa",
 			"phone"			: "2222-0009",
 			"capacity"		: 23000,
-			"geographicLoc"	: "9.967457, -84.076108",
+			"geographicLoc"	: "9.965654, -84.075301",
 			"adress"		: "San Juan de Tibás",
 			"image"			: "/img/estadioSaprissa.jpg"
 		},

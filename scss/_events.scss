@@ -1,3 +1,4 @@
+
 .panel{
 	border: none;
 	border-radius: 0;
@@ -14,6 +15,18 @@
 	background: $medium-red;
 	color: #ffffff;
 	
+	a>p{
+		padding-top: 30px;
+
+		&:hover{
+			color: $light-red;
+		}
+	}	
+
+	a:hover{
+		text-decoration: none;
+	}	
+	
 	td{
 		padding-left: 30px;
 	}
@@ -29,9 +42,15 @@
 	.btn{
 		width: 100%;
 	}
+
+	h2{
+		margin-top: 0;
+		margin-bottom: 25px;
+	}
 	
 	h3{
-		padding-top: 5px;
+		margin-top: 0;
+		margin-bottom: 15px;
 	}
 }
 
