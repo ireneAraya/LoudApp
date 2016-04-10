@@ -15,24 +15,12 @@
 	background: $medium-red;
 	color: #ffffff;
 	
-	a>p{
-		padding-top: 30px;
-
-		&:hover{
-			color: $light-red;
-		}
-	}	
-
-	a:hover{
-		text-decoration: none;
+	.event-detail{
+		padding-bottom: 20px;
 	}	
 	
 	td{
 		padding-left: 30px;
-	}
-
-	.info-item{
-		margin-bottom: 40px;
 	}
 	
 	.info-block{
