@@ -3,8 +3,6 @@ angular.module ('loudApp.services')
 .service('translationService', ['$resource', '$q', function($resource, $q) {
         var getTranslation = function (language) {
 
-            language = language || 'es';
-
             var languageFilePath = 'translation/translation_' + language + '.json';
 
             return $q(function(resolve, reject) {
@@ -14,9 +12,6 @@ angular.module ('loudApp.services')
     	            });
 			    }, 1000);
 			});
-
-
-
         };
 
         return {

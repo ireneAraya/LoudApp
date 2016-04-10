@@ -3,22 +3,26 @@ angular.module ('loudApp.controllers')
 .controller('languageCtrl',['$scope', 'translationService', 'LoudService',
 function ($scope, translationService, LoudService){
 
-    var localStorageKey = "LoudApp__Language";
+    // var localStorageKey = "LoudApp__Language";
 
-    $scope.selectedLanguage = "es";
+    // $scope.selectedLanguage = "es";
 
-    $scope.selectedLanguage = LoudService.verify(localStorageKey) || [];
+    // Se saca el valor primero del localStorage y si no está, se define como español
+    $scope.selectedLanguage = LoudService.verify("LoudApp__Language") || "es";
 
   //Run translation if selected language changes
     $scope.translate = function(a,b,c) {
 
-        var promise = translationService.getTranslation(a);
+        // Se lee el valor de a (que es cuando se cambia en el select la opción)
+        // pero al primer llamado da undefined (porque no se ha tocado el select)
+        // entonces se le pone selectedLanguage que ya tiene algo.
+        //
+        // También permite que se guarde el lenguaje que se escogió, aunque se refresque
+        var lang = a || $scope.selectedLanguage;
 
-        LoudService.save(localStorageKey, a);
+        var promise = translationService.getTranslation(lang);
 
-        var value = LoudService.getItem(localStorageKey);
-
-        console.log(value);
+        LoudService.save("LoudApp__Language", lang);
 
         promise.then(function(response) {
             $scope.translation = response;
