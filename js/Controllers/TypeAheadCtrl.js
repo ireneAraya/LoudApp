@@ -13,16 +13,16 @@ angular.module ('loudApp.controllers')
       });
 
       function otherFunctions () {
-        var _selected;
-        $scope.selected = undefined;
+        // var _selected;
+        // $scope.selected = undefined;
 
-        $scope.ngModelOptionsSelected = function(value) {
-          if (arguments.length) {
-            _selected = value;
-          } else {
-            return _selected;
-          }
-        };
+        // $scope.ngModelOptionsSelected = function(value) {
+        //   if (arguments.length) {
+        //     _selected = value;
+        //   } else {
+        //     return _selected;
+        //   }
+        // };
 
         $scope.modelOptions = {
           debounce: {

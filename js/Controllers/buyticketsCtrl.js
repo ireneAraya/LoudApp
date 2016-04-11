@@ -14,5 +14,9 @@ angular.module ('loudApp.controllers')
         $scope.differenceValues = function () {
             $scope.initialAmount -= $scope.itemPrice;
         }
+
+        $scope.getSelectedValue = function (value) {
+          console.log(value.id);
+        }
     }
 ]);
