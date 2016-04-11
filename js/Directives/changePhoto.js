@@ -2,8 +2,7 @@ angular.module ('loudApp.directives')
 
 .directive("changePhoto", function(){
   return {
-    restrict  : 'E',
-    template  : '<input type="file" onchange="newImage()"></input>',
+    restrict  : 'A',
     require   : 'ngModel',
     scope    : {
       ImageSource : '=',

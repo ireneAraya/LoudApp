@@ -9,7 +9,7 @@
 					<label for="file-upload" class="custom-file-upload">
    						 <i class="fa fa-camera"></i> Cambiar
 					</label>
-					<input id="file-upload" ng-model="newImageSource" type="file" onchange="angular.element(this).scope().newImage(this)" class="btn file-input"></input>
+					<input id="file-upload" ng-model="newImageSource" type="file" accept="image/*" onchange="angular.element(this).scope().newImage(this)" class="btn file-input"></input>
 			    </div>
 		        <div class="col-xs-10">
 					<div class="form-group col-xs-12">
