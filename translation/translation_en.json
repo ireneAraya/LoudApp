@@ -23,5 +23,10 @@
     "BUY_BUTTON_TEXT" : "Buy",
     "SHARE_BUTTON_TEXT" : "Share",
     "PRICES_TEXT" : "Prices",
-    "DESCRIPTION_TEXT" : "Description"
+    "DESCRIPTION_TEXT" : "Description",
+    "FOOTER" : {
+        "CONTACT" : "Contact Us",
+        "PRIVACY" : "Privacy",
+        "TERMS" : "Terms of Use"
+    }
 }
