@@ -287,3 +287,116 @@
         width: 100%;
     }
 }
+
+.form-group {
+    .center-area {
+        width: 500px;
+        height: 600px;
+        background: #fff;
+        border-radius: 50%;
+        margin-left: 30px;
+        .first-row, .second-row, .third-row {
+            margin: 0 12%;
+            display: inline-block;
+            width: 100%;
+            .seat-stadium-col {
+                float: left;
+                a {
+                    padding: 20px 10px;
+                    background: black;
+                    color: #fff;
+                    margin-right: 11px;
+                    border-radius: 10px;
+                }
+            }
+        }
+        .second-row, .third-row  {
+            margin: 8% 12% 0;
+        }
+        .gramilla-general {
+            border-radius: 0 0 200px 200px;
+            background: #73AD21;
+            padding: 67px 99px;
+            width: 376px;
+            height: 182px;
+            margin: 45px 62px;
+            span {
+                padding: 20px 36px;
+                color: #fff;
+            }
+        }
+        .scenario-row {
+            width: 150px;
+            height: 78px;
+            margin: 50px 172px;
+            background: blue;
+            display: inline-block;
+            border-radius: 10px;
+            span {
+                color: #fff;
+                padding: 28px 42px;
+                display: inline-block;
+            }
+        }
+    }
+    .right-area, .bottom-area {
+        margin-top: -442px;
+        float: right;
+        margin-right: -130px;
+        display: -webkit-inline-box;
+        .row {
+            .seat-stadium-col {
+                -ms-transform: rotate(90deg); /* IE 9 */
+                -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+                transform: rotate(90deg);
+                a {
+                    padding: 10px;
+                    background: pink;
+                    margin: 4px;
+                    display: inline-block;
+                    border-radius: 10px;
+                }
+            }
+        }
+        .row2 {
+            margin-left: 15px;
+            margin-top: -48px;
+        }
+        .row3 {
+            margin-top: -96px;
+            margin-left: 15px;
+        }
+
+    }
+    .left-left {
+        float: left;
+        margin-left: -128px;
+        margin-top: -343px;
+        .row {
+            .seat-stadium-col {
+                -ms-transform: rotate(270deg);
+                -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+            }
+        }
+        .row2 {
+            margin-top: -144px;
+        }
+        .row4 {
+            margin-top: -192px;
+        }
+    }
+    .bottom-area {
+        margin-right: 35px;
+        margin-top: 23px;
+        .row {
+            .seat-stadium-col {
+                transform: rotate(0deg);
+                float: left;
+            }
+        }
+    }
+    .area-2 {
+        margin-top: 0;
+    }
+}
