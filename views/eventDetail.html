@@ -19,7 +19,7 @@
 					</div><!--.col-xs-6-->
 					<div class="col-xs-6 col-sm-2">
 						<h4><i class="fa fa-clock-o"></i> {{ event.startHour }}</h4>
-					</div><!--.col-xs-2-->	
+					</div><!--.col-xs-2-->
 					<div class="col-xs-4">
 						<h4 class="pull-right"><i class="fa fa-calendar-check-o"></i> {{ event.date }}</h4>
 					</div><!--.col-xs-4-->
@@ -37,7 +37,7 @@
 		<div class="row info-block">
 			<div class="col-xs-12 col-md-6">
 				<div class="info-item">
-					<h4>Precios</h4>
+					<h4>{{ translation.PRICES_TEXT }}</h4>
 					<table class="list-group">
 						<tr>
 							<td ng-repeat="price in event.prices">{{ price.place }} : {{ price.amount | currency:'¢' }}</td>
@@ -47,20 +47,20 @@
 			</div><!--.col-xs-6-->
 			<div class="col-xs-12 col-md-6">
 				<div class="info-item info-description">
-					<h4>Descripción</h4>
+					<h4>{{ translation.DESCRIPTION_TEXT }}</h4>
 					<p>{{ event.description }}</p>
 				</div><!--.info-item-->
 			</div><!--.col-xs-6-->
 		</div><!--.row .info-block-->
 		<div class="row info-block">
 			<div class="col-md-12 col-lg-4">
-				<button class="btn">RESERVAR</button>
+				<button class="btn"><i class="fa fa-unlock-alt"></i> {{ translation.RESERVE_BUTTON_TEXT }}</button>
 			</div><!--.col-xs-4-->
 			<div class="col-md-12 col-lg-4">
-				<a href="#/buyTickets" class="btn"><i class="fa fa-credit-card"></i> COMPRAR</a>
+				<a href="#/buyTickets" class="btn"><i class="fa fa-credit-card"></i> {{ translation.BUY_BUTTON_TEXT }}</a>
 			</div><!--.col-xs-4-->
 			<div class="col-md-12 col-lg-4">
-				<button href="" class="btn"><i class="fa fa-facebook"></i> COMPARTIR</button>
+				<button href="" class="btn"><i class="fa fa-facebook"></i> {{ translation.SHARE_BUTTON_TEXT }}</button>
 			</div><!--.col-xs-4-->
 		</div><!--.row .info-block-->
 	</div><!--.row .event-info-->
