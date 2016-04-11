@@ -8,5 +8,6 @@
     "SEARCH_EVENT" : "Busque el evento aquí",
     "EVENT_DATE" : "Fecha del evento",
     "EVENT_TIME" : "Hora del evento",
-    "NEXT" : "Siguiente"
+    "NEXT" : "Siguiente",
+    "NO_RESULTS" : "¡No existen resultados de su búsqueda! Por favor, intente de nuevo."
 }

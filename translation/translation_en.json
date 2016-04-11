@@ -8,5 +8,6 @@
     "SEARCH_EVENT" : "Search the event here",
     "EVENT_DATE" : "Event date",
     "EVENT_TIME" : "Event time",
-    "NEXT" : "Next"
+    "NEXT" : "Next",
+    "NO_RESULTS" : "No results were found. Please try another filter."
 }
