@@ -1,4 +1,4 @@
-<main class="container" controller="buyticketsCtrl">
+<main class="container">
   <h1 class="text-center">{{translation.BUY_TICKETS}}</h1>
   <hr>
   <div class="row row-centered">
@@ -24,7 +24,6 @@
           <div ng-if="noResults" class="alert alert-danger">
             <span>¡No existen resultados de su búsqueda! Por favor, intente de nuevo.</span>
           </div>
-          <span>{{ selected.id }}</span>
           <input type="text" ng-model="selected" placeholder="{{translation.SEARCH_EVENT}}" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}"  ng-model="selected" typeahead-popup-template-url="customPopupTemplate.html" class="form-control" typeahead-no-results="noResults">
           <label for=""><i class="fa fa-calendar"></i> {{translation.EVENT_DATE}}</label>
           <span class="form-control event-info">{{selected.date}}</span>
