@@ -7,7 +7,7 @@
         <div class="form-group" ng-controller="DatepickerCtrl">
           <label for="" class="ticket-type">Sombra</label>
           <label for="" class="ticket-price" ng-model="itemPrice">35000</label>
-          <span class="subtotal-qty">Subtotal: <span>{{ initialAmount }}</span></span>
+          <span class="subtotal-qty">Subtotal: <span>{{ initialAmount | currency:"" }}</span></span>
           <input type="text" class="form-control" />
           <span class="input-group-btn">
             <button type="button" class="btn cant-tickets-btn minus-btn" ng-click="differenceValues();"><i class="fa fa-minus"></i></button>
