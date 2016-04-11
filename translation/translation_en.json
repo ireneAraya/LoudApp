@@ -14,7 +14,7 @@
     "SIGIN" : "Sign in",
     "REGISTER" : "Register",
     "FORGOT_PASSWORD" : "Forgor your password?",
-    "ALTERNATIVE_SIGIN_TEXT" : "Or sign in with other services",
+    "ALTERNATIVE_SIGNIN_TEXT" : "Or sign in with other services",
     "NEXT_EVENTS" : "Upcoming Events",
     "DETAILS_BUTTON_TEXT" : "See Details",
     "EDIT_BUTTON_TEXT" : "Edit",

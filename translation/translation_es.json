@@ -14,7 +14,7 @@
     "SIGIN" : "Ingresar",
     "REGISTER" : "Registrarse",
     "FORGOT_PASSWORD" : "¿Olvidó su contraseña?",
-    "ALTERNATIVE_SIGIN_TEXT" : "O ingresa con",
+    "ALTERNATIVE_SIGNIN_TEXT" : "O ingresa con",
     "NEXT_EVENTS" : "Próximos Eventos",
     "DETAILS_BUTTON_TEXT" : "Ver Detalle",
     "EDIT_BUTTON_TEXT" : "Editar",
