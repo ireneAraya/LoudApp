@@ -24,7 +24,7 @@
           <div ng-if="noResults" class="alert alert-danger">
             <span>¡No existen resultados de su búsqueda! Por favor, intente de nuevo.</span>
           </div>
-          <input type="text" ng-model="selected" placeholder="{{translation.SEARCH_EVENT}}" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}"  ng-model="selected" typeahead-popup-template-url="customPopupTemplate.html" class="form-control" typeahead-no-results="noResults">
+          <input type="text" ng-model="selected" placeholder="{{translation.SEARCH_EVENT}}" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}" typeahead-on-select="getSelectedValue($item)" ng-model="selected" typeahead-editable="false" typeahead-popup-template-url="customPopupTemplate.html" class="form-control" typeahead-no-results="noResults">
           <label for=""><i class="fa fa-calendar"></i> {{translation.EVENT_DATE}}</label>
           <span class="form-control event-info">{{selected.date}}</span>
           <label for=""><i class="fa fa-clock-o"></i> {{translation.EVENT_TIME}}</label>
