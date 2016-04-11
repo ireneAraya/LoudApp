@@ -14,7 +14,7 @@
               <span>Escenario</span>
             </div>
             <div class="row first-row">
-              <div class="seat-stadium-col">
+              <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                 <a href="">VIP 1</a>
               </div>
               <div class="seat-stadium-col">
@@ -265,6 +265,34 @@
                 <a href="">S6</a>
               </div>
             </div>
+          </div>
+          <div class="modal fade" id="seatsModal" tabindex="0" aria-labelledby="Confimación de Asientos" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="text-center">Seleccione sus asientos</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="seat-row">
+                          <div class="pull-left">
+                            <span class="text-uppercase">b</span>
+                            <a href="">1</a>
+                            <a href="">2</a>
+                            <a href="">3</a>
+                          </div>
+                          <div class="pull-right">
+                            <a href="">4</a>
+                            <a href="">5</a>
+                            <a href="">6</a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-dismiss="modal">CANCELAR</button>
+                        <button type="button" class="btn" data-dismiss="modal">GUARDAR</button>
+                    </div>
+                </div>
+              </div>
           </div>
           <!-- <div class="screen-position">
             <span class=" text-uppercase">pantalla</span>
