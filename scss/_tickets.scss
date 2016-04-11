@@ -296,30 +296,37 @@
         border-radius: 50%;
         margin-left: 30px;
         .first-row, .second-row, .third-row {
-            margin: 0 12%;
+            margin: 0 15%;
             display: inline-block;
             width: 100%;
             .seat-stadium-col {
                 float: left;
                 a {
-                    padding: 20px 10px;
+                    padding: 25px 16px;
                     background: black;
                     color: #fff;
                     margin-right: 11px;
                     border-radius: 10px;
+                    font-size: 12px;
+                }
+                .vip-10 {
+                    padding: 25px 12px;
                 }
             }
         }
-        .second-row, .third-row  {
-            margin: 8% 12% 0;
+        .third-row {
+            margin: 9% 15.6% 26px;
+        }
+        .second-row  {
+            margin: 9% 15% 0;
         }
         .gramilla-general {
             border-radius: 0 0 200px 200px;
             background: #73AD21;
-            padding: 67px 99px;
-            width: 376px;
-            height: 182px;
-            margin: 45px 62px;
+            padding: 63px 83px;
+            width: 344px;
+            height: 171px;
+            margin: 17px 76px;
             span {
                 padding: 20px 36px;
                 color: #fff;
@@ -387,16 +394,24 @@
         }
     }
     .bottom-area {
-        margin-right: 35px;
-        margin-top: 23px;
+        margin-top: 63px;
+        position: absolute;
+        margin-left: 180px;
         .row {
             .seat-stadium-col {
                 transform: rotate(0deg);
                 float: left;
+                .two-digit-seat {
+                    padding: 10px 6px;
+                }
             }
         }
     }
     .area-2 {
-        margin-top: 0;
+        margin-top: 17px;
     }
+}
+
+.next-stadium-seat {
+    margin-top: 100px;
 }
