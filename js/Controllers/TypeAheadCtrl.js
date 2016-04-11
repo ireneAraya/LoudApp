@@ -32,7 +32,7 @@ angular.module ('loudApp.controllers')
           getterSetter: true
         };
 
-        $scope.eventTypes = $scope.data.eventType;
+        $scope.eventTypes = $scope.data.eventTypes;
         $scope.eventLocations = $scope.locationsCol;
         $scope.events = $scope.data.events;
 

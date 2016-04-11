@@ -80,7 +80,11 @@ angular.module('loudApp',[
             })
             // EventTypes
             .when('/eventTypesList', {
-                templateUrl: 'view/eventTypesList.html',
+                templateUrl: 'views/eventTypesList.html',
+                controller: 'eventTypesCtrl'
+            })
+            .when('/addEventType', {
+                templateUrl: 'views/addEventType.html',
                 controller: 'eventTypesCtrl'
             })
             .otherwise({
