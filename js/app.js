@@ -100,11 +100,3 @@ angular.module('loudApp',[
         FacebookProvider.init(myAppId);
     }
 ])
-
-.config(function(NgMapProvider) {
-    NgMapProvider.setDefaultOptions({
-        marker: {
-            optimized: false
-        }
-    });
-});
