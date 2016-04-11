@@ -21,7 +21,7 @@ angular.module('loudApp',[
             // Buy Tickets
             .when('/buyTickets', {
                 templateUrl: 'views/buyTickets/buyTickets_event.html',
-                controller : 'TypeaheadCtrl'
+                controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets', {
                 templateUrl: 'views/buyTickets/buyTickets_cant.html',
@@ -89,7 +89,7 @@ angular.module('loudApp',[
             })
             .otherwise({
         	   templateUrl: 'views/404.html'
-            });        
+            });
 
         var myAppId = '1046016745413247';
         FacebookProvider.setAppId(myAppId);
