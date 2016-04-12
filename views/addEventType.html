@@ -15,7 +15,8 @@
 				</div><!--.row-->
 				<div class="row">
 					<div class="form-group col-xs-12">
-					  <button class="btn next-btn align-right" ng-click="addEventType()" ng-disabled="addEventTypeForm.$invalid">AGREGAR</button>
+					  <button class="btn next-btn align-right" ng-if="agregar" ng-disabled="addEventTypeForm.$invalid">AGREGAR</button>
+					  <button class="btn next-btn align-right" ng-if="editar" ng-disabled="addEventTypeForm.$invalid">EDITAR</button>
 					</div><!--.form-group .col-xs-12-->	
 				</div>
 			</form>
