@@ -1,13 +1,22 @@
 angular.module ('loudApp.controllers')
 
 .controller('buyticketsCtrl', [
-  '$scope', '$routeParams', '$location', 'LoudService',
-    function($scope, $routeParams, $location, LoudService) {
+  '$scope', '$routeParams', '$location', 'LoudService', '$filter',
+    function($scope, $routeParams, $location, LoudService, $filter) {
 
         $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
 
         $scope.initialAmount = 0;
         $scope.itemPrice = 3500;
+
+        $scope.init = function() {
+            LoudService.getDataFromJS().then(function(response) {
+                $scope.data = angular.fromJson(response.data);
+                otherFunctions();
+            }, function(razon) {
+                $scope.error = razon;
+            });
+        };
 
         $scope.sumValues = function () {
             $scope.initialAmount += $scope.itemPrice;
@@ -22,10 +31,21 @@ angular.module ('loudApp.controllers')
             }
         }
 
-        $scope.getSelectedValue = function (value) {
-          // console.log(value.id);
-            $scope.eventsBuy.id = value.id;
-            LoudService.save("LoudApp__SelectedEventInfo", $scope.eventsBuy);
-        }
+        function otherFunctions() {
+
+            $scope.getSelectedValue = function (value) {
+                $scope.eventsBuy = value;
+                LoudService.save("LoudApp__SelectedEventInfo", $scope.eventsBuy);
+            };
+
+            $scope.getEventLocation = function (index, key) {
+                var location = LoudService.getItem($scope.data.locations, "id", index);
+                return location[key];
+            };
+
+        };
+
+        $scope.init();
+
     }
 ]);
