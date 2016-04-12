@@ -17,7 +17,7 @@ angular.module ('loudApp.controllers')
 
 
         function otherFunctions () {
-            //$scope.eventsCol = $scope.data.events;
+            $scope.eventsCol = $scope.data.events;
 
             $scope.getEventLocation = function (index, key) {
                 // Se repiten los llamados
