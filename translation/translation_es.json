@@ -8,5 +8,25 @@
     "SEARCH_EVENT" : "Busque el evento aquí",
     "EVENT_DATE" : "Fecha del evento",
     "EVENT_TIME" : "Hora del evento",
-    "NEXT" : "Siguiente"
+    "NEXT" : "Siguiente",
+    "NO_RESULTS" : "¡No existen resultados de su búsqueda! Por favor, intente de nuevo.",
+    "GO_BACK" : "Volver al Inicio",
+    "SIGIN" : "Ingresar",
+    "REGISTER" : "Registrarse",
+    "FORGOT_PASSWORD" : "¿Olvidó su contraseña?",
+    "ALTERNATIVE_SIGNIN_TEXT" : "O ingresa con",
+    "NEXT_EVENTS" : "Próximos Eventos",
+    "DETAILS_BUTTON_TEXT" : "Ver Detalle",
+    "EDIT_BUTTON_TEXT" : "Editar",
+    "LOGOUT_BUTTON_TEXT" : "Salir",
+    "RESERVE_BUTTON_TEXT" : "Reservar",
+    "BUY_BUTTON_TEXT" : "Comprar",
+    "SHARE_BUTTON_TEXT" : "Compartir",
+    "PRICES_TEXT" : "Precios",
+    "DESCRIPTION_TEXT" : "Descripción",
+    "FOOTER" : {
+        "CONTACT" : "Contáctenos",
+        "PRIVACY" : "Políticas de Privacidad",
+        "TERMS" : "Términos de Uso"
+    }
 }

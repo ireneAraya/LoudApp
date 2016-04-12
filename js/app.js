@@ -44,6 +44,10 @@ angular.module('loudApp',[
                 templateUrl: 'views/login.html',
                 controller : 'LoginCtrl'
             })
+            .when('/register', {
+                templateUrl: 'views/register.html',
+                controller : 'RegisterCtrl'
+            })
             .when('/profile', {
                 templateUrl: 'views/profile.html',
                 controller : 'ProfileCtrl'
@@ -78,6 +82,15 @@ angular.module('loudApp',[
                 templateUrl: 'views/addLocation.html',
                 controller: 'LocationsCtrl'
             })
+            // EventTypes
+            .when('/eventTypesList', {
+                templateUrl: 'views/eventTypesList.html',
+                controller: 'eventTypesCtrl'
+            })
+            .when('/addEventType', {
+                templateUrl: 'views/addEventType.html',
+                controller: 'eventTypesCtrl'
+            })
             .otherwise({
         	   templateUrl: 'views/404.html'
             });
@@ -87,11 +100,3 @@ angular.module('loudApp',[
         FacebookProvider.init(myAppId);
     }
 ])
-
-.config(function(NgMapProvider) {
-    NgMapProvider.setDefaultOptions({
-        marker: {
-            optimized: false
-        }
-    });
-});

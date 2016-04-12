@@ -71,7 +71,6 @@ angular.module ('loudApp.controllers')
             };
 
             //Agregar locación
-
             $scope.addLocation = function () {
                 var lastID = 0;
 

@@ -256,7 +256,7 @@
 		}
 	],
 
-	"eventType" : [
+	"eventTypes" : [
 		{
 			"id"			: 0,
 			"description"	: "Concierto"

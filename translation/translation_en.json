@@ -8,5 +8,25 @@
     "SEARCH_EVENT" : "Search the event here",
     "EVENT_DATE" : "Event date",
     "EVENT_TIME" : "Event time",
-    "NEXT" : "Next"
+    "NEXT" : "Next",
+    "NO_RESULTS" : "No results were found. Please try another filter.",
+    "GO_BACK" : "Go back to Home",
+    "SIGIN" : "Sign in",
+    "REGISTER" : "Register",
+    "FORGOT_PASSWORD" : "Forgor your password?",
+    "ALTERNATIVE_SIGNIN_TEXT" : "Or sign in with other services",
+    "NEXT_EVENTS" : "Upcoming Events",
+    "DETAILS_BUTTON_TEXT" : "See Details",
+    "EDIT_BUTTON_TEXT" : "Edit",
+    "LOGOUT_BUTTON_TEXT" : "Log out",
+    "RESERVE_BUTTON_TEXT" : "Reserve",
+    "BUY_BUTTON_TEXT" : "Buy",
+    "SHARE_BUTTON_TEXT" : "Share",
+    "PRICES_TEXT" : "Prices",
+    "DESCRIPTION_TEXT" : "Description",
+    "FOOTER" : {
+        "CONTACT" : "Contact Us",
+        "PRIVACY" : "Privacy",
+        "TERMS" : "Terms of Use"
+    }
 }
