@@ -4,6 +4,8 @@ angular.module ('loudApp.controllers')
   '$scope', '$routeParams', '$location', 'LoudService',
     function($scope, $routeParams, $location, LoudService) {
 
+        $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
+
         $scope.initialAmount = 0;
         $scope.itemPrice = 3500;
 
@@ -21,7 +23,12 @@ angular.module ('loudApp.controllers')
         }
 
         $scope.getSelectedValue = function (value) {
-          console.log(value.id);
+            var event = {
+                id : value.id
+            }
+            $scope.eventsBuy.push(event);
+          // console.log(value.id);
+            LoudService.save("LoudApp__SelectedEventInfo", $scope.eventsBuy);
         }
     }
 ]);
