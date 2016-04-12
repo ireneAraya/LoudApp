@@ -23,11 +23,8 @@ angular.module ('loudApp.controllers')
         }
 
         $scope.getSelectedValue = function (value) {
-            var event = {
-                id : value.id
-            }
-            $scope.eventsBuy.push(event);
           // console.log(value.id);
+            $scope.eventsBuy.id = value.id;
             LoudService.save("LoudApp__SelectedEventInfo", $scope.eventsBuy);
         }
     }
