@@ -1,6 +1,6 @@
 angular.module ('loudApp.services')
 
-.value('BaseURL', '/js/data.json')
+.value('BaseURL', '/front-end/js/data.json')
 
 .service('LoudService',['$http', 'BaseURL',
 	function($http, BaseURL) {

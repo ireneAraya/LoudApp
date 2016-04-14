@@ -11,7 +11,7 @@
 			"personalId"	: 111122221,
 			"rol"			: 0,
 			"rId"			: "a-1",
-			"image"			: "/img/profilePlaceholder.png"
+			"image"			: "/front-end/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "fawkes",
@@ -24,7 +24,7 @@
 			"personalId"	: 111133331,
 			"rol"			: 1,
 			"rId"			: "p-1",
-			"image"			: "/img/profilePlaceholder.png",
+			"image"			: "/front-end/img/profilePlaceholder.png",
 			"company"		: "Howarts"
 		},
 		{
@@ -38,7 +38,7 @@
 			"personalId"	: 111144441,
 			"rol"			: 1,
 			"rId"			: "p-2",
-			"image"			: "/img/severus-snape.jpg",
+			"image"			: "/front-end/img/severus-snape.jpg",
 			"company"		: "Slytherin"
 		},
 		{
@@ -62,7 +62,7 @@
 								],
 			"imparment"		: "",
 			"specialCond"	: "",
-			"image"			: "/img/profilePlaceholder.png"
+			"image"			: "/front-end/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "crookshanks",
@@ -85,7 +85,7 @@
 								],
 			"imparment"		: "",
 			"specialCond"	: "",
-			"image"			: "/img/profilePlaceholder.png"
+			"image"			: "/front-end/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "arnold",
@@ -108,7 +108,7 @@
 								],
 			"imparment"		: "",
 			"specialCond"	: "",
-			"image"		: "/img/profilePlaceholder.png"
+			"image"		: "/front-end/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "trevor",
@@ -121,7 +121,7 @@
 			"personalId"	: 111188881,
 			"rol"			: 3,
 			"rId"			: "t-1",
-			"image"			: "/img/profilePlaceholder.png"
+			"image"			: "/front-end/img/profilePlaceholder.png"
 		},
 		{
 			"_comment"      : "snorkack",
@@ -134,7 +134,7 @@
 			"personalId"	: 111199991,
 			"rol"			: 3,
 			"rId"			: "t-1",
-			"image"			: "/img/profilePlaceholder.png"
+			"image"			: "/front-end/img/profilePlaceholder.png"
 		}
 	],
 
@@ -184,7 +184,7 @@
 										"amount" 	: 60000
 									}
 								],
-			"image"			: "/img/marcAnthony.jpg"
+			"image"			: "/front-end/img/marcAnthony.jpg"
 		},
 		{
 			"id"			: 1,
@@ -204,7 +204,7 @@
 										"amount" 	: 20000
 									}
 								],
-			"image"			: "/img/SondeTK.jpg"
+			"image"			: "/front-end/img/SondeTK.jpg"
 		},
 		{
 			"id"			: 2,
@@ -228,7 +228,7 @@
 										"amount" 	: 60000
 									}
 								],
-			"image"			: "/img/ironMaiden.jpg"
+			"image"			: "/front-end/img/ironMaiden.jpg"
 		},
 		{
 			"id"			: 3,
@@ -252,7 +252,7 @@
 										"amount" 	: 20000
 									}
 								],
-			"image"			: "/img/sele.jpg"
+			"image"			: "/front-end/img/sele.jpg"
 		}
 	],
 
@@ -279,7 +279,7 @@
 			"capacity"		: 23000,
 			"geographicLoc"	: "9.965654, -84.075301",
 			"adress"		: "San Juan de Tibás",
-			"image"			: "/img/estadioSaprissa.jpg"
+			"image"			: "/front-end/img/estadioSaprissa.jpg"
 		},
 		{
 			"id"			: 1,
@@ -288,7 +288,7 @@
 			"capacity"		: 2000,
 			"geographicLoc"	: "9.918136, -84.049025",
 			"adress"		: "Contiguo al parqueo de Price Smart Zapote, San José",
-			"image"			: "/img/clubPeppers.jpg"
+			"image"			: "/front-end/img/clubPeppers.jpg"
 		},
 		{
 			"id"			: 2,
@@ -297,7 +297,7 @@
 			"capacity"		: 35000,
 			"geographicLoc"	: "9.936768, -84.107852",
 			"adress"		: "La Sabana, Costa Rica",
-			"image"			: "/img/estadioNacional.jpg"
+			"image"			: "/front-end/img/estadioNacional.jpg"
 		}
 	],
 
