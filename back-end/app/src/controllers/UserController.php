@@ -35,7 +35,6 @@ class UserController {
             if (array_key_exists("error", $loginResult)) {
                 $result["error"] = true;
             } else {
-                $result["data"] = $loginResult;
                 setcookie($this->cookieName, true, time()+3600);
             }
 
@@ -44,6 +43,12 @@ class UserController {
             $result["error"] = true;
             $result["message"] = "Email and password cannot be empty.";
         }
+
+        return $result;
+    }
+
+    public function verifyUser () {
+        $result = $this->userService->verifyUser();
 
         return $result;
     }

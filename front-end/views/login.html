@@ -8,18 +8,21 @@
 
     <div class="container">
         <form name="loginForm" id="loginForm">
+
+            <div class="alert alert-danger" role="alert" ng-if="error"><span ng-bind-html="error"></span></div>
+
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i></span>
-                        <input type="text" class="form-control" ng-model="email" required name="txtUserEmail" placeholder="email@me.com">
+                        <input type="email" class="form-control" ng-model="email" required name="txtUserEmail" placeholder="email@me.com">
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" ng-model="password" required name="txtUserPassword">
+                        <input type="password" class="form-control" ng-model="password" required name="txtUserPassword" ng-minlength="8">
                     </div>
                 </div>
             </div>

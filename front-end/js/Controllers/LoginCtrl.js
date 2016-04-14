@@ -1,51 +1,65 @@
 angular.module ('loudApp.controllers')
 
 .controller('LoginCtrl', [
-	'$scope', 'LoudService', 'LoudFB', '$location', '$q', '$rootScope',
-	function($scope, LoudService, LoudFB, $location, $q, $rootScope) {
+	'$scope', 'LoudService', 'LoudFB', '$location', '$q', '$rootScope', '$timeout',
+	function($scope, LoudService, LoudFB, $location, $q, $rootScope, $timeout) {
 
-        $scope.user = LoudService.verify("LoudApp__User") || {};
+        // $scope.user = LoudService.verify("LoudApp__User") || {};
+        var user_exists;
 
         $scope.init = function() {
-            LoudService.getDataFromJS().then(function(response) {
-                $scope.data = angular.fromJson(response.data);
-                otherFunctions();
-            }, function(razon) {
-                $scope.error = razon;
-            });
+            user_exists = LoudService.verifyUser();
+            otherFunctions();
         };
 
         function otherFunctions () {
-            if ($scope.user.id) {
-                $location.path("/");
-            }
+            // if (!user_exists) {
+            //     $location.path("/");
+            // }
 
             $scope.login = function () {
                 $scope.logginUser = true;
 
-                var usersCollection = $scope.data.users,
-                    userExists = false;
+               var callService = $q(function (resolve, reject) {
+                    var res = LoudService.loginUser($scope.email, $scope.password);
 
-                var userEmail = $scope.email,
-                    userPass = encodeValue($scope.password);
+                    $timeout(
+                        function() {
+                            resolve(res)
+                        }, Math.random() * 2000 + 1000);
+                });
 
-                if (userEmail !== "" && userPass !== "") {
-                    for (var i = 0; i < usersCollection.length; i++) {
-                        var user = usersCollection[i];
-
-                        if (userEmail === user.email && decodeValue(userPass) === decodeValue(user.password)) {
-                            userExists = true;
-                        }
+                callService.then(function (response) {
+                    if (!response.success) {
+                        $scope.error = response.message;
+                    } else {
+                        console.log(response);
                     }
-                }
+                });
 
-                $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
-                $scope.user.facebook = false;
+                // var usersCollection = $scope.data.users,
+                //     userExists = false;
+
+                // var userEmail = $scope.email,
+                //     userPass = encodeValue($scope.password);
+
+                // if (userEmail !== "" && userPass !== "") {
+                //     for (var i = 0; i < usersCollection.length; i++) {
+                //         var user = usersCollection[i];
+
+                //         if (userEmail === user.email && decodeValue(userPass) === decodeValue(user.password)) {
+                //             userExists = true;
+                //         }
+                //     }
+                // }
+
+                // $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
+                // $scope.user.facebook = false;
 
                 // Tells the HeaderCtrl that a user has logged in a session
-                $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
+                // $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
                 $scope.logginUser = false;
-                $location.path("/");
+                // $location.path("/");
             };
 
             $scope.facebookLogin = function () {
@@ -101,8 +115,8 @@ angular.module ('loudApp.controllers')
 
         $scope.init();
 
-        $scope.$watch('user', function(newValue, oldValue) {
-            LoudService.save("LoudApp__User", newValue);
-        }, true);
+        // $scope.$watch('user', function(newValue, oldValue) {
+        //     LoudService.save("LoudApp__User", newValue);
+        // }, true);
 	}
 ])

@@ -64,5 +64,16 @@ $app->post(
     }
 );
 
+$app->get(
+    '/user/verify',
+    function ($request, $response) {
+        /** @var Request $request */
+        /** @var Response $response */
+        $userController = new App\Controllers\UserController();
+        $result = $userController->verifyUser();
+        return $result;
+    }
+);
+
 // Corremos la aplicación.
 $app->run();

@@ -1,14 +1,11 @@
 angular.module ('loudApp.services')
-
-.value('BaseURL', '/back-end/')
-
-.service('LoudService',['$http', 'BaseURL', '$q', '$timeout'
-	function($http, BaseURL, $q, $timeout) {
+.service('LoudService',['$http', '$q', '$timeout',
+	function($http, $q, $timeout) {
 
 		var getDataFromJS = function () {
 			return $http({
                 method: "GET",
-                url: BaseURL
+                url: '/front-end/js/data.json'
             });
 		};
 
@@ -21,7 +18,6 @@ angular.module ('loudApp.services')
         var loginUser = function (email, password) {
             var result = {
                 success : false,
-                data    : null,
                 message : null
             };
 
@@ -32,22 +28,40 @@ angular.module ('loudApp.services')
                         email : email,
                         password : password
                     },
-                    url: BaseURL + 'user/login'
+                    url: '/back-end/user/login'
                 }).then(function successCallback(response) {
                     if (!response.data.error) {
                         result.success = true;
-                        result.data = response;
                     } else {
-                        result.message = response.message;
+                        result.message = response.data.message;
                     }
                 }, function errorCallback(response) {
-                    result.message = response.message;
+                    result.message = response.data.message;
                 });
             } else {
                 result.message = "The email and password are required. Please try again.";
             }
 
             return result;
+        };
+
+        var verifyUser = function () {
+            var user_exist = false;
+
+            $http({
+                method: 'GET',
+                url: '/back-end/user/verify'
+            }).then(function successCallback(response) {
+                if (response === true) {
+                    user_exist = true;
+                } else {
+                    user_exist = false;
+                }
+            }, function errorCallback(response) {
+                result.message = response.message;
+            });
+
+            return user_exist;
         };
 
         var save = function (key, object) {
@@ -101,7 +115,9 @@ angular.module ('loudApp.services')
             verify          : verify,
 			getDataFromJS 	: getDataFromJS,
 			getItem 		: getItem,
-			getItemIndex	: getItemIndex
+			getItemIndex	: getItemIndex,
+            loginUser       : loginUser,
+            verifyUser      : verifyUser
 		};
 
 	}

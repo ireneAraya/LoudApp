@@ -8,7 +8,8 @@ angular.module('loudApp',[
     'ui.bootstrap',
     'ngMessages',
     'facebook',
-    'ngResource'
+    'ngResource',
+    'ngSanitize'
 ])
 
 .config(['$routeProvider','FacebookProvider',
