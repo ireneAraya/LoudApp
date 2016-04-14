@@ -1,9 +1,9 @@
 angular.module ('loudApp.services')
 
-.value('BaseURL', '/front-end/js/data.json')
+.value('BaseURL', '/back-end/')
 
-.service('LoudService',['$http', 'BaseURL',
-	function($http, BaseURL) {
+.service('LoudService',['$http', 'BaseURL', '$q', '$timeout'
+	function($http, BaseURL, $q, $timeout) {
 
 		var getDataFromJS = function () {
 			return $http({
@@ -11,6 +11,44 @@ angular.module ('loudApp.services')
                 url: BaseURL
             });
 		};
+
+        /**
+         * Logs in a user to the system
+         * @param  {string} email    The user's email
+         * @param  {string} password The user's password
+         * @return {object}          A result object containing the status of the request and the request message
+         */
+        var loginUser = function (email, password) {
+            var result = {
+                success : false,
+                data    : null,
+                message : null
+            };
+
+            if (email != undefined && password != undefined) {
+                $http({
+                    method: 'POST',
+                    data: {
+                        email : email,
+                        password : password
+                    },
+                    url: BaseURL + 'user/login'
+                }).then(function successCallback(response) {
+                    if (!response.data.error) {
+                        result.success = true;
+                        result.data = response;
+                    } else {
+                        result.message = response.message;
+                    }
+                }, function errorCallback(response) {
+                    result.message = response.message;
+                });
+            } else {
+                result.message = "The email and password are required. Please try again.";
+            }
+
+            return result;
+        };
 
         var save = function (key, object) {
             localStorage.setItem( key, angular.toJson(object) );
