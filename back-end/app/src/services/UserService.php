@@ -27,28 +27,38 @@ class UserService {
         if (strlen(trim($email)) > 0) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 if (strlen(trim($password)) > 0) {
-                    $query_for_hash = "SELECT hash FROM loud_users WHERE email = :email LIMIT 1";
+                    $query_for_hash = "SELECT id, hash FROM loud_users WHERE email = :email LIMIT 1";
 
                     $params_for_hash = [":email" => $email];
 
                     if ($this->isDBReady) {
-                        $result = $this->storage->query($query_for_hash, $params_for_hash);
+                        $result = $this->storage->query($query_for_hash, $params_for_hash, "SELECT");
 
                         if (count($result['data']) > 0) {
                             $user = $result['data'][0];
 
                             if (hash_equals($user['hash'], crypt($password, $user['hash']))) {
-                                session_start();
-                                $_SESSION['user'] = true;
-                                $result["success"] = true;
-                                $result["message"] = "User found!";
+                                $query = "UPDATE loud_users SET active = 1 WHERE id = :id";
+                                $param = [":id" => $user["id"]];
+
+                                $result = $this->storage->query($query, $param, "UPDATE");
+
+                                if ($result['data'] > 0) {
+                                    session_start();
+                                    $_SESSION['user_id'] = $user["id"];
+                                    $result["success"] = true;
+                                    $result["message"] = "Started a session for user #".$user["id"];
+                                } else {
+                                    $result["error"] = true;
+                                    $result["message"] = "User #".$user['id']." is already logged in.";
+                                }
                             } else {
                                 $result["error"] = true;
                                 $result["message"] = "Invalid credentials for the user. Please try again!";
                             }
                         } else {
                             $result["error"] = true;
-                            $result["message"] = "The user you typed does not exists. Please try another one or <a href='#/register'>create a new account</a>.";
+                            $result["message"] = "The user you enter does not exists. Please try another one or <a href='#/register'>create a new account</a>.";
                         }
                     } else {
                         $result["message"] = "Database has not been setup yet.";
@@ -71,10 +81,17 @@ class UserService {
     }
 
     public function verifyUser () {
-        $result = false;
+        $result = [];
 
-        if (!session_status() == PHP_SESSION_NONE)  {
-            $result = true;
+        session_start();
+
+        if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+            $result["success"] = true;
+            $result["message"] = "The user ".$_SESSION['user_id']." has an active session.";
+            $result["data"] = $_SESSION['user_id'];
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Not user found!";
         }
 
         return $result;

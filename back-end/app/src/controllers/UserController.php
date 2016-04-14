@@ -47,8 +47,19 @@ class UserController {
         return $result;
     }
 
-    public function verifyUser () {
-        $result = $this->userService->verifyUser();
+    public function verifyUser ($request) {
+        $result = [];
+
+        $verifyResult = $this->userService->verifyUser();
+
+        if (array_key_exists("error", $verifyResult)) {
+            $result["error"] = true;
+            $result["message"] = $verifyResult["message"];
+        } else {
+            $result["success"] = true;
+            $result["message"] = $verifyResult["message"];
+            $result["data"] = intval($verifyResult["data"]);
+        }
 
         return $result;
     }

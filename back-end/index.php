@@ -70,8 +70,8 @@ $app->get(
         /** @var Request $request */
         /** @var Response $response */
         $userController = new App\Controllers\UserController();
-        $result = $userController->verifyUser();
-        return $result;
+        $result = $userController->verifyUser($request);
+        return $response->withJson($result);
     }
 );
 

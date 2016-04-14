@@ -32,6 +32,7 @@ angular.module ('loudApp.services')
                 }).then(function successCallback(response) {
                     if (!response.data.error) {
                         result.success = true;
+                        result.message = response.data.message;
                     } else {
                         result.message = response.data.message;
                     }
@@ -46,22 +47,28 @@ angular.module ('loudApp.services')
         };
 
         var verifyUser = function () {
-            var user_exist = false;
+            var result = {
+                success : false,
+                message : null
+            }
 
             $http({
                 method: 'GET',
+                data : {},
                 url: '/back-end/user/verify'
             }).then(function successCallback(response) {
-                if (response === true) {
-                    user_exist = true;
+                if (!response.data.error) {
+                    result.success = true;
+                    result.message = response.data.message;
+                    result.user_id = response.data.data;
                 } else {
-                    user_exist = false;
+                    result.message = response.data.message;
                 }
             }, function errorCallback(response) {
                 result.message = response.message;
             });
 
-            return user_exist;
+            return result;
         };
 
         var save = function (key, object) {
