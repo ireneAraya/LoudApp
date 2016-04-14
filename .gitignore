@@ -1,5 +1,8 @@
+composer.phar
+back-end/vendor/
+create_db.sql
 .sass-cache
-css/style.css.map
-css/style.css
+front-end/css/style.css.map
+front-end/css/style.css
 .DS_Store
 .Thumbs.db
