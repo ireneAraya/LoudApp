@@ -4,10 +4,10 @@
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<div class="panel user-card">
 				<div class="panel-body row">
-					<figure class="user-image" style="background: #ecf0f1 url({{ user.image }}) 0 0 no-repeat"></figure>
-					<h1 class="user-name">{{ user.name + " " + user.lastName }}</h1>
+					<figure class="user-image" style="background: #ecf0f1 url({{ user.photoURL }}) 0 0 no-repeat"></figure>
+					<h1 class="user-name">{{ user.firstName + " " + user.lastName }}</h1>
 					<p class="text-center"><a href="mailto:{{ user.email | lowercase }}">{{ user.email | lowercase }}</a></p>
-					<p ng-show="user.personalId" class="text-center"><small>{{ user.personalId }}</small></p>
+					<p ng-show="user.indentification" class="text-center"><small>{{ user.indentification }}</small></p>
 				</div>
 
 				<div class="panel-body row text-center">

@@ -8,19 +8,25 @@ angular.module ('loudApp.controllers')
 
         $scope.init = function() {
             var userExists = $q(function (resolve, reject) {
-                    var res = LoudService.verifyUser();
+                var res = LoudService.verifyUser();
 
-                    $timeout(
-                        function() {
-                            resolve(res)
-                        }, Math.random() * 2000 + 1000);
-                });
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
 
-                userExists.then(function (response) {
-                    if (response.success) {
-                        $location.path("/");
-                    }
-                });
+            userExists.then(function (response) {
+                console.log(response);
+
+                if (response.success) {
+                    $scope.user = response.data;
+
+                    // Tells the HeaderCtrl that a user has logged in a session
+                    $rootScope.$broadcast('userIsLoggedIn', { "user" : $scope.user });
+                    $location.path("/");
+                }
+            });
 
             // Calbacks
             otherFunctions();
@@ -40,14 +46,27 @@ angular.module ('loudApp.controllers')
                 });
 
                 callService.then(function (response) {
-                    console.log(response);
-
                     if (!response.success) {
                         $scope.error = response.message;
                     } else {
-                        // Tells the HeaderCtrl that a user has logged in a session
-                        // $rootScope.$broadcast('userIsLoggedIn', { "user_id" : $scope.user.id });
-                        // $location.path("/");
+                        var userExists = $q(function (resolve, reject) {
+                            var res = LoudService.verifyUser();
+
+                            $timeout(
+                                function() {
+                                    resolve(res)
+                                }, Math.random() * 2000 + 1000);
+                        });
+
+                        userExists.then(function (response) {
+                            if (response.success) {
+                                $scope.user = response.data;
+
+                                // Tells the HeaderCtrl that a user has logged in a session
+                                $rootScope.$broadcast('userIsLoggedIn', { "user" : $scope.user });
+                                $location.path("/");
+                            }
+                        });
                     }
                 });
 
@@ -129,8 +148,8 @@ angular.module ('loudApp.controllers')
 
         $scope.init();
 
-        // $scope.$watch('user', function(newValue, oldValue) {
-        //     LoudService.save("LoudApp__User", newValue);
-        // }, true);
+        $scope.$watch('user', function(newValue, oldValue) {
+            LoudService.save("LoudApp__User", newValue);
+        }, true);
 	}
 ])

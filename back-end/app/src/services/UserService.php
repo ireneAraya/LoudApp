@@ -88,10 +88,35 @@ class UserService {
         if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
             $result["success"] = true;
             $result["message"] = "The user ".$_SESSION['user_id']." has an active session.";
-            $result["data"] = $_SESSION['user_id'];
+
+            $query = "SELECT id, rol, firstName, middleName, lastName, secondSurname, email, phone, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, company FROM loud_users WHERE id = :id LIMIT 1";
+            $param = ["id" => intVal($_SESSION['user_id'])];
+
+            $query_result = $this->storage->query($query, $param, "SELECT");
+            $user = $query_result['data'][0];
+
+            $result["data"] = [
+                "id" => $user["id"],
+                "rol" => $user["rol"],
+                "firstName" => $user["firstName"],
+                "middleName" => $user["middleName"],
+                "lastName" => $user["lastName"],
+                "secondSurname" => $user["secondSurname"],
+                "email" => $user["email"],
+                "phone" => $user["phone"],
+                "identification" => $user["identification"],
+                "identificationType" => $user["identificationType"],
+                "locale" => $user["locale"],
+                "birthDate" => $user["birthDate"],
+                "gender" => $user["gender"],
+                "disability" => $user["disability"],
+                "specialCondition" => $user["specialCondition"],
+                "photoURL" => $user["photoURL"],
+                "company" => $user["company"]
+            ];
         } else {
             $result["error"] = true;
-            $result["message"] = "Not user found!";
+            $result["message"] = "Not user logged in!";
         }
 
         return $result;
@@ -130,8 +155,6 @@ class UserService {
                             $query = "INSERT INTO usuarios (email, password, full_name) VALUES(:email, :password, :full_name)";
                             $params = [":email" => $email, ":password" => $password, ":full_name" => $fullName];
                             $result = $this->storage->query($query, $params);
-
-                            // $result["message"] = $result;
                             $result["message"] = "The user has been created successfully!";
                         }
                     } else {

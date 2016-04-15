@@ -58,7 +58,7 @@ class UserController {
         } else {
             $result["success"] = true;
             $result["message"] = $verifyResult["message"];
-            $result["data"] = intval($verifyResult["data"]);
+            $result["data"] = $verifyResult["data"];
         }
 
         return $result;

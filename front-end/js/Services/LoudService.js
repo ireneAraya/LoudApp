@@ -60,7 +60,7 @@ angular.module ('loudApp.services')
                 if (!response.data.error) {
                     result.success = true;
                     result.message = response.data.message;
-                    result.user_id = response.data.data;
+                    result.data = response.data.data;
                 } else {
                     result.message = response.data.message;
                 }
