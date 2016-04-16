@@ -5,7 +5,7 @@ angular.module ('loudApp.directives')
     return {
         require: 'ngModel',
             link: function(scope, elm, attrs, ctrl){
-                var regex = /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/;
+                var regex = /^([-+]?)([\d]{1,2})(((\.)([\d]{6})(,)))(\s*)(([-+]?)([\d]{1,2})((\.)([\d]{6})))$/;
                 var validator = function(value){
                     ctrl.$setValidity('validGeol', regex.test(value));
                     return value;

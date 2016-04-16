@@ -325,8 +325,15 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	color: #ffffff;
 
 	a{
-		padding-top: 15px;
 		color: #ffffff;
+		
+		&.inline{
+			padding-top: 8px;
+		}
+
+		&.two-lines{
+			padding-top: 15px;
+		}
 
 		&:hover{
 			color: $dark-red;
