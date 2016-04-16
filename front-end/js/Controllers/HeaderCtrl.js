@@ -21,7 +21,7 @@ angular.module ('loudApp.controllers')
           $scope.user = response.data;
         } else {
           $scope.link = "#/login";
-          $scope.user = null;
+          $scope.user = {};
         }
     });
 
