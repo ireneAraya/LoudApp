@@ -5,6 +5,7 @@ angular.module ('loudApp.controllers')
     function($scope, $routeParams, $location, LoudService, $filter) {
 
         $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
+        var options = [];
 
         $scope.initialAmount = 0;
         $scope.itemPrice = 3500;
@@ -32,10 +33,13 @@ angular.module ('loudApp.controllers')
         }
 
         function otherFunctions() {
+            var areaAndSeats = {};
+            areaAndSeats.area = "";
+            areaAndSeats.seats = [];
 
             $scope.getSelectedValue = function (value) {
                 $scope.eventsBuy = value;
-                LoudService.save("LoudApp__SelectedEventInfo", $scope.eventsBuy);
+                // LoudService.save("LoudApp__SelectedEventInfo", $scope.eventsBuy);
             };
 
             $scope.getEventLocation = function (index, key) {
@@ -43,9 +47,37 @@ angular.module ('loudApp.controllers')
                 return location[key];
             };
 
+            $scope.getAreaValue = function (item) {
+                areaAndSeats.area = item.currentTarget.getAttribute("data-description");
+            };
+
+            $scope.getSeatNumber = function (item) {
+                areaAndSeats.seats.push(item.currentTarget.getAttribute("data-description"));
+            };
+
+            $scope.buyButon = function () {
+                // Comprobar que haya por lo menos un area y por lo menos
+                // un asiento
+                // if () {
+                    console.log(areaAndSeats);
+                    $scope.eventsBuy.options = [];
+                    $scope.eventsBuy.options.push(areaAndSeats);
+                    areaAndSeats = {};
+                    areaAndSeats.area = "";
+                    areaAndSeats.seats = [];
+                // } else {
+                    // alert("Seleccione por lo menos un asiento");
+                // }
+
+                console.log($scope.eventsBuy.options);
+            }
         };
 
         $scope.init();
+
+        $scope.$watch('eventsBuy', function(newValue, oldValue) {
+            LoudService.save("LoudApp__SelectedEventInfo", newValue);
+        }, true);
 
     }
 ]);

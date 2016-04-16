@@ -11,7 +11,13 @@
           <p>Fecha: <span>{{eventsBuy.date}}</span></p>
           <p>Hora: <span>{{eventsBuy.startHour}}</span></p>
           <p>Lugar: <span>{{ getEventLocation(eventsBuy.location, 'name') }}</span></p>
-          <p>Asientos: <span>A1 - A2 - A3</span></p>
+          <div>
+            <p>Asientos:</p>
+            <div ng-repeat="option in eventsBuy.options">
+              <span>{{ option.area }}</span>
+              <span>{{ option.seats }}</span>
+            </div>
+          </div>
           <p>Total: <span>3000</span></p>
         </div>
         <div class="detail-buy-information form-group">
