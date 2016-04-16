@@ -1,0 +1,329 @@
+{
+	"users" : [
+		{
+			"_comment"      : "Hedwig",
+			"id"			: 0,
+			"email" 		: "harry@loud.com",
+			"password" 		: "SGVkd2ln",
+			"name"			: "Harry",
+			"lastName"		: "Potter",
+			"personalIdType": 1,
+			"personalId"	: 111122221,
+			"rol"			: 0,
+			"rId"			: "a-1",
+			"image"			: "/front-end/img/profilePlaceholder.png"
+		},
+		{
+			"_comment"      : "fawkes",
+			"id"			: 1,
+			"email" 		: "albus@loud.com",
+			"password" 		: "ZmF3a2Vz",
+			"name"			: "Albus",
+			"lastName"		: "Dumbledore",
+			"personalIdType": 1,
+			"personalId"	: 111133331,
+			"rol"			: 1,
+			"rId"			: "p-1",
+			"image"			: "/front-end/img/profilePlaceholder.png",
+			"company"		: "Howarts"
+		},
+		{
+			"_comment"      : "doe",
+			"id"			: 2,
+			"email" 		: "severus@loud.com",
+			"password" 		: "ZG9l",
+			"name"			: "Severus",
+			"lastName"		: "Snape",
+			"personalIdType": 1,
+			"personalId"	: 111144441,
+			"rol"			: 1,
+			"rId"			: "p-2",
+			"image"			: "/front-end/img/severus-snape.jpg",
+			"company"		: "Slytherin"
+		},
+		{
+			"_comment"      : "scabbers",
+			"id"			: 3,
+			"email" 		: "ronald@loud.com",
+			"password" 		: "c2NhYmJlcnM=",
+			"name"			: "Ronald",
+			"lastName"		: "Weasley",
+			"personalIdType": 2,
+			"personalId"	: 111155551,
+			"rol"			: 2,
+			"rId"			: "c-1",
+			"creditCard"	: 	[
+									{
+										"ownerName"	: "Ronald Bilius Weasley",
+										"cardType"	: 1,
+										"number"		: 1110000111110001,
+										"code"		: 123
+									}
+								],
+			"imparment"		: "",
+			"specialCond"	: "",
+			"image"			: "/front-end/img/profilePlaceholder.png"
+		},
+		{
+			"_comment"      : "crookshanks",
+			"id"			: 4,
+			"email" 		: "hermione@loud.com",
+			"password" 		: "Y3Jvb2tzaGFua3M=",
+			"name"			: "Hermione",
+			"lastName"		: "Granger",
+			"personalIdType": 1,
+			"personalId"	: 111166661,
+			"rol"			: 2,
+			"rId"			: "c-2",
+			"creditCard"	: 	[
+									{
+										"ownerName"	: "Hermione Granger",
+										"cardType"	: 1,
+										"number"		: 1110000111110002,
+										"code"		: 234
+									}
+								],
+			"imparment"		: "",
+			"specialCond"	: "",
+			"image"			: "/front-end/img/profilePlaceholder.png"
+		},
+		{
+			"_comment"      : "arnold",
+			"id"			: 5,
+			"email" 		: "ginny@loud.com",
+			"password" 		: "YXJub2xk",
+			"name"			: "Ginny",
+			"lastName"		: "Weasley",
+			"personalIdType": 2,
+			"personalId"	: 111177771,
+			"rol"			: 2,
+			"rId"			: "c-3",
+			"creditCard"	: 	[
+									{
+										"ownerName"	: "Ginevra Molly Weasley",
+										"cardType"	: 1,
+										"number"		: 1110000111110003,
+										"code"		: 456
+									}
+								],
+			"imparment"		: "",
+			"specialCond"	: "",
+			"image"		: "/front-end/img/profilePlaceholder.png"
+		},
+		{
+			"_comment"      : "trevor",
+			"id"			: 6,
+			"email"			: "neville@loud.com",
+			"password"		: "dHJldm9y",
+			"name"			: "Neville",
+			"lastName"		: "Longbottom",
+			"personalIdType": 1,
+			"personalId"	: 111188881,
+			"rol"			: 3,
+			"rId"			: "t-1",
+			"image"			: "/front-end/img/profilePlaceholder.png"
+		},
+		{
+			"_comment"      : "snorkack",
+			"id"			: 7,
+			"email" 		: "luna@loud.com",
+			"password" 		: "c25vcmthY2s=",
+			"name"			: "Luna",
+			"lastName"		: "Lovewood",
+			"personalIdType": 2,
+			"personalId"	: 111199991,
+			"rol"			: 3,
+			"rId"			: "t-1",
+			"image"			: "/front-end/img/profilePlaceholder.png"
+		}
+	],
+
+	"rol" : [
+		{
+			"id" 			: 0,
+			"code"			: "admin",
+			"name"			: "Administrador"
+		},
+		{
+			"id" 			: 1,
+			"code"			: "promoter",
+			"name"			: "Promotor"
+		},
+		{
+			"id" 			: 2,
+			"code"			: "client",
+			"name"			: "Cliente"
+		},
+		{
+			"id" 			: 3,
+			"code"			: "teller",
+			"name"			: "Cajero"
+		}
+	],
+
+	"events" : [
+		{
+			"id"			: 0,
+			"name"			: "Mark Anthony en concierto",
+			"date"			: "17-09-2016",
+			"startHour"		: "21:00",
+			"eventType"		: 0,
+			"description"	: "Mark Anthony en Costa Rica",
+			"location"		: 0,
+			"prices"		: 	[
+									{
+										"place"		: "Sombra",
+										"amount"	: 35000
+									},
+									{
+										"place"		: "Gramilla General",
+										"amount" 	: 40000
+									},
+									{
+										"place"		: "VIP",
+										"amount" 	: 60000
+									}
+								],
+			"image"			: "/front-end/img/marcAnthony.jpg"
+		},
+		{
+			"id"			: 1,
+			"name"			: "Baile con Tikizia",
+			"date"			: "07-10-2016",
+			"startHour"		: "18:00",
+			"eventType"		: 1,
+			"description"	: "Actividad bailable con música en vivo",
+			"location"		: 1,
+			"prices"		: 	[
+									{
+										"place"		: "General",
+										"amount"	: 10000
+									},
+									{
+										"place"		: "VIP",
+										"amount" 	: 20000
+									}
+								],
+			"image"			: "/front-end/img/SondeTK.jpg"
+		},
+		{
+			"id"			: 2,
+			"name"			: "Iron Maiden en Costa Rica",
+			"date"			: "28-05-2016",
+			"startHour"		: "19:00",
+			"eventType"		: 0,
+			"description"	: "Gira mundial",
+			"location"		: 0,
+			"prices"		: 	[
+									{
+										"place"		: "Sombra",
+										"amount"	: 35000
+									},
+									{
+										"place"		: "Platea",
+										"amount" 	: 40000
+									},
+									{
+										"place"		: "VIP",
+										"amount" 	: 60000
+									}
+								],
+			"image"			: "/front-end/img/ironMaiden.jpg"
+		},
+		{
+			"id"			: 3,
+			"name"			: "Selección Nacional vs Jamaica",
+			"date"			: "29/04/2016",
+			"startHour"		: "18:00",
+			"eventType"		: 2,
+			"description"	: "Apoyar a la Sele, el equipo de todos",
+			"location"		: 2,
+			"prices"		: 	[
+									{
+										"place"		: "Sol",
+										"amount"	: 8000
+									},
+									{
+										"place"		: "Sombra",
+										"amount" 	: 15000
+									},
+									{
+										"place"		: "Platea",
+										"amount" 	: 20000
+									}
+								],
+			"image"			: "/front-end/img/sele.jpg"
+		}
+	],
+
+	"eventTypes" : [
+		{
+			"id"			: 0,
+			"description"	: "Concierto"
+		},
+		{
+			"id"			: 1,
+			"description"	: "Baile"
+		},
+		{
+			"id"			: 2,
+			"description"	: "Partido"
+		}
+	],
+
+	"locations" : [
+		{
+			"id"			: 0,
+			"name"			: "Estadio Ricardo Saprissa",
+			"phone"			: "2222-0009",
+			"capacity"		: 23000,
+			"geographicLoc"	: "9.965654, -84.075301",
+			"adress"		: "San Juan de Tibás",
+			"image"			: "/front-end/img/estadioSaprissa.jpg"
+		},
+		{
+			"id"			: 1,
+			"name"			: "Peppers Disco Club",
+			"phone"			: "2222-0809",
+			"capacity"		: 2000,
+			"geographicLoc"	: "9.918136, -84.049025",
+			"adress"		: "Contiguo al parqueo de Price Smart Zapote, San José",
+			"image"			: "/front-end/img/clubPeppers.jpg"
+		},
+		{
+			"id"			: 2,
+			"name"			: "Estadio Nacional",
+			"phone"			: "2222-0309",
+			"capacity"		: 35000,
+			"geographicLoc"	: "9.936768, -84.107852",
+			"adress"		: "La Sabana, Costa Rica",
+			"image"			: "/front-end/img/estadioNacional.jpg"
+		}
+	],
+
+	"cardType" : [
+		{
+			"id"			: 0,
+			"name"			: "Visa"
+		},
+		{
+			"id"			: 1,
+			"name"			: "Master Card"
+		},
+		{
+			"id"			: 2,
+			"name"			: "American Express"
+		}
+	],
+
+	"personalIdType" : [
+		{
+			"id"			: 0,
+			"type"			: "national"
+		},
+		{
+			"id"			: 1,
+			"type"			: "foreign"
+		}
+	]
+}
