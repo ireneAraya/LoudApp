@@ -8,6 +8,8 @@
 					<h1 class="user-name">{{ user.firstName + " " + user.lastName }}</h1>
 					<p class="text-center"><a href="mailto:{{ user.email | lowercase }}">{{ user.email | lowercase }}</a></p>
 					<p ng-show="user.indentification" class="text-center"><small>{{ user.indentification }}</small></p>
+
+					<div class="alert alert-danger" role="alert" ng-if="error"><span ng-bind-html="error"></span></div>
 				</div>
 
 				<div class="panel-body row text-center">

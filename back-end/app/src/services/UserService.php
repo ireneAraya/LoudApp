@@ -128,11 +128,20 @@ class UserService {
         session_start();
 
         if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
-            $query = "UPDATE loud_users SET active = 1 WHERE id = :id";
+            $query = "UPDATE loud_users SET active = 0 WHERE id = :id";
             $param = [":id" => intval($_SESSION['user_id'])];
 
             $result = $this->storage->query($query, $param, "UPDATE");
 
+            if ($result['data'] > 0) {
+                $result["success"] = true;
+                $result["message"] = "Removed the session for user #".$_SESSION['user_id'];
+                unset($_SESSION['user_id']);
+                session_destroy();
+            } else {
+                $result["error"] = true;
+                $result["message"] = "User #".$_SESSION['user_id']." is already logged out.";
+            }
         } else {
             $result["error"] = true;
             $result["message"] = "The is not user logged in.";

@@ -73,6 +73,7 @@ class UserController {
             $result["error"] = true;
             $result["message"] = $verifyResult["message"];
         } else {
+            setcookie($this->cookieName, true, time()-36000);
             $result["success"] = true;
             $result["message"] = $verifyResult["message"];
         }

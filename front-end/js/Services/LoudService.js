@@ -92,7 +92,7 @@ angular.module ('loudApp.services')
             });
 
             return result;
-        }
+        };
 
         var save = function (key, object) {
             localStorage.setItem( key, angular.toJson(object) );
@@ -147,7 +147,8 @@ angular.module ('loudApp.services')
 			getItem 		: getItem,
 			getItemIndex	: getItemIndex,
             loginUser       : loginUser,
-            verifyUser      : verifyUser
+            verifyUser      : verifyUser,
+            logoutUser      : logoutUser
 		};
 
 	}

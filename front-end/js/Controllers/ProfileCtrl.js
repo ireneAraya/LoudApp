@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('ProfileCtrl', [
-	'$scope', 'LoudService', '$location', '$timeout', 'LoudFB', '$rootScope',
-	function($scope, LoudService, $location, $timeout, LoudFB, $rootScope) {
+	'$scope', 'LoudService', '$location', '$timeout', 'LoudFB', '$rootScope', '$q',
+	function($scope, LoudService, $location, $timeout, LoudFB, $rootScope, $q) {
 
         $scope.user = LoudService.verify("LoudApp__User") || {};
 
@@ -25,12 +25,24 @@ angular.module ('loudApp.controllers')
             $scope.logout = function () {
                 $scope.user = {};
 
-                // LoudService.logoutUser();
+                var session = $q(function (resolve, reject) {
+                    var res = LoudService.logoutUser();
 
-                // Tells the HeaderCtrl that a user has logged in a session
-                $rootScope.$broadcast('userIsLoggedIn', { user : null });
+                    $timeout(
+                        function() {
+                            resolve(res)
+                        }, Math.random() * 2000 + 1000);
+                });
 
-                $location.path("/");
+                session.then(function (response) {
+                    if (response.success) {
+                        $rootScope.$broadcast('userIsLoggedIn', { user : null });
+                        $location.path("/");
+                    } else {
+                        $scope.error = response.message;
+                    }
+                });
+
             }
 
             // Facebook logout function
