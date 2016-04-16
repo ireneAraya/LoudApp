@@ -36,8 +36,8 @@ angular.module ('loudApp.controllers')
 
                 session.then(function (response) {
                     if (response.success) {
-                        $rootScope.$broadcast('userIsLoggedIn', { user : null });
                         $location.path("/");
+                        $rootScope.$broadcast('userIsLoggedIn', { user : null });
                     } else {
                         $scope.error = response.message;
                     }
