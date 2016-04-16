@@ -63,6 +63,8 @@ angular.module ('loudApp.controllers')
             }
         };
 
+        console.log('test');
+
         $scope.init();
 
         $scope.$watch('eventsBuy', function(newValue, oldValue) {
