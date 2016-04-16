@@ -47,7 +47,7 @@ class UserController {
         return $result;
     }
 
-    public function verifyUser ($request) {
+    public function verifyUser () {
         $result = [];
 
         $verifyResult = $this->userService->verifyUser();
@@ -59,6 +59,22 @@ class UserController {
             $result["success"] = true;
             $result["message"] = $verifyResult["message"];
             $result["data"] = $verifyResult["data"];
+        }
+
+        return $result;
+    }
+
+    public function logout () {
+        $result = [];
+
+        $verifyResult = $this->userService->logout();
+
+        if (array_key_exists("error", $verifyResult)) {
+            $result["error"] = true;
+            $result["message"] = $verifyResult["message"];
+        } else {
+            $result["success"] = true;
+            $result["message"] = $verifyResult["message"];
         }
 
         return $result;

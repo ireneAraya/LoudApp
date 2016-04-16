@@ -70,7 +70,18 @@ $app->get(
         /** @var Request $request */
         /** @var Response $response */
         $userController = new App\Controllers\UserController();
-        $result = $userController->verifyUser($request);
+        $result = $userController->verifyUser();
+        return $response->withJson($result);
+    }
+);
+
+$app->post(
+    '/user/logout',
+    function ($request, $response) {
+        /** @var Request $request */
+        /** @var Response $response */
+        $userController = new App\Controllers\UserController();
+        $result = $userController->logout($request);
         return $response->withJson($result);
     }
 );
