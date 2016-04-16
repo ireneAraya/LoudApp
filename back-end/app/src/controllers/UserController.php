@@ -47,7 +47,7 @@ class UserController {
         return $result;
     }
 
-    public function verifyUser ($request) {
+    public function verifyUser () {
         $result = [];
 
         $verifyResult = $this->userService->verifyUser();
@@ -64,17 +64,19 @@ class UserController {
         return $result;
     }
 
-    public function logout($request) {
+    public function logout () {
         $result = [];
 
-        /**
-         * TODO: Implementar
-         * Pasos
-         * - Elimine cualquier cookie que se pudo haber creado en el back-end al iniciar sesión. Recuerde que para
-         * eliminar cookies, se debe poner una fecha de expiración en el pasado.
-         * Importante, este método no tiene llamada al servicio en PHP porque de momento no existe ninguna operación
-         * en el servicio que lo requiera. Esto podría cambiar en su aplicación.
-         */
+        $verifyResult = $this->userService->logout();
+
+        if (array_key_exists("error", $verifyResult)) {
+            $result["error"] = true;
+            $result["message"] = $verifyResult["message"];
+        } else {
+            setcookie($this->cookieName, true, time()-36000);
+            $result["success"] = true;
+            $result["message"] = $verifyResult["message"];
+        }
 
         return $result;
     }

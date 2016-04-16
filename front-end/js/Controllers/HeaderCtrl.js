@@ -16,8 +16,10 @@ angular.module ('loudApp.controllers')
     userExists.then(function (response) {
         if (response.success) {
           $scope.link = "#/profile";
+          $scope.user = response.data;
         } else {
           $scope.link = "#/login";
+          $scope.user = {};
         }
     });
 
