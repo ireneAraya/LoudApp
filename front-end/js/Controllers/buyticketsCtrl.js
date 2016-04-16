@@ -5,6 +5,7 @@ angular.module ('loudApp.controllers')
     function($scope, $routeParams, $location, LoudService, $filter) {
 
         $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
+        $scope.user = LoudService.verify('LoudApp__User') || {};
         var options = [];
 
         $scope.initialAmount = 0;
@@ -33,6 +34,10 @@ angular.module ('loudApp.controllers')
         }
 
         function otherFunctions() {
+
+            $scope.detailUser = $scope.user.firstName + " " + $scope.user.lastName || "";
+            $scope.detailEmail = $scope.user.email || "";
+
             var areaAndSeats = {};
             areaAndSeats.area = "";
             areaAndSeats.seats = [];
@@ -62,8 +67,6 @@ angular.module ('loudApp.controllers')
                 areaAndSeats.seats = [];
             }
         };
-
-        console.log('test');
 
         $scope.init();
 

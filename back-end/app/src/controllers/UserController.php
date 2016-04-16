@@ -80,21 +80,6 @@ class UserController {
         return $result;
     }
 
-    public function logout($request) {
-        $result = [];
-
-        /**
-         * TODO: Implementar
-         * Pasos
-         * - Elimine cualquier cookie que se pudo haber creado en el back-end al iniciar sesión. Recuerde que para
-         * eliminar cookies, se debe poner una fecha de expiración en el pasado.
-         * Importante, este método no tiene llamada al servicio en PHP porque de momento no existe ninguna operación
-         * en el servicio que lo requiera. Esto podría cambiar en su aplicación.
-         */
-
-        return $result;
-    }
-
     public function register($request) {
         $result = [];
 
