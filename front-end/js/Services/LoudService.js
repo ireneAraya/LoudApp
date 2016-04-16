@@ -71,6 +71,29 @@ angular.module ('loudApp.services')
             return result;
         };
 
+        var logoutUser = function () {
+            var result = {
+                success : false,
+                message : null
+            };
+
+            $http({
+                method: 'POST',
+                url: '/back-end/user/logout'
+            }).then(function successCallback(response) {
+                if (!response.data.error) {
+                    result.success = true;
+                    result.message = response.data.message;
+                } else {
+                    result.message = response.data.message;
+                }
+            }, function errorCallback(response) {
+                result.message = response.message;
+            });
+
+            return result;
+        }
+
         var save = function (key, object) {
             localStorage.setItem( key, angular.toJson(object) );
         };

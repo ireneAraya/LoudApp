@@ -122,6 +122,25 @@ class UserService {
         return $result;
     }
 
+    public function logout () {
+        $result = [];
+
+        session_start();
+
+        if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+            $query = "UPDATE loud_users SET active = 1 WHERE id = :id";
+            $param = [":id" => intval($_SESSION['user_id'])];
+
+            $result = $this->storage->query($query, $param, "UPDATE");
+
+        } else {
+            $result["error"] = true;
+            $result["message"] = "The is not user logged in.";
+        }
+
+        return $result;
+    }
+
     /**
      * Registra un nuevo usuario en el sistema.
      *
