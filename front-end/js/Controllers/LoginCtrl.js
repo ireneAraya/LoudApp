@@ -4,8 +4,6 @@ angular.module ('loudApp.controllers')
 	'$scope', 'LoudService', 'LoudFB', '$location', '$q', '$rootScope', '$timeout',
 	function($scope, LoudService, LoudFB, $location, $q, $rootScope, $timeout) {
 
-        // $scope.user = LoudService.verify("LoudApp__User") || {};
-
         $scope.init = function() {
             var userExists = $q(function (resolve, reject) {
                 var res = LoudService.verifyUser();
@@ -21,10 +19,13 @@ angular.module ('loudApp.controllers')
 
                 if (response.success) {
                     $scope.user = response.data;
+                    $scope.user.facebook = false;
 
                     // Tells the HeaderCtrl that a user has logged in a session
                     $rootScope.$broadcast('userIsLoggedIn', { "user" : $scope.user });
                     $location.path("/");
+                } else {
+                    $scope.user = {};
                 }
             });
 
@@ -61,6 +62,7 @@ angular.module ('loudApp.controllers')
                         userExists.then(function (response) {
                             if (response.success) {
                                 $scope.user = response.data;
+                                $scope.user.facebook = false;
 
                                 // Tells the HeaderCtrl that a user has logged in a session
                                 $rootScope.$broadcast('userIsLoggedIn', { "user" : $scope.user });
@@ -70,29 +72,7 @@ angular.module ('loudApp.controllers')
                     }
                 });
 
-                // var usersCollection = $scope.data.users,
-                //     userExists = false;
-
-                // var userEmail = $scope.email,
-                //     userPass = encodeValue($scope.password);
-
-                // if (userEmail !== "" && userPass !== "") {
-                //     for (var i = 0; i < usersCollection.length; i++) {
-                //         var user = usersCollection[i];
-
-                //         if (userEmail === user.email && decodeValue(userPass) === decodeValue(user.password)) {
-                //             userExists = true;
-                //         }
-                //     }
-                // }
-
-                // $scope.user = (userExists) ? LoudService.getItem(usersCollection, "email", userEmail) : {};
-                // $scope.user.facebook = false;
-
-                // Tells the HeaderCtrl that a user has logged in a session
-                // $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
                 $scope.logginUser = false;
-                // $location.path("/");
             };
 
             $scope.facebookLogin = function () {

@@ -47,7 +47,7 @@
 
 			    <div class="collapse navbar-collapse" id="mainMenu">
 			      	<ul class="nav navbar-nav navbar-right">
-			        	<li><a href="{{ link }}"><i class="fa fa-user"></i> {{ user.firstName + " " + user.lastName || translation.SIGNIN_REGISTER }} </a></li>
+			        	<li><a href="{{ link }}"><i class="fa fa-user"></i> {{ user.firstName || translation.SIGNIN_REGISTER }} </a></li>
 			        	<li><a href="#/buyTickets"><i class="fa fa-shopping-cart"></i> {{translation.BUY_MENU}}</a></li>
 			        	<li>
 			        		<div class="language-select">
