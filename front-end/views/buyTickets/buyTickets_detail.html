@@ -12,10 +12,10 @@
           <p>Hora: <span>{{eventsBuy.startHour}}</span></p>
           <p>Lugar: <span>{{ getEventLocation(eventsBuy.location, 'name') }}</span></p>
           <div>
-            <p>Asientos:</p>
+            <!-- <p>Asientos:</p> -->
             <div ng-repeat="option in eventsBuy.options">
-              <span>{{ option.area }}</span>
-              <span>{{ option.seats }}</span>
+              <span>Area: {{ option.area }}</span>
+              <span style="float: left; width: 100%;">Asientos: {{ option.seats }}</span>
             </div>
           </div>
           <p>Total: <span>3000</span></p>

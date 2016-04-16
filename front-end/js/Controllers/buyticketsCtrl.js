@@ -39,7 +39,6 @@ angular.module ('loudApp.controllers')
 
             $scope.getSelectedValue = function (value) {
                 $scope.eventsBuy = value;
-                // LoudService.save("LoudApp__SelectedEventInfo", $scope.eventsBuy);
             };
 
             $scope.getEventLocation = function (index, key) {
@@ -56,20 +55,11 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.buyButon = function () {
-                // Comprobar que haya por lo menos un area y por lo menos
-                // un asiento
-                // if () {
-                    console.log(areaAndSeats);
-                    $scope.eventsBuy.options = [];
-                    $scope.eventsBuy.options.push(areaAndSeats);
-                    areaAndSeats = {};
-                    areaAndSeats.area = "";
-                    areaAndSeats.seats = [];
-                // } else {
-                    // alert("Seleccione por lo menos un asiento");
-                // }
-
-                console.log($scope.eventsBuy.options);
+                $scope.eventsBuy.options = [];
+                $scope.eventsBuy.options.push(areaAndSeats);
+                areaAndSeats = {};
+                areaAndSeats.area = "";
+                areaAndSeats.seats = [];
             }
         };
 
