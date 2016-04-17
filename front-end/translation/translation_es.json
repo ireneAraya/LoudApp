@@ -32,5 +32,11 @@
     "REQUEST_NEW_PASSWORD_BUTTON_TEXT" : "Solicitar",
     "REQUEST_NEW_PASSWORD_TEXT" : "Por favor ingrese debajo un correo electrónico, si encontramos una cuenta con ese email te enviaremos un link para que restablezcas tu contraseña.",
     "NEW_PASSWORD_SUCCESS" : "Se ha generado una solicitud de contraseña nueva para tu cuenta, revisa tu correo electrónico.",
-    "THANKS_TITLE" : "¡Gracias!"
+    "THANKS_TITLE" : "¡Gracias!",
+    "USER_INFO_TITLE" : "Información del Usuario",
+    "USER" : {
+        "FULL_NAME_TEXT" : "Su nombre completo es:",
+        "PERSONALID_TEXT" : "Su identificación personal es:",
+        "BIRTHDATE_TEXT" : "Su fecha de nacimiento es:"
+    }
 }

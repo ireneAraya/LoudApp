@@ -9,7 +9,17 @@ angular.module ('loudApp.controllers')
         if (isFacebookUser($scope.user)) {
             $scope.user_fullName = $scope.user.first_name + " " + $scope.user.last_name;
         } else {
-            $scope.user_fullName = $scope.user.firstName + " " + $scope.user.lastName;
+            $scope.user_fullName = $scope.user.firstName;
+
+            if ($scope.user.middleName !== "") {
+                $scope.user_fullName += " " + $scope.user.middleName;
+            }
+
+            $scope.user_fullName += " " + $scope.user.lastName;
+
+            if ($scope.user.secondSurname !== "") {
+                $scope.user_fullName += " " + $scope.user.secondSurname;
+            }
         }
 
         $scope.init = function() {

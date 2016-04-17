@@ -89,7 +89,7 @@ class UserService {
             $result["success"] = true;
             $result["message"] = "The user ".$_SESSION['user_id']." has an active session.";
 
-            $query = "SELECT id, rol, firstName, middleName, lastName, secondSurname, email, phone, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, company FROM loud_users WHERE id = :id LIMIT 1";
+            $query = "SELECT id, rol, nickname, firstName, middleName, lastName, secondSurname, email, phone, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, company FROM loud_users WHERE id = :id LIMIT 1";
             $param = ["id" => intVal($_SESSION['user_id'])];
 
             $query_result = $this->storage->query($query, $param, "SELECT");
@@ -98,6 +98,7 @@ class UserService {
             $result["data"] = [
                 "id" => $user["id"],
                 "rol" => $user["rol"],
+                "nickname" => $user["nickname"],
                 "firstName" => $user["firstName"],
                 "middleName" => $user["middleName"],
                 "lastName" => $user["lastName"],

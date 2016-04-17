@@ -32,5 +32,11 @@
     "REQUEST_NEW_PASSWORD_BUTTON_TEXT" : "Request",
     "REQUEST_NEW_PASSWORD_TEXT" : "Please enter an email address below, if we find an user with that email we will send you a password reset link to your inbox.",
     "NEW_PASSWORD_SUCCESS" : "A password reset has been processed, please check your inbox for an email from Loud App.",
-    "THANKS_TITLE" : "Thank you!"
+    "THANKS_TITLE" : "Thank you!",
+    "USER_INFO_TITLE" : "User Information",
+    "USER" : {
+        "FULL_NAME_TEXT" : "Your full name is:",
+        "PERSONALID_TEXT" : "Your identification ID is:",
+        "BIRTHDATE_TEXT" : "Your birth date is:"
+    }
 }
