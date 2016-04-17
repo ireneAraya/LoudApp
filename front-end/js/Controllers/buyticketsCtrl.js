@@ -49,7 +49,7 @@ angular.module ('loudApp.controllers')
             $scope.detailEmail = $scope.user.email || "";
 
             var areaAndSeats = {};
-            areaAndSeats.area = "";
+            areaAndSeats.area = [];
             areaAndSeats.seats = [];
 
             $scope.getSelectedValue = function (value) {
@@ -62,7 +62,7 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.getAreaValue = function (item) {
-                areaAndSeats.area = item.currentTarget.getAttribute("data-description");
+                areaAndSeats.area.push(item.currentTarget.getAttribute("data-description"));
             };
 
             $scope.getSeatNumber = function (item) {
@@ -76,10 +76,6 @@ angular.module ('loudApp.controllers')
                 LoudService.save("LoudApp__SelectedOptions", $scope._option);
                 $scope.eventsBuy.options = $scope._option;
                 LoudService.remove("LoudApp__SelectedOptions");
-
-                areaAndSeats = {};
-                areaAndSeats.area = "";
-                areaAndSeats.seats = [];
             }
         };
 
