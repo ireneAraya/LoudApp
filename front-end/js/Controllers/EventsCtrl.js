@@ -83,27 +83,32 @@ angular.module ('loudApp.controllers')
                     lastID = (i +1);
                 };
 
-                $scope.zonesCol = [];
-                $scope.pricesObj = {'place': $scope.newPlace, 'amount': $scope.newPrice};
+                var zonesCol = [];
+                
+                var pricesObj = {
+                    place   : $scope.newPlace, 
+                    amount  : $scope.newPrice
+                };
 
-                $scope.zonesCol.push($scope.pricesObj);
+                zonesCol.push(pricesObj);
 
                 //crea el objeto y lo agrega a la colección
                 var event = {
                     id              : lastID,
                     image           : $scope.newImageSource,
                     name            : $scope.newEvent,
-                    date            : $scope.newDate,
+                    date            : $scope.dt,
                     startHour       : $scope.newStartHour,
                     location        : $scope.newLocation.id,
                     eventType       : $scope.newEventType.id,
                     description     : $scope.newDescription,
-                    prices          : $scope.zonesCol
+                    prices          : zonesCol
                 }
                 $scope.eventsCol.push(event);
 
                 console.table($scope.eventsCol);
-                console.table($scope.zonesCol);
+                console.table(zonesCol);
+                console.log($scope.newDate);
 
                 // Limpia el formulario, tanto en valores como en estado de variables
                 if ($scope.addLocationForm) {

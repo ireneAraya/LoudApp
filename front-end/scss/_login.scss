@@ -71,6 +71,30 @@ hr.devider-light {
     margin: 25px auto;
 }
 
-// .forgotPasswordCont {
-//     padding-top: 30px;
-// }
+.form-gender {
+    label {
+        color: #fff;
+        font-weight: 100;
+    }
+
+    .radio-inline {
+        margin-right: 39px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    margin-bottom: 15px;
+}
+
+#registerForm {
+    label.custom-file-upload {
+        text-align: center;
+        display: block;
+    }
+
+    img {
+        margin: 0 auto;
+    }
+}

@@ -1,10 +1,14 @@
 angular.module ('loudApp.controllers')
 
 .controller('RegisterCtrl', [
-	'$scope', 'LoudService', 'LoudFB', '$location', '$q', '$rootScope', '$timeout',
-	function($scope, LoudService, LoudFB, $location, $q, $rootScope, $timeout) {
+	'$scope', 'LoudService', '$location', '$q', '$timeout',
+	function($scope, LoudService, $location, $q, $timeout) {
 
         $scope.init = function() {
+            $scope.getPicturePath = function (a, b, c) {
+                console.log(a, b, c);
+            };
+
             var userExists = $q(function (resolve, reject) {
                 var res = LoudService.verifyUser();
 
@@ -22,17 +26,12 @@ angular.module ('loudApp.controllers')
                     otherFunctions();
                 }
             });
-
         };
 
         function otherFunctions () {
-            console.debug("Register!");
+            // console.log(editItem._attachments_uri.image);
         };
 
         $scope.init();
-
-        // $scope.$watch('user', function(newValue, oldValue) {
-        //     LoudService.save("LoudApp__User", newValue);
-        // }, true);
 	}
 ])

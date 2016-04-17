@@ -5,14 +5,7 @@ angular.module ('loudApp.controllers')
   function ($scope) {
   $scope.format ='dd/MM/yyyy';
 
-  $scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
-
-  $scope.clear = function() {
-    $scope.dt = null;
-  };
+  $scope.today = new Date();
 
   $scope.inlineOptions = {
     customClass: getDayClass,
@@ -27,27 +20,15 @@ angular.module ('loudApp.controllers')
     startingDay: 1
   };
 
-  $scope.dateOptions_RegisterUser = {
-    formatYear: 'yy',
-    maxDate: new Date(2020, 5, 22),
-    minDate: new Date(1900, 1, 1),
-    startingDay: 1
-  };
-
   $scope.open1 = function() {
     $scope.popup1.opened = true;
   };
-
 
   $scope.setDate = function(year, month, day) {
     $scope.dt = new Date(year, month, day);
   };
 
   $scope.popup1 = {
-    opened: false
-  };
-
-  $scope.popup2 = {
     opened: false
   };
 
