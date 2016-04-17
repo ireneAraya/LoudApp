@@ -6,7 +6,6 @@ angular.module ('loudApp.controllers')
 
         $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
         $scope.user = LoudService.verify('LoudApp__User') || {};
-        var options = [];
 
         $scope.initialAmount = 0;
         $scope.itemPrice = 3500;
@@ -35,11 +34,22 @@ angular.module ('loudApp.controllers')
 
         function otherFunctions() {
 
-            $scope.detailUser = $scope.user.firstName + " " + $scope.user.lastName || "";
+            var firstName = $scope.user.firstName || $scope.user.first_name;
+            var separator = " ";
+            var lastName = $scope.user.lastName || $scope.user.last_name;
+
+            var fullName =  firstName + separator + lastName;
+
+            if (fullName == "undefined undefined") {
+                $scope.detailUser = " ";
+            } else {
+                $scope.detailUser = fullName;
+            }
+
             $scope.detailEmail = $scope.user.email || "";
 
             var areaAndSeats = {};
-            areaAndSeats.area = "";
+            areaAndSeats.area = [];
             areaAndSeats.seats = [];
 
             $scope.getSelectedValue = function (value) {
@@ -52,7 +62,7 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.getAreaValue = function (item) {
-                areaAndSeats.area = item.currentTarget.getAttribute("data-description");
+                areaAndSeats.area.push(item.currentTarget.getAttribute("data-description"));
             };
 
             $scope.getSeatNumber = function (item) {
@@ -60,11 +70,12 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.buyButon = function () {
-                $scope.eventsBuy.options = [];
-                $scope.eventsBuy.options.push(areaAndSeats);
-                areaAndSeats = {};
-                areaAndSeats.area = "";
-                areaAndSeats.seats = [];
+                $scope._option = LoudService.verify("LoudApp__SelectedOptions") || [];
+                $scope._option.push(areaAndSeats);
+
+                LoudService.save("LoudApp__SelectedOptions", $scope._option);
+                $scope.eventsBuy.options = $scope._option;
+                LoudService.remove("LoudApp__SelectedOptions");
             }
 
             $scope.buySeats = function () {
