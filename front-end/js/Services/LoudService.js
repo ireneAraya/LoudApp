@@ -81,8 +81,6 @@ angular.module ('loudApp.services')
                 method: 'POST',
                 url: '/back-end/user/logout'
             }).then(function successCallback(response) {
-                console.log(response);
-
                 if (!response.data.error) {
                     result.success = true;
                     result.message = response.data.message;
@@ -116,7 +114,7 @@ angular.module ('loudApp.services')
                     result.message = response.data.message;
                 }
             }, function errorCallback(response) {
-                result.message = response.message;
+                result.message = "Ha ocurrido un error en la llamada del back-end";
             });
         };
 

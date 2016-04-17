@@ -150,6 +150,60 @@ class UserService {
         return $result;
     }
 
+    public function changeUserPassword ($email, $password) {
+        $result = [];
+
+        $cost = 10;
+        $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+        $salt = sprintf("$2a$%02d$", $cost) . $salt;
+        $hash = crypt($password, $salt);
+
+        if ($email !== "") {
+            $email = strtolower($email);
+            $email = trim($email);
+
+            $query = "SELECT id, firstName, email FROM loud_users WHERE email = :email LIMIT 1";
+
+            $param = [":email" => $email];
+
+            $selectUserResult = $this->storage->query($query, $param, "SELECT");
+
+            if (count($selectUserResult['data']) > 0) {
+                $user = $selectUserResult['data'][0];
+
+                $query = "UPDATE loud_users SET hash = :newPassword, active = 0 WHERE id = :id";
+                $param = [
+                    ":newPassword" => $hash,
+                    ":id" => $user["id"]
+                ];
+
+                $changePasswordResult = $this->storage->query($query, $param, "UPDATE");
+
+                if ($changePasswordResult['data'] > 0) {
+                    $result["success"] = true;
+                    $result["message"] = "The password has been reset for your account. Please check your inbox.";
+
+                    $result["data"] = [
+                        "id" => $user["id"],
+                        "firstName" => $user["firstName"],
+                        "email" => $user["email"]
+                    ];
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "The password has been already changed.";
+                }
+            } else {
+                $result["error"] = true;
+                $result["message"] = "We couldn't find an user with the email provided.";
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide an email address.";
+        }
+
+        return $result;
+    }
+
     /**
      * Registra un nuevo usuario en el sistema.
      *

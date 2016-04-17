@@ -84,6 +84,10 @@ class UserController {
     public function forgotPassword ($request) {
         $result = [];
 
+        function randomPassword () {
+            return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ#^_-+=@!&$*()';[]{}\|~<>/?"), 0, 10);
+        };
+
         $formData = $request->getParsedBody();
         $email = null;
 
@@ -92,18 +96,45 @@ class UserController {
         }
 
         if (isset($email)) {
-            $userResult = $this->userService->forgotPassword($email);
+            $recoverPassword = trim(randomPassword());
 
-            if (array_key_exists("error", $userResult)) {
+            $passwordResult = $this->userService->changeUserPassword($email, $recoverPassword);
+
+            if (array_key_exists("error", $passwordResult)) {
                 $result["error"] = true;
-                $result["message"] = $verifyResult["message"];
+                $result["message"] = $passwordResult["message"];
             } else {
-                require("./../../lib/");
-            }
+                require_once("/Users/kronos/Desktop/LoudApp/back-end/lib/swiftmailer/swift_required.php");
+                $emailTo = $passwordResult["data"]["email"];
+                $emailFrom = "noreply@danielmunnoz.com";
+                $emailBody = "
+                    <h4>Hi ".$passwordResult["data"]["firstName"]."</h4>
+                    <p>You have requested a new password.<p>
+                    <p>Your temporary passpord is:<p>
+                    <p><strong>".$recoverPassword."</strong></p>
+                ";
 
-        } else {
-            $result["error"] = true;
-            $result["message"] = "Please provide an email address.";
+                $eTransport = Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
+                $eMailer = Swift_Mailer::newInstance($eTransport);
+                $eMessage = Swift_Message::newInstance('Request for Password Reset')
+                  ->setContentType('text/html')
+                  ->setFrom(array($emailFrom => 'Loud App'))
+                  ->setSender($emailTo)
+                  ->setCharset('utf-8')
+                  ->setTo($emailTo)
+                  ->setBcc("hostmaster@danielmunoz.cr")
+                  ->setBody(trim($emailBody));
+
+                $nSent = $eMailer->send($eMessage);
+
+                if ($nSent > 0) {
+                    $result["success"] = true;
+                    $result["message"] = "The recovery password has been sent to your email.";
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "The was an error requesting your new password please try again.";
+                }
+            }
         }
 
         return $result;
