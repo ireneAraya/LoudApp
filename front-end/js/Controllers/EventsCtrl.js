@@ -5,7 +5,8 @@ angular.module ('loudApp.controllers')
 	function($scope, $routeParams, $location, LoudService, $timeout) {
         $scope.eventsCol = LoudService.verify('LoudApp__Events') || {};
         $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
-
+        $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
+ 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
@@ -17,7 +18,7 @@ angular.module ('loudApp.controllers')
 
 
         function otherFunctions () {
-            $scope.eventsCol = $scope.data.events;
+            //$scope.eventsCol = $scope.data.events;
 
             $scope.getEventLocation = function (index, key) {
                 // Se repiten los llamados
@@ -65,54 +66,61 @@ angular.module ('loudApp.controllers')
                 $scope.priceInputs.push({'id':'priceInput'+ newPriceInput});
             }
 
-            // //Agregar Evento
-            // $scope.addEvent = function () {
-            //     var lastID = 0;
+            //Seleccionar el valor del typeahead
+            $scope.getSelectedLocation = function (value) {
+                $scope.newLocation = value;
+            };
 
-            //     for (var i = 0; i < $scope.eventsCol.length; i++) {
-            //         lastID = (i +1);
-            //     }
+            $scope.getSelectedType = function (value) {
+                $scope.newEventType = value;
+            };
 
-            //     var currentID = $routeParams.id;
-            //     $scope.location = LoudService.getItem($scope.locationsCol, "id", currentID);
+            //Agregar Evento
+            $scope.addEvent = function () {
+                var lastID = 0;
 
-            //     //crea el objeto y lo agrega a la colección
-            //     var event = {
-            //         id              : lastID,
-            //         image           : $scope.newImageSource,
-            //         name            : $scope.newEvent,
-            //         date            : $scope.newDate,
-            //         startHour       : $scope.newStartHour,
-            //         location        : $scope.newLocation,
-            //         eventType       : $scope.newEventType,
-            //         description     : $scope.description,
-            //         prices          : [
-            //                              {
-            //                                 place   : $scope.newPlace,
-            //                                 amount  : $scope.newPrice
-            //                              }   
-            //                         ]
-            //     }
-            //     $scope.eventsCol.push(event);
+                for (var i = 0; i < $scope.eventsCol.length; i++) {
+                    lastID = (i +1);
+                };
 
-            //     console.table($scope.eventsCol);
+                $scope.zonesCol = [];
+                $scope.pricesObj = {'place': $scope.newPlace, 'amount': $scope.newPrice};
 
-            //     // Limpia el formulario, tanto en valores como en estado de variables
-            //     if ($scope.addLocationForm) {
-            //       $scope.addLocationForm.$setPristine();
-            //       $scope.addLocationForm.$setUntouched();
-            //       $scope.newImageSource = "";
-            //       $scope.newEvent = "";
-            //       $scope.newDate = "";
-            //       $scope.newStartHour = "";
-            //       $scope.newLocation = "";
-            //       $scope.newEventType = "";
-            //       $scope.newPlace = "";
-            //       $scope.newPrice = "";
-            //     }
+                $scope.zonesCol.push($scope.pricesObj);
+
+                //crea el objeto y lo agrega a la colección
+                var event = {
+                    id              : lastID,
+                    image           : $scope.newImageSource,
+                    name            : $scope.newEvent,
+                    date            : $scope.newDate,
+                    startHour       : $scope.newStartHour,
+                    location        : $scope.newLocation.id,
+                    eventType       : $scope.newEventType.id,
+                    description     : $scope.newDescription,
+                    prices          : $scope.zonesCol
+                }
+                $scope.eventsCol.push(event);
+
+                console.table($scope.eventsCol);
+                console.table($scope.zonesCol);
+
+                // Limpia el formulario, tanto en valores como en estado de variables
+                if ($scope.addLocationForm) {
+                  $scope.addLocationForm.$setPristine();
+                  $scope.addLocationForm.$setUntouched();
+                  $scope.newImageSource = "";
+                  $scope.newEvent = "";
+                  $scope.newDate = "";
+                  $scope.newStartHour = "";
+                  $scope.newLocation = "";
+                  $scope.newEventType = "";
+                  $scope.newPlace = "";
+                  $scope.newPrice = "";
+                }
                 
-            //     $location.path('/eventsList');
-            // }
+                $location.path('/eventsList');
+            }
 
             //Borrar evento
             $scope.erraseEvent = function ($index) {

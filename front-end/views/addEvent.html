@@ -1,9 +1,8 @@
 <main class="container">
 	<h1 class="text-center">AGREGAR EVENTO</h1>
-
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
-			<form role="form" name="addEventForm" class="general-form row">
+			<form role="form" name="addEventForm" class="general-form row" novalidate autocomplete="off">
 				<script type="text/ng-template" id="customPopupTemplate.html">
 				  	<div class="col-xs-2 custom-popup-wrapper"
 				     ng-style="{top: position().top+'px', left: position().left+'px'}"
@@ -55,14 +54,14 @@
 						</div><!--.form-group .col-xs-12-->
 						<div class="form-group typeahead col-xs-12" ng-controller="TypeaheadCtrl">
 						  	<label for="">Sitio</label>
-						  	<input type="text" name="newLocation" ng-model="newLocation" placeholder="Busque el sitio aquí" uib-typeahead="site as site.name for site in eventLocations | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control" required>
+						  	<input type="text" name="newLocation" ng-model="newLocation" placeholder="Busque el sitio aquí" uib-typeahead="site as site.name for site in eventLocations | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html"typeahead-on-select="getSelectedLocation($item)" typeahead-editable="false" typeahead-no-results="noResults" class="form-control" required>
 						  	<div ng-messages="addEventForm.newLocation.$error" ng-if="addEventForm.newLocation.$touched" class="validate-messages">
 				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          	</div><!--ng-messages-->
 						</div><!--.form-group .typeahead .col-xs-12-->
 						<div class="form-group typeahead col-xs-12" ng-controller="TypeaheadCtrl">
 						  	<label for="">Tipo de Evento</label>
-						  	<input type="text" name="newEventType" ng-model="newEventType" placeholder="Busque el tipo de evento aquí" uib-typeahead="type as type.description for type in eventTypes | filter:{description:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control" required>
+						  	<input type="text" name="newEventType" ng-model="newEventType" placeholder="Busque el tipo de evento aquí" uib-typeahead="type as type.description for type in eventTypes | filter:{description:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" typeahead-on-select="getSelectedType($item)" typeahead-editable="false" class="form-control" typeahead-no-results="noResults" required>
 						  	<div ng-messages="addEventForm.newEventType.$error" ng-if="addEventForm.newEventType.$touched" class="validate-messages">
 				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          	</div><!--ng-messages-->

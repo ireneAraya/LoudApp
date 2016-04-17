@@ -4,6 +4,7 @@ angular.module ('loudApp.controllers')
   '$scope', '$routeParams', '$location', 'LoudService',
     function($scope, $routeParams, $location, LoudService) {
       $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
+      $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
 
       LoudService.getDataFromJS().then(function(response) {
           $scope.data = angular.fromJson(response.data);
@@ -32,7 +33,7 @@ angular.module ('loudApp.controllers')
           getterSetter: true
         };
 
-        $scope.eventTypes = $scope.data.eventTypes;
+        $scope.eventTypes = $scope.eventTypesCol;
         $scope.eventLocations = $scope.locationsCol;
         $scope.events = $scope.data.events;
 
