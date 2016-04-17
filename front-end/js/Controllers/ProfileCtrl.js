@@ -6,6 +6,12 @@ angular.module ('loudApp.controllers')
 
         $scope.user = LoudService.verify("LoudApp__User") || {};
 
+        if (isFacebookUser($scope.user)) {
+            $scope.user_fullName = $scope.user.first_name + " " + $scope.user.last_name;
+        } else {
+            $scope.user_fullName = $scope.user.firstName + " " + $scope.user.lastName;
+        }
+
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
                 otherFunctions();
@@ -71,5 +77,13 @@ angular.module ('loudApp.controllers')
         $scope.$watch('user', function(newValue, oldValue) {
             LoudService.save("LoudApp__User", newValue);
         }, true);
+
+        function isFacebookUser (userData) {
+          var result = false;
+          if (userData.facebook) {
+            result = true;
+          }
+          return result;
+        }
 	}
 ])

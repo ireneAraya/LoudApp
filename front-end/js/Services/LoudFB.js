@@ -74,6 +74,23 @@ angular.module ('loudApp.services')
 
             Facebook.api('/me', function(response) {
                 deferred.resolve(response);
+            }, {
+                scope : "public_profile,email,user_friends,user_photos"
+            });
+
+            return deferred.promise;
+        };
+
+        /**
+         * Service used by the FB-SDK to connect and get the different
+         * user data.
+         * @return {object} An object with the user's data
+         */
+        var getPermissionsList = function () {
+            var deferred = $q.defer();
+
+            Facebook.api('/me/permissions', function(response) {
+                deferred.resolve(response);
             });
 
             return deferred.promise;
@@ -106,7 +123,8 @@ angular.module ('loudApp.services')
             login                 : login,
             meFB                  : meFB,
             getUserProfilePicture : getUserProfilePicture,
-            logout                : logout
+            logout                : logout,
+            getPermissionsList    : getPermissionsList
 		};
 	}
 ])

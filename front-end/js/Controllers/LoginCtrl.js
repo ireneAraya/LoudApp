@@ -102,26 +102,16 @@ angular.module ('loudApp.controllers')
 
                 LoudFB.getUserProfilePicture().then(function (userPhotoURL) {
                     // Sets the URL for the user photo
-                    $scope.user.image = userPhotoURL;
+                    $scope.user.photoURL = userPhotoURL;
                     $scope.user.facebook = true;
 
                     // Tells the HeaderCtrl that a user has logged in a session
                     $rootScope.$broadcast('userIsLoggedIn', { user : $scope.user });
 
-                    $scope.logginUser = false;
-
                     // Redirects to Homepage
                     $location.path("/");
                 });
             });
-        };
-
-        function decodeValue (string) {
-            return atob(string);
-        };
-
-        function encodeValue (string) {
-            return btoa(string);
         };
 
         $scope.init();
