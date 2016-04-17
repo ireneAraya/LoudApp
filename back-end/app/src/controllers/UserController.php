@@ -73,7 +73,7 @@ class UserController {
             $result["error"] = true;
             $result["message"] = $verifyResult["message"];
         } else {
-            setcookie($this->cookieName, true, time()-36000);
+            setcookie($this->cookieName, true, time()-604800);
             $result["success"] = true;
             $result["message"] = $verifyResult["message"];
         }
@@ -87,6 +87,24 @@ class UserController {
         $formData = $request->getParsedBody();
         $email = null;
 
+        if (array_key_exists("email", $formData)) {
+            $email = $formData["email"];
+        }
+
+        if (isset($email)) {
+            $userResult = $this->userService->forgotPassword($email);
+
+            if (array_key_exists("error", $userResult)) {
+                $result["error"] = true;
+                $result["message"] = $verifyResult["message"];
+            } else {
+                require("./../../lib/");
+            }
+
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide an email address.";
+        }
 
         return $result;
     }

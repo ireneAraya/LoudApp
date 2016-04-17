@@ -106,7 +106,7 @@ angular.module ('loudApp.services')
                 method: 'POST',
                 data : {
                     email : userEmail
-                }
+                },
                 url: '/back-end/user/forgot-password'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
