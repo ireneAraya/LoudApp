@@ -70,8 +70,13 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.buyButon = function () {
-                $scope.eventsBuy.options = [];
-                $scope.eventsBuy.options.push(areaAndSeats);
+                $scope._option = LoudService.verify("LoudApp__SelectedOptions") || [];
+                $scope._option.push(areaAndSeats);
+
+                LoudService.save("LoudApp__SelectedOptions", $scope._option);
+                $scope.eventsBuy.options = $scope._option;
+                LoudService.remove("LoudApp__SelectedOptions");
+
                 areaAndSeats = {};
                 areaAndSeats.area = "";
                 areaAndSeats.seats = [];
