@@ -66,6 +66,10 @@ angular.module ('loudApp.controllers')
                 areaAndSeats.area = "";
                 areaAndSeats.seats = [];
             }
+
+            $scope.buySeats = function () {
+                $location.path("/buyTickets/tickets/seats");
+            }
         };
 
         $scope.init();
