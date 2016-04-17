@@ -37,7 +37,7 @@
 				        </div><!--.form-group .col-xs-12-->
 						<div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
 						    <label for="">Fecha</label>
-						  	<input type="text" class="form-control" name="newDate" placeholder="{{ dt | date : 'dd/MM/yyyy' }}" ng-model="newDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+						  	<input type="text" class="form-control" name="newDate" placeholder="{{ today | date : 'dd/MM/yyyy' }}" ng-model="newDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false">
 						  	<span class="input-group-btn">
 						    	<button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
 						  	</span>
@@ -47,8 +47,11 @@
 						</div><!--.form-group .col-xs-12-->
 						<div class="form-group col-xs-12">
 						  	<label for="">Hora</label>
-						  	<input type="text" name="newStartHour" ng-model="newStartHour" class="form-control" required>
-						  	<div ng-messages="addEventForm.newStartHour.$error" ng-if="addEventForm.newStartHour.$touched" class="validate-messages">
+						  	<input type="text" name="newStartHour" ng-model="newStartHour" class="form-control" placeholder="08:00 PM" valid-hour required>
+						  	<div ng-messages="addEventForm.newStartHour.$error" ng-if="addEventForm.newStartHour.$dirty" class="validate-messages">
+				          	    <span ng-message="validHour" class="alert alert-danger">Use un formato de 12 horas</span>
+				          	</div><!--ng-messages-->
+				          	<div ng-messages="addEventForm.newStartHour.$error" ng-if="addEventForm.newStartHour.$touched" class="validate-messages">
 				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          	</div><!--ng-messages-->
 						</div><!--.form-group .col-xs-12-->
@@ -76,7 +79,7 @@
 						<div class="form-group">
 							<label for="" class="col-xs-6">Zona</label>
 							<label for="" class="col-xs-6">Precio</label>
-							<div ng-repeat="priceInput in priceInputs">
+							<!--<div ng-repeat="priceInput in priceInputs">-->
 								<div class="col-xs-6">
 								  	<input type="text" class="form-control price-input" name="newPlace" ng-model="newPlace" placeholder="Locación" class="form-control" required>
 								  	<div ng-messages="addEventForm.newPlace.$error" ng-if="addEventForm.newPlace.$touched" class="validate-messages">
@@ -87,9 +90,9 @@
 								  	<input type="text" class="form-control price-input" name="newPrice" ng-model="newPrice" placeholder="Precio" class="form-control" required>
 								  	<div ng-messages="addEventForm.newPrice.$error" ng-if="addEventForm.newPrice.$touched" class="validate-messages">
 				          	    		<span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
-				          			</div><!--ng-messages-->
-								</div><!--.col-xs-6-->
-							</div><!--ng-repeat-->
+				          			</div>
+								</div>
+							<!--</div>-->
 						</div><!--.form-group-->
 						<div class="row">
 							<div class="col-xs-12">
