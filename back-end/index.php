@@ -86,5 +86,54 @@ $app->post(
     }
 );
 
+$app->post(
+    '/user/forgot-password',
+    function ($request, $response) {
+        /** @var Request $request */
+        /** @var Response $response */
+        $userController = new App\Controllers\UserController();
+        $result = $userController->forgotPassword($request);
+        $finalResult = [];
+
+        if ($result["success"]) {
+            $emailTo = $result["user_data"]["email"];
+            $emailFrom = "noreply@loudapp.rocks";
+
+            $emailBody = file_get_contents('./../front-end/templates/password_template.html');
+            $emailBody = str_replace('%%name%%', $result["user_data"]["firstName"], $emailBody);
+            $emailBody = str_replace('%%password%%', $result["user_data"]["password"], $emailBody);
+            $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
+
+            $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+                ->setUsername('jmunozv@ucenfotec.ac.cr')
+                ->setPassword('Gekkonidae1996');
+
+            $mailer = Swift_Mailer::newInstance($transporter);
+            $eMessage = Swift_Message::newInstance('📣 Request for Password Reset')
+              ->setContentType('text/html')
+              ->setFrom(array($emailFrom => 'Loud App Team'))
+              ->setSender($emailTo)
+              ->setCharset('utf-8')
+              ->setTo($emailTo)
+              ->setBody(trim($emailBody));
+
+            $nSent = $mailer->send($eMessage);
+
+            if ($nSent > 0) {
+                $finalResult["success"] = true;
+                $finalResult["message"] = "The recovery password has been sent to your email.";
+            } else {
+                $finalResult["error"] = true;
+                $finalResult["message"] = "The was an error requesting your new password please try again.";
+            }
+        } else {
+            $finalResult["error"] = true;
+            $finalResult["message"] = "The was an error requesting your new password please try again.";
+        }
+
+        return $response->withJson($finalResult);
+    }
+);
+
 // Corremos la aplicación.
 $app->run();

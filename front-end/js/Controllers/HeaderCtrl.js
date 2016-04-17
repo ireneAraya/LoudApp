@@ -16,14 +16,15 @@ angular.module ('loudApp.controllers')
     userExists.then(function (response) {
         var alreadyUser = localStorage.getItem("LoudApp__User");
 
-        if (response.success && !alreadyUser) {
+        if (response.success && alreadyUser !== "null") {
+
           $scope.link = "#/profile";
           $scope.user = response.data;
 
           if (isFacebookUser($scope.user)) {
             $scope.user_fullName = $scope.user.first_name + " " + $scope.user.last_name;
           } else {
-            $scope.user_fullName = $scope.firstName + " " + $scope.lastName;
+            $scope.user_fullName = $scope.user.firstName + " " + $scope.user.lastName;
           }
 
         } else {

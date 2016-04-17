@@ -5,7 +5,8 @@
     "vendor-dir": "back-end/vendor"
   },
   "require": {
-    "slim/slim": "^3.3"
+    "slim/slim": "^3.3",
+    "swiftmailer/swiftmailer": "@stable"
   },
   "license": "MIT",
   "autoload": {

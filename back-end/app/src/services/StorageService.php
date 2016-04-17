@@ -18,7 +18,7 @@ class StorageService {
         ];
 
         $this->pdo = new PDO(
-            "mysql:host={$config['db_host']};dbname={$config['db_name']}",
+            "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8",
             $config['db_user'], $config['db_pass']
         );
 

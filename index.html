@@ -72,7 +72,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-lg-9">
 						<ul class="nav navbar-nav row">
-							<li class="col-sm-4 col-xs-8 text-center"><a href="{{ login }}"><small>{{ user_fullName || translation.SIGNIN_REGISTER }}</small></a></li>
+							<li class="col-sm-4 col-xs-8 text-center"><a href="{{ login }}"><small>{{ translation.BUY_TICKETS }}</small></a></li>
 							<li class="col-sm-pull-0 col-xs-pull-1 text-center"><a href="#/contact"><small>{{ translation.FOOTER.CONTACT }}</small></a></li>
 							<li class="col-sm-4 col-xs-8 text-center"><a href="#/privacy"><small>{{ translation.FOOTER.PRIVACY }}</small></a></li>
 							<li class="col-sm-pull-0 col-xs-pull-1 text-center"><a href="#/terms"><small>{{ translation.FOOTER.TERMS }}</small></a></li>
@@ -122,6 +122,7 @@
 	<script src="/front-end/js/Directives/phoneValidation.js"></script>
 	<script src="/front-end/js/Directives/geoLocValidation.js"></script>
 	<script src="/front-end/js/Directives/emailValidation.js"></script>
+	<script src="/front-end/js/Directives/passwordValidation.js"></script>
 	<script src="/front-end/js/Directives/changePhoto.js"></script>
 
 	<!--Controllers-->
@@ -137,5 +138,6 @@
 	<script src="/front-end/js/Controllers/HeaderCtrl.js"></script>
 	<script src="/front-end/js/Controllers/ProfileCtrl.js"></script>
 	<script src="/front-end/js/Controllers/LanguageCtrl.js"></script>
+	<script src="/front-end/js/Controllers/ForgotPasswordCtrl.js"></script>
 </body>
 </html>

@@ -27,6 +27,13 @@ angular.module ('loudApp.controllers')
     startingDay: 1
   };
 
+  $scope.dateOptions_RegisterUser = {
+    formatYear: 'yy',
+    maxDate: new Date(2020, 5, 22),
+    minDate: new Date(1900, 1, 1),
+    startingDay: 1
+  };
+
   $scope.open1 = function() {
     $scope.popup1.opened = true;
   };

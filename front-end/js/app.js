@@ -29,13 +29,16 @@ angular.module('loudApp',[
                 controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets/seats', {
-                templateUrl: 'front-end/views/buyTickets/buyTickets_seats.html'
+                templateUrl: 'front-end/views/buyTickets/buyTickets_seats.html',
+                controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets/seats/detail', {
-                templateUrl: 'front-end/views/buyTickets/buyTickets_detail.html'
+                templateUrl: 'front-end/views/buyTickets/buyTickets_detail.html',
+                controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets/seats/detail/cardinformation', {
-                templateUrl: 'front-end/views/buyTickets/buyTickets_cardInformation.html'
+                templateUrl: 'front-end/views/buyTickets/buyTickets_cardInformation.html',
+                controller : 'buyticketsCtrl'
             })
             .when('/buyTickets/tickets/seats/detail/cardinformation/success', {
                 templateUrl: 'front-end/views/buyTickets/buyTickets_success.html'
@@ -52,6 +55,10 @@ angular.module('loudApp',[
             .when('/profile', {
                 templateUrl: 'front-end/views/profile.html',
                 controller : 'ProfileCtrl'
+            })
+            .when('/forgot', {
+                templateUrl: 'front-end/views/forgot-password.html',
+                controller : 'ForgotPasswordCtrl'
             })
             // Events
             .when('/event/:id', {

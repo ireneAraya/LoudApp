@@ -73,9 +73,45 @@ class UserController {
             $result["error"] = true;
             $result["message"] = $verifyResult["message"];
         } else {
-            setcookie($this->cookieName, true, time()-36000);
+            setcookie($this->cookieName, true, time()-604800);
             $result["success"] = true;
             $result["message"] = $verifyResult["message"];
+        }
+
+        return $result;
+    }
+
+    public function forgotPassword ($request) {
+        $result = [];
+
+        function randomPassword () {
+            return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ#^_-+=@!&$*()';[]{}\|~<>/?"), 0, 10);
+        };
+
+        $formData = $request->getParsedBody();
+        $email = null;
+
+        if (array_key_exists("email", $formData)) {
+            $email = $formData["email"];
+        }
+
+        if (isset($email)) {
+            $recoverPassword = trim(randomPassword());
+
+            $passwordResult = $this->userService->changeUserPassword($email, $recoverPassword);
+
+            if (array_key_exists("error", $passwordResult)) {
+                $result["error"] = true;
+                $result["message"] = $passwordResult["message"];
+            } else {
+                $result["success"] = true;
+                $result["user_data"] = [
+                    "id" => $passwordResult["data"]["id"],
+                    "email" => $passwordResult["data"]["email"],
+                    "firstName" => $passwordResult["data"]["firstName"],
+                    "password" => $recoverPassword,
+                ];
+            }
         }
 
         return $result;

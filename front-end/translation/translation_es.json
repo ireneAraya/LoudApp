@@ -11,6 +11,7 @@
     "NEXT" : "Siguiente",
     "NO_RESULTS" : "¡No existen resultados de su búsqueda! Por favor, intente de nuevo.",
     "GO_BACK" : "Volver al Inicio",
+    "ALTERNATIVE_SIGIN_TEXT" : "O ingresa con tu cuenta de",
     "SIGIN" : "Ingresar",
     "REGISTER" : "Registrarse",
     "FORGOT_PASSWORD" : "¿Olvidó su contraseña?",
@@ -28,5 +29,48 @@
         "CONTACT" : "Contáctenos",
         "PRIVACY" : "Políticas de Privacidad",
         "TERMS" : "Términos de Uso"
+    },
+    "REQUEST_NEW_PASSWORD_BUTTON_TEXT" : "Solicitar",
+    "REQUEST_NEW_PASSWORD_TEXT" : "Por favor ingrese debajo un correo electrónico, si encontramos una cuenta con ese email te enviaremos un link para que restablezcas tu contraseña.",
+    "NEW_PASSWORD_SUCCESS" : "Se ha generado una solicitud de contraseña nueva para tu cuenta, revisa tu correo electrónico.",
+    "THANKS_TITLE" : "¡Gracias!",
+    "USER_INFO_TITLE" : "Información del Usuario",
+    "USER" : {
+        "FULL_NAME_TEXT" : "Su nombre completo es:",
+        "PERSONALID_TEXT" : "Su identificación personal es:",
+        "BIRTHDATE_TEXT" : "Su fecha de nacimiento es:"
+    },
+    "PAGE_NOT_FOUND" : {
+        "TITLE" : "¡Página no Encontrada! :(",
+        "TEXT" : "El archivo que estás buscando se ha removido o no existe."
+    },
+    "CHANGE_PHOTO_BUTTON_TEXT" : "Cambiar Foto",
+    "VALIDATE" : {
+        "REQUIRED_ERROR" : "Este campo es obligatorio.",
+        "WRONG_PATTERN_EMAIL_ERROR" : "El formato del email debe ser xxxx@yyyy.zzz",
+        "WRONG_PATTERN_PASSWORD_ERROR" : "La contraseña debe ser de al menos 8 caracteres, combinando entre caracteres especiales y números.",
+        "WRONG_PATTERN_PHONE_ERROR" : "El número de teléfono debe tener el siguiente formato: NNNN-NNNN."
+    },
+    "REGISTRATION" : {
+        "FIRST_NAME" : "Primer nombre:",
+        "MIDDLE_NAME" : "Segundo nombre:",
+        "LAST_NAME" : "Primer apellido:",
+        "SECOND_SURNAME" : "Segundo apellido:",
+        "NICKNAME" : "Alias:",
+        "EMAIL" : "Correo electrónico:",
+        "PHONE" : "Teléfono:",
+        "PASSWORD" : "Contraseña:",
+        "VERIFY_PASSWORD" : "Verificación de contraseña:",
+        "IDENTIFICATION" : "Identificación personal:",
+        "IDENTIFICATION_TYPE" : "Type of Identificación:",
+        "BIRTHDATE" : "Fecha de nacimiento:",
+        "GENDER" : {
+            "LABEL" : "Género:",
+            "MALE" : "Masculino",
+            "FEMALE" : "Femenino",
+            "OTHER" : "Otro"
+        },
+        "DISABILITY" : "Discapacidades:",
+        "SPECIAL_CONDITIONS" : "Condiciones especiales:"
     }
 }

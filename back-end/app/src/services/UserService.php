@@ -89,7 +89,7 @@ class UserService {
             $result["success"] = true;
             $result["message"] = "The user ".$_SESSION['user_id']." has an active session.";
 
-            $query = "SELECT id, rol, firstName, middleName, lastName, secondSurname, email, phone, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, company FROM loud_users WHERE id = :id LIMIT 1";
+            $query = "SELECT id, rol, nickname, firstName, middleName, lastName, secondSurname, email, phone, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, company FROM loud_users WHERE id = :id LIMIT 1";
             $param = ["id" => intVal($_SESSION['user_id'])];
 
             $query_result = $this->storage->query($query, $param, "SELECT");
@@ -98,6 +98,7 @@ class UserService {
             $result["data"] = [
                 "id" => $user["id"],
                 "rol" => $user["rol"],
+                "nickname" => $user["nickname"],
                 "firstName" => $user["firstName"],
                 "middleName" => $user["middleName"],
                 "lastName" => $user["lastName"],
@@ -145,6 +146,60 @@ class UserService {
         } else {
             $result["error"] = true;
             $result["message"] = "The is not user logged in.";
+        }
+
+        return $result;
+    }
+
+    public function changeUserPassword ($email, $password) {
+        $result = [];
+
+        $cost = 10;
+        $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+        $salt = sprintf("$2a$%02d$", $cost) . $salt;
+        $hash = crypt($password, $salt);
+
+        if ($email !== "") {
+            $email = strtolower($email);
+            $email = trim($email);
+
+            $query = "SELECT id, firstName, email FROM loud_users WHERE email = :email LIMIT 1";
+
+            $param = [":email" => $email];
+
+            $selectUserResult = $this->storage->query($query, $param, "SELECT");
+
+            if (count($selectUserResult['data']) > 0) {
+                $user = $selectUserResult['data'][0];
+
+                $query = "UPDATE loud_users SET hash = :newPassword, active = 0 WHERE id = :id";
+                $param = [
+                    ":newPassword" => $hash,
+                    ":id" => $user["id"]
+                ];
+
+                $changePasswordResult = $this->storage->query($query, $param, "UPDATE");
+
+                if ($changePasswordResult['data'] > 0) {
+                    $result["success"] = true;
+                    $result["message"] = "The password has been reset for your account. Please check your inbox.";
+
+                    $result["data"] = [
+                        "id" => $user["id"],
+                        "firstName" => $user["firstName"],
+                        "email" => $user["email"]
+                    ];
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "The password has been already changed.";
+                }
+            } else {
+                $result["error"] = true;
+                $result["message"] = "We couldn't find an user with the email provided.";
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide an email address.";
         }
 
         return $result;

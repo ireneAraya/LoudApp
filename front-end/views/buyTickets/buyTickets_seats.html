@@ -3,12 +3,12 @@
   <hr>
   <div class="row row-centered">
     <div class="col-md-6 col-centered">
-      <form role="form" class="general-form">
+      <form role="form" class="general-form" name="buySeatsForm" novalidate>
         <div class="form-group" ng-controller="DatepickerCtrl">
           <!-- <label for="">Seleccione sus asientos</label> -->
           <label for="">Seleccione el area que desea</label>
         </div>
-        <div class="form-group" ng-controller="buyticketsCtrl">
+        <div class="form-group" name="seatSelection">
           <div class="center-area">
             <div class="row scenario-row">
               <span>Escenario</span>
@@ -419,7 +419,7 @@
           </div> -->
         </div>
         <div class="form-group next-stadium-seat">
-          <a href="#/buyTickets/tickets/seats/detail" class="btn next-btn align-right">{{translation.NEXT}}</a>
+          <button class="btn next-btn align-right" ng-click="go('/buyTickets/tickets/seats/detail')" ng-disabled="buySeatsForm.$">{{translation.NEXT}}</button>
         </div>
       </form>
     </div>
