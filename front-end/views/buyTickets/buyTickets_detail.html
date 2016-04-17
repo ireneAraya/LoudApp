@@ -6,7 +6,7 @@
         <div class="detail-buy-heading">
           <span>Su compra</span>
         </div>
-        <div class="detail-buy-container" ng-controller="buyticketsCtrl">
+        <div class="detail-buy-container">
           <h3>{{eventsBuy.name}}</h3>
           <p>Fecha: <span>{{eventsBuy.date}}</span></p>
           <p>Hora: <span>{{eventsBuy.startHour}}</span></p>
@@ -28,7 +28,7 @@
             <input id="user_email" class="form-control event-info" ng-model="detailEmail"></input>
           </div>
           <div class="form-group">
-            <a href="#/buyTickets/tickets/seats/detail/cardinformation" class="btn next-btn align-right">{{translation.NEXT}}</a>
+            <button ng-click=go("/buyTickets/tickets/seats/detail/cardinformation") class="btn next-btn align-right">{{translation.NEXT}}</button>
           </div>
         </div>
     </div>
