@@ -432,3 +432,101 @@
 .next-stadium-seat {
     margin-top: 100px;
 }
+
+@media screen and (max-width: 400px) {
+
+    .form-group {
+        a {
+            // font-size: 9px;
+        }
+        .center-area {
+            width: 178px;
+            height: 231px;
+            margin-left: 97px;
+            .scenario-row {
+                width: 71px;
+                height: 32px;
+                margin: 17px 52px 3px;
+                span {
+                    margin-top: 6px;
+                }
+            }
+            .first-row, .second-row, .third-row {
+                margin: 2% 3%;
+                .seat-stadium-col {
+
+                    a {
+                        padding: 7px 2px;
+                        margin-right: 3px;
+                        font-size: 10px;
+                    }
+                    .vip-10 {
+                        padding: 6px 1px;
+                    }
+                }
+            }
+            .first-row, .second-row {
+                margin: 2% 8%;
+            }
+            .gramilla-general {
+                width: 146px;
+                height: 72px;
+                margin: 0 16px;
+                span {
+                    margin-top: 27px;
+                }
+            }
+        }
+        // .bottom-area
+        .right-area {
+            margin-top: -174px;
+            margin-right: 14px;
+            .row {
+                .seat-stadium-col {
+                    a {
+                        padding: 3px;
+                    }
+                }
+            }
+            .row2 {
+                margin-top: -61px;
+                margin-left: 12px;
+            }
+            .row3 {
+                margin-left: 9px;
+            }
+
+        }
+        .left-left {
+            margin-left: 12px;
+            margin-top: -100px;
+            .row {
+                .seat-stadium-col {
+                }
+            }
+            .row2 {
+                margin-top: -156px;
+                margin-left: 9px;
+            }
+            .row3 {
+                margin-left: 14px;
+            }
+        }
+        .bottom-area {
+            margin-left: 0;
+            margin-top: 80px;
+            .row {
+                .seat-stadium-col {
+                    transform: rotate(0deg);
+                    float: left;
+                    .two-digit-seat {
+                        padding: 4px 1px;
+                    }
+                    a {
+                        padding: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
