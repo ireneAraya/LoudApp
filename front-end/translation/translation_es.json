@@ -43,5 +43,34 @@
     "PAGE_NOT_FOUND" : {
         "TITLE" : "¡Página no Encontrada! :(",
         "TEXT" : "El archivo que estás buscando se ha removido o no existe."
+    },
+    "CHANGE_PHOTO_BUTTON_TEXT" : "Cambiar Foto",
+    "VALIDATE" : {
+        "REQUIRED_ERROR" : "Este campo es obligatorio.",
+        "WRONG_PATTERN_EMAIL_ERROR" : "El formato del email debe ser xxxx@yyyy.zzz",
+        "WRONG_PATTERN_PASSWORD_ERROR" : "La contraseña debe ser de al menos 8 caracteres, combinando entre caracteres especiales y números.",
+        "WRONG_PATTERN_PHONE_ERROR" : "El número de teléfono debe tener el siguiente formato: NNNN-NNNN."
+    },
+    "REGISTRATION" : {
+        "FIRST_NAME" : "Primer nombre:",
+        "MIDDLE_NAME" : "Segundo nombre:",
+        "LAST_NAME" : "Primer apellido:",
+        "SECOND_SURNAME" : "Segundo apellido:",
+        "NICKNAME" : "Alias:",
+        "EMAIL" : "Correo electrónico:",
+        "PHONE" : "Teléfono:",
+        "PASSWORD" : "Contraseña:",
+        "VERIFY_PASSWORD" : "Verificación de contraseña:",
+        "IDENTIFICATION" : "Identificación personal:",
+        "IDENTIFICATION_TYPE" : "Type of Identificación:",
+        "BIRTHDATE" : "Fecha de nacimiento:",
+        "GENDER" : {
+            "LABEL" : "Género:",
+            "MALE" : "Masculino",
+            "FEMALE" : "Femenino",
+            "OTHER" : "Otro"
+        },
+        "DISABILITY" : "Discapacidades:",
+        "SPECIAL_CONDITIONS" : "Condiciones especiales:"
     }
 }
