@@ -7,16 +7,16 @@
     </div>
 
     <div class="container">
-        <form role="form" name="registerForm" class="general-form row">
+        <form role="form" id="registerForm" name="registerForm" class="general-form row">
             <div class="row">
-                <div class="col-xs-2">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
                     <img ng-src="{{ newImageSource }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
                     <label for="file-upload" class="custom-file-upload">
                         <i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
                     </label>
                     <input id="file-upload" ng-model="newImageSource" type="file" onchange="angular.element(this).scope().newImage(this)" class="btn file-input"></input>
                 </div><!--.col-xs-2-->
-                <div class="col-xs-10">
+                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10">
                     <div class="form-group col-xs-12">
                         <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>
                         <input id="firstName" type="text" name="firstName" ng-model="firstName" class="form-control" required>
@@ -99,10 +99,23 @@
                         </div><!--ng-messages-->
                     </div>
 
+                    <div class="col-xs-12">
+                        <div class="form-gender">
+                            <label for="">Please select your {{ translation.REGISTRATION.GENDER.LABEL }}</label><br>
+                            <label class="radio-inline"><input type="radio" ng-model"gender" name="gender">{{ translation.REGISTRATION.GENDER.MALE }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model"gender" name="gender">{{ translation.REGISTRATION.GENDER.FEMALE }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model"gender" name="gender">{{ translation.REGISTRATION.GENDER.OTHER }}</label>
+                        </div>
+                    </div><!--.form-group .col-xs-12-->
+
                     <div class="form-group col-xs-12">
-                        <label class="radio-inline"><input type="radio" ng-model"gender" name="gender" selected>{{ translation.VALIDATE.GENDER.MALE }}</label>
-                        <label class="radio-inline"><input type="radio" ng-model"gender" name="gender">{{ translation.VALIDATE.GENDER.FEMALE }}</label>
-                        <label class="radio-inline"><input type="radio" ng-model"gender" name="gender">{{ translation.VALIDATE.GENDER.OTHER }}</label>
+                        <label for="disability">{{ translation.REGISTRATION.DISABILITY }}</label>
+                        <input id="disability" type="text" name="disability" ng-model="disability" class="form-control">
+                    </div><!--.form-group .col-xs-12-->
+
+                    <div class="form-group col-xs-12">
+                        <label for="specialCondition">{{ translation.REGISTRATION.SPECIAL_CONDITIONS }}</label>
+                        <input id="specialCondition" type="text" name="specialCondition" ng-model="specialCondition" class="form-control">
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
