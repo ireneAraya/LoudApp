@@ -69,8 +69,6 @@ angular.module ('loudApp.controllers')
                         });
                     }
                 });
-
-                $scope.logginUser = false;
             };
 
             $scope.facebookLogin = function () {

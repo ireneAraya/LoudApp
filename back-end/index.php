@@ -97,13 +97,12 @@ $app->post(
 
         if ($result["success"]) {
             $emailTo = $result["user_data"]["email"];
-            $emailFrom = "noreply@danielmunnoz.com";
-            $emailBody = "
-                <h4>Hi ".$result["user_data"]["firstName"]."</h4>
-                <p>You have requested a new password.<p>
-                <p>Your temporary passpord is:<p>
-                <p><strong>".$result["user_data"]["password"]."</strong></p>
-            ";
+            $emailFrom = "noreply@loudapp.rocks";
+
+            $emailBody = file_get_contents('./../front-end/templates/password_template.html');
+            $emailBody = str_replace('%%name%%', $result["user_data"]["firstName"], $emailBody);
+            $emailBody = str_replace('%%password%%', $result["user_data"]["password"], $emailBody);
+            $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
 
             $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
                 ->setUsername('jmunozv@ucenfotec.ac.cr')
@@ -112,6 +111,7 @@ $app->post(
             $mailer = Swift_Mailer::newInstance($transporter);
             $eMessage = Swift_Message::newInstance('📣 Request for Password Reset')
               ->setContentType('text/html')
+              ->setFrom(array($emailFrom => 'Loud App Team'))
               ->setSender($emailTo)
               ->setCharset('utf-8')
               ->setTo($emailTo)

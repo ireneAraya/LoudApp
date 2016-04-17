@@ -5,7 +5,6 @@ angular.module ('loudApp.controllers')
 	function($scope, LoudService, $location, $q, $timeout) {
 
         $scope.init = function() {
-            $scope.emailSent = false;
             otherFunctions();
         };
 
