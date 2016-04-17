@@ -17,9 +17,9 @@
               <div ng-repeat="option in eventsBuy.options">
                 <p class="selected-area">Area: {{ option.area }}</p>
                 <p class="selected-seats">{{ translation.EVENT_CLIENT_SEATS }}: {{ option.seats.join(", "); }}</p>
+                <p>Total: <span>{{ option.total }}</span></p>
               </div>
             </div>
-            <p>Total: <span>3000</span></p>
           </div>
           <div class="detail-buy-information form-group">
             <label for="user_name">{{ translation.EVENT_CLIENT_NAME }}</label>
