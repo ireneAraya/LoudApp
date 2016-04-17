@@ -6,7 +6,6 @@ angular.module ('loudApp.controllers')
 
         $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
         $scope.user = LoudService.verify('LoudApp__User') || {};
-        var options = [];
 
         $scope.initialAmount = 0;
         $scope.itemPrice = 3500;
@@ -35,7 +34,13 @@ angular.module ('loudApp.controllers')
 
         function otherFunctions() {
 
-            $scope.detailUser = $scope.user.firstName + " " + $scope.user.lastName || "";
+            var firstName = $scope.user.firstName || $scope.user.first_name;
+            var separator = " ";
+            var lastName = $scope.user.lastName || $scope.user.last_name;
+
+            var fullName =  firstName + separator + lastName;
+
+            $scope.detailUser =  fullName || "";
             $scope.detailEmail = $scope.user.email || "";
 
             var areaAndSeats = {};
