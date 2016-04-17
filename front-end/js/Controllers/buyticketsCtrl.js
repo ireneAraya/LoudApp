@@ -76,11 +76,12 @@ angular.module ('loudApp.controllers')
                 LoudService.save("LoudApp__SelectedOptions", $scope._option);
                 $scope.eventsBuy.options = $scope._option;
                 LoudService.remove("LoudApp__SelectedOptions");
-            }
+            };
 
-            $scope.buySeats = function () {
-                $location.path("/buyTickets/tickets/seats");
-            }
+            //Next-buttons
+            $scope.go = function ( path ) {
+                $location.path( path );
+            };
         };
 
         $scope.init();
