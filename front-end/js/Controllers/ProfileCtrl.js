@@ -39,7 +39,7 @@ angular.module ('loudApp.controllers')
 
             // Main system logout function
             $scope.logout = function () {
-                $scope.user = {};
+                $scope.endingSession = true;
 
                 var session = $q(function (resolve, reject) {
                     var res = LoudService.logoutUser();
@@ -63,6 +63,8 @@ angular.module ('loudApp.controllers')
 
             // Facebook logout function
             $scope.logoutFB = function () {
+                $scope.endingSession = true;
+
                 LoudFB.getLoginStatus().then(function (isLoggedIn) {
                     if (isLoggedIn) {
                         LoudFB.logout().then(function (response) {

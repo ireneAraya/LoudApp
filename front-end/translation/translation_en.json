@@ -39,5 +39,9 @@
         "FULL_NAME_TEXT" : "Your full name is:",
         "PERSONALID_TEXT" : "Your identification ID is:",
         "BIRTHDATE_TEXT" : "Your birth date is:"
+    },
+    "PAGE_NOT_FOUND" : {
+        "TITLE" : "Page Not Found! :(",
+        "TEXT" : "The file you have requested has been removed or does not exit."
     }
 }
