@@ -88,7 +88,7 @@ angular.module ('loudApp.services')
                     result.message = response.data.message;
                 }
             }, function errorCallback(response) {
-                result.message = response.message;
+                result.message = response.data.message;
             });
 
             return result;
@@ -114,8 +114,7 @@ angular.module ('loudApp.services')
                     result.message = response.data.message;
                 }
             }, function errorCallback(response) {
-                console.log(response);
-                result.message = "Ha ocurrido un error en la llamada del back-end";
+                result.message = response.data.message;
             });
 
             return result;

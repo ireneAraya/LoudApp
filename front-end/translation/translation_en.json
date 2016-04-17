@@ -30,5 +30,6 @@
         "TERMS" : "Terms of Use"
     },
     "REQUEST_NEW_PASSWORD_BUTTON_TEXT" : "Request",
-    "REQUEST_NEW_PASSWORD_TEXT" : "Please enter an email address below, if we find an user with that email we will send you a password reset link to your inbox."
+    "REQUEST_NEW_PASSWORD_TEXT" : "Please enter an email address below, if we find an user with that email we will send you a password reset link to your inbox.",
+    "NEW_PASSWORD_SUCCESS" : "A password reset has been processed, please check your inbox for an email from Loud App."
 }

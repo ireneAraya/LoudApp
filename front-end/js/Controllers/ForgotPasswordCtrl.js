@@ -5,6 +5,7 @@ angular.module ('loudApp.controllers')
 	function($scope, LoudService, $location, $q, $timeout) {
 
         $scope.init = function() {
+            $scope.emailSent = false;
             otherFunctions();
         };
 
@@ -21,7 +22,11 @@ angular.module ('loudApp.controllers')
                     });
 
                     session.then(function (response) {
-                        console.log(response);
+                        if (response.success) {
+                            $scope.emailSent = true;
+                        } else {
+                            $scope.emailSent = false;
+                        }
                     });
                 }
             }

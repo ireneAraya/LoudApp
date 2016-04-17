@@ -105,9 +105,14 @@ $app->post(
                 <p><strong>".$result["user_data"]["password"]."</strong></p>
             ";
 
-            $transport = Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
-            $mailer = Swift_Mailer::newInstance($transport);
-            $eMessage = Swift_Message::newInstance('Request for Password Reset')
+            // $transporter = Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
+            //
+            $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+                ->setUsername('jmunozv@ucenfotec.ac.cr')
+                ->setPassword('Gekkonidae1996');
+
+            $mailer = Swift_Mailer::newInstance($transporter);
+            $eMessage = Swift_Message::newInstance('📣 Request for Password Reset')
               ->setContentType('text/html')
               ->setFrom(array($emailFrom => 'Loud App'))
               ->setSender($emailTo)

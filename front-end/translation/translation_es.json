@@ -30,5 +30,6 @@
         "TERMS" : "Términos de Uso"
     },
     "REQUEST_NEW_PASSWORD_BUTTON_TEXT" : "Solicitar",
-    "REQUEST_NEW_PASSWORD_TEXT" : "Por favor ingrese debajo un correo electrónico, si encontramos una cuenta con ese email te enviaremos un link para que restablezcas tu contraseña."
+    "REQUEST_NEW_PASSWORD_TEXT" : "Por favor ingrese debajo un correo electrónico, si encontramos una cuenta con ese email te enviaremos un link para que restablezcas tu contraseña.",
+    "NEW_PASSWORD_SUCCESS" : "Se ha generado una solicitud de contraseña nueva para tu cuenta, revisa tu correo electrónico."
 }
