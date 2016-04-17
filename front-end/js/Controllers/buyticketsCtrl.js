@@ -40,7 +40,12 @@ angular.module ('loudApp.controllers')
 
             var fullName =  firstName + separator + lastName;
 
-            $scope.detailUser =  fullName || "";
+            if (fullName == "undefined undefined") {
+                $scope.detailUser = " ";
+            } else {
+                $scope.detailUser = fullName;
+            }
+
             $scope.detailEmail = $scope.user.email || "";
 
             var areaAndSeats = {};
