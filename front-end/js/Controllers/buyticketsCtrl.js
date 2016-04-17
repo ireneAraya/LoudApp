@@ -48,9 +48,9 @@ angular.module ('loudApp.controllers')
 
             $scope.detailEmail = $scope.user.email || "";
 
-            var areaAndSeats = {};
-            areaAndSeats.area = [];
-            areaAndSeats.seats = [];
+            var areaAndSeats = [];
+            var fullOption = {};
+            fullOption.seats = [];
 
             $scope.getSelectedValue = function (value) {
                 $scope.eventsBuy = value;
@@ -62,20 +62,25 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.getAreaValue = function (item) {
-                areaAndSeats.area.push(item.currentTarget.getAttribute("data-description"));
+                fullOption.area = "";
+                fullOption.area = item.currentTarget.getAttribute("data-description");
             };
 
             $scope.getSeatNumber = function (item) {
-                areaAndSeats.seats.push(item.currentTarget.getAttribute("data-description"));
+                var array = fullOption.seats || [];
+                fullOption.seats.push(item.currentTarget.getAttribute("data-description"));
             };
 
             $scope.buyButon = function () {
-                $scope._option = LoudService.verify("LoudApp__SelectedOptions") || [];
-                $scope._option.push(areaAndSeats);
+                areaAndSeats = areaAndSeats || LoudService.verify("LoudApp__SelectedOptions");
+                areaAndSeats.push(fullOption);
 
-                LoudService.save("LoudApp__SelectedOptions", $scope._option);
-                $scope.eventsBuy.options = $scope._option;
+                LoudService.save("LoudApp__SelectedOptions", areaAndSeats);
+                $scope.eventsBuy.options = areaAndSeats;
                 LoudService.remove("LoudApp__SelectedOptions");
+
+                fullOption = {};
+                fullOption.seats = [];
             };
 
             //Next-buttons

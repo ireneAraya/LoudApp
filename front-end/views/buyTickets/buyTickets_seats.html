@@ -6,263 +6,265 @@
       <form role="form" class="general-form" name="buySeatsForm" novalidate>
         <div class="form-group" ng-controller="DatepickerCtrl">
           <!-- <label for="">Seleccione sus asientos</label> -->
-          <label for="">{{ translation.SELECT_AREA }}</label>
+          <label class="select-area-seats" for="">{{ translation.SELECT_AREA }}</label>
         </div>
         <div class="form-group" name="seatSelection">
-          <div class="center-area">
-            <div class="row scenario-row">
-              <span>{{ translation.STAGE }}</span>
-            </div>
-            <div class="row first-row">
-              <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
-                <a href="" data-description="VIP-1" ng-click="getAreaValue($event)">VIP 1</a>
+          <div class="test">
+            <div class="center-area">
+              <div class="row scenario-row">
+                <span>{{ translation.STAGE }}</span>
               </div>
-              <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
-                <a href="" data-description="VIP-2" ng-click="getAreaValue($event)">VIP 2</a>
+              <div class="row first-row">
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
+                  <a href="" data-description="VIP-1" ng-click="getAreaValue($event)">VIP 1</a>
+                </div>
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
+                  <a href="" data-description="VIP-2" ng-click="getAreaValue($event)">VIP 2</a>
+                </div>
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
+                  <a href="" data-description="VIP-3" ng-click="getAreaValue($event)">VIP 3</a>
+                </div>
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
+                  <a href="" data-description="VIP-4" ng-click="getAreaValue($event)">VIP 4</a>
+                </div>
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
+                  <a href="" data-description="VIP-5" ng-click="getAreaValue($event)">VIP 5</a>
+                </div>
               </div>
-              <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
-                <a href="" data-description="VIP-3" ng-click="getAreaValue($event)">VIP 3</a>
+              <div class="row second-row">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-6" ng-click="getAreaValue($event)">VIP 6</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-7" ng-click="getAreaValue($event)">VIP 7</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-8" ng-click="getAreaValue($event)">VIP 8</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-9" ng-click="getAreaValue($event)">VIP 9</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-10" ng-click="getAreaValue($event)" class="vip-10">VIP 10</a>
+                </div>
               </div>
-              <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
-                <a href="" data-description="VIP-4" ng-click="getAreaValue($event)">VIP 4</a>
+              <div class="row third-row">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-11" ng-click="getAreaValue($event)" class="vip-10">VIP 11</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-12" ng-click="getAreaValue($event)" class="vip-10">VIP 12</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-13" ng-click="getAreaValue($event)" class="vip-10">VIP 13</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-14" ng-click="getAreaValue($event)" class="vip-10">VIP 14</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-15" ng-click="getAreaValue($event)" class="vip-10">VIP 15</a>
+                </div>
               </div>
-              <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
-                <a href="" data-description="VIP-5" ng-click="getAreaValue($event)">VIP 5</a>
-              </div>
-            </div>
-            <div class="row second-row">
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-6" ng-click="getAreaValue($event)">VIP 6</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-7" ng-click="getAreaValue($event)">VIP 7</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-8" ng-click="getAreaValue($event)">VIP 8</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-9" ng-click="getAreaValue($event)">VIP 9</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-10" ng-click="getAreaValue($event)" class="vip-10">VIP 10</a>
-              </div>
-            </div>
-            <div class="row third-row">
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-11" ng-click="getAreaValue($event)" class="vip-10">VIP 11</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-12" ng-click="getAreaValue($event)" class="vip-10">VIP 12</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-13" ng-click="getAreaValue($event)" class="vip-10">VIP 13</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-14" ng-click="getAreaValue($event)" class="vip-10">VIP 14</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="VIP-15" ng-click="getAreaValue($event)" class="vip-10">VIP 15</a>
-              </div>
-            </div>
-            <div class="row gramilla-general">
-              <span>{{ translation.GENERAL_AREA }}</span>
-            </div>
-          </div>
-          <div class="right-area">
-            <div class="row">
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-2" ng-click="getAreaValue($event)">E2</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-3" ng-click="getAreaValue($event)">E3</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-4" ng-click="getAreaValue($event)">E4</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-5" ng-click="getAreaValue($event)">E5</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-6" ng-click="getAreaValue($event)">E6</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-7" ng-click="getAreaValue($event)">E7</a>
+              <div class="row gramilla-general">
+                <span>{{ translation.GENERAL_AREA }}</span>
               </div>
             </div>
-            <div class="row row2">
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-8" ng-click="getAreaValue($event)">E8</a>
+            <div class="right-area">
+              <div class="row">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-2" ng-click="getAreaValue($event)">E2</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-3" ng-click="getAreaValue($event)">E3</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-4" ng-click="getAreaValue($event)">E4</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-5" ng-click="getAreaValue($event)">E5</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-6" ng-click="getAreaValue($event)">E6</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-7" ng-click="getAreaValue($event)">E7</a>
+                </div>
               </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-9" ng-click="getAreaValue($event)">E9</a>
+              <div class="row row2">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-8" ng-click="getAreaValue($event)">E8</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-9" ng-click="getAreaValue($event)">E9</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-10" ng-click="getAreaValue($event)">E10</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-11" ng-click="getAreaValue($event)">E11</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-12" ng-click="getAreaValue($event)">E12</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-13" ng-click="getAreaValue($event)">E13</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-14" ng-click="getAreaValue($event)">E14</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-15" ng-click="getAreaValue($event)">E15</a>
+                </div>
               </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-10" ng-click="getAreaValue($event)">E10</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-11" ng-click="getAreaValue($event)">E11</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-12" ng-click="getAreaValue($event)">E12</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-13" ng-click="getAreaValue($event)">E13</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-14" ng-click="getAreaValue($event)">E14</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-15" ng-click="getAreaValue($event)">E15</a>
-              </div>
-            </div>
-            <div class="row row3">
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-16" ng-click="getAreaValue($event)">E16</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-17" ng-click="getAreaValue($event)">E17</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-18" ng-click="getAreaValue($event)">E18</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-19" ng-click="getAreaValue($event)">E19</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-20" ng-click="getAreaValue($event)">E20</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a hhref="" data-description="E-21" ng-click="getAreaValue($event)">E21</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-22" ng-click="getAreaValue($event)">E22</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-23" ng-click="getAreaValue($event)">E23</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-24" ng-click="getAreaValue($event)">E24</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="E-25" ng-click="getAreaValue($event)">E25</a>
-              </div>
-            </div>
-          </div>
-          <div class="right-area left-left">
-            <div class="row row4">
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-16" ng-click="getAreaValue($event)">F16</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-17" ng-click="getAreaValue($event)">F17</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-18" ng-click="getAreaValue($event)">F18</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-19" ng-click="getAreaValue($event)">F19</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-20" ng-click="getAreaValue($event)">F20</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-21" ng-click="getAreaValue($event)">F21</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-22" ng-click="getAreaValue($event)">F22</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-23" ng-click="getAreaValue($event)">F23</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-24" ng-click="getAreaValue($event)">F24</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-25" ng-click="getAreaValue($event)">F25</a>
+              <div class="row row3">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-16" ng-click="getAreaValue($event)">E16</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-17" ng-click="getAreaValue($event)">E17</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-18" ng-click="getAreaValue($event)">E18</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-19" ng-click="getAreaValue($event)">E19</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-20" ng-click="getAreaValue($event)">E20</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a hhref="" data-description="E-21" ng-click="getAreaValue($event)">E21</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-22" ng-click="getAreaValue($event)">E22</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-23" ng-click="getAreaValue($event)">E23</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-24" ng-click="getAreaValue($event)">E24</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="E-25" ng-click="getAreaValue($event)">E25</a>
+                </div>
               </div>
             </div>
-            <div class="row row2">
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-8" ng-click="getAreaValue($event)">F8</a>
+            <div class="right-area left-left">
+              <div class="row row4">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-16" ng-click="getAreaValue($event)">F16</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-17" ng-click="getAreaValue($event)">F17</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-18" ng-click="getAreaValue($event)">F18</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-19" ng-click="getAreaValue($event)">F19</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-20" ng-click="getAreaValue($event)">F20</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-21" ng-click="getAreaValue($event)">F21</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-22" ng-click="getAreaValue($event)">F22</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-23" ng-click="getAreaValue($event)">F23</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-24" ng-click="getAreaValue($event)">F24</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-25" ng-click="getAreaValue($event)">F25</a>
+                </div>
               </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-9" ng-click="getAreaValue($event)">F9</a>
+              <div class="row row2">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-8" ng-click="getAreaValue($event)">F8</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-9" ng-click="getAreaValue($event)">F9</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-10" ng-click="getAreaValue($event)">F10</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-11" ng-click="getAreaValue($event)">F11</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-12" ng-click="getAreaValue($event)">F12</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-13" ng-click="getAreaValue($event)">F13</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-14" ng-click="getAreaValue($event)">F14</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-15" ng-click="getAreaValue($event)">F15</a>
+                </div>
               </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-10" ng-click="getAreaValue($event)">F10</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-11" ng-click="getAreaValue($event)">F11</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-12" ng-click="getAreaValue($event)">F12</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-13" ng-click="getAreaValue($event)">F13</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-14" ng-click="getAreaValue($event)">F14</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-15" ng-click="getAreaValue($event)">F15</a>
+              <div class="row row3">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-2" ng-click="getAreaValue($event)">F2</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-3" ng-click="getAreaValue($event)">F3</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-4" ng-click="getAreaValue($event)">F4</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-5" ng-click="getAreaValue($event)">F5</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-6" ng-click="getAreaValue($event)">F6</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="F-7" ng-click="getAreaValue($event)">F7</a>
+                </div>
               </div>
             </div>
-            <div class="row row3">
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-2" ng-click="getAreaValue($event)">F2</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-3" ng-click="getAreaValue($event)">F3</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-4" ng-click="getAreaValue($event)">F4</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-5" ng-click="getAreaValue($event)">F5</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-6" ng-click="getAreaValue($event)">F6</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="F-7" ng-click="getAreaValue($event)">F7</a>
-              </div>
-            </div>
-          </div>
-          <div class="bottom-area">
-            <div class="row">
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-5" ng-click="getAreaValue($event)">S5</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-4" ng-click="getAreaValue($event)">S4</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-3" ng-click="getAreaValue($event)">S3</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-2" ng-click="getAreaValue($event)">S2</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-1" ng-click="getAreaValue($event)">S1</a>
+            <div class="bottom-area">
+              <div class="row">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-5" ng-click="getAreaValue($event)">S5</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-4" ng-click="getAreaValue($event)">S4</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-3" ng-click="getAreaValue($event)">S3</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-2" ng-click="getAreaValue($event)">S2</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-1" ng-click="getAreaValue($event)">S1</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="bottom-area area-2">
-            <div class="row">
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-10" ng-click="getAreaValue($event)" class="two-digit-seat">S10</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-9" ng-click="getAreaValue($event)">S9</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-8" ng-click="getAreaValue($event)">S8</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-7" ng-click="getAreaValue($event)">S7</a>
-              </div>
-              <div class="seat-stadium-col">
-                <a href="" data-description="S-6" ng-click="getAreaValue($event)">S6</a>
+            <div class="bottom-area area-2">
+              <div class="row">
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-10" ng-click="getAreaValue($event)" class="two-digit-seat">S10</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-9" ng-click="getAreaValue($event)">S9</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-8" ng-click="getAreaValue($event)">S8</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-7" ng-click="getAreaValue($event)">S7</a>
+                </div>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="S-6" ng-click="getAreaValue($event)">S6</a>
+                </div>
               </div>
             </div>
           </div>
