@@ -93,7 +93,44 @@ $app->post(
         /** @var Response $response */
         $userController = new App\Controllers\UserController();
         $result = $userController->forgotPassword($request);
-        return $response->withJson($result);
+        $finalResult = [];
+
+        if ($result["success"]) {
+            $emailTo = $result["user_data"]["email"];
+            $emailFrom = "noreply@danielmunnoz.com";
+            $emailBody = "
+                <h4>Hi ".$result["user_data"]["firstName"]."</h4>
+                <p>You have requested a new password.<p>
+                <p>Your temporary passpord is:<p>
+                <p><strong>".$result["user_data"]["password"]."</strong></p>
+            ";
+
+            $transport = Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
+            $mailer = Swift_Mailer::newInstance($transport);
+            $eMessage = Swift_Message::newInstance('Request for Password Reset')
+              ->setContentType('text/html')
+              ->setFrom(array($emailFrom => 'Loud App'))
+              ->setSender($emailTo)
+              ->setCharset('utf-8')
+              ->setTo($emailTo)
+              // ->setBcc("hostmaster@danielmunoz.cr")
+              ->setBody(trim($emailBody));
+
+            $nSent = $mailer->send($eMessage);
+
+            if ($nSent > 0) {
+                $finalResult["success"] = true;
+                $finalResult["message"] = "The recovery password has been sent to your email.";
+            } else {
+                $finalResult["error"] = true;
+                $finalResult["message"] = "The was an error requesting your new password please try again.";
+            }
+        } else {
+            $finalResult["error"] = true;
+            $finalResult["message"] = "The was an error requesting your new password please try again.";
+        }
+
+        return $response->withJson($finalResult);
     }
 );
 

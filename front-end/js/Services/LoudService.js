@@ -97,7 +97,7 @@ angular.module ('loudApp.services')
         var requestNewPassword = function (userEmail) {
             var result = {
                 success : false,
-                menssage : null
+                message : null
             };
 
             $http({
@@ -114,8 +114,11 @@ angular.module ('loudApp.services')
                     result.message = response.data.message;
                 }
             }, function errorCallback(response) {
+                console.log(response);
                 result.message = "Ha ocurrido un error en la llamada del back-end";
             });
+
+            return result;
         };
 
         var save = function (key, object) {

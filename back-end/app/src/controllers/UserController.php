@@ -104,36 +104,13 @@ class UserController {
                 $result["error"] = true;
                 $result["message"] = $passwordResult["message"];
             } else {
-                require_once("/Users/kronos/Desktop/LoudApp/back-end/lib/swiftmailer/swift_required.php");
-                $emailTo = $passwordResult["data"]["email"];
-                $emailFrom = "noreply@danielmunnoz.com";
-                $emailBody = "
-                    <h4>Hi ".$passwordResult["data"]["firstName"]."</h4>
-                    <p>You have requested a new password.<p>
-                    <p>Your temporary passpord is:<p>
-                    <p><strong>".$recoverPassword."</strong></p>
-                ";
-
-                $eTransport = Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
-                $eMailer = Swift_Mailer::newInstance($eTransport);
-                $eMessage = Swift_Message::newInstance('Request for Password Reset')
-                  ->setContentType('text/html')
-                  ->setFrom(array($emailFrom => 'Loud App'))
-                  ->setSender($emailTo)
-                  ->setCharset('utf-8')
-                  ->setTo($emailTo)
-                  ->setBcc("hostmaster@danielmunoz.cr")
-                  ->setBody(trim($emailBody));
-
-                $nSent = $eMailer->send($eMessage);
-
-                if ($nSent > 0) {
-                    $result["success"] = true;
-                    $result["message"] = "The recovery password has been sent to your email.";
-                } else {
-                    $result["error"] = true;
-                    $result["message"] = "The was an error requesting your new password please try again.";
-                }
+                $result["success"] = true;
+                $result["user_data"] = [
+                    "id" => $passwordResult["data"]["id"],
+                    "email" => $passwordResult["data"]["email"],
+                    "firstName" => $passwordResult["data"]["firstName"],
+                    "password" => $recoverPassword,
+                ];
             }
         }
 
