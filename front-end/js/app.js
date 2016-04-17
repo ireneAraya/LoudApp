@@ -53,6 +53,10 @@ angular.module('loudApp',[
                 templateUrl: 'front-end/views/profile.html',
                 controller : 'ProfileCtrl'
             })
+            .when('/forgot', {
+                templateUrl: 'front-end/views/forgot-password.html',
+                controller : 'ForgotPasswordCtrl'
+            })
             // Events
             .when('/event/:id', {
                 templateUrl: 'front-end/views/eventDetail.html',

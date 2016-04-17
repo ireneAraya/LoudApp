@@ -81,6 +81,16 @@ class UserController {
         return $result;
     }
 
+    public function forgotPassword ($request) {
+        $result = [];
+
+        $formData = $request->getParsedBody();
+        $email = null;
+
+
+        return $result;
+    }
+
     public function register($request) {
         $result = [];
 

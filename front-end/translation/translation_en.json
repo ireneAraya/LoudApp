@@ -13,7 +13,7 @@
     "GO_BACK" : "Go back to Home",
     "SIGIN" : "Sign in",
     "REGISTER" : "Register",
-    "FORGOT_PASSWORD" : "Forgor your password?",
+    "FORGOT_PASSWORD" : "Forgot your password?",
     "ALTERNATIVE_SIGNIN_TEXT" : "Or sign in with other services",
     "NEXT_EVENTS" : "Upcoming Events",
     "DETAILS_BUTTON_TEXT" : "See Details",
@@ -28,5 +28,7 @@
         "CONTACT" : "Contact Us",
         "PRIVACY" : "Privacy",
         "TERMS" : "Terms of Use"
-    }
+    },
+    "REQUEST_NEW_PASSWORD_BUTTON_TEXT" : "Request",
+    "REQUEST_NEW_PASSWORD_TEXT" : "Please enter an email address below, if we find an user with that email we will send you a password reset link to your inbox."
 }

@@ -86,5 +86,16 @@ $app->post(
     }
 );
 
+$app->post(
+    '/user/forgot-password',
+    function ($request, $response) {
+        /** @var Request $request */
+        /** @var Response $response */
+        $userController = new App\Controllers\UserController();
+        $result = $userController->forgotPassword($request);
+        return $response->withJson($result);
+    }
+);
+
 // Corremos la aplicación.
 $app->run();

@@ -81,6 +81,8 @@ angular.module ('loudApp.services')
                 method: 'POST',
                 url: '/back-end/user/logout'
             }).then(function successCallback(response) {
+                console.log(response);
+
                 if (!response.data.error) {
                     result.success = true;
                     result.message = response.data.message;
@@ -92,6 +94,30 @@ angular.module ('loudApp.services')
             });
 
             return result;
+        };
+
+        var requestNewPassword = function (userEmail) {
+            var result = {
+                success : false,
+                menssage : null
+            };
+
+            $http({
+                method: 'POST',
+                data : {
+                    email : userEmail
+                }
+                url: '/back-end/user/forgot-password'
+            }).then(function successCallback(response) {
+                if (!response.data.error) {
+                    result.success = true;
+                    result.message = response.data.message;
+                } else {
+                    result.message = response.data.message;
+                }
+            }, function errorCallback(response) {
+                result.message = response.message;
+            });
         };
 
         var save = function (key, object) {
@@ -140,15 +166,16 @@ angular.module ('loudApp.services')
         };
 
 		return {
-            save            : save,
-            remove          : remove,
-            verify          : verify,
-			getDataFromJS 	: getDataFromJS,
-			getItem 		: getItem,
-			getItemIndex	: getItemIndex,
-            loginUser       : loginUser,
-            verifyUser      : verifyUser,
-            logoutUser      : logoutUser
+            save               : save,
+            remove             : remove,
+            verify             : verify,
+			getDataFromJS 	   : getDataFromJS,
+			getItem 		   : getItem,
+			getItemIndex	   : getItemIndex,
+            loginUser          : loginUser,
+            verifyUser         : verifyUser,
+            logoutUser         : logoutUser,
+            requestNewPassword : requestNewPassword
 		};
 
 	}
