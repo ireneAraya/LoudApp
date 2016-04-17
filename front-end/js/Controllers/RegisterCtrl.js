@@ -5,7 +5,9 @@ angular.module ('loudApp.controllers')
 	function($scope, LoudService, $location, $q, $timeout) {
 
         $scope.init = function() {
-            $scope.newImageSource = "/front-end/img/users/profilePlaceholder.png";
+            $scope.getPicturePath = function (a, b, c) {
+                console.log(a, b, c);
+            };
 
             var userExists = $q(function (resolve, reject) {
                 var res = LoudService.verifyUser();
@@ -27,13 +29,9 @@ angular.module ('loudApp.controllers')
         };
 
         function otherFunctions () {
-
+            // console.log(editItem._attachments_uri.image);
         };
 
         $scope.init();
-
-        $scope.$watch('newImageSource', function(newValue, oldValue) {
-            LoudService.save("LoudApp__User", newValue);
-        }, true);
 	}
 ])
