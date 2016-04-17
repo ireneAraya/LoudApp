@@ -1,17 +1,17 @@
 <main class="container">
-  <h1 class="text-center">Compra de entradas</h1>
+  <h1 class="text-center">{{ translation.BUY_TICKETS }}</h1>
   <hr>
   <div class="row row-centered">
     <div class="col-md-6 col-centered">
       <form role="form" class="general-form" name="buySeatsForm" novalidate>
         <div class="form-group" ng-controller="DatepickerCtrl">
           <!-- <label for="">Seleccione sus asientos</label> -->
-          <label for="">Seleccione el area que desea</label>
+          <label for="">{{ translation.SELECT_AREA }}</label>
         </div>
         <div class="form-group" name="seatSelection">
           <div class="center-area">
             <div class="row scenario-row">
-              <span>Escenario</span>
+              <span>{{ translation.STAGE }}</span>
             </div>
             <div class="row first-row">
               <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
@@ -65,7 +65,7 @@
               </div>
             </div>
             <div class="row gramilla-general">
-              <span>Gramilla General</span>
+              <span>{{ translation.GENERAL_AREA }}</span>
             </div>
           </div>
           <div class="right-area">
@@ -306,7 +306,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-dismiss="modal">CANCELAR</button>
-                        <button type="button" class="btn" data-dismiss="modal" ng-click="buyButon();">COMPRAR</button>
+                        <button type="button" class="btn" data-dismiss="modal" ng-click="buyButon();">SELECCIONAR</button>
                     </div>
                 </div>
               </div>

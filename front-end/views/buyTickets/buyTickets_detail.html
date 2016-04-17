@@ -1,30 +1,30 @@
 <main class="container">
-  <h1 class="text-center">Compra de entradas</h1>
+  <h1 class="text-center">{{ translation.BUY_TICKETS }}</h1>
   <hr>
   <div class="row row-centered">
     <div class="col-md-6 col-centered detail-buy general-form">
         <div class="detail-buy-heading">
-          <span>Su compra</span>
+          <span>{{ translation.YOUR_BUY }}</span>
         </div>
         <div class="detail-buy-container">
           <h3>{{eventsBuy.name}}</h3>
-          <p>Fecha: <span>{{eventsBuy.date}}</span></p>
-          <p>Hora: <span>{{eventsBuy.startHour}}</span></p>
-          <p>Lugar: <span>{{ getEventLocation(eventsBuy.location, 'name') }}</span></p>
+          <p>{{ translation.EVENT_DATE }}: <span>{{eventsBuy.date}}</span></p>
+          <p>{{ translation.EVENT_TIME }}: <span>{{eventsBuy.startHour}}</span></p>
+          <p>{{ translation.EVENT_PLACE }}: <span>{{ getEventLocation(eventsBuy.location, 'name') }}</span></p>
           <div>
             <!-- <p>Asientos:</p> -->
             <div ng-repeat="option in eventsBuy.options">
               <p>Area: {{ option.area }}</p>
-              <p style="float: left; width: 100%;">Asientos: {{ option.seats.join(", "); }}</p>
+              <p>{{ translation.EVENT_CLIENT_SEATS }}: {{ option.seats.join(", "); }}</p>
             </div>
           </div>
           <p>Total: <span>3000</span></p>
           <div class="detail-buy-information form-group">
-            <label for="user_name">Nombre</label>
+            <label for="user_name">{{ translation.EVENT_CLIENT_NAME }}</label>
             <input id="user_name" class="form-control event-info" ng-model="detailUser"></input>
           </div>
           <div class="detail-buy-information form-group">
-            <label for="user_email">Correo electrónico</label>
+            <label for="user_email">{{ translation.EVENT_CLIENT_EMAIL }}</label>
             <input id="user_email" class="form-control event-info" ng-model="detailEmail"></input>
           </div>
           <div class="form-group">
