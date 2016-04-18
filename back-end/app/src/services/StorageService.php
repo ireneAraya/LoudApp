@@ -5,6 +5,7 @@ namespace App\Services;
 use \PDO;
 use \PDOException;
 
+// Mejor usen esta versión https://github.com/leopic/pr1-manejo-de-imagenes/blob/master/back-end/app/src/services/PersistenciaService.php
 class StorageService {
 
     private $pdo;
