@@ -64,7 +64,7 @@ $app->post(
 
         if (array_key_exists("success", $result)) {
             $emailTo = $result["data"]["email"];
-            $emailFrom = "noreply@loudapp.rocks";
+            $emailFrom = 'noreply@loudapp.rocks';
 
             $emailBody = file_get_contents('./../front-end/templates/account_template.html');
             $emailBody = str_replace('%%name%%', $result["data"]["firstName"], $emailBody);
@@ -73,13 +73,13 @@ $app->post(
             $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
 
             $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-                ->setUsername('jmunozv@ucenfotec.ac.cr')
-                ->setPassword('Gekkonidae1996');
+                ->setUsername($emailFrom)
+                ->setPassword('E,bA7_0^Vz~1v{H');
 
             $mailer = Swift_Mailer::newInstance($transporter);
             $eMessage = Swift_Message::newInstance('👋 Welcome to Loud App, '.trim($result["data"]["firstName"]))
                 ->setContentType('text/html')
-                ->setFrom(array($emailFrom => 'Loud App Team'))
+                ->setFrom(array($emailFrom => 'The Loud App Team'))
                 ->setSender($emailTo)
                 ->setCharset('utf-8')
                 ->setTo($emailTo)
@@ -136,7 +136,7 @@ $app->post(
 
         if ($result["success"]) {
             $emailTo = $result["user_data"]["email"];
-            $emailFrom = "noreply@loudapp.rocks";
+            $emailFrom = 'noreply@loudapp.rocks';
 
             $emailBody = file_get_contents('./../front-end/templates/password_template.html');
             $emailBody = str_replace('%%name%%', $result["user_data"]["firstName"], $emailBody);
@@ -144,13 +144,13 @@ $app->post(
             $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
 
             $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-                ->setUsername('jmunozv@ucenfotec.ac.cr')
-                ->setPassword('Gekkonidae1996');
+                ->setUsername($emailFrom)
+                ->setPassword('E,bA7_0^Vz~1v{H');
 
             $mailer = Swift_Mailer::newInstance($transporter);
             $eMessage = Swift_Message::newInstance('📣 Request for Password Reset')
               ->setContentType('text/html')
-              ->setFrom(array($emailFrom => 'Loud App Team'))
+              ->setFrom(array($emailFrom => 'The Loud App Team'))
               ->setSender($emailTo)
               ->setCharset('utf-8')
               ->setTo($emailTo)
