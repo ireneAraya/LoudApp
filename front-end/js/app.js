@@ -107,4 +107,4 @@ angular.module('loudApp',[
         FacebookProvider.setAppId(myAppId);
         FacebookProvider.init(myAppId);
     }
-])
+]);

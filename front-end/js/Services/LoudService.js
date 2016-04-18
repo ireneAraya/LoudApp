@@ -5,7 +5,7 @@ angular.module ('loudApp.services')
 		var getDataFromJS = function () {
 			return $http({
                 method: "GET",
-                url: '/front-end/js/data.json'
+                url: 'front-end/js/data.json'
             });
 		};
 
@@ -28,7 +28,7 @@ angular.module ('loudApp.services')
                         email : email,
                         password : password
                     },
-                    url: '/back-end/user/login'
+                    url: 'back-end/user/login'
                 }).then(function successCallback(response) {
                     if (!response.data.error) {
                         result.success = true;
@@ -50,12 +50,12 @@ angular.module ('loudApp.services')
             var result = {
                 success : false,
                 message : null
-            }
+            };
 
             $http({
                 method: 'GET',
                 data : {},
-                url: '/back-end/user/verify'
+                url: 'back-end/user/verify'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
                     result.success = true;
@@ -79,7 +79,7 @@ angular.module ('loudApp.services')
 
             $http({
                 method: 'POST',
-                url: '/back-end/user/logout'
+                url: 'back-end/user/logout'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
                     result.success = true;
@@ -103,7 +103,7 @@ angular.module ('loudApp.services')
             $http({
                 method: 'POST',
                 data : objUser,
-                url: '/back-end/user/register'
+                url: 'back-end/user/register'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
                     result.success = true;
@@ -129,7 +129,7 @@ angular.module ('loudApp.services')
                 data : {
                     email : userEmail
                 },
-                url: '/back-end/user/forgot-password'
+                url: 'back-end/user/forgot-password'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
                     result.success = true;
@@ -184,7 +184,7 @@ angular.module ('loudApp.services')
                 if (object[i].id == targetID) {
                     index = i;
                 }
-            };
+            }
 
             return index;
         };
@@ -204,4 +204,4 @@ angular.module ('loudApp.services')
 		};
 
 	}
-])
+]);
