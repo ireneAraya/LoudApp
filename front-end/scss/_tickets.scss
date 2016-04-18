@@ -14,6 +14,10 @@
                 padding: 12px 22px;
             }
         }
+        .select-area-seats {
+            margin-left: -137px;
+            font-size: 18px;
+        }
         .dropdown-menu {
             z-index: 9000;
             padding: 0 0 5px;
@@ -215,9 +219,12 @@
 
 .detail-buy {
     .detail-buy-container {
-    border: 1px solid #fff;
-    border-top: 0;
-    padding: 10px 22px;
+        .details {
+            border: 1px solid #fff;
+            border-top: 0;
+            padding: 1px 22px 13px;
+            margin-bottom: 10px;
+        }
         h3 {
             color: #fff;
             font-size: 1.2em;
@@ -225,6 +232,18 @@
         p {
             color: #fff;
             font-weight: 100;
+        }
+        div {
+            div {
+                .selected-area {
+                    float: left;
+                    width: 15%;
+                }
+                .selected-seats {
+                    float: right;
+                    width: 85%;
+                }
+            }
         }
     }
     .detail-buy-information {
@@ -307,7 +326,7 @@
     .center-area {
         width: 500px;
         height: 600px;
-        background: #fff;
+        background: #bdc3c7;
         border-radius: 50%;
         margin-left: 30px;
         .first-row, .second-row, .third-row {
@@ -318,8 +337,8 @@
                 float: left;
                 a {
                     padding: 25px 16px;
-                    background: black;
-                    color: #fff;
+                    background: #ecf0f1;
+                    color: #000;
                     margin-right: 11px;
                     border-radius: 10px;
                     font-size: 12px;
@@ -337,7 +356,7 @@
         }
         .gramilla-general {
             border-radius: 0 0 200px 200px;
-            background: #73AD21;
+            background: #16a085;
             width: 344px;
             height: 171px;
             margin: 17px 76px;
@@ -352,7 +371,7 @@
             width: 150px;
             height: 78px;
             margin: 50px 172px;
-            background: blue;
+            background: #34495e;
             display: inline-block;
             border-radius: 10px;
             span {
@@ -375,10 +394,12 @@
                 transform: rotate(90deg);
                 a {
                     padding: 10px;
-                    background: pink;
+                    background: #e67e22;
                     margin: 4px;
                     display: inline-block;
                     border-radius: 10px;
+                    color: #fff;
+                    border: 1px solid #fff;
                 }
             }
         }
@@ -436,15 +457,15 @@
 @media screen and (max-width: 400px) {
 
     .form-group {
-
         .center-area {
-            width: 178px;
-            height: 231px;
-            margin-left: 97px;
+            width: 179px;
+            height: 236px;
+            margin-left: 87px;
             .scenario-row {
                 width: 71px;
                 height: 32px;
-                margin: 13px 52px 3px;
+                margin: 17px 52px 7px;
+                border-radius: 3px;
                 span {
                     margin-top: 8px;
                     font-size: 12px;
@@ -455,13 +476,14 @@
                 .seat-stadium-col {
 
                     a {
-                        padding: 7px 2px;
+                        border-radius: 3px;
+                        padding: 5px 2px;
                         margin-right: 3px;
                         font-size: 10px;
 
                     }
                     .vip-10 {
-                        padding: 8px 1px;
+                        padding: 6px 1px;
                         font-size: 9px;
                     }
                 }
@@ -469,7 +491,6 @@
             .first-row, .second-row {
                 margin: 2% 8%;
             }
-
             .gramilla-general {
                 width: 146px;
                 height: 72px;
@@ -482,7 +503,7 @@
         }
         .right-area {
             margin-top: -174px;
-            margin-right: 14px;
+            margin-right: 4px;
             .row {
                 margin-right: -15px;
                 margin-left: -15px;
@@ -491,6 +512,7 @@
                     a {
                         padding: 3px;
                         font-size: 12px;
+                        border-radius: 3px;
                     }
                 }
             }
@@ -502,10 +524,9 @@
                 margin-left: 9px;
                 margin-top: -47px;
             }
-
         }
         .left-left {
-            margin-left: 12px;
+            margin-left: 0;
             margin-top: -100px;
             .row {
                 margin-top: -121px;
@@ -534,6 +555,7 @@
                     a {
                         padding: 3px;
                         font-size: 12px;
+                        border-radius: 3px;
                     }
                 }
             }

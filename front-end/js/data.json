@@ -216,11 +216,11 @@
 			"location"		: 0,
 			"prices"		: 	[
 									{
-										"place"		: "Sombra",
+										"place"		: "Platea",
 										"amount"	: 35000
 									},
 									{
-										"place"		: "Platea",
+										"place"		: "Gramilla General",
 										"amount" 	: 40000
 									},
 									{
@@ -240,15 +240,15 @@
 			"location"		: 2,
 			"prices"		: 	[
 									{
-										"place"		: "Sol",
+										"place"		: "Platea",
 										"amount"	: 8000
 									},
 									{
-										"place"		: "Sombra",
+										"place"		: "Gramilla General",
 										"amount" 	: 15000
 									},
 									{
-										"place"		: "Platea",
+										"place"		: "VIP",
 										"amount" 	: 20000
 									}
 								],

@@ -7,8 +7,8 @@ angular.module ('loudApp.controllers')
         $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
         $scope.user = LoudService.verify('LoudApp__User') || {};
 
-        $scope.initialAmount = 0;
-        $scope.itemPrice = 3500;
+        // $scope.initialAmount = 0;
+        // $scope.itemPrice = 3500;
 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
@@ -19,18 +19,18 @@ angular.module ('loudApp.controllers')
             });
         };
 
-        $scope.sumValues = function () {
-            $scope.initialAmount += $scope.itemPrice;
-        }
+        // $scope.sumValues = function () {
+        //     $scope.initialAmount += $scope.itemPrice;
+        // }
 
-        $scope.differenceValues = function () {
-            $scope.initialAmount -= $scope.itemPrice;
+        // $scope.differenceValues = function () {
+        //     $scope.initialAmount -= $scope.itemPrice;
 
-            // No deja que de resultados negativos
-            if ($scope.initialAmount <= 0) {
-                $scope.initialAmount = 0;
-            }
-        }
+        //     // No deja que de resultados negativos
+        //     if ($scope.initialAmount <= 0) {
+        //         $scope.initialAmount = 0;
+        //     }
+        // }
 
         function otherFunctions() {
 
@@ -51,6 +51,8 @@ angular.module ('loudApp.controllers')
             var areaAndSeats = [];
             var fullOption = {};
             fullOption.seats = [];
+            $scope.price = 0;
+
 
             $scope.getSelectedValue = function (value) {
                 $scope.eventsBuy = value;
@@ -64,11 +66,29 @@ angular.module ('loudApp.controllers')
             $scope.getAreaValue = function (item) {
                 fullOption.area = "";
                 fullOption.area = item.currentTarget.getAttribute("data-description");
+
+                var areaString = fullOption.area;
+                var areaResult = areaString.substring(0, 3);
+                if (areaResult == "VIP") {
+                    $scope.price = $scope.eventsBuy.prices[2].amount;
+                }
+
             };
 
             $scope.getSeatNumber = function (item) {
+
+                fullOption.total = 0;
+
                 var array = fullOption.seats || [];
+
                 fullOption.seats.push(item.currentTarget.getAttribute("data-description"));
+
+                var cantSeats = fullOption.seats.length;
+
+                function getTotalSum () {
+                    fullOption.total = cantSeats * $scope.price;
+                }
+                getTotalSum();
             };
 
             $scope.buyButon = function () {
