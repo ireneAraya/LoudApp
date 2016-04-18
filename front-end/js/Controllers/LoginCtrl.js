@@ -15,7 +15,7 @@ angular.module ('loudApp.controllers')
             });
 
             userExists.then(function (response) {
-                if (response.success) {
+                if (response.success && response.data) {
                     $scope.user = response.data;
                     $scope.user.facebook = false;
 
