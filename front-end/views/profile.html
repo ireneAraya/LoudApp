@@ -5,7 +5,7 @@
 			<div class="panel user-card">
 				<div class="panel-body row">
 					<figure class="user-image" style="background: #ecf0f1 url({{ user.photoURL }}) 0 0 no-repeat"></figure>
-					<h1 class="user-name">{{ user.nickname || user_fullName }}</h1>
+					<h1 class="user-name"><span ng-if="user.nickname != 'NULL'">{{ user.nickname }}</span><span ng-if="user.nickname == 'NULL'">{{ user.firstName + ' ' + user.lastName }}</span></h1>
 					<i ng-class="[fa, {'fa-male':user.gender == 'M', 'fa-male':user.gender == 'F', 'fa-user':user.gender == 'O'}]"></i>
 					<hr class="devider-light">
 					<p class="text-center"><i class="fa fa-envelope"></i> <a href="mailto:{{ user.email | lowercase }}">{{ user.email | lowercase }}</a></p>

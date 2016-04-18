@@ -5,7 +5,11 @@ angular.module ('loudApp.controllers')
   function ($scope) {
   $scope.format ='dd/MM/yyyy';
 
-  $scope.today = new Date();
+  $scope.today = function() {
+    $scope.dt = new Date();
+  };
+
+  $scope.today();
 
   $scope.inlineOptions = {
     customClass: getDayClass,
@@ -17,6 +21,13 @@ angular.module ('loudApp.controllers')
     formatYear: 'yy',
     maxDate: new Date(2020, 5, 22),
     minDate: new Date(),
+    startingDay: 1
+  };
+
+  $scope.dateOptions_RegisterUser = {
+    formatYear: 'yy',
+    maxDate: $scope.dt,
+    minDate: new Date(1900, 1, 1),
     startingDay: 1
   };
 

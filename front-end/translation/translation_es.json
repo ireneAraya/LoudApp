@@ -38,6 +38,7 @@
     "SHARE_BUTTON_TEXT" : "Compartir",
     "PRICES_TEXT" : "Precios",
     "DESCRIPTION_TEXT" : "Descripción",
+    "NEW_ACCOUNT_SUCCESS" : "Gracias por registrarse en Loud App. Te hemos enviado un correo electrónico con la información de tu cuenta.",
     "FOOTER" : {
         "CONTACT" : "Contáctenos",
         "PRIVACY" : "Políticas de Privacidad",
@@ -75,12 +76,17 @@
         "PASSWORD" : "Contraseña:",
         "VERIFY_PASSWORD" : "Verificación de contraseña:",
         "IDENTIFICATION" : "Identificación personal:",
-        "IDENTIFICATION_TYPE" : "Type of Identificación:",
         "BIRTHDATE" : "Fecha de nacimiento:",
         "GENDER" : {
             "LABEL" : "Género:",
             "MALE" : "Masculino",
             "FEMALE" : "Femenino",
+            "OTHER" : "Otro"
+        },
+        "IDENTIFICATION_TYPE" : {
+            "LABEL" : "Tipo de identificación:",
+            "LOCAL" : "Local",
+            "FOREIGN" : "Extranjero",
             "OTHER" : "Otro"
         },
         "DISABILITY" : "Discapacidades:",

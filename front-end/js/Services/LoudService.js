@@ -94,6 +94,30 @@ angular.module ('loudApp.services')
             return result;
         };
 
+        var registerUser = function (objUser) {
+            var result = {
+                success : false,
+                message : null
+            };
+
+            $http({
+                method: 'POST',
+                data : objUser,
+                url: '/back-end/user/register'
+            }).then(function successCallback(response) {
+                if (!response.data.error) {
+                    result.success = true;
+                    result.message = response.data.message;
+                } else {
+                    result.message = response.data.message;
+                }
+            }, function errorCallback(response) {
+                result.message = "There was an error creating your account, please try again.";
+            });
+
+            return result;
+        };
+
         var requestNewPassword = function (userEmail) {
             var result = {
                 success : false,
@@ -175,7 +199,8 @@ angular.module ('loudApp.services')
             loginUser          : loginUser,
             verifyUser         : verifyUser,
             logoutUser         : logoutUser,
-            requestNewPassword : requestNewPassword
+            requestNewPassword : requestNewPassword,
+            registerUser         : registerUser
 		};
 
 	}

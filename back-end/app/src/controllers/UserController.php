@@ -121,36 +121,48 @@ class UserController {
         $result = [];
 
         $formData = $request->getParsedBody();
-        $required_fields = ["email", "password", "repeatPassword", "fullName"];
+        $error = "";
 
-        // if (array_key_exists("email", $formData)) {
-        //     $email = $formData["email"];
-        // }
+        if (array_key_exists("email", $formData)) {
+            if (array_key_exists("hash", $formData)) {
+                if (array_key_exists("verifyPassword", $formData)) {
+                    if (array_key_exists("firstName", $formData)) {
+                        $registerUser = $this->userService->register($formData);
 
-        // if (array_key_exists("password", $formData)) {
-        //     $password = $formData["password"];
-        // }
+                        if (array_key_exists("error", $registerUser)) {
+                            $result["error"] = true;
+                            $result["message"] = $registerUser["message"];
+                        } else {
+                            $result["success"] = true;
+                            $result["message"] = $registerUser["message"];
 
-        // if (array_key_exists("repeatPassword", $formData)) {
-        //     $passwordConfirm = $formData["repeatPassword"];
-        // }
+                            $user = [
+                                "email" => $formData["email"],
+                                "firstName" => $formData["firstName"],
+                                "password" => $formData["hash"]
+                            ];
 
-        // if (array_key_exists("fullName", $formData)) {
-        //     $fullName = $formData["fullName"];
-        // }
-
-        if (isset($email, $password, $passwordConfirm, $fullName)) {
-            $registerUser = $this->userService->register($email, $password, $passwordConfirm, $fullName);
-
-            if (array_key_exists("error", $registerUser)) {
-                $result["error"] = true;
-                $result["message"] = $registerUser["message"];
+                            $result["data"] = $user;
+                        }
+                    } else {
+                        $error = "Your first name is required.";
+                        $result["error"] = true;
+                        $result["message"] = $error;
+                    }
+                } else {
+                    $error = "Verify password is required.";
+                    $result["error"] = true;
+                    $result["message"] = $error;
+                }
             } else {
-                $result["message"] = $registerUser["message"];
+                $error = "Password is required.";
+                $result["error"] = true;
+                $result["message"] = $error;
             }
         } else {
+            $error = "E-mail address is required.";
             $result["error"] = true;
-            $result["error"] = "Email and passwords can not be empty.";
+            $result["message"] = $error;
         }
 
         return $result;

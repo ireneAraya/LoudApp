@@ -15,6 +15,7 @@ angular.module ('loudApp.directives')
                         return value;
                     } else {
                         ctrl.$setValidity('validPassword', true);
+                        return value;
                     }
 
                 };

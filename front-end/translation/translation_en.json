@@ -75,12 +75,18 @@
         "PASSWORD" : "Password:",
         "VERIFY_PASSWORD" : "Verify the password:",
         "IDENTIFICATION" : "Personal ID:",
-        "IDENTIFICATION_TYPE" : "Type of personal ID:",
         "BIRTHDATE" : "Birth date:",
+        "NEW_ACCOUNT_SUCCESS" : "Thank your siging up in Loud App. We have sent you an email with your new account information.",
         "GENDER" : {
             "LABEL" : "Gender:",
             "MALE" : "Male",
             "FEMALE" : "Female",
+            "OTHER" : "Other"
+        },
+        "IDENTIFICATION_TYPE" : {
+            "LABEL" : "Idenfication Type:",
+            "LOCAL" : "Local",
+            "FOREIGN" : "Foreign",
             "OTHER" : "Other"
         },
         "DISABILITY" : "Disabilities:",

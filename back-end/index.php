@@ -60,7 +60,46 @@ $app->post(
         /** @var Response $response */
         $userController = new App\Controllers\UserController();
         $result = $userController->register($request);
-        return $response->withJson($result);
+        $finalResult = [];
+
+        if (array_key_exists("success", $result)) {
+            $emailTo = $result["data"]["email"];
+            $emailFrom = "noreply@loudapp.rocks";
+
+            $emailBody = file_get_contents('./../front-end/templates/account_template.html');
+            $emailBody = str_replace('%%name%%', $result["data"]["firstName"], $emailBody);
+            $emailBody = str_replace('%%email%%', $result["data"]["email"], $emailBody);
+            $emailBody = str_replace('%%password%%', $result["data"]["password"], $emailBody);
+            $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
+
+            $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+                ->setUsername('jmunozv@ucenfotec.ac.cr')
+                ->setPassword('Gekkonidae1996');
+
+            $mailer = Swift_Mailer::newInstance($transporter);
+            $eMessage = Swift_Message::newInstance('👋 Welcome to Loud App, '.trim($result["data"]["firstName"]))
+                ->setContentType('text/html')
+                ->setFrom(array($emailFrom => 'Loud App Team'))
+                ->setSender($emailTo)
+                ->setCharset('utf-8')
+                ->setTo($emailTo)
+                ->setBody(trim($emailBody));
+
+            $nSent = $mailer->send($eMessage);
+
+            if ($nSent > 0) {
+                $finalResult["success"] = true;
+                $finalResult["message"] = "We have created your account. We will send you an email to verify your account.";
+            } else {
+                $finalResult["error"] = true;
+                $finalResult["message"] = $result["message"];
+            }
+        } else {
+            $finalResult["error"] = true;
+            $finalResult["message"] = $result["message"];
+        }
+
+        return $response->withJson($finalResult);
     }
 );
 

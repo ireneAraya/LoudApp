@@ -5,9 +5,7 @@ angular.module ('loudApp.controllers')
 	function($scope, LoudService, $location, $q, $timeout) {
 
         $scope.init = function() {
-            $scope.getPicturePath = function (a, b, c) {
-                console.log(a, b, c);
-            };
+            $scope.emailSent = false;
 
             var userExists = $q(function (resolve, reject) {
                 var res = LoudService.verifyUser();
@@ -29,7 +27,53 @@ angular.module ('loudApp.controllers')
         };
 
         function otherFunctions () {
-            // console.log(editItem._attachments_uri.image);
+            $scope.signUp = function () {
+                // Disables the register button while processing
+                $scope.processing = true;
+                $scope.error = null;
+
+                // Creates the user object
+                var userToCreate = {
+                    "identification" : $scope.identification,
+                    "identificationType" : $scope.identificationType,
+                    "firstName" : $scope.firstName,
+                    "middleName" : $scope.middleName,
+                    "lastName" : $scope.lastName,
+                    "secondSurname" : $scope.secondSurname,
+                    "nickname" : $scope.nickname,
+                    "email" : $scope.email,
+                    "hash" : $scope.hash,
+                    "verifyPassword" : $scope.verifyPassword,
+                    "birthDate" :  document.getElementById("selectedDate").value,
+                    "phone" : $scope.phone,
+                    "gender" : $scope.gender,
+                    "disability" : $scope.disability,
+                    "specialCondition" : $scope.specialCondition,
+                    "locale" : $scope.locale,
+                    "photoURL" : document.getElementById("userImage").getAttribute("src")
+                };
+
+                // Creates a promise to call the user Service
+                var createUserServiceFunction = $q(function (resolve, reject) {
+                    var res = LoudService.registerUser(userToCreate);
+
+                    $timeout(
+                        function() {
+                            resolve(res)
+                        }, Math.random() * 2000 + 1000);
+                });
+
+                createUserServiceFunction.then(function (response) {
+                    if (!response.success) {
+                        $scope.processing = false;
+                        $scope.error = response.message;
+                    } else {
+                        $scope.processing = false;
+                        $scope.error = null;
+                        $scope.emailSent = true;
+                    }
+                });
+            };
         };
 
         $scope.init();
