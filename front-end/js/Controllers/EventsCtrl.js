@@ -77,6 +77,8 @@ angular.module ('loudApp.controllers')
 
             //Agregar Evento
             $scope.addEvent = function () {
+                $scope.today = new Date();
+
                 var lastID = 0;
 
                 for (var i = 0; i < $scope.eventsCol.length; i++) {
@@ -97,7 +99,7 @@ angular.module ('loudApp.controllers')
                     id              : lastID,
                     image           : $scope.newImageSource,
                     name            : $scope.newEvent,
-                    date            : $scope.dt,
+                    date            : $scope.newDate,
                     startHour       : $scope.newStartHour,
                     location        : $scope.newLocation.id,
                     eventType       : $scope.newEventType.id,

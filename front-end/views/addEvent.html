@@ -35,12 +35,9 @@
 				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          	</div><!--ng-messages-->
 				        </div><!--.form-group .col-xs-12-->
-						<div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
+						<div class="form-group col-xs-12">
 						    <label for="">Fecha</label>
-						  	<input type="text" class="form-control" name="newDate" placeholder="{{ today | date : 'dd/MM/yyyy' }}" ng-model="newDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false">
-						  	<span class="input-group-btn">
-						    	<button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-						  	</span>
+						  	<input type="date" class="form-control" name="newDate" placeholder="{{ today | date : 'dd/MM/yyyy' }}" ng-model="newDate.dateAsString" min="{{ today }}" required>
 						  	<div ng-messages="addEventForm.newDate.$error" ng-if="addEventForm.newDate.$touched" class="validate-messages">
 				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          	</div><!--ng-messages-->
