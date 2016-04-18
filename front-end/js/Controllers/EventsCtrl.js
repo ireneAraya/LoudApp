@@ -6,7 +6,7 @@ angular.module ('loudApp.controllers')
         $scope.eventsCol = LoudService.verify('LoudApp__Events') || {};
         $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
         $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
- 
+
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
@@ -18,7 +18,7 @@ angular.module ('loudApp.controllers')
 
 
         function otherFunctions () {
-            //$scope.eventsCol = $scope.data.events;
+            // $scope.eventsCol = $scope.data.events;
 
             $scope.getEventLocation = function (index, key) {
                 // Se repiten los llamados
@@ -66,7 +66,7 @@ angular.module ('loudApp.controllers')
                 $scope.zonesCol.push(
                     {
                         id      : id,
-                        place   : $scope.newPlace, 
+                        place   : $scope.newPlace,
                         amount  : $scope.newPrice
                     }
                 );
@@ -119,7 +119,7 @@ angular.module ('loudApp.controllers')
                   $scope.newPlace = "";
                   $scope.newPrice = "";
                 }
-                
+
                 $location.path('/eventsList');
             }
 

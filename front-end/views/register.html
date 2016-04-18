@@ -1,5 +1,5 @@
 <main class="container">
-	<div class="row session-tabs" ng-if="!emailSent">
+    <div class="row session-tabs" ng-if="!emailSent">
         <ul class="nav col-md-6 col-md-offset-3">
             <li class="col-xs-6 text-center"><a href="#/login">{{ translation.SIGIN }}</a></li>
             <li class="col-xs-6 text-center active"><a href="#/register">{{ translation.REGISTER }}</a></li>
@@ -16,21 +16,23 @@
             </div>
         </div>
 
-        <form role="form" id="registerForm" name="registerForm" class="general-form row" ng-if="!emailSent">
+        <form role="form" id="registerForm" name="registerForm" class="general-form row" ng-if="!emailSent"
+              ng-submit="signUp()">
             <div class="row">
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-                    <img id="userImage" ng-src="{{ editItem._attachments_uri.image || '/front-end/img/users/profilePlaceholder.png' }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
+                    <img id="userImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/users/profilePlaceholder.png' }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
                     <label for="file-upload" class="custom-file-upload">
                         <i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
                     </label>
-                    <input id="file-upload" type="file" ng-model="editItem._attachments_uri.image" accept="image/*" app-filereader class="btn file-input"></input>
+                    <input id="file-upload" type="file" ng-model="editItem._attachments_uri.image" accept="image/*"
+                           app-filereader class="btn file-input"/>
                 </div><!--.col-xs-2-->
                 <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10">
                     <div id="response" class="alert alert-danger" tabindex="0" role="alert" ng-if="error">{{ error }}</div>
 
                     <div class="form-group col-xs-12">
                         <label for="identification">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
-                        <input id="identification" type="text" name="identification" ng-model="identification" class="form-control" required>
+                        <input id="identification" type="text" name="identification" ng-model="user.identification" class="form-control">
                         <div ng-messages="registerForm.identification.$error" ng-if="registerForm.identification.$touched" class="validate-messages">
                             <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
                         </div><!--ng-messages-->
@@ -39,15 +41,16 @@
                     <div class="col-xs-12">
                         <div class="form-gender">
                             <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
-                            <label class="radio-inline"><input type="radio" ng-model="identificationType" value="1" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="identificationType" value="3" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType"
+                                                               value="1" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="3" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}</label>
                         </div>
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
                         <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>
-                        <input id="firstName" type="text" name="firstName" ng-model="firstName" class="form-control" required>
+                        <input id="firstName" type="text" name="firstName" ng-model="user.firstName" class="form-control">
                         <div ng-messages="registerForm.firstName.$error" ng-if="registerForm.firstName.$touched" class="validate-messages">
                             <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
                         </div><!--ng-messages-->
@@ -55,12 +58,12 @@
 
                     <div class="form-group col-xs-12">
                         <label for="middleName">{{ translation.REGISTRATION.MIDDLE_NAME }}</label>
-                        <input id="middleName" type="text" name="middleName" ng-model="middleName" class="form-control">
+                        <input id="middleName" type="text" name="middleName" ng-model="user.middleName" class="form-control">
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
                         <label for="lastName">{{ translation.REGISTRATION.LAST_NAME }}</label>
-                        <input id="lastName" type="text" name="lastName" ng-model="lastName" class="form-control" required>
+                        <input id="lastName" type="text" name="lastName" ng-model="user.lastName" class="form-control">
                         <div ng-messages="registerForm.lastName.$error" ng-if="registerForm.lastName.$touched" class="validate-messages">
                             <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
                         </div><!--ng-messages-->
@@ -68,12 +71,12 @@
 
                     <div class="form-group col-xs-12">
                         <label for="secondSurname">{{ translation.REGISTRATION.SECOND_SURNAME }}</label>
-                        <input id="secondSurname" type="text" name="secondSurname" ng-model="secondSurname" class="form-control">
+                        <input id="secondSurname" type="text" name="secondSurname" ng-model="user.secondSurname" class="form-control">
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
                         <label for="nickname">{{ translation.REGISTRATION.NICKNAME }}</label>
-                        <input id="nickname" type="text" name="nickname" ng-model="nickname" class="form-control">
+                        <input id="nickname" type="text" name="nickname" ng-model="user.nickname" class="form-control">
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
@@ -89,7 +92,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.EMAIL }}</label>
-                        <input type="text" class="form-control" ng-model="email" name="email" placeholder="email@me.com" valid-email required>
+                        <input type="text" class="form-control" ng-model="user.email" name="email" value="email@me.com">
                         <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$dirty" class="validate-messages">
                             <span ng-message="validEmail" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_EMAIL_ERROR }}</span>
                         </div>
@@ -100,7 +103,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.PASSWORD }}</label>
-                        <input type="password" class="form-control" ng-model="hash" name="hash" valid-password required>
+                        <input type="password" class="form-control" ng-model="user.hash" name="hash" valid-password>
                         <div ng-messages="registerForm.hash.$error" ng-if="registerForm.hash.$dirty" class="validate-messages">
                             <span ng-message="validPassword" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_PASSWORD_ERROR }}</span>
                         </div>
@@ -111,7 +114,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.VERIFY_PASSWORD }}</label>
-                        <input type="password" class="form-control" ng-model="verifyPassword" name="verifyPassword" valid-password required>
+                        <input type="password" class="form-control" ng-model="user.verifyPassword" name="verifyPassword" valid-password>
                         <div ng-messages="registerForm.verifyPassword.$error" ng-if="registerForm.verifyPassword.$dirty" class="validate-messages">
                             <span ng-message="validPassword" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_PASSWORD_ERROR }}</span>
                         </div>
@@ -122,7 +125,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.PHONE }}</label>
-                        <input type="text" class="form-control" ng-model="phone" name="phone" valid-number required>
+                        <input type="text" class="form-control" ng-model="user.phone" name="phone">
                         <div ng-messages="registerForm.phone.$error" ng-if="registerForm.phone.$dirty" class="validate-messages">
                             <span ng-message="validNumber" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_PHONE_ERROR }}</span>
                         </div>
@@ -134,27 +137,27 @@
                     <div class="col-xs-12">
                         <div class="form-gender">
                             <label for="">{{ translation.REGISTRATION.GENDER.LABEL }}</label><br>
-                            <label class="radio-inline"><input type="radio" ng-model="gender" value="M" name="gender">{{ translation.REGISTRATION.GENDER.MALE }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="gender" value="F" name="gender">{{ translation.REGISTRATION.GENDER.FEMALE }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="gender" value="O" name="gender">{{ translation.REGISTRATION.GENDER.OTHER }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model="user.gender" value="M" name="gender">{{ translation.REGISTRATION.GENDER.MALE }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model="user.gender" value="F" name="gender">{{ translation.REGISTRATION.GENDER.FEMALE }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model="user.gender" value="O" name="gender">{{ translation.REGISTRATION.GENDER.OTHER }}</label>
                         </div>
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
                         <label for="disability">{{ translation.REGISTRATION.DISABILITY }}</label>
-                        <input id="disability" type="text" name="disability" ng-model="disability" class="form-control">
+                        <input id="disability" type="text" name="disability" ng-model="user.disability" class="form-control">
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
                         <label for="specialCondition">{{ translation.REGISTRATION.SPECIAL_CONDITIONS }}</label>
-                        <input id="specialCondition" type="text" name="specialCondition" ng-model="specialCondition" class="form-control">
+                        <input id="specialCondition" type="text" name="specialCondition" ng-model="user.specialCondition" class="form-control">
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
-                      <button class="btn center-block col-xs-12 col-lg-12" ng-click="signUp()" ng-disabled="processing">{{ translation.REGISTER }}</button>
+                      <button class="btn center-block col-xs-12 col-lg-12" ng-disabled="processing">{{ translation.REGISTER }}</button>
                     </div><!--.form-group .col-xs-12-->
                 </div><!--.col-xs-10-->
             </div><!--.row-->
         </form>
-	</div>
+    </div>
 </main>

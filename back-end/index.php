@@ -72,7 +72,7 @@ $app->post(
             $emailBody = str_replace('%%password%%', $result["data"]["password"], $emailBody);
             $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
 
-            $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+            $transporter = Swift_SmtpTransport::newInstance('smtp.zoho.com', 465, 'ssl')
                 ->setUsername($emailFrom)
                 ->setPassword('E,bA7_0^Vz~1v{H');
 
@@ -143,7 +143,7 @@ $app->post(
             $emailBody = str_replace('%%password%%', $result["user_data"]["password"], $emailBody);
             $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
 
-            $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+            $transporter = Swift_SmtpTransport::newInstance('smtp.zoho.com', 465, 'ssl')
                 ->setUsername($emailFrom)
                 ->setPassword('E,bA7_0^Vz~1v{H');
 

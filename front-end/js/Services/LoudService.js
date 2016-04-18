@@ -1,13 +1,13 @@
 angular.module ('loudApp.services')
 .service('LoudService',['$http', '$q', '$timeout',
-	function($http, $q, $timeout) {
+    function($http, $q, $timeout) {
 
-		var getDataFromJS = function () {
-			return $http({
+        var getDataFromJS = function () {
+            return $http({
                 method: "GET",
-                url: '/front-end/js/data.json'
+                url: 'front-end/js/data.json'
             });
-		};
+        };
 
         /**
          * Logs in a user to the system
@@ -28,7 +28,7 @@ angular.module ('loudApp.services')
                         email : email,
                         password : password
                     },
-                    url: '/back-end/user/login'
+                    url: 'back-end/user/login'
                 }).then(function successCallback(response) {
                     if (!response.data.error) {
                         result.success = true;
@@ -50,12 +50,12 @@ angular.module ('loudApp.services')
             var result = {
                 success : false,
                 message : null
-            }
+            };
 
             $http({
                 method: 'GET',
                 data : {},
-                url: '/back-end/user/verify'
+                url: 'back-end/user/verify'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
                     result.success = true;
@@ -79,7 +79,7 @@ angular.module ('loudApp.services')
 
             $http({
                 method: 'POST',
-                url: '/back-end/user/logout'
+                url: 'back-end/user/logout'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
                     result.success = true;
@@ -103,15 +103,19 @@ angular.module ('loudApp.services')
             $http({
                 method: 'POST',
                 data : objUser,
-                url: '/back-end/user/register'
+                url: 'back-end/user/register'
             }).then(function successCallback(response) {
-                if (!response.data.error) {
+
+                if (response.data.success) {
                     result.success = true;
                     result.message = response.data.message;
                 } else {
+                    result.success = false;
                     result.message = response.data.message;
                 }
+
             }, function errorCallback(response) {
+                result.success = false;
                 result.message = "There was an error creating your account, please try again.";
             });
 
@@ -129,7 +133,7 @@ angular.module ('loudApp.services')
                 data : {
                     email : userEmail
                 },
-                url: '/back-end/user/forgot-password'
+                url: 'back-end/user/forgot-password'
             }).then(function successCallback(response) {
                 if (!response.data.error) {
                     result.success = true;
@@ -156,16 +160,16 @@ angular.module ('loudApp.services')
             return angular.fromJson( localStorage.getItem(key) );
         };
 
-		/**
+        /**
          * Return the single item from a collection
          * @param  {object} object                      [The collection with all the data which you can to loop over]
          * @param  {string} key                         [Used to identify the object[key] you will compare]
          * @param  {string, integer, boolean} value     [The value you will use to compare the key]
          * @return {object}                             [The single object from the collection]
          */
-		var getItem = function (object, key, value) {
+        var getItem = function (object, key, value) {
 
-			var item;
+            var item;
 
             for (var i = 0; i < object.length; i++) {
                 if (object[i][key] == value) {
@@ -174,9 +178,9 @@ angular.module ('loudApp.services')
             }
 
             return item;
-		};
+        };
 
-		// Retorna la posición del objeto
+        // Retorna la posición del objeto
         var getItemIndex = function (object, targetID) {
             var index;
 
@@ -184,24 +188,24 @@ angular.module ('loudApp.services')
                 if (object[i].id == targetID) {
                     index = i;
                 }
-            };
+            }
 
             return index;
         };
 
-		return {
+        return {
             save               : save,
             remove             : remove,
             verify             : verify,
-			getDataFromJS 	   : getDataFromJS,
-			getItem 		   : getItem,
-			getItemIndex	   : getItemIndex,
+            getDataFromJS      : getDataFromJS,
+            getItem            : getItem,
+            getItemIndex       : getItemIndex,
             loginUser          : loginUser,
             verifyUser         : verifyUser,
             logoutUser         : logoutUser,
             requestNewPassword : requestNewPassword,
             registerUser         : registerUser
-		};
+        };
 
-	}
-])
+    }
+]);

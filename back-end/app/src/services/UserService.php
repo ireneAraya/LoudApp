@@ -264,7 +264,7 @@ class UserService {
 
                                 // Saves the Profile IMG
                                 $filename_path = md5(time().uniqid()).".jpg";
-                                $image = explode("base64,", $formData["photoURL"]);
+                                $image = explode('base64,', $formData['photoURL']);
                                 $decoded = base64_decode($image[1]);
                                 file_put_contents($_SERVER["DOCUMENT_ROOT"]."/front-end/img/users/". $filename_path, $decoded);
 
