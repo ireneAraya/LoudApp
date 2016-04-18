@@ -59,11 +59,17 @@ angular.module ('loudApp.controllers')
             }
 
             //Agregar inputs de precio y lugar
-            $scope.priceInputs = [ { id:'priceInput1' } ];
+            $scope.zonesCol = [ { id:'0' } ];
 
-            $scope.addPriceInputs = function () {
-                var newPriceInput = $scope.priceInputs.length+1;
-                $scope.priceInputs.push({'id':'priceInput'+ newPriceInput});
+            $scope.addZone = function () {
+                var id = $scope.zonesCol.length+1;
+                $scope.zonesCol.push(
+                    {
+                        id      : id,
+                        place   : $scope.newPlace, 
+                        amount  : $scope.newPrice
+                    }
+                );
             }
 
             //Seleccionar el valor del typeahead
@@ -77,40 +83,28 @@ angular.module ('loudApp.controllers')
 
             //Agregar Evento
             $scope.addEvent = function () {
-                $scope.today = new Date();
-
                 var lastID = 0;
 
                 for (var i = 0; i < $scope.eventsCol.length; i++) {
                     lastID = (i +1);
                 };
 
-                var zonesCol = [];
-                
-                var pricesObj = {
-                    place   : $scope.newPlace, 
-                    amount  : $scope.newPrice
-                };
-
-                zonesCol.push(pricesObj);
-
                 //crea el objeto y lo agrega a la colección
                 var event = {
                     id              : lastID,
                     image           : $scope.newImageSource,
                     name            : $scope.newEvent,
-                    date            : $scope.newDate,
+                    date            : document.getElementById("selectedDate").value,
                     startHour       : $scope.newStartHour,
                     location        : $scope.newLocation.id,
                     eventType       : $scope.newEventType.id,
                     description     : $scope.newDescription,
-                    prices          : zonesCol
+                    prices          : $scope.zonesCol
                 }
                 $scope.eventsCol.push(event);
 
                 console.table($scope.eventsCol);
-                console.table(zonesCol);
-                console.log($scope.newDate);
+                console.table($scope.zonesCol);
 
                 // Limpia el formulario, tanto en valores como en estado de variables
                 if ($scope.addLocationForm) {

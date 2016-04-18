@@ -29,16 +29,16 @@
 				    </div><!--.col-xs-2-->
 			        <div class="col-xs-10">
 			        	<div class="form-group col-xs-12">
-				          	<label for="">Evento</label>
-				          	<input type="text" name="newEvent" ng-model="newEvent" placeholder="Nombre del Evento" class="form-control" required>
-				          	<div ng-messages="addEventForm.newEvent.$error" ng-if="addEventForm.newEvent.$touched" class="validate-messages">
-				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
-				          	</div><!--ng-messages-->
-				        </div><!--.form-group .col-xs-12-->
-						<div class="form-group col-xs-12">
-						    <label for="">Fecha</label>
-						  	<input type="date" class="form-control" name="newDate" placeholder="{{ today | date : 'dd/MM/yyyy' }}" ng-model="newDate.dateAsString" min="{{ today }}" required>
-						  	<div ng-messages="addEventForm.newDate.$error" ng-if="addEventForm.newDate.$touched" class="validate-messages">
+			        	  	<label for="">Evento</label>
+			        	  	<input type="text" ng-model="newEvent" placeholder="Nombre del Evento" class="form-control">
+			        	</div>
+						<div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
+						    <label for="">Seleccione una fecha</label>
+						    <input id="selectedDate" type="text" class="form-control" name="newDate" placeholder="Seleccione una fecha" ng-model="newDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+						    <span class="input-group-btn">
+						        <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+						    </span>
+						    <div ng-messages="addEventForm.newDate.$error" ng-if="addEventForm.newDate.$touched" class="validate-messages">
 				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          	</div><!--ng-messages-->
 						</div><!--.form-group .col-xs-12-->
@@ -76,24 +76,24 @@
 						<div class="form-group">
 							<label for="" class="col-xs-6">Zona</label>
 							<label for="" class="col-xs-6">Precio</label>
-							<!--<div ng-repeat="priceInput in priceInputs">-->
+							<div ng-repeat="zone in zonesCol">
 								<div class="col-xs-6">
-								  	<input type="text" class="form-control price-input" name="newPlace" ng-model="newPlace" placeholder="Locación" class="form-control" required>
+								  	<input type="text" class="form-control price-input" name="newPlace" ng-model="zone.newPlace" placeholder="Locación" class="form-control" required>
 								  	<div ng-messages="addEventForm.newPlace.$error" ng-if="addEventForm.newPlace.$touched" class="validate-messages">
 				          	    		<span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          			</div><!--ng-messages-->
 								</div><!--.col-xs-6-->
 								<div class="col-xs-6">
-								  	<input type="text" class="form-control price-input" name="newPrice" ng-model="newPrice" placeholder="Precio" class="form-control" required>
+								  	<input type="text" class="form-control price-input" name="newPrice" ng-model="zone.newPrice" placeholder="Precio" class="form-control" required>
 								  	<div ng-messages="addEventForm.newPrice.$error" ng-if="addEventForm.newPrice.$touched" class="validate-messages">
 				          	    		<span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          			</div>
 								</div>
-							<!--</div>-->
+							</div>
 						</div><!--.form-group-->
 						<div class="row">
 							<div class="col-xs-12">
-								<button type="button" class="btn plus-btn" ng-click="addPriceInputs()" ng-disabled="addEventForm.newPlace.$invalid || addEventForm.newPrice.$invalid"><i class="fa fa-plus"></i>AGREGAR LOCACIÓN Y PRECIO</button>
+								<button type="button" class="btn plus-btn" ng-click="addZone()" ng-disabled="addEventForm.newPlace.$invalid || addEventForm.newPrice.$invalid"><i class="fa fa-plus"></i>AGREGAR LOCACIÓN Y PRECIO</button>
 							</div><!--.col-xs-12 .col-lg-2 .col-lg-offset-2-->
 						</div><!--.row-->
 						<div class="form-group col-xs-6">
