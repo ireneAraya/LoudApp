@@ -83,12 +83,11 @@
         /** SEATS **/
         .screen-position,
         .seat-row a {
-            border: 1px solid #fff;
-            padding: 18px 18px;
-            text-align: center;
-            color: #fff;
-            margin-bottom: 20px;
-
+            background: #ecf0f1;
+            color: #000;
+            margin-right: 3px;
+            border-radius: 10px;
+            font-size: 12px;
         }
         .seat-row {
             margin-top: 33px;
@@ -99,7 +98,7 @@
                     margin-right: 19px;
                 }
                 a {
-                    padding: 14px 18px;
+                    padding: 18px 22px;
                 }
                 .two-digit-seat {
                     padding: 14px 14px;
@@ -110,10 +109,10 @@
             }
         }
         .vip-row {
-            margin: 33px 0 20px 85px;
+            margin: 33px 0 20px 70px;
         }
         .vip-1 {
-            margin: 0 0 5px 85px;
+            margin: 0 0 5px 70px;
         }
         .e-row {
             div {
@@ -290,7 +289,7 @@
                     span {
                     }
                     a {
-                        padding: 6px 10px ;
+                        // padding: 6px 10px ;
                     }
                     .two-digit-seat {
                         padding: 6px 6px ;
@@ -455,8 +454,24 @@
 }
 
 @media screen and (max-width: 400px) {
-
+.general-form {
     .form-group {
+        .vip-row {
+            margin: 33px 0 20px 10px;
+        }
+        .vip-1 {
+            margin: 0 0 5px 10px;
+        }
+        .seat-row {
+            div {
+                a {
+                    padding: 17px 22px;
+                }
+            }
+        }
+        .select-area-seats {
+            margin-left: 84px;
+        }
         .center-area {
             width: 179px;
             height: 236px;
@@ -564,4 +579,5 @@
             margin-top: 55px;
         }
     }
+}
 }
