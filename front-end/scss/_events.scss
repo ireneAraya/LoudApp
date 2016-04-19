@@ -55,17 +55,30 @@
 	}
 }
 
-.btn.plus-btn {
-    border: 2px solid #ed9d97;
+.plus-btn, .min-btn{
+    border: 2px solid $light-red;
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin: 10px 0 10px 30px;
     padding: 2px 13px;
     background: none;
-    color: #ed9d97;
+    color: $light-red;
     
-    i{
+    &:hover{
+    	color: $medium-red;
+    	border-color: $medium-red;
+    }
+}
+
+.plus-btn{
+	margin: 10px 0 10px 30px;
+	
+	i{
     	margin-right: 20px;
     }
+}
+
+.min-btn{
+	margin-top: 10px;
+	padding: 0 5px;
 }

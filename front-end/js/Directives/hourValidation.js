@@ -5,7 +5,7 @@ angular.module ('loudApp.directives')
     return {
         require: 'ngModel',
             link: function(scope, elm, attrs, ctrl){
-                var regex = /^([0]?[1-9]|1[0-2]):([0-5]\d)\s?(AM|PM)$/;
+                var regex = /^([0]?[1-9]|1[0-2]):([0-5]\d)\s?(am|pm)$/;
                 var validator = function(value){
                     ctrl.$setValidity('validHour', regex.test(value));
                     return value;
