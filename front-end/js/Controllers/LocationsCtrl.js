@@ -38,38 +38,6 @@ angular.module ('loudApp.controllers')
                 $location.path('/locationsList');
             }
 
-            //Agregar Imagen
-            $scope.newImageSource = '';
-
-            $scope.newImage = function (element) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $scope.$apply(function() {
-                        $scope.newImageSource = e.target.result;
-                    });
-                }
-                reader.readAsDataURL(element.files[0]);
-            }
-
-
-            // Editar Imagen
-            if ($routeParams.id) {
-                var currentID = $routeParams.id;
-                $scope.location = LoudService.getItem($scope.locationsCol, "id", currentID);
-                
-                $scope.imageSource = $scope.location.image;
-
-                $scope.fileNameChanged = function (element) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $scope.$apply(function() {
-                            $scope.imageSource = e.target.result;
-                        });
-                    }
-                    reader.readAsDataURL(element.files[0]);
-                }
-            };
-
             //Agregar locación
             $scope.addLocation = function () {
                 var lastID = 0;
@@ -81,7 +49,7 @@ angular.module ('loudApp.controllers')
                 //crea el objeto y lo agrega a la colección
                 var location = {
                     id              : lastID,
-                    image           : $scope.newImageSource,
+                    image           : document.getElementById("locationImage").getAttribute("src"),
                     name            : $scope.newLocation,
                     phone           : $scope.newPhone,
                     capacity        : $scope.newCapacity,

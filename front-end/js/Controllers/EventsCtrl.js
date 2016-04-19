@@ -6,6 +6,7 @@ angular.module ('loudApp.controllers')
         $scope.eventsCol = LoudService.verify('LoudApp__Events') || {};
         $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
         $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
+        $scope.zonesCol = LoudService.verify('LoudApp__Zones') || {};
 
         $scope.init = function() {
             LoudService.getDataFromJS().then(function(response) {
@@ -60,27 +61,32 @@ angular.module ('loudApp.controllers')
 
             //Agregar inputs de precio y lugar
             $scope.zonesCol = [ 
-                { id    : 0, 
-                  place : '',
-                  amount: 0
-                } 
+                { id    : 0} 
             ];
 
             $scope.addZone = function () {
                 var newZone = $scope.zonesCol.length+1;
-                var pastID = 0;
+                var newId = 0;
 
-                for (var i = 0; i < $scope.eventsCol.length; i++) {
-                    pastID = (i +1);
+                for (var i = 0; i < $scope.zonesCol.length; i++) {
+                    newId = (i +1);
                 };
-                $scope.zonesCol.push(
-                    {
-                        id      : pastID,
-                        place   : $scope.newPlace,
-                        amount  : $scope.newPrice
-                    }
-                );
-            }
+
+                var zone = {
+                    id      : newId,
+                    place   : $scope.newPlace,
+                    amount  : $scope.newPrice
+                }
+                
+                $scope.zonesCol.push(zone);
+
+                LoudService.save("LoudApp__Zones", $scope.zonesCol);
+            };
+
+            $scope.deleteZone = function () {
+                var lastZoneItem = $scope.zonesCol.length-1;
+                $scope.zonesCol.splice(lastZoneItem, 1);
+            };
 
             //Seleccionar el valor del typeahead
             $scope.getSelectedLocation = function (value) {
@@ -102,7 +108,7 @@ angular.module ('loudApp.controllers')
                 //crea el objeto y lo agrega a la colección
                 var event = {
                     id              : lastID,
-                    image           : $scope.newImageSource,
+                    image           : document.getElementById("eventImage").getAttribute("src"),
                     name            : $scope.newEvent,
                     date            : document.getElementById("selectedDate").value,
                     startHour       : $scope.newStartHour,
@@ -160,6 +166,10 @@ angular.module ('loudApp.controllers')
 
         $scope.$watch('eventsCol', function(newValue, oldValue) {
             LoudService.save("LoudApp__Events", newValue);
+        }, true);
+
+        $scope.$watch('zonesCol', function(newValue, oldValue) {
+            LoudService.save("LoudApp__Zones", newValue);
         }, true);
 
         $scope.init();

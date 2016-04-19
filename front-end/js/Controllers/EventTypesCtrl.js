@@ -17,50 +17,33 @@ angular.module ('loudApp.controllers')
 
         function otherFunctions () {
             //$scope.eventTypesCol = $scope.data.eventTypes;
-
-            $scope.edit = function () {
-                
-            }
         
             //Agregar tipo de evento
-            // $scope.save = function () {
+            $scope.addEventType = function () {
+                var lastID = 0;
 
-            //     var currentID = $routeParams.id;
-            //     $scope.eventType = LoudService.getItem($scope.eventTypesCol, 'id', currentID);
-            //     var lastID = 0;
+                for (var i = 0; i < $scope.eventTypesCol.length; i++) {
+                    lastID = (i +1);
+                };
 
-            //     for (var i = 0; i < $scope.eventTypesCol.length; i++) {
-            //         lastID = (i +1);
-            //     }
+                //crea el objeto y lo agrega a la colección
+                var eventType = {
+                    id              : lastID,
+                    description     : $scope.newEventType,
+                }
+                $scope.eventTypesCol.push(eventType);
 
+                // Limpia el formulario, tanto en valores como en estado de variables
+                if ($scope.addLocationForm) {
+                    $scope.addLocationForm.$setPristine();
+                    $scope.addLocationForm.$setUntouched();
+                    $scope.newEventType = "";
+                }
 
-            //     if ($scope.eventType[currentID] == null) {
-            //         eventType = {
-            //                 id              : lastID,
-            //                 description     : $scope.newEventType
-            //             }
+                console.table($scope.eventTypesCol);
 
-            //             $scope.eventTypesCol.push(eventType);
-            //     } else {
-            //         $scope.eventType = {
-            //             id          : currentID,
-            //             description : $scope.newEventType
-            //         }
-            //         $scope.eventTypesCol.push(eventType);
-            //     }
-
-            //     console.table($scope.eventTypesCol);
-
-            //     // Limpia el formulario, tanto en valores como en estado de variables
-            //     if ($scope.addLocationForm) {
-            //       $scope.addLocationForm.$setPristine();
-            //       $scope.addLocationForm.$setUntouched();
-            //       $scope.newEventType = "";
-            //     }
-                
-            //     $location.path('/eventTypesList');
-
-            // }
+                $location.path('/eventTypesList');
+            }
 
             //Borrar tipo de evento
             $scope.erraseEventType = function ($index) {
