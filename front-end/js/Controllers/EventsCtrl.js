@@ -43,8 +43,8 @@ angular.module ('loudApp.controllers')
 
                 var zone = {
                     id      : newId,
-                    place   : $scope.newPlace,
-                    amount  : $scope.newPrice
+                    place   : $scope.place,
+                    amount  : $scope.amount
                 }
 
                 $scope.zonesCol.push(zone);
@@ -59,11 +59,11 @@ angular.module ('loudApp.controllers')
 
             //Seleccionar el valor del typeahead
             $scope.getSelectedLocation = function (value) {
-                $scope.newLocation = value;
+                $scope.location = value;
             };
 
             $scope.getSelectedType = function (value) {
-                $scope.newEventType = value;
+                $scope.eventType = value;
             };
 
             //Agregar Evento
@@ -78,12 +78,12 @@ angular.module ('loudApp.controllers')
                 var event = {
                     id              : lastID,
                     image           : document.getElementById("eventImage").getAttribute("src"),
-                    name            : $scope.newEvent,
+                    name            : $scope.eventName,
                     date            : document.getElementById("selectedDate").value,
-                    startHour       : $scope.newStartHour,
-                    location        : $scope.newLocation.id,
-                    eventType       : $scope.newEventType.id,
-                    description     : $scope.newDescription,
+                    startHour       : $scope.startHour,
+                    location        : $scope.location.id,
+                    eventType       : $scope.eventType.id,
+                    description     : $scope.description,
                     prices          : $scope.zonesCol
                 }
                 $scope.eventsCol.push(event);
@@ -95,14 +95,14 @@ angular.module ('loudApp.controllers')
                 if ($scope.addLocationForm) {
                   $scope.addLocationForm.$setPristine();
                   $scope.addLocationForm.$setUntouched();
-                  $scope.newImageSource = "";
-                  $scope.newEvent = "";
-                  $scope.newDate = "";
-                  $scope.newStartHour = "";
-                  $scope.newLocation = "";
-                  $scope.newEventType = "";
-                  $scope.newPlace = "";
-                  $scope.newPrice = "";
+                  $scope.event = "";
+                  $scope.date = "";
+                  $scope.startHour = "";
+                  $scope.location = "";
+                  $scope.eventType = "";
+                  $scope.description = "";
+                  $scope.place = "";
+                  $scope.amount = "";
                 }
 
                 $location.path('/eventsList');

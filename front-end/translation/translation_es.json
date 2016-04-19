@@ -63,7 +63,8 @@
         "REQUIRED_ERROR" : "Este campo es obligatorio.",
         "WRONG_PATTERN_EMAIL_ERROR" : "El formato del email debe ser xxxx@yyyy.zzz",
         "WRONG_PATTERN_PASSWORD_ERROR" : "La contraseña debe ser de al menos 8 caracteres, combinando entre caracteres especiales y números.",
-        "WRONG_PATTERN_PHONE_ERROR" : "El número de teléfono debe tener el siguiente formato: NNNN-NNNN."
+        "WRONG_PATTERN_PHONE_ERROR" : "El número de teléfono debe tener el siguiente formato: NNNN-NNNN.",
+        "HOUR_FORMAT_ERROR": "Por favor use el formato de 12 horas"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "Primer nombre:",
@@ -93,9 +94,23 @@
         "SPECIAL_CONDITIONS" : "Condiciones especiales:"
     },
     "EVENTS" : "Eventos",
+    "EVENT" : "Evento",
+    "EVENT_NAME" : "Nombre del evento",
     "ADD_EVENT" : "Agregar Evento",
     "LOCATIONS" : "Sitios",
+    "LOCATION" : "Sitio",
     "ADD_LOCATION" : "Agregar Sitio",
+    "SEARCH_LOCATION" : "Busque el sitio aquí",
     "EVENT_TYPES" : "Tipos de Eventos",
-    "ADD_EVENT_TYPE" : "Agregar Tipo de Evento"
+    "EVENT_TYPE" : "Tipo de evento",
+    "ADD_EVENT_TYPE" : "Agregar Tipo de Evento",
+    "SEARCH_EVENT_TYPE" : "Busque el tipo de evento aquí",
+    "DESCRIPTION" : "Descripción",
+    "EVENT_DESCRIPTION" : "Descripción del evento",
+    "SELECT_DATE": "Seleccione una fecha",
+    "ZONE": "Zona",
+    "PRICE": "Precio",
+    "ADD_ZONE_PRICE": "Agregar zona y precio",
+    "CANCEL": "Cancelar",
+    "ADD": "Agregar"
 }

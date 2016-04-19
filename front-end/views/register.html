@@ -81,7 +81,7 @@
 
                     <div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
                         <label for="">{{ translation.REGISTRATION.BIRTHDATE }}</label>
-                        <input id="selectedDate" type="text" class="form-control" name="birthDate" placeholder="Select a date" ng-model="birthDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions_RegisterUser" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                        <input id="selectedDate" type="text" class="form-control" name="birthDate" placeholder="{{translation.SELECT_DATE}}" ng-model="birthDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions_RegisterUser" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
                         <span class="input-group-btn">
                             <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
