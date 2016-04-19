@@ -91,5 +91,11 @@
         },
         "DISABILITY" : "Discapacidades:",
         "SPECIAL_CONDITIONS" : "Condiciones especiales:"
-    }
+    },
+    "EVENTS" : "Eventos",
+    "ADD_EVENT" : "Agregar Evento",
+    "LOCATIONS" : "Sitios",
+    "ADD_LOCATION" : "Agregar Sitio",
+    "EVENT_TYPES" : "Tipos de Eventos",
+    "ADD_EVENT_TYPE" : "Agregar Tipo de Evento"
 }

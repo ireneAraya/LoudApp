@@ -4,27 +4,12 @@
   <div class="row row-centered">
     <div class="col-md-6 col-centered">
       <form role="form" class="general-form" name="buyEventForm" novalidate>
-        <script type="text/ng-template" id="customPopupTemplate.html">
-          <div class="custom-popup-wrapper form-group"
-             ng-style="{top: position().top+'px', left: position().left+'px'}"
-             style="display: block;"
-             ng-show="isOpen() && !moveInProgress"
-             aria-hidden="{{!isOpen()}}">
-            <p class="message">Seleccione un valor de la lista:</p>
-            <ul class="dropdown-menu" role="listbox">
-                <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
-                    ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
-                    <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
-                </li>
-            </ul>
-          </div>
-        </script>
         <div class="form-group typeahead" ng-controller="TypeaheadCtrl">
           <label for="select_event"><i class="fa fa-hand-peace-o"></i> {{ translation.SELECT_EVENT }}</label>
           <div ng-if="noResults" class="alert alert-danger">
             <span>{{ translation.NO_RESULTS }}</span>
           </div>
-          <input id="select_event" type="text" placeholder="{{translation.SEARCH_EVENT}}" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}" typeahead-on-select="getSelectedValue($item)" ng-model="selected" typeahead-editable="false" typeahead-popup-template-url="customPopupTemplate.html" class="form-control" typeahead-no-results="noResults" required>
+          <input id="select_event" type="text" placeholder="{{translation.SEARCH_EVENT}}" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}" typeahead-on-select="getSelectedValue($item)" ng-model="selected" typeahead-editable="false" typeahead-popup-template-url="front-end/views/customPopupTemplate.html" class="form-control" typeahead-no-results="noResults" required>
           <label for=""><i class="fa fa-calendar"></i> {{translation.EVENT_DATE}}</label>
           <span class="form-control event-info">{{selected.date}}</span>
           <label for=""><i class="fa fa-clock-o"></i> {{translation.EVENT_TIME}}</label>

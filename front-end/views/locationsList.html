@@ -4,7 +4,7 @@
 			<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
 		</div><!--.col-xs-6-->
 	</div><!--.row-->
-	<h1 class="text-center">Sitios</h1>
+	<h1 class="text-center">{{translation.LOCATIONS}}</h1>
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<table class="table table-striped">
@@ -24,7 +24,7 @@
 							<a href="#/editLocation/{{ location.id }}" class="col-xs-12 text-center two-lines"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 						</div>
 						<div class="row">
-							<a class="col-xs-12 text-center"><i class="fa fa-trash fa-2x two-lines" data-toggle="modal" data-target="#erraselocationsModal-{{$index}}"></i></a>
+							<a class="col-xs-12 text-center two-lines"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraselocationsModal-{{$index}}"></i></a>
 						</div>
 					</td>
 					<td>
@@ -53,7 +53,7 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-lg-2 col-lg-offset-2">
-			<a href="#/addLocation" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>AGREGAR Sitio</a>
+			<a href="#/addLocation" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>{{ translation.ADD_LOCATION }}</a>
 		</div>
 	</div>
 </main>

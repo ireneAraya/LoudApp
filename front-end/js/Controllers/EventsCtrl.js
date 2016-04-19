@@ -28,37 +28,6 @@ angular.module ('loudApp.controllers')
                 return location[key];
             };
 
-            // Editar Imagen
-            if ($routeParams.id) {
-                var currentID = $routeParams.id;
-                $scope.event = LoudService.getItem($scope.eventsCol, "id", currentID);
-
-                $scope.imageSource = $scope.event.image;
-
-                $scope.fileNameChanged = function (element) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $scope.$apply(function() {
-                            $scope.imageSource = e.target.result;
-                        });
-                    }
-                    reader.readAsDataURL(element.files[0]);
-                }
-            };
-
-            //Agregar Imagen
-            $scope.newImageSource = '';
-
-            $scope.newImage = function (element) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $scope.$apply(function() {
-                        $scope.newImageSource = e.target.result;
-                    });
-                }
-                reader.readAsDataURL(element.files[0]);
-            }
-
             //Agregar inputs de precio y lugar
             $scope.zonesCol = [ 
                 { id    : 0} 
@@ -119,8 +88,8 @@ angular.module ('loudApp.controllers')
                 }
                 $scope.eventsCol.push(event);
 
-                console.table($scope.eventsCol);
-                console.table($scope.zonesCol);
+                console.log($scope.eventsCol);
+                console.log($scope.zonesCol);
 
                 // Limpia el formulario, tanto en valores como en estado de variables
                 if ($scope.addLocationForm) {

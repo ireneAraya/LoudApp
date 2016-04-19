@@ -4,11 +4,11 @@
 			<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
 		</div><!--.col-xs-6-->
 	</div><!--.row-->
-	<h1 class="text-center">EVENTOS</h1>
+	<h1 class="text-center">{{translation.EVENTS}}</h1>
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<table class="table table-striped">
-				<tr class="row" ng-repeat="event in eventsCol">
+				<tr class="row" ng-repeat="event in eventsCol | orderBy: '-date' ">
 					<td class="col-xs-4 col-md-2 col-lg-2">
 						<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
 					</td>
@@ -53,7 +53,7 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-lg-2 col-lg-offset-2">
-			<a href="#/addEvent" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>AGREGAR EVENTO</a>
+			<a href="#/addEvent" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>{{ translation.ADD_EVENT }}</a>
 		</div>
 	</div>
 </main>

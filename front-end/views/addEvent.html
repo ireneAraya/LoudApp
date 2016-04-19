@@ -1,34 +1,18 @@
 <main class="container">
-	<h1 class="text-center">AGREGAR EVENTO</h1>
+	<h1 class="text-center">{{ translation.ADD_EVENT }}</h1>
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<form role="form" name="addEventForm" class="general-form row" novalidate autocomplete="off">
-				<script type="text/ng-template" id="customPopupTemplate.html">
-				  	<div class="col-xs-2 custom-popup-wrapper"
-				     ng-style="{top: position().top+'px', left: position().left+'px'}"
-				     style="display: block;"
-				     ng-show="isOpen() && !moveInProgress"
-				     aria-hidden="{{!isOpen()}}">
-				    	<p class="message">Seleccione sitio</p>
-				    	<ul class="dropdown-menu" role="listbox">
-				        	<li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
-				            ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
-				            	<div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl">           		
-				            	</div><!--uib-typeahead-match-->
-				        	</li>
-				    	</ul>
-				  	</div><!--.col-xs-2 .custom-popup-wrapper-->
-				</script>
 				<div class="row">
-					<div class="col-xs-2">
-						<img id="eventImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/photo.png' }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
+					<div class="col-xs-3 text-center">
+						<img id="eventImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/photo.png' }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive center-block">
 						<label for="file-upload" class="custom-file-upload">
-						   	<i class="fa fa-camera"></i> Cambiar
+						   	<i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
 						</label>
 						<input id="file-upload" ng-model="editItem._attachments_uri.image" type="file" accept="image/*"
 					           app-filereader class="btn file-input"></input>
 				    </div><!--.col-xs-2-->
-			        <div class="col-xs-10">
+			        <div class="col-xs-9">
 			        	<div class="form-group col-xs-12">
 			        	  	<label for="">Evento</label>
 			        	  	<input type="text" ng-model="newEvent" placeholder="Nombre del Evento" class="form-control">
@@ -55,7 +39,7 @@
 						</div><!--.form-group .col-xs-12-->
 						<div class="form-group typeahead col-xs-12" ng-controller="TypeaheadCtrl">
 						  	<label for="">Sitio</label>
-						  	<input type="text" name="newLocation" ng-model="newLocation" placeholder="Busque el sitio aquí" uib-typeahead="site as site.name for site in eventLocations | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html"typeahead-on-select="getSelectedLocation($item)" typeahead-editable="false" typeahead-no-results="noResults" class="form-control" required>
+						  	<input type="text" name="newLocation" ng-model="newLocation" placeholder="Busque el sitio aquí" uib-typeahead="site as site.name for site in eventLocations | filter:{name:$viewValue}" typeahead-popup-template-url="front-end/views/customPopupTemplate.html"typeahead-on-select="getSelectedLocation($item)" typeahead-editable="false" typeahead-no-results="noResults" class="form-control" required>
 						  	<div ng-messages="addEventForm.newLocation.$error" ng-if="addEventForm.newLocation.$touched" class="validate-messages">
 				          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 				          	</div><!--ng-messages-->
@@ -65,7 +49,7 @@
 						</div><!--.form-group .typeahead .col-xs-12-->
 						<div class="form-group typeahead col-xs-12" ng-controller="TypeaheadCtrl">
 						  	<label for="">Tipo de Evento</label>
-						  	<input type="text" name="newEventType" ng-model="newEventType" placeholder="Busque el tipo de evento aquí" uib-typeahead="type as type.description for type in eventTypes | filter:{description:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" typeahead-on-select="getSelectedType($item)" typeahead-editable="false" class="form-control" typeahead-no-results="noResults" required>
+						  	<input type="text" name="newEventType" ng-model="newEventType" placeholder="Busque el tipo de evento aquí" uib-typeahead="type as type.description for type in eventTypes | filter:{description:$viewValue}" typeahead-popup-template-url="front-end/views/customPopupTemplate.html" typeahead-on-select="getSelectedType($item)" typeahead-editable="false" class="form-control" typeahead-no-results="noResults" required>
 						  	<div ng-if="noResults" class="validate-messages">
 						  	  	<span class="alert alert-danger">{{ translation.NO_RESULTS }}</span>
 						  	</div>
