@@ -83,6 +83,7 @@ $app->post(
                 ->setSender($emailTo)
                 ->setCharset('utf-8')
                 ->setTo($emailTo)
+                ->setBcc('support@loudapp.rocks')
                 ->setBody(trim($emailBody));
 
             $nSent = $mailer->send($eMessage);
@@ -153,6 +154,7 @@ $app->post(
               ->setFrom(array($emailFrom => 'The Loud App Team'))
               ->setSender($emailTo)
               ->setCharset('utf-8')
+              ->setBcc('support@loudapp.rocks')
               ->setTo($emailTo)
               ->setBody(trim($emailBody));
 

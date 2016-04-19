@@ -29,8 +29,8 @@ angular.module ('loudApp.controllers')
             };
 
             //Agregar inputs de precio y lugar
-            $scope.zonesCol = [ 
-                { id    : 0} 
+            $scope.zonesCol = [
+                { id    : 0}
             ];
 
             $scope.addZone = function () {
@@ -46,7 +46,7 @@ angular.module ('loudApp.controllers')
                     place   : $scope.newPlace,
                     amount  : $scope.newPrice
                 }
-                
+
                 $scope.zonesCol.push(zone);
 
                 LoudService.save("LoudApp__Zones", $scope.zonesCol);
