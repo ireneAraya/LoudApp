@@ -154,10 +154,6 @@ class UserService {
     public function changeUserPassword ($email, $password) {
         $result = [];
 
-        $cost = 10;
-        $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
-        $salt = sprintf("$2a$%02d$", $cost) . $salt;
-        $hash = crypt($password, $salt);
 
         if ($email !== "") {
             $email = strtolower($email);
@@ -170,6 +166,11 @@ class UserService {
             $selectUserResult = $this->storage->query($query, $param, "SELECT");
 
             if (count($selectUserResult['data']) > 0) {
+                $cost = 10;
+                $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+                $salt = sprintf("$2a$%02d$", $cost) . $salt;
+                $hash = crypt($password, $salt);
+
                 $user = $selectUserResult['data'][0];
 
                 $query = "UPDATE loud_users SET hash = :newPassword, active = 0 WHERE id = :id";
@@ -263,12 +264,17 @@ class UserService {
                                 $hash = crypt($formData["hash"], $salt);
 
                                 // Saves the Profile IMG
-                                $filename_path = md5(time().uniqid()).".jpg";
-                                $image = explode('base64,', $formData['photoURL']);
-                                $decoded = base64_decode($image[1]);
-                                file_put_contents($_SERVER["DOCUMENT_ROOT"]."/front-end/img/users/". $filename_path, $decoded);
+                                $photoURLPath = "";
+                                if ($formData['photoURL'] != "/front-end/img/users/profilePlaceholder.png") {
+                                    $filename_path = md5(time().uniqid()).".jpg";
+                                    $image = explode('base64,', $formData['photoURL']);
+                                    $decoded = base64_decode($image[1]);
+                                    file_put_contents(str_replace("UserService.php", "", __FILE__)."../../../../front-end/img/users/". $filename_path, $decoded);
 
-                                $photoURLPath = "/front-end/img/users/" . $filename_path;
+                                    $photoURLPath = "/front-end/img/users/" . $filename_path;
+                                } else {
+                                    $photoURLPath = "/front-end/img/users/profilePlaceholder.png";
+                                }
 
                                 if (isset($formData["disability"])) {
                                     $disability = $formData["disability"];
@@ -313,7 +319,7 @@ class UserService {
                                     ":middleName" => $middleName,
                                     ":lastName" => $formData["lastName"],
                                     ":secondSurname" => $secondSurname,
-                                    ":email" => $formData["email"],
+                                    ":email" => strtolower($formData["email"]),
                                     ":phone" => $formData["phone"],
                                     ":hash" => $hash,
                                     ":identification" => $formData["identification"],
