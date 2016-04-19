@@ -10,12 +10,8 @@ class StorageService {
     private $pdo;
 
     public function __construct() {
-        $config = [
-            'db_host' => '127.0.0.1',
-            'db_name' => 'LoudApp_MasterDB',
-            'db_user' => 'localdev',
-            'db_pass' => '511382'
-        ];
+        // Removes the DB connection data
+        require_once(str_replace("StorageService.php", "", __FILE__)."../db-connection.php");
 
         $this->pdo = new PDO(
             "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8",

@@ -7,3 +7,4 @@ front-end/css/style.css
 .DS_Store
 .Thumbs.db
 testings.php
+back-end/app/src/db-connection.php
