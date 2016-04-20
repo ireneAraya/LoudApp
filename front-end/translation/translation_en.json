@@ -83,6 +83,8 @@
         "VERIFY_PASSWORD" : "Verify the password:",
         "IDENTIFICATION" : "Personal ID:",
         "BIRTHDATE" : "Birth date:",
+        "COMPANY" : "Company:",
+        "SALES_POINT" : "Sales Point:",
         "NEW_ACCOUNT_SUCCESS" : "Thank your siging up in Loud App. We have sent you an email with your new account information.",
         "GENDER" : {
             "LABEL" : "Gender:",
@@ -123,5 +125,10 @@
     "CAPACITY": "Capacity",
     "GEOGRAPHIC_LOCATION" : "Geographic Location",
     "ADDRESS": "Address",
-    "LOCATION_ADDRESS": "Location's address"
+    "NAME": "Name",
+    "LOCATION_ADDRESS": "Location's address",
+    "ADD_PROMOTER": "Add Promoter",
+    "PROMOTER_NAME": "Promoter's Name",
+    "ADD_CASHIER": "Add Cashier"
+
 }

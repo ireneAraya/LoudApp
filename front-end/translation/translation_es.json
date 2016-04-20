@@ -84,6 +84,8 @@
         "VERIFY_PASSWORD" : "Verificación de contraseña:",
         "IDENTIFICATION" : "Identificación personal:",
         "BIRTHDATE" : "Fecha de nacimiento:",
+        "COMPANY" : "Compañía:",
+        "SALES_POINT" : "Punto de venta:",
         "GENDER" : {
             "LABEL" : "Género:",
             "MALE" : "Masculino",
@@ -123,5 +125,9 @@
     "CAPACITY": "Capacidad",
     "GEOGRAPHIC_LOCATION" : "Ubicación Geográfica",
     "ADDRESS": "Dirección",
-    "LOCATION_ADDRESS": "Dirección del Sitio"
+    "NAME": "Nombre",
+    "LOCATION_ADDRESS": "Dirección del Sitio",
+    "ADD_PROMOTER": "Agregar Promotor",
+    "PROMOTER_NAME": "Nombre del promotor",
+    "ADD_CASHIER": "Agregar Cajero"
 }
