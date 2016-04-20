@@ -29,7 +29,7 @@ angular.module ('loudApp.controllers')
                 //crea el objeto y lo agrega a la colección
                 var eventType = {
                     id              : lastID,
-                    description     : $scope.newEventType,
+                    description     : $scope.eventType,
                 }
                 $scope.eventTypesCol.push(eventType);
 
@@ -37,7 +37,7 @@ angular.module ('loudApp.controllers')
                 if ($scope.addLocationForm) {
                     $scope.addLocationForm.$setPristine();
                     $scope.addLocationForm.$setUntouched();
-                    $scope.newEventType = "";
+                    $scope.eventType = "";
                 }
 
                 console.table($scope.eventTypesCol);

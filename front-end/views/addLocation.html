@@ -1,64 +1,64 @@
 <main class="container">
-	<h1 class="text-center">AGREGAR SITIO</h1>
+	<h1 class="text-center">{{ translation.ADD_LOCATION }}</h1>
 
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<form role="form" class="general-form row" name="addLocationForm" novalidate autocomplete="off">
-				<div class="col-xs-2">
-					<img id="locationImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/photo.png' }}" alt="Fotografía del Lugar" class="circle-thumbnail img-responsive">
+				<div class="col-xs-3 text-center">
+					<img id="locationImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/photo.png' }}" alt="Fotografía del Lugar" class="circle-thumbnail img-responsive center-block">
 					<label for="file-upload" class="custom-file-upload">
-					   	<i class="fa fa-camera"></i> Cambiar
+					   	<i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
 					</label>
 					<input id="file-upload" ng-model="editItem._attachments_uri.image" type="file" accept="image/*"
 				           app-filereader class="btn file-input"></input>
 			    </div><!--.col-xs-2-->
-		        <div class="col-xs-10">
+		        <div class="col-xs-9">
 					<div class="form-group col-xs-12">
-			          	<label for="">Sitio</label>
-			          	<input type="text" name="newLocation" ng-model="newLocation" placeholder="Nombre del Sitio" class="form-control" required>
-			          	<div ng-messages="addLocationForm.newLocation.$error" ng-if="addLocationForm.newLocation.$touched" class="validate-messages">
-			          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+			          	<label for="">{{ translation.LOCATION }}</label>
+			          	<input type="text" name="location" ng-model="location" placeholder="{{translation.LOCATION_NAME}}" class="form-control" required>
+			          	<div ng-messages="addLocationForm.location.$error" ng-if="addLocationForm.location.$touched" class="validate-messages">
+			          	    <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
 			          	</div>
 			        </div>
 			        <div class="form-group col-xs-12">
-			          	<label for="">Teléfono</label>
-			          	<input type="text" name="newPhone" ng-model="newPhone" placeholder="2222-2222" class="form-control" valid-number required>
-			          	<div ng-messages="addLocationForm.newPhone.$error" ng-if="addLocationForm.newPhone.$dirty" class="validate-messages">
-			          		<span ng-message="validNumber" class="alert alert-danger">El formato del teléfono debe ser 2222-2222</span>
+			          	<label for="">{{ translation.REGISTRATION.PHONE }}</label>
+			          	<input type="text" name="phone" ng-model="phone" placeholder="2222-2222" class="form-control" valid-number required>
+			          	<div ng-messages="addLocationForm.phone.$error" ng-if="addLocationForm.phone.$dirty" class="validate-messages">
+			          		<span ng-message="validNumber" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_PHONE_ERROR }}</span>
 			          	</div>
-						<div ng-messages="addLocationForm.newPhone.$error" ng-if="addLocationForm.newPhone.$touched" class="validate-messages">
-			          		<span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+						<div ng-messages="addLocationForm.phone.$error" ng-if="addLocationForm.phone.$touched" class="validate-messages">
+			          		<span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
 			        	</div>
 			        </div>
 			        <div class="form-group col-xs-12">
-			          	<label for="">Capacidad</label>
-			          	<input type="number" name="newCapacity" ng-model="newCapacity" placeholder="10000" class="form-control" required>
-			          	<div ng-messages="addLocationForm.newCapacity.$error" ng-if="addLocationForm.newCapacity.$touched" class="validate-messages">
-			          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+			          	<label for="">{{ translation.CAPACITY }}</label>
+			          	<input type="number" name="capacity" ng-model="capacity" placeholder="10000" class="form-control" required>
+			          	<div ng-messages="addLocationForm.capacity.$error" ng-if="addLocationForm.capacity.$touched" class="validate-messages">
+			          	    <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
 			          	</div>
 			        </div>
 			        <div class="form-group col-xs-12">
-			          	<label for="">Localización Geográfica</label>
-			          	<input type="text" name="newGeographicLoc" ng-model="newGeographicLoc" placeholder="2.222222, -2.222222" class="form-control" valid-geol required>
-			          	<div ng-messages="addLocationForm.newGeographicLoc.$error" ng-if="addLocationForm.newGeographicLoc.$dirty" class="validate-messages">
-			          	    <span ng-message="validGeol" class="alert alert-danger">El formato de la localización geográfica debe ser +/-2.222222, +/-2.222222</span>
+			          	<label for="">{{ translation.GEOGRAPHIC_LOCATION }}</label>
+			          	<input type="text" name="geographicLoc" ng-model="geographicLoc" placeholder="2.222222, -2.222222" class="form-control" valid-geol required>
+			          	<div ng-messages="addLocationForm.geographicLoc.$error" ng-if="addLocationForm.geographicLoc.$dirty" class="validate-messages">
+			          	    <span ng-message="validGeol" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_GEOLOC_ERROR }}</span>
 			          	</div>
-			          	<div ng-messages="addLocationForm.newGeographicLoc.$error" ng-if="addLocationForm.newGeographicLoc.$touched" class="validate-messages">
-			          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+			          	<div ng-messages="addLocationForm.geographicLoc.$error" ng-if="addLocationForm.geographicLoc.$touched" class="validate-messages">
+			          	    <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
 			          	</div>
 			        </div>
 			        <div class="form-group col-xs-12">
-			          	<label for="">Dirección</label>
-			          	<textarea type="text" name="newAdress" ng-model="newAdress" placeholder="Dirección" class="form-control event-info" required></textarea>
-			          	<div ng-messages="addLocationForm.newAdress.$error" ng-if="addLocationForm.newAdress.$touched" class="validate-messages">
-			          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+			          	<label for="">{{ translation.ADDRESS }}</label>
+			          	<textarea type="text" name="address" ng-model="address" placeholder="{{ translation.LOCATION_ADDRESS }}" class="form-control event-info" required></textarea>
+			          	<div ng-messages="addLocationForm.address.$error" ng-if="addLocationForm.address.$touched" class="validate-messages">
+			          	    <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
 			          	</div>
 			        </div>
 			        <div class="form-group col-xs-6">
-			          <a href="#/locationsList" class="btn next-btn align-right">CANCELAR</a>
+			          <a href="#/locationsList" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
 			        </div><!--.form-group .col-xs-12-->	
 			        <div class="form-group col-xs-6">
-					  <button class="btn next-btn align-right" ng-click="addLocation()" ng-disabled="addLocationForm.$invalid">AGREGAR</button>
+					  <button class="btn next-btn align-right" ng-click="addLocation()" ng-disabled="addLocationForm.$invalid">{{ translation.ADD }}</button>
 					</div>
 				</div>
 			</form>
