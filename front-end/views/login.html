@@ -7,7 +7,7 @@
     </div>
 
     <div class="container">
-        <form name="loginForm" id="loginForm" class="appForm" novalidate>
+        <form name="loginForm" id="loginForm" class="appForm general-form" novalidate autocomplete="false">
 
             <div class="alert alert-danger" role="alert" ng-if="error"><span ng-bind-html="error"></span></div>
 
@@ -18,20 +18,22 @@
                         <input type="text" class="form-control" ng-model="email" name="txtUserEmail" placeholder="email@me.com" valid-email required>
                     </div>
                     <div ng-messages="loginForm.txtUserEmail.$error" ng-if="loginForm.txtUserEmail.$dirty" class="validate-messages">
-                        <span ng-message="validEmail" class="alert alert-danger">El formato del email debe ser xxxx@yyyy.zzz</span>
+                        <span ng-message="validEmail" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_EMAIL_ERROR }}</span>
                     </div>
                     <div ng-messages="loginForm.txtUserEmail.$error" ng-if="loginForm.txtUserEmail.$touched" class="validate-messages">
-                        <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+                        <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
                     </div><!--ng-messages-->
                 </div>
-
                 <div class="col-xs-12 col-sm-6 col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" ng-model="password" required name="txtUserPassword" ng-minlength="8">
+                        <input type="password" class="form-control" ng-model="password" required valid-password name="txtUserPassword" ng-minlength="8">
                     </div>
+                    <div ng-messages="loginForm.txtUserPassword.$error" ng-if="loginForm.txtUserPassword.$dirty" class="validate-messages">
+                        <span ng-message="validPassword" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_PASSWORD_ERROR }}</span>
+                    </div><!--ng-messages-->
                     <div ng-messages="loginForm.txtUserPassword.$error" ng-if="loginForm.txtUserPassword.$touched" class="validate-messages">
-                        <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+                        <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
                     </div><!--ng-messages-->
                 </div>
             </div>
@@ -44,7 +46,7 @@
 
             <div class="row">
                 <div class="container">
-                    <button id="btnSubmit" class="btn col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-click="login()" ng-disabled="logginUser">{{ translation.SIGIN }}</button>
+                    <button id="btnSubmit" class="btn col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-click="login()" ng-disabled="loginForm.$invalid">{{ translation.SIGIN }}</button>
                 </div>
             </div>
         </form>
