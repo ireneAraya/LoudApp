@@ -8,8 +8,8 @@
 		        	<div class="form-group col-xs-12">
 			          	<label for="">{{ translation.EVENT_TYPE }}</label>
 			          	<input type="text" name="eventType" ng-model="eventType" class="form-control" required>
-			          	<div ng-messages="addEventTypeForm.eventType.$error" ng-if="addEventTypeForm.eventType.$touched" class="validate-messages">
-			          	    <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
+			          	<div ng-messages="addEventTypeForm.eventType.$error" ng-if="addEventTypeForm.eventType.$touched && addEventTypeForm.eventType.$invalid" class="validate-messages">
+			          	    <div ng-messages-include="error-messages"></div>
 			          	</div><!--ng-messages-->
 			        </div><!--.form-group .col-xs-12-->	
 				</div><!--.row-->

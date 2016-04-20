@@ -3,28 +3,28 @@
   <hr>
   <div class="row row-centered">
     <div class="col-md-6 col-centered">
-      <form role="form" class="general-form" name="cardInfoForm" novalidate>
+      <form role="form" class="general-form" name="cardInfoForm" novalidate autocomplete="false">
         <div class="form-group">
           <label for="client_name">{{ translation.EVENT_CLIENT_CARD_NAME }}</label>
-          <input id="client_name" type="text" class="form-control" name="cardOwner" ng-model="cardOwner" required>
-            <div ng-messages="cardInfoForm.cardOwner.$error" ng-if="cardInfoForm.cardOwner.$touched" class="validate-messages">
-                <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
+          <input id="client_name" type="text" class="form-control" name="cardOwner" ng-model="cardOwner" ng-pattern="/^[a-zA-Z]*$/" required>
+            <div ng-messages="cardInfoForm.cardOwner.$error" ng-if="cardInfoForm.cardOwner.$touched && cardInfoForm.cardOwner.$invalid" class="validate-messages">
+                <div ng-messages-include="error-messages"></div>
             </div>
         </div>
         <div class="form-group card-number">
           <label for="card_number">{{ translation.EVENT_CLIENT_CARD_NUMBER }}</label>
           <span class="type-card-icon"><i id="card_replace" class="fa fa-credit-card" ng-class ="active"></i></span>
-          <input id="card_number" type="text" ng-model="myccno" name="myccno" class="form-control card-number" required />
+          <input id="card_number" type="number" ng-model="myccno" name="myccno" class="form-control card-number" required />
           <span>{{ myccno | validate }}</span>
-          <div ng-messages="cardInfoForm.myccno.$error" ng-if="cardInfoForm.myccno.$touched" class="validate-messages">
-              <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
+          <div ng-messages="cardInfoForm.myccno.$error" ng-if="cardInfoForm.myccno.$touched && cardInfoForm.myccno.$invalid" class="validate-messages">
+              <div ng-messages-include="error-messages"></div>
           </div>
         </div>
         <div class="form-group">
           <label for="security_code">{{ translation.EVENT_CLIENT_CARD_CODE }}</label>
-          <input id="security_code" type="text" class="form-control" ng-model="securityCode" name="securityCode" required>
-          <div ng-messages="cardInfoForm.securityCode.$error" ng-if="cardInfoForm.securityCode.$touched" class="validate-messages">
-              <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
+          <input id="security_code" type="number" class="form-control" ng-model="securityCode" name="securityCode" ng-maxlength="3" ng-minlength="3" required>
+          <div ng-messages="cardInfoForm.securityCode.$error" ng-if="cardInfoForm.securityCode.$touched && cardInfoForm.securityCode.$invalid" class="validate-messages">
+              <div ng-messages-include="error-messages"></div>
           </div>
         </div>
         <div class="form-group">

@@ -64,7 +64,12 @@
         "WRONG_PATTERN_PASSWORD_ERROR" : "The password must be 8 characters long, combining specials characters and numbers.",
         "WRONG_PATTERN_PHONE_ERROR" : "The phone number must have the following format: NNNN-NNNN.",
         "HOUR_FORMAT_ERROR": "Please use a 12 hour format",
-        "WRONG_PATTERN_GEOLOC_ERROR": "The geographic location must have the following format: +/-N.NNNNNN, +/-N.NNNNNN"
+        "WRONG_PATTERN_GEOLOC_ERROR": "The geographic location must have the following format: +/-N.NNNNNN, +/-N.NNNNNN",
+        "WRONG_NAME_ERROR": "This field accept only letters",
+        "COMPARE_PASSWORD_ERROR": "Must match the previous entry",
+        "WRONG_NOT_NUMBER" : "This field accept only numbers",
+        "WRONG_MAXLENGTH": "The value is to long",
+        "WRONG_MINLENGTH": "The value is to short"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "First name:",

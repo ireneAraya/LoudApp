@@ -1,0 +1,13 @@
+<script type="text/ng-template" id="error-messages">
+    <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
+    <span ng-message="pattern" class="alert alert-danger">{{ translation.VALIDATE.WRONG_NAME_ERROR }}</span>
+    <span ng-message="validEmail" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_EMAIL_ERROR }}</span>
+    <span ng-message="validPassword" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_PASSWORD_ERROR }}</span>
+    <span ng-message="compareTo" class="alert alert-danger">{{ translation.VALIDATE.COMPARE_PASSWORD_ERROR }}</span>
+    <span ng-message="validNumber" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_PHONE_ERROR }}</span>
+    <span ng-message="validHour" class="alert alert-danger">{{ translation.VALIDATE.HOUR_FORMAT_ERROR }}</span>
+    <span ng-message="validGeol" class="alert alert-danger">{{ translation.VALIDATE.WRONG_PATTERN_GEOLOC_ERROR }}</span>
+    <span ng-message="number" class="alert alert-danger">{{ translation.VALIDATE.WRONG_NOT_NUMBER }}</span>
+    <span ng-message="maxlength" class="alert alert-danger">{{ translation.VALIDATE.WRONG_MAXLENGTH }}</span>
+    <span ng-message="minlength" class="alert alert-danger">{{ translation.VALIDATE.WRONG_MINLENGTH }}</span>
+</script>
