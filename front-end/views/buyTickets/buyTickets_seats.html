@@ -16,7 +16,7 @@
               </div>
               <div class="row first-row">
                 <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
-                  <a href="" data-description="VIP-1" ng-click="getAreaValue($event)">VIP 1</a>
+                  <a href="" data-description="VIP-1" ng-click="getAreaValue($event)" class="not-available">VIP 1</a>
                 </div>
                 <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-2" ng-click="getAreaValue($event)">VIP 2</a>
@@ -184,7 +184,7 @@
               </div>
               <div class="row row2">
                 <div class="seat-stadium-col">
-                  <a href="" data-description="F-8" ng-click="getAreaValue($event)">F8</a>
+                  <a href="" data-description="F-8" class="not-available"ng-click="getAreaValue($event)">F8</a>
                 </div>
                 <div class="seat-stadium-col">
                   <a href="" data-description="F-9" ng-click="getAreaValue($event)">F9</a>
@@ -278,11 +278,11 @@
                       <div class="seat-row vip-row vip-1">
                           <div class="pull-left">
                             <span class="text-uppercase">a</span>
-                            <a href="" data-description="A-1" ng-click="getSeatNumber($event)">1</a>
-                            <a href="" data-description="A-2" ng-click="getSeatNumber($event)">2</a>
-                            <a href="" data-description="A-3" ng-click="getSeatNumber($event)">3</a>
-                            <a href="" data-description="A-4" ng-click="getSeatNumber($event)">4</a>
-                            <a href="" data-description="A-5" ng-click="getSeatNumber($event)">5</a>
+                            <a href="" data-description="A-1" class="not-available" ng-click="getSeatNumber($event)">1</a>
+                            <a ng-class="{'selected-seat': isActive(section)}" href="" data-description="A-2" ng-click="getSeatNumber($event); activeButton($event);">2</a>
+                            <a href="" data-description="A-3" ng-click="getSeatNumber($event); activeButton();">3</a>
+                            <a href="" data-description="A-4" ng-click="getSeatNumber($event); activeButton();">4</a>
+                            <a href="" data-description="A-5" ng-click="getSeatNumber($event); activeButton();">5</a>
                           </div>
                         </div>
                         <div class="seat-row vip-row">

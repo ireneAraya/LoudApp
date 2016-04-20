@@ -91,6 +91,26 @@ angular.module ('loudApp.controllers')
                 getTotalSum();
             };
 
+
+
+
+            // $scope.setMaster = function(section) {
+            // $scope.selected = section;
+            // }
+
+            $scope.isActive = function(section) {
+            return $scope.selected === section;
+            console.log('selected');
+            }
+
+
+
+
+            // $scope.isActive = false;
+            // $scope.activeButton = function(item) {
+            // $scope.isActive = !$scope.isActive;
+            // }
+
             $scope.buyButon = function () {
                 areaAndSeats = areaAndSeats || LoudService.verify("LoudApp__SelectedOptions");
                 areaAndSeats.push(fullOption);
