@@ -4,22 +4,22 @@
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<form role="form" name="addEventForm" class="general-form row" novalidate autocomplete="off">
 				<div class="row">
-					<div class="col-xs-3 text-center">
+					<div class="col-xs-12 col-md-3 text-center">
 						<img id="eventImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/photo.png' }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive center-block">
 						<label for="file-upload" class="custom-file-upload">
 						   	<i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
 						</label>
 						<input id="file-upload" ng-model="editItem._attachments_uri.image" type="file" accept="image/*"
 					           app-filereader class="btn file-input"></input>
-				    </div><!--.col-xs-2-->
-			        <div class="col-xs-9">
+				    </div><!--.col-xs-12 .col-md-3 .text-center-->
+			        <div class="col-xs-12 col-md-9">
 			        	<div class="form-group col-xs-12">
 			        	  	<label for="">{{ translation.EVENT }}</label>
 			        	  	<input type="text" ng-model="eventName" name="eventName" placeholder="{{translation.EVENT_NAME}}" class="form-control" required>
 			        	  	<div ng-messages="addEventForm.eventName.$error" ng-if="addEventForm.eventName.$touched" class="validate-messages">
 				          	    <span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
 				          	</div><!--ng-messages-->
-			        	</div>
+			        	</div> <!--.form-group .col-xs-12-->
 						<div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
 						    <label for="">{{ translation.EVENT_DATE }}</label>
 						    <input id="selectedDate" type="text" class="form-control" name="date" placeholder="{{translation.SELECT_DATE}}" ng-model="date" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
@@ -71,7 +71,7 @@
 							<label for="" class="col-xs-6">{{ translation.ZONE }}</label>
 							<label for="" class="col-xs-5">{{ translation.PRICE }}</label>
 							<div ng-repeat="zone in zonesCol">
-								<div class="col-xs-6">
+								<div class="col-xs-5 col-md-6">
 								  	<input type="text" class="form-control price-input" name="place" ng-model="zone.place" placeholder="VIP" class="form-control" required>
 								  	<div ng-messages="addEventForm.place.$error" ng-if="addEventForm.place.$touched" class="validate-messages">
 				          	    		<span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
@@ -83,10 +83,10 @@
 				          	    		<span ng-message="required" class="alert alert-danger">{{ translation.VALIDATE.REQUIRED_ERROR }}</span>
 				          			</div>
 								</div>
-								<div class="col-xs-1">
+								<div class="col-xs-2 col-md-1">
 									<button class="min-btn text-center" ng-click="deleteZone()" ng-show="$last" ng-hide="$first"><i class="fa fa-minus"></i></button>
 								</div>
-							</div>
+							</div><!--ng-repeat-->
 						</div><!--.form-group-->
 						<div class="row">
 							<div class="col-xs-12">
@@ -99,7 +99,7 @@
 						<div class="form-group col-xs-6">
 						  <button class="btn next-btn align-right" ng-click="addEvent()" ng-disabled="addEventForm.$invalid">{{ translation.ADD }}</button>
 						</div><!--.form-group .col-xs-12-->
-					</div><!--.col-xs-10-->
+					</div><!--.col-xs-12 .col-md-9-->
 				</div><!--.row-->	
 			</form>
 		</div><!--.col-xs-12 .col-lg-8 .col-lg-offset-2-->

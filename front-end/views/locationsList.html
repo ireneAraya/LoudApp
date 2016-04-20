@@ -9,17 +9,17 @@
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<table class="table table-striped">
 				<tr class="row" ng-repeat="location in locationsCol">
-					<td class="col-xs-4 col-md-2 col-lg-2">
+					<td class="col-xs-3 col-md-2 col-lg-2">
 						<img ng-src="{{ location.image }}" alt="Fotografía del Sitio" class="circle-thumbnail img-responsive">
 					</td>
-					<td class="col-xs-8">
+					<td class="col-xs-8 col-md-8 col-lg-8">
 						<div class="info-td">
 							<h4>{{ location.name }}</h4>
 							<p>{{ location.capacity }} personas</p>
-							<p>{{ location.adress }}</p>
+							<p>{{ location.address }}</p>
 						</div>
 					</td>
-					<td class="col-xs-2">
+					<td class="col-xs-1 col-md-2 col-lg-2">
 						<div class="row">
 							<a href="#/editLocation/{{ location.id }}" class="col-xs-12 text-center two-lines"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 						</div>

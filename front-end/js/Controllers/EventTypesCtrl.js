@@ -16,7 +16,7 @@ angular.module ('loudApp.controllers')
 
 
         function otherFunctions () {
-            //$scope.eventTypesCol = $scope.data.eventTypes;
+            $scope.eventTypesCol = $scope.data.eventTypes;
         
             //Agregar tipo de evento
             $scope.addEventType = function () {
