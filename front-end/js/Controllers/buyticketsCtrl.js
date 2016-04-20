@@ -64,15 +64,29 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.showLocationView = function () {
+
                 var locationID = $scope.eventsBuy.location;
+                var locationPath = '';
+
                 if (locationID == 0) {
-                    $scope.test = '/buyTickets/tickets/seats/detail'
+
+                    locationPath = '/buyTickets/tickets/seats';
+
+                } else if (locationID == 1) {
+
+                    locationPath = '/buyTickets/tickets/seats';
+
+                } else if (locationID == 2) {
+
+                    locationPath = '/addEvent';
                 }
+
+                $location.path( locationPath );
+
                 // Estadio Ricardo Saprissa 0
                 // Peppers Disco Club 1
                 // Estadio Nacional 2
             }
-            $scope.showLocationView();
 
             $scope.getAreaValue = function (item) {
                 fullOption.area = "";
