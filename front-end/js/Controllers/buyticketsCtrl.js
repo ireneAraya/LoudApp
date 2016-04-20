@@ -63,6 +63,17 @@ angular.module ('loudApp.controllers')
                 return location[key];
             };
 
+            $scope.showLocationView = function () {
+                var locationID = $scope.eventsBuy.location;
+                if (locationID == 0) {
+                    $scope.test = '/buyTickets/tickets/seats/detail'
+                }
+                // Estadio Ricardo Saprissa 0
+                // Peppers Disco Club 1
+                // Estadio Nacional 2
+            }
+            $scope.showLocationView();
+
             $scope.getAreaValue = function (item) {
                 fullOption.area = "";
                 fullOption.area = item.currentTarget.getAttribute("data-description");
@@ -98,9 +109,17 @@ angular.module ('loudApp.controllers')
             // $scope.selected = section;
             // }
 
-            $scope.isActive = function(section) {
-            return $scope.selected === section;
-            console.log('selected');
+            $scope.sections = [
+                {name: 'Clients'},
+                {name: 'Employees'},
+                {name: 'Others'}];
+
+            $scope.setMaster = function(section) {
+                $scope.selected = section;
+            }
+
+            $scope.isSelected = function(section) {
+                return $scope.selected === section;
             }
 
 
