@@ -319,6 +319,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 
 .btn-back{
+	position: fixed;
 	padding-top: 20px;
 	color : $light-red;
 
