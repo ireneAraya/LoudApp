@@ -50,11 +50,11 @@ angular.module ('loudApp.controllers')
                 var location = {
                     id              : lastID,
                     image           : document.getElementById("locationImage").getAttribute("src"),
-                    name            : $scope.newLocation,
-                    phone           : $scope.newPhone,
-                    capacity        : $scope.newCapacity,
-                    geographicLoc   : $scope.newGeographicLoc,
-                    adress          : $scope.newAdress
+                    name            : $scope.location,
+                    phone           : $scope.phone,
+                    capacity        : $scope.capacity,
+                    geographicLoc   : $scope.geographicLoc,
+                    address         : $scope.address
                 }
                 $scope.locationsCol.push(location);
 
@@ -64,12 +64,11 @@ angular.module ('loudApp.controllers')
                 if ($scope.addLocationForm) {
                   $scope.addLocationForm.$setPristine();
                   $scope.addLocationForm.$setUntouched();
-                  $scope.newImageSource = "";
-                  $scope.newLocation = "";
-                  $scope.newPhone = "";
-                  $scope.newCapacity = "";
-                  $scope.newGeographicLoc = "";
-                  $scope.newAdress = "";
+                  $scope.location = "";
+                  $scope.phone = "";
+                  $scope.capacity = "";
+                  $scope.geographicLoc = "";
+                  $scope.address = "";
                 }
                 
                 $location.path('/locationsList');

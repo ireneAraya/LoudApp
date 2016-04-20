@@ -278,7 +278,7 @@
 			"phone"			: "2222-0009",
 			"capacity"		: 23000,
 			"geographicLoc"	: "9.965654, -84.075301",
-			"adress"		: "San Juan de Tibás",
+			"address"		: "San Juan de Tibás",
 			"image"			: "/front-end/img/estadioSaprissa.jpg"
 		},
 		{
@@ -287,7 +287,7 @@
 			"phone"			: "2222-0809",
 			"capacity"		: 2000,
 			"geographicLoc"	: "9.918136, -84.049025",
-			"adress"		: "Contiguo al parqueo de Price Smart Zapote, San José",
+			"address"		: "Contiguo al parqueo de Price Smart Zapote, San José",
 			"image"			: "/front-end/img/clubPeppers.jpg"
 		},
 		{
@@ -296,7 +296,7 @@
 			"phone"			: "2222-0309",
 			"capacity"		: 35000,
 			"geographicLoc"	: "9.936768, -84.107852",
-			"adress"		: "La Sabana, Costa Rica",
+			"address"		: "La Sabana, Costa Rica",
 			"image"			: "/front-end/img/estadioNacional.jpg"
 		}
 	],

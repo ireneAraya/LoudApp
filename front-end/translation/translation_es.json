@@ -64,7 +64,8 @@
         "WRONG_PATTERN_EMAIL_ERROR" : "El formato del email debe ser xxxx@yyyy.zzz",
         "WRONG_PATTERN_PASSWORD_ERROR" : "La contraseña debe ser de al menos 8 caracteres, combinando entre caracteres especiales y números.",
         "WRONG_PATTERN_PHONE_ERROR" : "El número de teléfono debe tener el siguiente formato: NNNN-NNNN.",
-        "HOUR_FORMAT_ERROR": "Por favor use el formato de 12 horas"
+        "HOUR_FORMAT_ERROR": "Por favor use el formato de 12 horas",
+        "WRONG_PATTERN_GEOLOC_ERROR": "El formato adecuado es +/-N.NNNNNN,+/-N.NNNNNN"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "Primer nombre:",
@@ -99,6 +100,7 @@
     "ADD_EVENT" : "Agregar Evento",
     "LOCATIONS" : "Sitios",
     "LOCATION" : "Sitio",
+    "LOCATION_NAME" : "Nombre del lugar",
     "ADD_LOCATION" : "Agregar Sitio",
     "SEARCH_LOCATION" : "Busque el sitio aquí",
     "EVENT_TYPES" : "Tipos de Eventos",
@@ -112,5 +114,9 @@
     "PRICE": "Precio",
     "ADD_ZONE_PRICE": "Agregar zona y precio",
     "CANCEL": "Cancelar",
-    "ADD": "Agregar"
+    "ADD": "Agregar",
+    "CAPACITY": "Capacidad",
+    "GEOGRAPHIC_LOCATION" : "Ubicación Geográfica",
+    "ADDRESS": "Dirección",
+    "LOCATION_ADDRESS": "Dirección del Sitio"
 }

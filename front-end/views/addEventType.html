@@ -1,24 +1,24 @@
 <main class="container">
-	<h1 class="text-center">AGREGAR TIPO DE EVENTO</h1>
+	<h1 class="text-center">{{ translation.ADD_EVENT_TYPE }}</h1>
 
 	<div class="row">
 		<div class="col-xs-12 col-lg-6 col-lg-offset-3">
 			<form role="form" name="addEventTypeForm" class="general-form row" novalidate autocomplete="off">
 				<div class="row">
 		        	<div class="form-group col-xs-12">
-			          	<label for="">Evento</label>
-			          	<input type="text" name="newEventType" ng-model="newEventType" placeholder="Tipo de Evento" class="form-control" required>
-			          	<div ng-messages="addEventTypeForm.newEventType.$error" ng-if="addEventTypeForm.newEventType.$touched" class="validate-messages">
+			          	<label for="">{{ translation.EVENT_TYPE }}</label>
+			          	<input type="text" name="eventType" ng-model="eventType" class="form-control" required>
+			          	<div ng-messages="addEventTypeForm.eventType.$error" ng-if="addEventTypeForm.eventType.$touched" class="validate-messages">
 			          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
 			          	</div><!--ng-messages-->
 			        </div><!--.form-group .col-xs-12-->	
 				</div><!--.row-->
 				<div class="row">
 					<div class="form-group col-xs-6">
-					  <a href="#/eventTypesList" class="btn next-btn align-right">CANCELAR</a>
+					  <a href="#/eventTypesList" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
 					</div><!--.form-group .col-xs-12-->	
 					<div class="form-group col-xs-6">
-					  <button class="btn next-btn align-right" ng-click="addEventType()" ng-disabled="addEventTypeForm.$invalid">SALVAR</button>
+					  <button class="btn next-btn align-right" ng-click="addEventType()" ng-disabled="addEventTypeForm.$invalid">{{ translation.ADD }}</button>
 					</div><!--.form-group .col-xs-12-->
 				</div>
 			</form>

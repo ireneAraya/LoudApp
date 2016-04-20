@@ -63,7 +63,8 @@
         "WRONG_PATTERN_EMAIL_ERROR" : "The pattern of the email must be xxxx@yyyy.zzz",
         "WRONG_PATTERN_PASSWORD_ERROR" : "The password must be 8 characters long, combining specials characters and numbers.",
         "WRONG_PATTERN_PHONE_ERROR" : "The phone number must have the following format: NNNN-NNNN.",
-        "HOUR_FORMAT_ERROR": "Please use a 12 hour format"
+        "HOUR_FORMAT_ERROR": "Please use a 12 hour format",
+        "WRONG_PATTERN_GEOLOC_ERROR": "The geographic location must have the following format: +/-N.NNNNNN, +/-N.NNNNNN"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "First name:",
@@ -95,10 +96,11 @@
     },
     "EVENTS" : "Events",
     "EVENT" : "Event",
-    "EVENT_NAME" : "Event Name",
+    "EVENT_NAME" : "Event's Name",
     "ADD_EVENT" : "Add Event",
     "LOCATIONS" : "Locations",
     "LOCATION" : "Location",
+    "LOCATION_NAME" : "Location's Name",
     "ADD_LOCATION" : "Add Location",
     "SEARCH_LOCATION" : "Search for location here",
     "EVENT_TYPES" : "Event Types",
@@ -112,5 +114,9 @@
     "PRICE": "Price",
     "ADD_ZONE_PRICE" : "Add Zone y Price",
     "CANCEL": "Cancel",
-    "ADD": "Add"
+    "ADD": "Add",
+    "CAPACITY": "Capacity",
+    "GEOGRAPHIC_LOCATION" : "Geographic Location",
+    "ADDRESS": "Address",
+    "LOCATION_ADDRESS": "Location's address"
 }
