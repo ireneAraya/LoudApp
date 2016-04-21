@@ -45,6 +45,12 @@ body{
 	    margin-bottom: 40px;
 	}
 
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+	  -webkit-appearance: none; 
+	  margin: 0; 
+	}
+
 	.language-select {
 	    margin: 28px 0 0 20px;
 	    display: inline-flex;
@@ -313,6 +319,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 
 .btn-back{
+	position: fixed;
 	padding-top: 20px;
 	color : $light-red;
 
@@ -333,6 +340,10 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 		&.two-lines{
 			padding-top: 15px;
+			
+			@media (max-width: 768px) {
+				padding-top: 15px;
+			}
 		}
 
 		&:hover{
@@ -343,6 +354,11 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	.info-td{
 		padding-left: 20px;
 		border-right: 0.5px solid #ffffff;
+		
+		@media (max-width: 768px) {
+			padding-left: 0;
+			padding-right: 10px;
+		}
 	}
 }
 
@@ -376,6 +392,15 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
+}
+
+td {
+	.circle-thumbnail {
+		
+		@media (max-width: 768px){
+			height: 66px;
+		}
+	}
 }
 
 

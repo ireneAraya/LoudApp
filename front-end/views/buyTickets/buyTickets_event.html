@@ -1,9 +1,14 @@
 <main class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
+    </div><!--.col-xs-6-->
+  </div><!--.row-->
   <h1 class="text-center">{{translation.BUY_TICKETS}}</h1>
   <hr>
   <div class="row row-centered">
     <div class="col-md-6 col-centered">
-      <form role="form" class="general-form" name="buyEventForm" novalidate>
+      <form role="form" class="general-form" name="buyEventForm" novalidate autocomplete="false">
         <div class="form-group typeahead" ng-controller="TypeaheadCtrl">
           <label for="select_event"><i class="fa fa-hand-peace-o"></i> {{ translation.SELECT_EVENT }}</label>
           <div ng-if="noResults" class="alert alert-danger">

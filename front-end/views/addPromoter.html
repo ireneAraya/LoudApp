@@ -1,0 +1,120 @@
+<main class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
+		</div><!--.col-xs-6-->
+	</div>
+	<h1 class="text-center">{{ translation.ADD_PROMOTER }}</h1>
+	<hr>
+	<div class="row">
+		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
+			<form role="form" id="addPromoterForm" name="addPromoterForm" class="general-form row" ng-if="!emailSent" ng-submit="signUp()" novalidate autocomplete="false">
+			    <div class="row">
+			        <div class="col-xs-12 col-md-3 text-center">
+						<img id="promoterImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/photo.png' }}" alt="Fotografía del Promotor" class="circle-thumbnail img-responsive center-block">
+						<label for="file-upload" class="custom-file-upload">
+						   	<i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
+						</label>
+						<input id="file-upload" ng-model="editItem._attachments_uri.image" type="file" accept="image/*" app-filereader class="btn file-input"></input>
+			    	</div><!--.col-xs-2-->
+			        <div class="col-xs-12 col-md-9">
+			            <div id="response" class="alert alert-danger" tabindex="0" role="alert" ng-if="error">{{ error }}</div>
+
+			            <div class="col-xs-12">
+			                <div class="form-gender">
+			                    <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
+			                    <label class="radio-inline"><input type="radio" ng-model="promoter.identificationType" value="1" name="identificationType" required>{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}</label>
+			                    <label class="radio-inline"><input type="radio" ng-model="promoter.identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}</label>
+			                    <label class="radio-inline"><input type="radio" ng-model="promoter.identificationType" value="3" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}</label>
+			                </div>
+			            </div><!--.form-group .col-xs-12-->
+
+			            <div class="form-group col-xs-12">
+			                <label for="identification">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
+			                <input id="identification" type="text" name="identification" ng-model="promoter.identification" class="form-control" required>
+			                <div ng-messages="addPromoterForm.identification.$error" ng-if="addPromoterForm.identification.$touched && addPromoterForm.identification.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div><!--ng-messages-->
+			            </div><!--.form-group .col-xs-12-->
+
+			            <div class="form-group col-xs-12">
+			                <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>
+			                <input id="firstName" type="text" name="firstName" ng-model="promoter.firstName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
+			                <div ng-messages="addPromoterForm.firstName.$error" ng-if="addPromoterForm.firstName.$touched && addPromoterForm.firstName.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div><!--ng-messages-->
+			            </div><!--.form-group .col-xs-12-->
+
+			            <div class="form-group col-xs-12">
+			                <label for="middleName">{{ translation.REGISTRATION.MIDDLE_NAME }}</label>
+			                <input id="middleName" type="text" name="middleName" ng-model="promoter.middleName" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
+			                <div ng-messages="addPromoterForm.middleName.$error" ng-if="addPromoterForm.middleName.$touched && addPromoterForm.middleName.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div><!--ng-messages-->
+			            </div><!--.form-group .col-xs-12-->
+
+			            <div class="form-group col-xs-12">
+			                <label for="lastName">{{ translation.REGISTRATION.LAST_NAME }}</label>
+			                <input id="lastName" type="text" name="lastName" ng-model="promoter.lastName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
+			                <div ng-messages="addPromoterForm.lastName.$error" ng-if="addPromoterForm.lastName.$touched && addPromoterForm.lastName.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div><!--ng-messages-->
+			            </div><!--.form-group .col-xs-12-->
+
+			            <div class="form-group col-xs-12">
+			                <label for="secondSurname">{{ translation.REGISTRATION.SECOND_SURNAME }}</label>
+			                <input id="secondSurname" type="text" name="secondSurname" ng-model="promoter.secondSurname" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
+			                <div ng-messages="addPromoterForm.secondSurname.$error" ng-if="addPromoterForm.secondSurname.$touched && addPromoterForm.secondSurname.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div><!--ng-messages-->
+			            </div><!--.form-group .col-xs-12-->
+
+			            <div class="form-group col-xs-12">
+			                <label for="">{{ translation.REGISTRATION.EMAIL }}</label>
+			                <input type="text" class="form-control" ng-model="promoter.email" name="email" placeholder="email@me.com" valid-email required>
+			                <div ng-messages="addPromoterForm.email.$error" ng-if="addPromoterForm.email.$touched && addPromoterForm.email.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div>
+			            </div>
+
+			            <div class="form-group col-xs-12">
+			                <label for="company">{{ translation.REGISTRATION.COMPANY }}</label>
+			                <input id="company" type="text" name="company" ng-model="promoter.company" class="form-control" required>
+			                <div ng-messages="addPromoterForm.company.$error" ng-if="addPromoterForm.company.$touched && addPromoterForm.company.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div>
+			            </div><!--.form-group .col-xs-12-->
+
+			            <div class="form-group col-xs-12">
+			                <label for="">{{ translation.REGISTRATION.PASSWORD }}</label>
+			                <input type="password" class="form-control" ng-model="promoter.hash" name="hash" valid-password required>
+			                <div ng-messages="addPromoterForm.hash.$error" ng-if="addPromoterForm.hash.$touched && addPromoterForm.hash.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div>
+			            </div>
+
+			            <div class="form-group col-xs-12">
+			                <label for="">{{ translation.REGISTRATION.VERIFY_PASSWORD }}</label>
+			                <input type="password" class="form-control" ng-model="promoter.verifyPassword" name="verifyPassword" compare-to="promoter.hash" required>
+			                <div ng-messages="addPromoterForm.verifyPassword.$error" ng-if="addPromoterForm.verifyPassword.$touched && addPromoterForm.verifyPassword.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div>
+			            </div>
+
+			            <div class="form-group col-xs-12">
+			                <label for="">{{ translation.REGISTRATION.PHONE }}</label>
+			                <input type="text" class="form-control" ng-model="promoter.phone" name="phone" valid-number required>
+			                <div ng-messages="addPromoterForm.phone.$error" ng-if="addPromoterForm.phone.$touched && addPromoterForm.phone.$invalid" class="validate-messages">
+			                    <div ng-messages-include="error-messages"></div>
+			                </div>
+			            </div>
+
+			            <div class="form-group col-xs-12">
+			              <button class="btn next-btn col-xs-12 col-lg-12" ng-disabled="addPromoterForm.$invalid">{{ translation.REGISTER }}</button>
+			            </div><!--.form-group .col-xs-12-->
+			        </div><!--.col-xs-10-->
+			    </div><!--.row-->
+			</form>
+		</div><!--.col-xs-12 .col-lg-8 .col-lg-offset-2-->
+	</div><!--.row-->
+</main>

@@ -1,15 +1,22 @@
 <main class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
+		</div><!--.col-xs-6-->
+	</div>
+
 	<h1 class="text-center">{{ translation.ADD_EVENT_TYPE }}</h1>
+	<hr>
 
 	<div class="row">
-		<div class="col-xs-12 col-lg-6 col-lg-offset-3">
-			<form role="form" name="addEventTypeForm" class="general-form row" novalidate autocomplete="off">
+		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
+			<form role="form" name="addEventTypeForm" class="general-form" novalidate autocomplete="off">
 				<div class="row">
 		        	<div class="form-group col-xs-12">
 			          	<label for="">{{ translation.EVENT_TYPE }}</label>
 			          	<input type="text" name="eventType" ng-model="eventType" class="form-control" required>
-			          	<div ng-messages="addEventTypeForm.eventType.$error" ng-if="addEventTypeForm.eventType.$touched" class="validate-messages">
-			          	    <span ng-message="required" class="alert alert-danger">Este campo es obligatorio</span>
+			          	<div ng-messages="addEventTypeForm.eventType.$error" ng-if="addEventTypeForm.eventType.$touched && addEventTypeForm.eventType.$invalid" class="validate-messages">
+			          	    <div ng-messages-include="error-messages"></div>
 			          	</div><!--ng-messages-->
 			        </div><!--.form-group .col-xs-12-->	
 				</div><!--.row-->
