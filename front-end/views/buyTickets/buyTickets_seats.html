@@ -279,17 +279,83 @@
                         <h4 class="text-center">Seleccione sus asientos VIP</h4>
                     </div>
                     <div class="modal-body">
-                      <div class="seat-row vip-row vip-1">
+
+                        <style type="text/css">
+
+                          .seat-row ul li a {
+                            background: none !important;
+                            padding: 0;
+                            width: 50px;
+                            height: 50px;
+                            padding: 25px;
+                            display: inline-block;
+                            border: 1px solid gray;
+                            border-radius: 0 !important;
+                            margin-right: 0 !important;
+                            cursor: pointer;
+                          }
+
+                          .seat-row ul li a:hover {
+                            text-decoration: none;
+                          }
+
+                          .seat-row ul li {
+                            float: left;
+                            margin-right: 5px;
+                          }
+
+                          /*.seat-row ul li:first-child {
+                            padding: 13px;
+                            margin-left: -4px;
+                          }
+
+                          .seat-row ul li:first-child span {
+                            background: #db4437;
+                            padding: 20px;
+                          }*/
+                      
+                          .red {
+                              color:red;
+                          }
+
+                          .blue {
+                              color:blue;
+                          }
+
+                        </style>
+
+                        
+                        <div class="seat-row vip-row vip-1">
+                          <ul class="list-holder">
+                              <li ng-repeat="section in sections" ng-class="{active : section.isSelected}">
+                                  <span class="text-uppercase">{{section.id}}</span>
+                                  <a data-description="{{section.dataAtr}}" ng-click="setMaster(section); getSeatNumber($event);">{{section.name}}</a>
+                              </li>
+                          </ul>
+                        </div>
+
+                        
+                        <!-- <span ng-class="class" ng-click="changeClass()">Change Class</span>
+                        <span ng-class="class" ng-click="changeClass()">Change Class</span>
+                        <span ng-class="class" ng-click="changeClass()">Change Class</span>
+                        <span ng-class="class" ng-click="changeClass()">Change Class</span> -->
+
+                        <!-- <span ng-class="class" ng-click="changeClass()">Change Class</span>
+                        <span ng-class="class" ng-click="changeClass()">Change Class</span>
+                        <span ng-class="class" ng-click="changeClass()">Change Class</span>
+                        <span ng-class="class" ng-click="changeClass()">Change Class</span> -->
+
+                        <!-- <div class="seat-row vip-row vip-1">
                           <div class="pull-left">
                             <span class="text-uppercase">a</span>
-                            <a href="" data-description="A-1" class="not-available" ng-click="getSeatNumber($event)">1</a>
-                            <a ng-class="{'selected-seat': isActive(section)}" href="" data-description="A-2" ng-click="getSeatNumber($event); activeButton($event);">2</a>
-                            <a href="" data-description="A-3" ng-click="getSeatNumber($event); activeButton();">3</a>
-                            <a href="" data-description="A-4" ng-click="getSeatNumber($event); activeButton();">4</a>
-                            <a href="" data-description="A-5" ng-click="getSeatNumber($event); activeButton();">5</a>
+                            <a href="" data-description="A-1" ng-click="getSeatNumber($event)">1</a>
+                            <a href="" data-description="A-2" ng-click="getSeatNumber($event)">2</a>
+                            <a href="" data-description="A-3" ng-click="getSeatNumber($event)">3</a>
+                            <a href="" data-description="A-4" ng-click="getSeatNumber($event)">4</a>
+                            <a href="" data-description="A-5" ng-click="getSeatNumber($event);">5</a>
                           </div>
-                        </div>
-                        <div class="seat-row vip-row">
+                        </div> -->
+                        <!-- <div class="seat-row vip-row">
                           <div class="pull-left">
                             <span class="text-uppercase">b</span>
                             <a href="" data-description="B-1" ng-click="getSeatNumber($event)">1</a>
@@ -298,8 +364,8 @@
                             <a href="" data-description="B-4" ng-click="getSeatNumber($event)">4</a>
                             <a href="" data-description="B-5" ng-click="getSeatNumber($event)">5</a>
                           </div>
-                        </div>
-                        <div class="seat-row vip-row">
+                        </div> -->
+                        <!-- <div class="seat-row vip-row">
                           <div class="pull-left">
                             <span class="text-uppercase">c</span>
                             <a href="" data-description="C-1" ng-click="getSeatNumber($event)">1</a>
@@ -308,12 +374,12 @@
                             <a href="" data-description="C-4" ng-click="getSeatNumber($event)">4</a>
                             <a href="" data-description="C-5" ng-click="getSeatNumber($event)">5</a>
                           </div>
+                        </div> -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-dismiss="modal">CANCELAR</button>
+                            <button type="button" class="btn" data-dismiss="modal" ng-click="buyButon();">SELECCIONAR</button>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">CANCELAR</button>
-                        <button type="button" class="btn" data-dismiss="modal" ng-click="buyButon();">SELECCIONAR</button>
-                    </div>
+                  </div>
                 </div>
               </div>
           </div>
