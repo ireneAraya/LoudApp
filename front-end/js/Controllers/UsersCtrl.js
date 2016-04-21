@@ -1,144 +1,85 @@
 angular.module ('loudApp.controllers')
 
 .controller('UsersCtrl', [
-	'$scope', '$routeParams', '$location', 'LoudService', '$timeout',
-	function($scope, $routeParams, $location, LoudService, $timeout) {
-        $scope.eventsCol = LoudService.verify('LoudApp__Events') || {};
-        
+    '$scope', 'LoudService', '$location', '$q', '$timeout',
+    function($scope, LoudService, $location, $q, $timeout) {
 
-        // $scope.init = function() {
-        //     LoudService.getDataFromJS().then(function(response) {
-        //         $scope.data = angular.fromJson(response.data);
-        //         otherFunctions();
-        //     }, function(razon) {
-        //         $scope.error = razon;
-        //     });
-        // };
+        $scope.init = function() {
+            $scope.emailSent = false;
+            $scope.user = {};
 
+            var userExists = $q(function (resolve, reject) {
+                var res = LoudService.verifyUser();
 
-        // function otherFunctions () {
-        //     //$scope.eventsCol = $scope.data.events;
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
 
-        //     $scope.getEventLocation = function (index, key) {
-        //         // Se repiten los llamados
-        //         // console.log(index);
-        //         var location = LoudService.getItem($scope.data.locations, "id", index);
-        //         return location[key];
-        //     };
+            userExists.then(function (response) {
+                if (response.success && response.data) {
+                    $location.path("/");
+                } else {
+                    // Calbacks
+                    otherFunctions();
+                }
+            });
+        };
 
-        //     //Agregar inputs de precio y lugar
-        //     $scope.zonesCol = [
-        //         { id    : 0}
-        //     ];
+        $scope.signUp = function () {
+            // Disables the register button while processing
+            $scope.processing = true;
+            $scope.error = null;
 
-        //     $scope.addZone = function () {
-        //         var newZone = $scope.zonesCol.length+1;
-        //         var newId = 0;
+            // Creates the user object
+            var userToCreate = {
+                "identification" : $scope.user.identification,
+                "identificationType" : $scope.user.identificationType,
+                "firstName" : $scope.user.firstName,
+                "middleName" : $scope.user.middleName,
+                "lastName" : $scope.user.lastName,
+                "secondSurname" : $scope.user.secondSurname,
+                "nickname" : $scope.user.nickname,
+                "email" : $scope.user.email,
+                "hash" : $scope.user.hash,
+                "verifyPassword" : $scope.user.verifyPassword,
+                "birthDate" :  document.getElementById("selectedDate").value,
+                "phone" : $scope.user.phone,
+                "gender" : $scope.user.gender,
+                "disability" : $scope.user.disability,
+                "specialCondition" : $scope.user.specialCondition,
+                "locale" : "EN",
+                "photoURL" : document.getElementById("userImage").getAttribute("src")
+            };
 
-        //         for (var i = 0; i < $scope.zonesCol.length; i++) {
-        //             newId = (i +1);
-        //         };
+            // Creates a promise to call the user Service
+            var createUserServiceFunction = $q(function (resolve, reject) {
+                var res = LoudService.registerUser(userToCreate);
 
-        //         var zone = {
-        //             id      : newId,
-        //             place   : $scope.place,
-        //             amount  : $scope.amount
-        //         }
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
 
-        //         $scope.zonesCol.push(zone);
+            createUserServiceFunction.then(function (response) {
+                console.log(response);
 
-        //         LoudService.save("LoudApp__Zones", $scope.zonesCol);
-        //     };
+                if (response.success) {
+                    $scope.processing = false;
+                    $scope.error = null;
+                    $scope.emailSent = true;
+                } else {
+                    $scope.processing = false;
+                    $scope.error = response.message;
+                }
+            });
+        };
 
-        //     $scope.deleteZone = function () {
-        //         var lastZoneItem = $scope.zonesCol.length-1;
-        //         $scope.zonesCol.splice(lastZoneItem, 1);
-        //     };
+        function otherFunctions () {
+        };
 
-        //     //Seleccionar el valor del typeahead
-        //     $scope.getSelectedLocation = function (value) {
-        //         $scope.location = value;
-        //     };
-
-        //     $scope.getSelectedType = function (value) {
-        //         $scope.eventType = value;
-        //     };
-
-        //     //Agregar Evento
-        //     $scope.addEvent = function () {
-        //         var lastID = 0;
-
-        //         for (var i = 0; i < $scope.eventsCol.length; i++) {
-        //             lastID = (i +1);
-        //         };
-
-        //         //crea el objeto y lo agrega a la colección
-        //         var event = {
-        //             id              : lastID,
-        //             image           : document.getElementById("eventImage").getAttribute("src"),
-        //             name            : $scope.eventName,
-        //             date            : document.getElementById("selectedDate").value,
-        //             startHour       : $scope.startHour,
-        //             location        : $scope.location.id,
-        //             eventType       : $scope.eventType.id,
-        //             description     : $scope.description,
-        //             prices          : $scope.zonesCol
-        //         }
-        //         $scope.eventsCol.push(event);
-
-        //         console.log($scope.eventsCol);
-        //         console.log($scope.zonesCol);
-
-        //         // Limpia el formulario, tanto en valores como en estado de variables
-        //         if ($scope.addLocationForm) {
-        //           $scope.addLocationForm.$setPristine();
-        //           $scope.addLocationForm.$setUntouched();
-        //           $scope.event = "";
-        //           $scope.date = "";
-        //           $scope.startHour = "";
-        //           $scope.location = "";
-        //           $scope.eventType = "";
-        //           $scope.description = "";
-        //           $scope.place = "";
-        //           $scope.amount = "";
-        //         }
-
-        //         $location.path('/eventsList');
-        //     }
-
-        //     //Borrar evento
-        //     $scope.erraseEvent = function ($index) {
-        //         var target = LoudService.getItemIndex($scope.eventsCol, $index);
-
-        //         if ($scope.eventsCol.length == 1) {
-        //             $scope.eventsCol = [];
-        //         } else {
-        //             $scope.eventsCol.splice(target, 1);
-        //         }
-
-        //         // $timeout(function () {
-        //             var parent = document.getElementsByTagName("body")[0],
-        //                 child = parent.lastChild;
-
-        //             parent.removeChild(child);
-        //         // }, 1000);
-
-
-        //         LoudService.save("LoudApp__Events", $scope.eventsCol);
-
-        //         $location.path('/eventsList');
-        //     }
-
-        // };
-
-        // $scope.$watch('eventsCol', function(newValue, oldValue) {
-        //     LoudService.save("LoudApp__Events", newValue);
-        // }, true);
-
-        // $scope.$watch('zonesCol', function(newValue, oldValue) {
-        //     LoudService.save("LoudApp__Zones", newValue);
-        // }, true);
-
-        // $scope.init();
-	}
-])
+        $scope.init();
+    }
+]);

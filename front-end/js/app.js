@@ -104,6 +104,10 @@ angular.module('loudApp',[
                 templateUrl: 'front-end/views/addPromoter.html',
                 controller: 'UsersCtrl'
             })
+            .when('/addCashier', {
+                templateUrl: 'front-end/views/addCashier.html',
+                controller: 'UsersCtrl'
+            })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'
             });
