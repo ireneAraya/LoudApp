@@ -79,10 +79,6 @@ angular.module ('loudApp.controllers')
                 }
 
                 $location.path( locationPath );
-
-                // Estadio Ricardo Saprissa 0
-                // Peppers Disco Club 1
-                // Estadio Nacional 2
             }
 
             $scope.getAreaValue = function (item) {

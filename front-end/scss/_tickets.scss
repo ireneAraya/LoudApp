@@ -1,3 +1,4 @@
+/* Modal seats style */
 .not-available {
     opacity: 0.3;
     background: #000;
@@ -6,22 +7,43 @@
     cursor: not-allowed;
 }
 
-.active {
-    background: blue;
+.seat-row ul li {
+    float: left;
+    margin-right: 13px;
+    background: #ecf0f1;
+    border-radius: 10px;
+    width: 51px;
+    height: 50px;
+    margin-bottom: 6px;
 }
 
-.button {
-    background: red;
+.seat-row ul li a {
+    padding: 0;
+    width: 51px;
+    height: 50px;
+    padding: 19px 21px;
+    display: inline-block;
+    margin-right: 0 !important;
+    margin-bottom: 8px;
+    cursor: pointer;
+    background: none !important;
 }
 
-// .general-form .form-group .screen-position, .general-form .form-group .seat-row a.unselected-seat {
-//     background: #ecf0f1;
-//     color: #000;
-// }
+.seat-row ul li a:hover {
+    text-decoration: none;
+}
 
-.general-form .form-group .screen-position, .general-form .form-group .seat-row a.selected-seat {
-    background: #16a085;
-    color: #fff;
+.seat-letter {
+    margin: 15px -24px;
+    position: absolute;
+}
+
+.seat-row ul li.active {
+    background: #1abc9c;
+}
+
+.seat-row ul li.active a {
+    color: #fff !important;
 }
 
 .general-form {
@@ -138,7 +160,7 @@
             margin: 33px 0 20px 70px;
         }
         .vip-1 {
-            margin: 0 0 5px 70px;
+            margin: 0 0 5px 48px;
         }
         .e-row {
             div {

@@ -279,55 +279,6 @@
                         <h4 class="text-center">Seleccione sus asientos VIP</h4>
                     </div>
                     <div class="modal-body">
-
-                        <style type="text/css">
-
-                          .general-form .form-group .vip-1 {
-                            margin: 0 0 5px 48px;
-                          }
-
-                          .seat-row ul li a {
-                            padding: 0;
-                            width: 51px;
-                            height: 50px;
-                            padding: 19px 21px;
-                            display: inline-block;
-                            margin-right: 0 !important;
-                            margin-bottom: 8px;
-                            cursor: pointer;
-                            background: none !important;
-                          }
-
-                          .seat-row ul li a:hover {
-                            text-decoration: none;
-                          }
-
-                          .seat-row ul li {
-                            float: left;
-                            margin-right: 13px;
-                            background: #ecf0f1;
-                            border-radius: 10px;
-                            width: 51px;
-                            height: 50px;
-                            margin-bottom: 6px;
-                          }
-
-                          .seat-letter {
-                            margin: 15px -24px;
-                            position: absolute;
-                          }
-
-                          .seat-row ul li.active {
-                              background: #1abc9c !important;
-                          }
-
-                          .seat-row ul li.active a {
-                              color: #fff !important;
-                          }
-
-                        </style>
-
-
                         <div class="seat-row vip-row vip-1">
                           <ul class="list-holder">
                               <li ng-repeat="section in sections | filter: areaName" ng-class="{active : section.isSelected}">
