@@ -244,7 +244,7 @@ class UserService {
                 // Validates the email is a valid address
                 if (filter_var($formData["email"], FILTER_VALIDATE_EMAIL)) {
                     // Validates that the password has more than 8 characters long
-                    if (strlen(trim($formData["hash"])) > 8) {
+                    if (strlen(trim($formData["hash"])) >= 8) {
                         // Validates that the password and the verify password are the same
                         if ($formData["verifyPassword"] === $formData["hash"]) {
                             // Only accepts 2 digits, followed by a dash (-) and two digits more

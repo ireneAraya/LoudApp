@@ -106,7 +106,7 @@ angular.module('loudApp',[
             })
             .when('/addCashier', {
                 templateUrl: 'front-end/views/addCashier.html',
-                controller: 'UsersCtrl'
+                controller: 'CashiersCtrl'
             })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'

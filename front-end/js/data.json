@@ -65,9 +65,9 @@
 			"image"			: "/front-end/img/profilePlaceholder.png"
 		},
 		{
-			"_comment"      : "crookshanks",
+			"_comment"      : "cr00k$hanks",
 			"id"			: 4,
-			"email" 		: "hermione@loud.com",
+			"email" 		: "hermione@loud.rocks",
 			"password" 		: "Y3Jvb2tzaGFua3M=",
 			"name"			: "Hermione",
 			"lastName"		: "Granger",
@@ -111,9 +111,9 @@
 			"image"		: "/front-end/img/profilePlaceholder.png"
 		},
 		{
-			"_comment"      : "trevor",
+			"_comment"      : "tr3./vor",
 			"id"			: 6,
-			"email"			: "neville@loud.com",
+			"email"			: "neville@loud.rocks",
 			"password"		: "dHJldm9y",
 			"name"			: "Neville",
 			"lastName"		: "Longbottom",
@@ -121,6 +121,8 @@
 			"personalId"	: 111188881,
 			"rol"			: 3,
 			"rId"			: "t-1",
+			"salesPoint"	: "Howarts",
+			"phone"			: "2222-0938",
 			"image"			: "/front-end/img/profilePlaceholder.png"
 		},
 		{
