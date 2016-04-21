@@ -8,7 +8,14 @@
 	<hr>
 	<div class="row">
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
-			<form role="form" id="addCashierForm" name="addCashierForm" class="general-form row" ng-if="!emailSent" ng-submit="signUp()" novalidate autocomplete="false">
+			<div class="row" ng-if="emailSent">
+			    <div class="col-xs-12 col-sm-6 col-lg-6 col-lg-offset-3 col-sm-offset-3">
+			        <h1 class="text-center">{{ translation.THANKS_TITLE }}</h1>
+			        <div class="alert alert-success" role="alert">{{ translation.NEW_ACCOUNT_SUCCESS }}</div>
+			        <a href="#/" class="btn center-block">{{ translation.GO_BACK }}</a>
+			    </div>
+			</div>
+			<form role="form" id="addCashierForm" name="addCashierForm" class="general-form row" ng-if="!emailSent" ng-submit="addCashier()" novalidate autocomplete="false">
 			    <div class="row">
 			        <div class="col-xs-12 col-md-3 text-center">
 						<img id="cashierImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/photo.png' }}" alt="Fotografía del Promotor" class="circle-thumbnail img-responsive center-block">
@@ -23,15 +30,15 @@
 			            <div class="col-xs-12">
 			                <div class="form-gender">
 			                    <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
-			                    <label class="radio-inline"><input type="radio" ng-model="cashier.identificationType" value="1" name="identificationType" required>{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}</label>
-			                    <label class="radio-inline"><input type="radio" ng-model="cashier.identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}</label>
-			                    <label class="radio-inline"><input type="radio" ng-model="cashier.identificationType" value="3" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}</label>
+			                    <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="1" name="identificationType" required>{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}</label>
+			                    <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}</label>
+			                    <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="3" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}</label>
 			                </div>
 			            </div><!--.form-group .col-xs-12-->
 
 			            <div class="form-group col-xs-12">
 			                <label for="identification">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
-			                <input id="identification" type="text" name="identification" ng-model="cashier.identification" class="form-control" required>
+			                <input id="identification" type="text" name="identification" ng-model="user.identification" class="form-control" required>
 			                <div ng-messages="addCashierForm.identification.$error" ng-if="addCashierForm.identification.$touched && addCashierForm.identification.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div><!--ng-messages-->
@@ -39,7 +46,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>
-			                <input id="firstName" type="text" name="firstName" ng-model="cashier.firstName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
+			                <input id="firstName" type="text" name="firstName" ng-model="user.firstName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
 			                <div ng-messages="addCashierForm.firstName.$error" ng-if="addCashierForm.firstName.$touched && addCashierForm.firstName.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div><!--ng-messages-->
@@ -47,7 +54,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="middleName">{{ translation.REGISTRATION.MIDDLE_NAME }}</label>
-			                <input id="middleName" type="text" name="middleName" ng-model="cashier.middleName" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
+			                <input id="middleName" type="text" name="middleName" ng-model="user.middleName" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
 			                <div ng-messages="addCashierForm.middleName.$error" ng-if="addCashierForm.middleName.$touched && addCashierForm.middleName.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div><!--ng-messages-->
@@ -55,7 +62,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="lastName">{{ translation.REGISTRATION.LAST_NAME }}</label>
-			                <input id="lastName" type="text" name="lastName" ng-model="cashier.lastName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
+			                <input id="lastName" type="text" name="lastName" ng-model="user.lastName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
 			                <div ng-messages="addCashierForm.lastName.$error" ng-if="addCashierForm.lastName.$touched && addCashierForm.lastName.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div><!--ng-messages-->
@@ -63,7 +70,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="secondSurname">{{ translation.REGISTRATION.SECOND_SURNAME }}</label>
-			                <input id="secondSurname" type="text" name="secondSurname" ng-model="cashier.secondSurname" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
+			                <input id="secondSurname" type="text" name="secondSurname" ng-model="user.secondSurname" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
 			                <div ng-messages="addCashierForm.secondSurname.$error" ng-if="addCashierForm.secondSurname.$touched && addCashierForm.secondSurname.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div><!--ng-messages-->
@@ -71,7 +78,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="">{{ translation.REGISTRATION.EMAIL }}</label>
-			                <input type="text" class="form-control" ng-model="cashier.email" name="email" placeholder="email@me.com" valid-email required>
+			                <input type="text" class="form-control" ng-model="user.email" name="email" placeholder="email@me.com" valid-email required>
 			                <div ng-messages="addCashierForm.email.$error" ng-if="addCashierForm.email.$touched && addCashierForm.email.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div>
@@ -79,7 +86,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="salesPoint">{{ translation.REGISTRATION.SALES_POINT }}</label>
-			                <input id="salesPoint" type="text" name="salesPoint" ng-model="cashier.salesPoint" class="form-control" required>
+			                <input id="salesPoint" type="text" name="salesPoint" ng-model="user.salesPoint" class="form-control" required>
 			                <div ng-messages="addCashierForm.salesPoint.$error" ng-if="addCashierForm.salesPoint.$touched && addCashierForm.salesPoint.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div>
@@ -87,7 +94,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="">{{ translation.REGISTRATION.PASSWORD }}</label>
-			                <input type="password" class="form-control" ng-model="cashier.hash" name="hash" valid-password required>
+			                <input type="password" class="form-control" ng-model="user.hash" name="hash" valid-password required>
 			                <div ng-messages="addCashierForm.hash.$error" ng-if="addCashierForm.hash.$touched && addCashierForm.hash.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div>
@@ -95,7 +102,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="">{{ translation.REGISTRATION.VERIFY_PASSWORD }}</label>
-			                <input type="password" class="form-control" ng-model="cashier.verifyPassword" name="verifyPassword" compare-to="cashier.hash" required>
+			                <input type="password" class="form-control" ng-model="user.verifyPassword" name="verifyPassword" compare-to="user.hash" required>
 			                <div ng-messages="addCashierForm.verifyPassword.$error" ng-if="addCashierForm.verifyPassword.$touched && addCashierForm.verifyPassword.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div>
@@ -103,7 +110,7 @@
 
 			            <div class="form-group col-xs-12">
 			                <label for="">{{ translation.REGISTRATION.PHONE }}</label>
-			                <input type="text" class="form-control" ng-model="cashier.phone" name="phone" valid-number required>
+			                <input type="text" class="form-control" ng-model="user.phone" name="phone" valid-number required>
 			                <div ng-messages="addCashierForm.phone.$error" ng-if="addCashierForm.phone.$touched && addCashierForm.phone.$invalid" class="validate-messages">
 			                    <div ng-messages-include="error-messages"></div>
 			                </div>

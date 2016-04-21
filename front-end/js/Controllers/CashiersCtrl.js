@@ -1,6 +1,6 @@
 angular.module ('loudApp.controllers')
 
-.controller('UsersCtrl', [
+.controller('CashiersCtrl', [
     '$scope', 'LoudService', '$location', '$q', '$timeout',
     function($scope, LoudService, $location, $q, $timeout) {
 
@@ -27,31 +27,30 @@ angular.module ('loudApp.controllers')
             });
         };
 
-        $scope.signUp = function () {
+        $scope.addCashier = function () {
             // Disables the register button while processing
             $scope.processing = true;
             $scope.error = null;
 
             // Creates the user object
             var userToCreate = {
+                "rol" : 4,
                 "identification" : $scope.user.identification,
                 "identificationType" : $scope.user.identificationType,
                 "firstName" : $scope.user.firstName,
                 "middleName" : $scope.user.middleName,
                 "lastName" : $scope.user.lastName,
                 "secondSurname" : $scope.user.secondSurname,
-                "nickname" : $scope.user.nickname,
                 "email" : $scope.user.email,
+                "salesPoint": $scope.user.salesPoint,
                 "hash" : $scope.user.hash,
                 "verifyPassword" : $scope.user.verifyPassword,
-                "birthDate" :  document.getElementById("selectedDate").value,
                 "phone" : $scope.user.phone,
-                "gender" : $scope.user.gender,
-                "disability" : $scope.user.disability,
-                "specialCondition" : $scope.user.specialCondition,
                 "locale" : "EN",
-                "photoURL" : document.getElementById("userImage").getAttribute("src")
+                "photoURL" : document.getElementById("cashierImage").getAttribute("src")
             };
+
+            console.table(userToCreate);
 
             // Creates a promise to call the user Service
             var createUserServiceFunction = $q(function (resolve, reject) {
