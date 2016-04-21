@@ -19,8 +19,8 @@
                 <span>{{ translation.STAGE }}</span>
               </div>
               <div class="row first-row">
-                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
-                  <a href="" data-description="VIP-1" ng-click="getAreaValue($event)" class="not-available">VIP 1</a>
+                <div class="seat-stadium-col">
+                  <a href="" data-description="VIP-1" class="not-available">VIP 1</a>
                 </div>
                 <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-2" ng-click="getAreaValue($event)">VIP 2</a>
@@ -282,17 +282,20 @@
 
                         <style type="text/css">
 
+                          .general-form .form-group .vip-1 {
+                            margin: 0 0 5px 48px;
+                          }
+
                           .seat-row ul li a {
-                            background: none !important;
                             padding: 0;
-                            width: 50px;
+                            width: 51px;
                             height: 50px;
-                            padding: 25px;
+                            padding: 19px 21px;
                             display: inline-block;
-                            border: 1px solid gray;
-                            border-radius: 0 !important;
                             margin-right: 0 !important;
+                            margin-bottom: 8px;
                             cursor: pointer;
+                            background: none !important;
                           }
 
                           .seat-row ul li a:hover {
@@ -301,16 +304,34 @@
 
                           .seat-row ul li {
                             float: left;
-                            margin-right: 5px;
+                            margin-right: 13px;
+                            background: #ecf0f1;
+                            border-radius: 10px;
+                            width: 51px;
+                            height: 50px;
+                            margin-bottom: 6px;
                           }
-                          
+
+                          .seat-letter {
+                            margin: 15px -24px;
+                            position: absolute;
+                          }
+
+                          .seat-row ul li.active {
+                              background: #1abc9c !important;
+                          }
+
+                          .seat-row ul li.active a {
+                              color: #fff !important;
+                          }
+
                         </style>
 
-                        
+
                         <div class="seat-row vip-row vip-1">
                           <ul class="list-holder">
                               <li ng-repeat="section in sections | filter: areaName" ng-class="{active : section.isSelected}">
-                                  <span class="text-uppercase">{{section.id}}</span>
+                                  <span class="text-uppercase {{section.class}}">{{section.id}}</span>
                                   <a data-description="{{section.dataAtr}}" ng-click="setMaster(section); getSeatNumber($event);">{{section.name}}</a>
                               </li>
                           </ul>
