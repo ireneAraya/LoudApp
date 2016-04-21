@@ -50,7 +50,7 @@ angular.module ('loudApp.controllers')
                 "photoURL" : document.getElementById("cashierImage").getAttribute("src")
             };
 
-            console.table(userToCreate);
+            console.log(userToCreate);
 
             // Creates a promise to call the user Service
             var createUserServiceFunction = $q(function (resolve, reject) {
