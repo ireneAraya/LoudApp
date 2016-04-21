@@ -16,7 +16,7 @@ angular.module ('loudApp.controllers')
     userExists.then(function (response) {
         var alreadyUser = localStorage.getItem("LoudApp__User");
 
-        if (response.success && alreadyUser !== "null") {
+        if (response.success && alreadyUser !== "null" && response.data) {
 
           $scope.link = "#/profile";
           $scope.user = response.data;
@@ -54,7 +54,7 @@ angular.module ('loudApp.controllers')
 
     function isFacebookUser (userData) {
       var result = false;
-      if (userData.facebook) {
+      if (userData && userData.facebook) {
         result = true;
       }
       return result;
