@@ -69,15 +69,11 @@ angular.module ('loudApp.controllers')
                 var locationPath = '';
 
                 if (locationID == 0) {
-
                     locationPath = '/buyTickets/tickets/seats';
-
                 } else if (locationID == 1) {
 
                     locationPath = '/buyTickets/tickets/seats';
-
                 } else if (locationID == 2) {
-
                     locationPath = '/addEvent';
                 }
 
@@ -116,33 +112,35 @@ angular.module ('loudApp.controllers')
                 getTotalSum();
             };
 
-
-
-
-            // $scope.setMaster = function(section) {
-            // $scope.selected = section;
-            // }
-
             $scope.sections = [
-                {name: 'Clients'},
-                {name: 'Employees'},
-                {name: 'Others'}];
+                {name: 1, dataAtr: 'A-1', id: 'A'},
+                {name: 2, dataAtr: 'A-2'},
+                {name: 3, dataAtr: 'A-3'},
+                {name: 4, dataAtr: 'A-4'},
+                {name: 5, dataAtr: 'A-5'},
+                {name: 1, dataAtr: 'B-1', id: 'B'},
+                {name: 2, dataAtr: 'B-2'},
+                {name: 3, dataAtr: 'B-3'},
+                {name: 4, dataAtr: 'B-4'},
+                {name: 5, dataAtr: 'B-5'},
+                {name: 1, dataAtr: 'C-1', id: 'C'},
+                {name: 2, dataAtr: 'C-2'},
+                {name: 3, dataAtr: 'C-3'},
+                {name: 4, dataAtr: 'C-4'},
+                {name: 5, dataAtr: 'C-5'},
+            ];
 
             $scope.setMaster = function(section) {
-                $scope.selected = section;
+                if (section.isSelected) {
+                    section.isSelected = false;
+                } else {
+                    section.isSelected = true;
+                }
             }
 
             $scope.isSelected = function(section) {
                 return $scope.selected === section;
             }
-
-
-
-
-            // $scope.isActive = false;
-            // $scope.activeButton = function(item) {
-            // $scope.isActive = !$scope.isActive;
-            // }
 
             $scope.buyButon = function () {
                 areaAndSeats = areaAndSeats || LoudService.verify("LoudApp__SelectedOptions");
