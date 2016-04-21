@@ -265,7 +265,7 @@ class UserService {
 
                                 // Saves the Profile IMG
                                 $photoURLPath = "";
-                                if ($formData['photoURL'] != "/front-end/img/users/profilePlaceholder.png") {
+                                if ($formData['photoURL'] != "front-end/img/users/profilePlaceholder.png") {
                                     $filename_path = md5(time().uniqid()).".jpg";
                                     $image = explode('base64,', $formData['photoURL']);
                                     $decoded = base64_decode($image[1]);

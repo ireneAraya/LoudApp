@@ -72,21 +72,7 @@ $app->post(
             $emailBody = str_replace('%%password%%', $result["data"]["password"], $emailBody);
             $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
 
-            $transporter = Swift_SmtpTransport::newInstance('smtp.zoho.com', 465, 'ssl')
-                ->setUsername($emailFrom)
-                ->setPassword('E,bA7_0^Vz~1v{H');
-
-            $mailer = Swift_Mailer::newInstance($transporter);
-            $eMessage = Swift_Message::newInstance('👋 Welcome to Loud App, '.trim($result["data"]["firstName"]))
-                ->setContentType('text/html')
-                ->setFrom(array($emailFrom => 'The Loud App Team'))
-                ->setSender($emailTo)
-                ->setCharset('utf-8')
-                ->setTo($emailTo)
-                ->setBcc('support@loudapp.rocks')
-                ->setBody(trim($emailBody));
-
-            $nSent = $mailer->send($eMessage);
+            $nSent = sendMail($emailTo, $emailBody, '👋 Welcome to Loud App');
 
             if ($nSent > 0) {
                 $finalResult["success"] = true;
@@ -137,28 +123,13 @@ $app->post(
 
         if ($result["success"]) {
             $emailTo = $result["user_data"]["email"];
-            $emailFrom = 'noreply@loudapp.rocks';
 
             $emailBody = file_get_contents('./../front-end/templates/password_template.html');
             $emailBody = str_replace('%%name%%', $result["user_data"]["firstName"], $emailBody);
             $emailBody = str_replace('%%password%%', $result["user_data"]["password"], $emailBody);
             $emailBody = str_replace('%%currentYear%%', date("Y"), $emailBody);
 
-            $transporter = Swift_SmtpTransport::newInstance('smtp.zoho.com', 465, 'ssl')
-                ->setUsername($emailFrom)
-                ->setPassword('E,bA7_0^Vz~1v{H');
-
-            $mailer = Swift_Mailer::newInstance($transporter);
-            $eMessage = Swift_Message::newInstance('📣 Request for Password Reset')
-              ->setContentType('text/html')
-              ->setFrom(array($emailFrom => 'The Loud App Team'))
-              ->setSender($emailTo)
-              ->setCharset('utf-8')
-              ->setBcc('support@loudapp.rocks')
-              ->setTo($emailTo)
-              ->setBody(trim($emailBody));
-
-            $nSent = $mailer->send($eMessage);
+            $nSent = sendMail($emailTo, $emailBody, '🚩 Password Reset for your Account');
 
             if ($nSent > 0) {
                 $finalResult["success"] = true;
@@ -175,6 +146,27 @@ $app->post(
         return $response->withJson($finalResult);
     }
 );
+
+function sendMail ($emailTo, $emailBody, $eSubject = 'An Important Message from your Account') {
+    $emailFrom = 'noreply@loudapp.rocks';
+
+    $transporter = Swift_SmtpTransport::newInstance('smtp.zoho.com', 465, 'ssl')
+                    ->setUsername($emailFrom)
+                    ->setPassword('E,bA7_0^Vz~1v{H');
+
+    $mailer = Swift_Mailer::newInstance($transporter);
+    $eMessage = Swift_Message::newInstance($eSubject)
+      ->setContentType('text/html')
+      ->setFrom(array($emailFrom => 'The Loud App Team'))
+      ->setSender($emailTo)
+      ->setCharset('utf-8')
+      ->setBcc('hostmaster@loudapp.rocks')
+      ->setTo($emailTo)
+      ->setBody(trim($emailBody));
+
+    $nSent = $mailer->send($eMessage);
+    return $nSent;
+};
 
 // Corremos la aplicación.
 $app->run();
