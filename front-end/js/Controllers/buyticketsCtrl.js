@@ -6,6 +6,7 @@ angular.module ('loudApp.controllers')
 
         $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
         $scope.user = LoudService.verify('LoudApp__User') || {};
+        $scope.areaName = '';
 
         // $scope.initialAmount = 0;
         // $scope.itemPrice = 3500;
@@ -87,13 +88,13 @@ angular.module ('loudApp.controllers')
             $scope.getAreaValue = function (item) {
                 fullOption.area = "";
                 fullOption.area = item.currentTarget.getAttribute("data-description");
-
+                $scope.areaName = fullOption.area;
+                console.log($scope.areaName);
                 var areaString = fullOption.area;
                 var areaResult = areaString.substring(0, 3);
                 if (areaResult == "VIP") {
                     $scope.price = $scope.eventsBuy.prices[2].amount;
                 }
-
             };
 
             $scope.getSeatNumber = function (item) {
@@ -113,21 +114,37 @@ angular.module ('loudApp.controllers')
             };
 
             $scope.sections = [
-                {name: 1, dataAtr: 'A-1', id: 'A'},
-                {name: 2, dataAtr: 'A-2'},
-                {name: 3, dataAtr: 'A-3'},
-                {name: 4, dataAtr: 'A-4'},
-                {name: 5, dataAtr: 'A-5'},
-                {name: 1, dataAtr: 'B-1', id: 'B'},
-                {name: 2, dataAtr: 'B-2'},
-                {name: 3, dataAtr: 'B-3'},
-                {name: 4, dataAtr: 'B-4'},
-                {name: 5, dataAtr: 'B-5'},
-                {name: 1, dataAtr: 'C-1', id: 'C'},
-                {name: 2, dataAtr: 'C-2'},
-                {name: 3, dataAtr: 'C-3'},
-                {name: 4, dataAtr: 'C-4'},
-                {name: 5, dataAtr: 'C-5'},
+                {area: 'VIP-1', name: 1, dataAtr: 'A-1', id: 'A'},
+                {area: 'VIP-1', name: 2, dataAtr: 'A-2'},
+                {area: 'VIP-1', name: 3, dataAtr: 'A-3'},
+                {area: 'VIP-1', name: 4, dataAtr: 'A-4'},
+                {area: 'VIP-1', name: 5, dataAtr: 'A-5'},
+                {area: 'VIP-1', name: 1, dataAtr: 'B-1', id: 'B'},
+                {area: 'VIP-1', name: 2, dataAtr: 'B-2'},
+                {area: 'VIP-1', name: 3, dataAtr: 'B-3'},
+                {area: 'VIP-1', name: 4, dataAtr: 'B-4'},
+                {area: 'VIP-1', name: 5, dataAtr: 'B-5'},
+                {area: 'VIP-1', name: 1, dataAtr: 'C-1', id: 'C'},
+                {area: 'VIP-1', name: 2, dataAtr: 'C-2'},
+                {area: 'VIP-1', name: 3, dataAtr: 'C-3'},
+                {area: 'VIP-1', name: 4, dataAtr: 'C-4'},
+                {area: 'VIP-1', name: 5, dataAtr: 'C-5'},
+                {area: 'VIP-2', name: 1, dataAtr: 'A-1', id: 'A'},
+                {area: 'VIP-2', name: 2, dataAtr: 'A-2'},
+                {area: 'VIP-2', name: 3, dataAtr: 'A-3'},
+                {area: 'VIP-2', name: 4, dataAtr: 'A-4'},
+                {area: 'VIP-2', name: 5, dataAtr: 'A-5'},
+                {area: 'VIP-2', name: 1, dataAtr: 'B-1', id: 'B'},
+                {area: 'VIP-2', name: 2, dataAtr: 'B-2'},
+                {area: 'VIP-2', name: 3, dataAtr: 'B-3'},
+                {area: 'VIP-2', name: 4, dataAtr: 'B-4'},
+                {area: 'VIP-2', name: 5, dataAtr: 'B-5'},
+                {area: 'VIP-2', name: 1, dataAtr: 'C-1', id: 'C'},
+                {area: 'VIP-2', name: 2, dataAtr: 'C-2'},
+                {area: 'VIP-2', name: 3, dataAtr: 'C-3'},
+                {area: 'VIP-2', name: 4, dataAtr: 'C-4'},
+                {area: 'VIP-2', name: 5, dataAtr: 'C-5'},
+                {area: 'VIP-3', name: 1, dataAtr: 'A-1'}
             ];
 
             $scope.setMaster = function(section) {
