@@ -161,6 +161,19 @@ hr.devider-light {
     }
 }
 
+@media screen and (max-width: 767px) {
+    .register-form {
+        width: 100%;
+    }
+    .register-photo {
+        margin-left: 0;
+    }
+    #loginForm #btnSubmit {
+        width: 33%;
+        margin-left: 17%;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .register-photo {
         margin-left: 0;
