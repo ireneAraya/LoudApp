@@ -31,6 +31,14 @@ body{
 		&:hover{
 			color: $dark-gray;
 		}
+
+		&.todo-btn{
+			width: 100%;
+			
+			&:hover{
+				border: 1px solid $light-red;
+			}
+		}
 	}
 
 	h1 {

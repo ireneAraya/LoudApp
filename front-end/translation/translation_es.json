@@ -70,7 +70,8 @@
         "COMPARE_PASSWORD_ERROR": "Debe coincidir con el password",
         "WRONG_NOT_NUMBER": "Este espacio acepta únicamente números",
         "WRONG_MAXLENGTH": "El valor es muy largo",
-        "WRONG_MINLENGTH": "El valor es muy corto"
+        "WRONG_MINLENGTH": "El valor es muy corto",
+        "WRONG_LOCALID": "El formato para la cédula debe ser: N0NNNN0NNN"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "Primer nombre:",
@@ -95,7 +96,7 @@
         "IDENTIFICATION_TYPE" : {
             "LABEL" : "Tipo de identificación:",
             "LOCAL" : "Local",
-            "FOREIGN" : "Extranjero",
+            "RESIDENT" : "Residente",
             "OTHER" : "Otro"
         },
         "DISABILITY" : "Discapacidades:",
@@ -129,5 +130,12 @@
     "LOCATION_ADDRESS": "Dirección del Sitio",
     "ADD_PROMOTER": "Agregar Promotor",
     "PROMOTER_NAME": "Nombre del promotor",
-    "ADD_CASHIER": "Agregar Cajero"
+    "ADD_CASHIER": "Agregar Cajero",
+    "TODO_TITTLE": "¿Qué desea hacer?",
+    "SEE_EVENTS": "Ver lista de eventos",
+    "SEE_LOCATIONS": "Ver lista de sitios",
+    "SEE_EVENT_TYPES": "Ver lista de tipos de eventos",
+    "SEE_PROMOTERS": "Ver lista de promotores",
+    "SEE_CASHIERS": "Ver lista de cajeros",
+    "SEE_REPORTS": "Ver reportes"
 }

@@ -69,7 +69,8 @@
         "COMPARE_PASSWORD_ERROR": "Must match the previous entry",
         "WRONG_NOT_NUMBER" : "This field accept only numbers",
         "WRONG_MAXLENGTH": "The value is to long",
-        "WRONG_MINLENGTH": "The value is to short"
+        "WRONG_MINLENGTH": "The value is to short",
+        "WRONG_LOCALID": "Local ID should be: N0NNNN0NNN"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "First name:",
@@ -95,7 +96,7 @@
         "IDENTIFICATION_TYPE" : {
             "LABEL" : "Idenfication Type:",
             "LOCAL" : "Local",
-            "FOREIGN" : "Foreign",
+            "RESIDENT" : "Resident",
             "OTHER" : "Other"
         },
         "DISABILITY" : "Disabilities:",
@@ -129,6 +130,12 @@
     "LOCATION_ADDRESS": "Location's address",
     "ADD_PROMOTER": "Add Promoter",
     "PROMOTER_NAME": "Promoter's Name",
-    "ADD_CASHIER": "Add Cashier"
-
+    "ADD_CASHIER": "Add Cashier",
+    "TODO_TITTLE": "¿What do you want to do?",
+    "SEE_EVENTS": "See events list",
+    "SEE_LOCATIONS": "See locations list",
+    "SEE_EVENT_TYPES": "See event types list",
+    "SEE_PROMOTERS": "See promoters list",
+    "SEE_CASHIERS": "See cashiers list",
+    "SEE_REPORTS": "See reports"
 }

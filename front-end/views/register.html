@@ -61,42 +61,6 @@
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="col-xs-12">
-                        <style>
-                            .checkbox-label {
-                              cursor: pointer;
-                              user-select: none;
-                              -webkit-user-select: none;
-                              -webkit-touch-callout: none;
-                                  margin-right: 17px;
-                            }
-
-                            .checkbox-label > input {
-                              visibility: hidden;
-                              position: absolute;
-                            }
-
-                            .checkbox-label > i {
-                                  display: inline-block;
-                                vertical-align: middle;
-                                width: 40px;
-                                height: 40px;
-                                border-radius: 50%;
-                                transition: 0.2s;
-                                box-shadow: inset 0 0 0 8px #d7d3d3;
-                                background: #acacac;
-                                    margin-right: 11px;
-                            }
-
-                            .checkbox-label:hover > i {
-                              box-shadow: inset 0 0 0 5px #e57368;
-                              background: #d3362d;
-                            }
-
-                            .checkbox-label > input:checked + i {
-                                  box-shadow: inset 0 0 0 8px #e57368;
-                                    background: #d3362d;
-                            }
-                        </style>
                         <div class="form-gender">
                             <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
                             <label class="checkbox-label">
@@ -105,7 +69,7 @@
                             </label>
                             <label class="checkbox-label">
                                 <input type="radio" ng-model="user.identificationType" value="2" name="identificationType">
-                                <i></i> {{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}
+                                <i></i> {{ translation.REGISTRATION.IDENTIFICATION_TYPE.RESIDENT }}
                             </label>
                             <label class="checkbox-label">
                                 <input type="radio" ng-model="user.identificationType" value="3" name="identificationType">
@@ -173,9 +137,18 @@
                     <div class="col-xs-12">
                         <div class="form-gender">
                             <label for="">{{ translation.REGISTRATION.GENDER.LABEL }}</label><br>
-                            <label class="radio-inline"><input type="radio" ng-model="user.gender" value="M" name="gender" required="">{{ translation.REGISTRATION.GENDER.MALE }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="user.gender" value="F" name="gender">{{ translation.REGISTRATION.GENDER.FEMALE }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="user.gender" value="O" name="gender">{{ translation.REGISTRATION.GENDER.OTHER }}</label>
+                            <label class="checkbox-label">
+                                <input type="radio" ng-model="user.gender" value="M" name="gender" required="">
+                                <i></i> {{ translation.REGISTRATION.GENDER.MALE }}
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" ng-model="user.gender" value="F" name="gender">
+                                <i></i> {{ translation.REGISTRATION.GENDER.FEMALE }}
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" ng-model="user.gender" value="O" name="gender">
+                                <i></i> {{ translation.REGISTRATION.GENDER.OTHER }}
+                            </label>
                         </div>
                     </div><!--.form-group .col-xs-12-->
 
