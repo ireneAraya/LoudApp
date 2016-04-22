@@ -104,12 +104,26 @@ angular.module('loudApp',[
                 templateUrl: 'front-end/views/addPromoter.html',
                 controller: 'PromotersCtrl'
             })
+            .when('/promotersList', {
+                templateUrl: 'front-end/views/promotersList.html',
+                controller: 'PromotersCtrl'
+            })
             .when('/addCashier', {
                 templateUrl: 'front-end/views/addCashier.html',
                 controller: 'CashiersCtrl'
             })
+            .when('/cashiersList', {
+                templateUrl: 'front-end/views/cashiersList.html',
+                controller: 'CashiersCtrl'
+            })
             .when('/adminMenu', {
                 templateUrl: 'front-end/views/adminMenu.html'
+            })
+            .when('/promotersMenu', {
+                templateUrl: 'front-end/views/promotersMenu.html'
+            })
+            .when('/cashiersMenu', {
+                templateUrl: 'front-end/views/cashiersMenu.html'
             })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'

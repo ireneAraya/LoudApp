@@ -193,4 +193,39 @@ class UserController {
 
         return $result;
     }
+
+    public function getItem ($request) {
+        $result = [];
+
+        $itemName = $request->getAttribute("itemName", null);
+        $id = $request->getAttribute("id", null);
+        $key = $request->getAttribute("key", null);
+
+        if (isset($itemName)) {
+            if (isset($id)) {
+                if (isset($key)) {
+                    $getItemResult = $this->userService->getItem($itemName, $id, $key);
+
+                    if (array_key_exists("error", $getItemResult)) {
+                        $result["error"] = true;
+                        $result["message"] = $getItemResult["message"];
+                    } else {
+                        $result["success"] = true;
+                        $result["data"] = $getItemResult["data"];
+                    }
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "Please provide the column name of the item to return.";
+                }
+            } else {
+                $result["error"] = true;
+                $result["message"] = "Please provide the id of the item to search.";
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name of the item to get.";
+        }
+
+        return $result;
+    }
 }

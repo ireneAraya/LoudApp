@@ -5,6 +5,7 @@ angular.module ('loudApp.controllers')
     function($scope, $routeParams, $location, LoudService) {
       $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
       $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
+      $scope.usersCol = LoudService.verify('LoudApp__Users') || {};
 
       LoudService.getDataFromJS().then(function(response) {
           $scope.data = angular.fromJson(response.data);
@@ -14,16 +15,6 @@ angular.module ('loudApp.controllers')
       });
 
       function otherFunctions () {
-        // var _selected;
-        // $scope.selected = undefined;
-
-        // $scope.ngModelOptionsSelected = function(value) {
-        //   if (arguments.length) {
-        //     _selected = value;
-        //   } else {
-        //     return _selected;
-        //   }
-        // };
 
         $scope.modelOptions = {
           debounce: {
@@ -36,7 +27,7 @@ angular.module ('loudApp.controllers')
         $scope.eventTypes = $scope.eventTypesCol;
         $scope.eventLocations = $scope.locationsCol;
         $scope.events = $scope.data.events;
-
+        $scope.users = $scope.usersCol;
       }
   }
 ])

@@ -136,7 +136,7 @@ angular.module ('loudApp.services')
 
             $http({
                 method: 'GET',
-                url: 'back-end/objects/collection' + colName
+                url: 'back-end/collection/' + colName
             }).then(function successCallback(response) {
                 defer.resolve(response.data);
             }, function errorCallback(response) {
@@ -145,6 +145,19 @@ angular.module ('loudApp.services')
 
             return defer.promise;
         };
+
+        var getItemDB = function (item, id, key) {
+            var defer = $q.defer();
+
+            $http({
+                method: 'GET',
+                url: 'back-end/item/' + item + "/" + id + "/" + key
+            }).then(function successCallback(response) {
+                defer.resolve(response.data);
+            }, function errorCallback(response) {
+                defer.reject(response);
+            });
+        }
 
         /**
          * Return the single item from a collection
@@ -190,9 +203,9 @@ angular.module ('loudApp.services')
             verifyUser         : verifyUser,
             logoutUser         : logoutUser,
             requestNewPassword : requestNewPassword,
-            registerUser         : registerUser,
-            getCollection      : getCollection
+            registerUser       : registerUser,
+            getCollection      : getCollection,
+            getItemDB          : getItemDB
         };
-
     }
 ]);

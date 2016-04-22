@@ -102,12 +102,23 @@ $app->get(
 );
 
 $app->get(
-    '/objects/collection/{collectionName}',
+    '/collection/{collectionName}',
     function ($request, $response) {
         /** @var Request $request */
         /** @var Response $response */
         $userController = new App\Controllers\UserController();
         $result = $userController->getCollection($request);
+        return $response->withJson($result);
+    }
+);
+
+$app->get(
+    '/item/{itemName}/{id}/{key}',
+    function ($request, $response) {
+        /** @var Request $request */
+        /** @var Response $response */
+        $userController = new App\Controllers\UserController();
+        $result = $userController->getItem($request);
         return $response->withJson($result);
     }
 );

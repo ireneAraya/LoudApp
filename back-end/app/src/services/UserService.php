@@ -395,4 +395,51 @@ class UserService {
         return $result;
     }
 
+    public function getItem ($itemName = "", $id = "", $key = "") {
+        $result = [];
+
+        if ($itemName != "") {
+            if ($id != "") {
+                if ($key != "") {
+                    if ($itemName === "events" OR $itemName === "users" OR $itemName === "orders" OR $itemName === "reservations" OR $itemName === "eventTypes" OR $itemName === "locations") {
+                        $itemName = strtolower($itemName);
+
+                        $query = "SELECT $key FROM loud_$itemName WHERE id = :id LIMIT 1";
+                        $params = [
+                            ":id"  => intval($id)
+                        ];
+
+                        $query_result = $this->storage->query($query, $params, "SELECT");
+
+                        if (count($query_result['data']) > 0) {
+                            $result["success"] = true;
+                            $result["data"] = $query_result['data'][0][$key];
+                        } else {
+                            $result["error"] = true;
+                            $result["message"] = "We couldn't find the item you are looking for.";
+                        }
+
+                    } else {
+                        $result["error"] = true;
+                        $result["message"] = "The action you want to perform is not allowed.";
+                    }
+
+                } else {
+                   $result["error"] = true;
+                   $result["message"] = "Please provide the column name of the item to return.";
+                }
+
+            } else {
+                $result["error"] = true;
+                $result["message"] = "Please provide the id of the item to search.";
+            }
+
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name of the item to get.";
+        }
+
+        return $result;
+    }
+
 }

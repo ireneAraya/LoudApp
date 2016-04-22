@@ -12,17 +12,12 @@ angular.module ('loudApp.controllers')
         // $scope.itemPrice = 3500;
 
         $scope.init = function() {
-
-            $scope.lastSeatAdded = "";
-
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
                 otherFunctions();
             }, function(razon) {
                 $scope.error = razon;
             });
-
-
         };
 
         // $scope.sumValues = function () {
@@ -100,25 +95,18 @@ angular.module ('loudApp.controllers')
 
             $scope.getSeatNumber = function (item) {
 
-                $scope.lastSeatAdded = item.currentTarget.getAttribute("data-description");
-
                 fullOption.total = 0;
 
                 var array = fullOption.seats || [];
 
-                var lastSeatAdded = "";
+                fullOption.seats.push(item.currentTarget.getAttribute("data-description"));
 
-                if (!$scope.lastSeatAdded == $scope.lastSeatAdded) {
-
-                    fullOption.seats.push(item.currentTarget.getAttribute("data-description"));
-                    var cantSeats = fullOption.seats.length;
-
-                    getTotalSum();
-                }
+                var cantSeats = fullOption.seats.length;
 
                 function getTotalSum () {
                     fullOption.total = cantSeats * $scope.price;
                 }
+                getTotalSum();
             };
 
             $scope.sections = [
@@ -302,10 +290,6 @@ angular.module ('loudApp.controllers')
 
         $scope.$watch('eventsBuy', function(newValue, oldValue) {
             LoudService.save("LoudApp__SelectedEventInfo", newValue);
-        }, true);
-
-        $scope.$watch('lastSeatAdded', function(newValue, oldValue) {
-            $scope.lastSeatAdded = newValue;
         }, true);
 
     }
