@@ -19,8 +19,9 @@
                 <span>{{ translation.STAGE }}</span>
               </div>
               <div class="row first-row">
-                <div class="seat-stadium-col">
-                  <a href="" data-description="VIP-1" class="not-available">VIP 1</a>
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
+                  <a href="" data-description="VIP-1" ng-click="getAreaValue($event)">VIP 1</a>
+                  <!-- class="not-available" -->
                 </div>
                 <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-2" ng-click="getAreaValue($event)">VIP 2</a>
@@ -53,19 +54,19 @@
                 </div>
               </div>
               <div class="row third-row">
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-11" ng-click="getAreaValue($event)" class="vip-10">VIP 11</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-12" ng-click="getAreaValue($event)" class="vip-10">VIP 12</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-13" ng-click="getAreaValue($event)" class="vip-10">VIP 13</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-14" ng-click="getAreaValue($event)" class="vip-10">VIP 14</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="VIP-15" ng-click="getAreaValue($event)" class="vip-10">VIP 15</a>
                 </div>
               </div>
@@ -155,40 +156,41 @@
             </div>
             <div class="right-area left-left">
               <div class="row row4">
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-16" ng-click="getAreaValue($event)">F16</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-17" ng-click="getAreaValue($event)">F17</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-18" ng-click="getAreaValue($event)">F18</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-19" ng-click="getAreaValue($event)">F19</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-20" ng-click="getAreaValue($event)">F20</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-21" ng-click="getAreaValue($event)">F21</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-22" ng-click="getAreaValue($event)">F22</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-23" ng-click="getAreaValue($event)">F23</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div cclass="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-24" ng-click="getAreaValue($event)">F24</a>
                 </div>
-                <div class="seat-stadium-col">
+                <div class="seat-stadium-col" class="seat-stadium-col" data-toggle="modal" data-target="#seatsModal">
                   <a href="" data-description="F-25" ng-click="getAreaValue($event)">F25</a>
                 </div>
               </div>
               <div class="row row2">
                 <div class="seat-stadium-col">
-                  <a href="" data-description="F-8" class="not-available"ng-click="getAreaValue($event)">F8</a>
+                  <a href="" data-description="F-8" ng-click="getAreaValue($event)">F8</a>
+                  <!-- class="not-available" -->
                 </div>
                 <div class="seat-stadium-col">
                   <a href="" data-description="F-9" ng-click="getAreaValue($event)">F9</a>
@@ -276,7 +278,7 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="text-center">Seleccione sus asientos VIP</h4>
+                        <h4 class="text-center">Seleccione sus asientos</h4>
                     </div>
                     <div class="modal-body">
                         <div class="seat-row vip-row vip-1">

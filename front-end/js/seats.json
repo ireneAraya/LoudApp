@@ -1456,6 +1456,1356 @@
 
       "dataAtr": "C-5"
 
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "A",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 1,
+
+      "dataAtr": "B-1",
+
+      "id": "B",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 2,
+
+      "dataAtr": "B-2"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 3,
+
+      "dataAtr": "B-3"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 4,
+
+      "dataAtr": "B-4"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 5,
+
+      "dataAtr": "B-5"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 1,
+
+      "dataAtr": "C-1",
+
+      "id": "C",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 2,
+
+      "dataAtr": "C-2"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 3,
+
+      "dataAtr": "C-3"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 4,
+
+      "dataAtr": "C-4"
+
+   },
+
+   {
+
+      "area": "VIP-11",
+
+      "name": 5,
+
+      "dataAtr": "C-5"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "A",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 1,
+
+      "dataAtr": "B-1",
+
+      "id": "B",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 2,
+
+      "dataAtr": "B-2"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 3,
+
+      "dataAtr": "B-3"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 4,
+
+      "dataAtr": "B-4"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 5,
+
+      "dataAtr": "B-5"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 1,
+
+      "dataAtr": "C-1",
+
+      "id": "C",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 2,
+
+      "dataAtr": "C-2"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 3,
+
+      "dataAtr": "C-3"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 4,
+
+      "dataAtr": "C-4"
+
+   },
+
+   {
+
+      "area": "VIP-12",
+
+      "name": 5,
+
+      "dataAtr": "C-5"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "A",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 1,
+
+      "dataAtr": "B-1",
+
+      "id": "B",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 2,
+
+      "dataAtr": "B-2"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 3,
+
+      "dataAtr": "B-3"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 4,
+
+      "dataAtr": "B-4"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 5,
+
+      "dataAtr": "B-5"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 1,
+
+      "dataAtr": "C-1",
+
+      "id": "C",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 2,
+
+      "dataAtr": "C-2"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 3,
+
+      "dataAtr": "C-3"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 4,
+
+      "dataAtr": "C-4"
+
+   },
+
+   {
+
+      "area": "VIP-13",
+
+      "name": 5,
+
+      "dataAtr": "C-5"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "A",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 1,
+
+      "dataAtr": "B-1",
+
+      "id": "B",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 2,
+
+      "dataAtr": "B-2"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 3,
+
+      "dataAtr": "B-3"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 4,
+
+      "dataAtr": "B-4"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 5,
+
+      "dataAtr": "B-5"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 1,
+
+      "dataAtr": "C-1",
+
+      "id": "C",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 2,
+
+      "dataAtr": "C-2"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 3,
+
+      "dataAtr": "C-3"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 4,
+
+      "dataAtr": "C-4"
+
+   },
+
+   {
+
+      "area": "VIP-14",
+
+      "name": 5,
+
+      "dataAtr": "C-5"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "A",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 1,
+
+      "dataAtr": "B-1",
+
+      "id": "B",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 2,
+
+      "dataAtr": "B-2"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 3,
+
+      "dataAtr": "B-3"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 4,
+
+      "dataAtr": "B-4"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 5,
+
+      "dataAtr": "B-5"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 1,
+
+      "dataAtr": "C-1",
+
+      "id": "C",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 2,
+
+      "dataAtr": "C-2"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 3,
+
+      "dataAtr": "C-3"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 4,
+
+      "dataAtr": "C-4"
+
+   },
+
+   {
+
+      "area": "VIP-15",
+
+      "name": 5,
+
+      "dataAtr": "C-5"
+
+   },
+
+   {
+
+      "area": "F-16",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "A",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-16",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-16",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-16",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-16",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-17",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "B",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-17",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-17",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-17",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-17",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-18",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "C",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-18",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-18",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-18",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-18",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-19",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "D",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-19",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-19",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-19",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-19",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-20",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "E",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-20",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-20",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-20",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-20",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-21",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "F",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-21",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-21",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-21",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-21",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-22",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "G",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-22",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-22",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-22",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-22",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-23",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "H",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-23",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-23",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-23",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-23",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-24",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "I",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-24",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-24",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-24",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-24",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
+   },
+
+   {
+
+      "area": "F-25",
+
+      "name": 1,
+
+      "dataAtr": "A-1",
+
+      "id": "J",
+
+      "class" : "seat-letter"
+
+   },
+
+   {
+
+      "area": "F-25",
+
+      "name": 2,
+
+      "dataAtr": "A-2"
+
+   },
+
+   {
+
+      "area": "F-25",
+
+      "name": 3,
+
+      "dataAtr": "A-3"
+
+   },
+
+   {
+
+      "area": "F-25",
+
+      "name": 4,
+
+      "dataAtr": "A-4"
+
+   },
+
+   {
+
+      "area": "F-25",
+
+      "name": 5,
+
+      "dataAtr": "A-5"
+
    }
 
 ]
