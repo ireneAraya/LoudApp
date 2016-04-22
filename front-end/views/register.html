@@ -61,7 +61,7 @@
                     </div><!--.form-group .col-xs-12-->
 
                     <div class="col-xs-12">
-                        <div class="form-gender">
+                        <div class="form-gender" ng-init="user.identificationType=1">
                             <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
                             <label class="checkbox-label">
                                 <input type="radio" ng-model="user.identificationType" value="1" name="identificationType" required>
@@ -78,10 +78,18 @@
                         </div>
                     </div><!--.form-group .col-xs-12-->
 
-                    <div class="form-group col-xs-12">
-                        <label for="identification">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
-                        <input id="identification" type="text" name="identification" ng-model="user.identification" class="form-control" required>
-                        <div ng-messages="registerForm.identification.$error" ng-if="registerForm.identification.$touched && registerForm.identification.$invalid" class="validate-messages">
+                    <div class="form-group col-xs-12" ng-show="user.identificationType == 1">
+                        <label for="localID">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
+                        <input id="identification" type="number" name="localID" ng-model="user.localID" class="form-control" local-id ng-required="user.identificationType == 1">
+                        <div ng-messages="registerForm.localID.$error" ng-if="registerForm.localID.$touched && registerForm.localID.$invalid" class="validate-messages">
+                            <div ng-messages-include="error-messages"></div>
+                        </div><!--ng-messages-->
+                    </div><!--.form-group .col-xs-12-->
+
+                    <div class="form-group col-xs-12" ng-show="user.identificationType == 2 || user.identificationType == 3">
+                        <label for="otherID">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
+                        <input id="identification" type="text" name="otherID" ng-model="user.identification" class="form-control" ng-required="user.identificationType == 2 || user.identificationType == 3">
+                        <div ng-messages="registerForm.otherID.$error" ng-if="registerForm.otherID.$touched && registerForm.otherID.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div><!--ng-messages-->
                     </div><!--.form-group .col-xs-12-->
@@ -135,7 +143,7 @@
                     </div>
 
                     <div class="col-xs-12">
-                        <div class="form-gender">
+                        <div class="form-gender" ng-init="user.gender='M'">
                             <label for="">{{ translation.REGISTRATION.GENDER.LABEL }}</label><br>
                             <label class="checkbox-label">
                                 <input type="radio" ng-model="user.gender" value="M" name="gender" required="">
