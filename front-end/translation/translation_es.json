@@ -120,6 +120,7 @@
     "DESCRIPTION" : "Descripción",
     "EVENT_DESCRIPTION" : "Descripción del evento",
     "SELECT_DATE": "Seleccione una fecha",
+    "SELECT_VALUE": "Seleccione un valor de la lista",
     "ZONE": "Zona",
     "PRICE": "Precio",
     "ADD_ZONE_PRICE": "Agregar zona y precio",
