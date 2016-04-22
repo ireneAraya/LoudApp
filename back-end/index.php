@@ -119,9 +119,13 @@ $app->post(
         /** @var Response $response */
         $userController = new App\Controllers\UserController();
         $result = $userController->forgotPassword($request);
+
         $finalResult = [];
 
-        if ($result["success"]) {
+        if (array_key_exists('error', $result)) {
+            $finalResult['error'] = true;
+            $finalResult['message'] = $result['message'];
+        } else {
             $emailTo = $result["user_data"]["email"];
 
             $emailBody = file_get_contents('./../front-end/templates/password_template.html');
@@ -138,9 +142,6 @@ $app->post(
                 $finalResult["error"] = true;
                 $finalResult["message"] = "The was an error requesting your new password please try again.";
             }
-        } else {
-            $finalResult["error"] = true;
-            $finalResult["message"] = "The was an error requesting your new password please try again.";
         }
 
         return $response->withJson($finalResult);

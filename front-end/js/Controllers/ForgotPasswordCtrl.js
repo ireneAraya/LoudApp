@@ -5,29 +5,38 @@ angular.module ('loudApp.controllers')
 	function($scope, LoudService, $location, $q, $timeout) {
 
         $scope.init = function() {
-            otherFunctions();
+            $scope.processing = false;
+            $scope.errorMessage = "";
+            $scope.error = false;
         };
 
-        function otherFunctions () {
-            $scope.requestNewPassword = function () {
-                if ($scope.passwordForm.$valid) {
-                    var session = $q(function (resolve, reject) {
-                        var res = LoudService.requestNewPassword($scope.email);
+        $scope.requestNewPassword = function () {
+            if ($scope.passwordForm.$valid) {
+                $scope.processing = true;
 
-                        $timeout(
-                            function() {
-                                resolve(res)
-                            }, Math.random() * 2000 + 1000);
-                    });
+                var request = $q(function (resolve, reject) {
+                    var res = LoudService.requestNewPassword($scope.email);
 
-                    session.then(function (response) {
-                        if (response.success) {
-                            $scope.emailSent = true;
-                        } else {
-                            $scope.emailSent = false;
-                        }
-                    });
-                }
+                    $timeout(
+                        function() {
+                            resolve(res)
+                        }, Math.random() * 2000 + 1000);
+                });
+
+                request.then(function (response) {
+                    console.log(response);
+
+                    if (response.error) {
+                        $scope.error = true;
+                        $scope.emailSent = false;
+                        $scope.errorMessage = response.message;
+                    } else {
+                        $scope.error = false;
+                        $scope.emailSent = true;
+                    }
+
+                    $scope.processing = false;
+                });
             }
         };
 

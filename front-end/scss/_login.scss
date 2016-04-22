@@ -6,15 +6,18 @@ p {
     width: 70%;
 }
 
-.container {
-    #btnSubmit {
-        width: 27%;
-        margin: 0 0 0 20%;
-    }
-}
-
 .register-photo {
     margin-left: 8%;
+}
+
+#loginForm {
+    #btnSubmit {
+        width: 23%;
+        margin-left: 22%;
+    }
+    .input-group {
+        margin-bottom: 11px;
+    }
 }
 
 .register-form {
@@ -158,6 +161,19 @@ hr.devider-light {
     }
 }
 
+@media screen and (max-width: 767px) {
+    .register-form {
+        width: 100%;
+    }
+    .register-photo {
+        margin-left: 0;
+    }
+    #loginForm #btnSubmit {
+        width: 33%;
+        margin-left: 17%;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .register-photo {
         margin-left: 0;
@@ -167,5 +183,12 @@ hr.devider-light {
     }
     .register-form .checkbox-label {
         margin-right: 7px;
+    }
+    #loginForm #btnSubmit {
+        width: 68%;
+        margin-left: 16%;
+    }
+    .container-login {
+        width: 100%;
     }
 }

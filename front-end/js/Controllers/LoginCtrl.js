@@ -5,6 +5,10 @@ angular.module ('loudApp.controllers')
 	function($scope, LoudService, LoudFB, $location, $q, $rootScope, $timeout) {
 
         $scope.init = function() {
+
+            $scope.user = {};
+
+
             var userExists = $q(function (resolve, reject) {
                 var res = LoudService.verifyUser();
 
@@ -15,6 +19,8 @@ angular.module ('loudApp.controllers')
             });
 
             userExists.then(function (response) {
+                console.log(response);
+
                 if (response.success) {
                     $scope.user = response.data;
                     $scope.user.facebook = false;

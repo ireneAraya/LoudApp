@@ -154,7 +154,6 @@ class UserService {
     public function changeUserPassword ($email, $password) {
         $result = [];
 
-
         if ($email !== "") {
             $email = strtolower($email);
             $email = trim($email);

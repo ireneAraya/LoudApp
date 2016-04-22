@@ -66,10 +66,10 @@ body{
 	    margin-bottom: 40px;
 	}
 
-	input[type=number]::-webkit-inner-spin-button, 
-	input[type=number]::-webkit-outer-spin-button { 
-	  -webkit-appearance: none; 
-	  margin: 0; 
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
 	}
 
 	.language-select {
@@ -117,7 +117,6 @@ button.btn {
 }
 
 #current-view {
-	padding-top: 85px;
 	padding-bottom: 100px;
 }
 
@@ -288,7 +287,6 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		.price-input {
 			margin-bottom: 10px;
 		}
-
 	}
 }
 
@@ -361,7 +359,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 		&.two-lines{
 			padding-top: 15px;
-			
+
 			@media (max-width: 768px) {
 				padding-top: 15px;
 			}
@@ -375,7 +373,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	.info-td{
 		padding-left: 20px;
 		border-right: 0.5px solid #ffffff;
-		
+
 		@media (max-width: 768px) {
 			padding-left: 0;
 			padding-right: 10px;
@@ -417,7 +415,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 td {
 	.circle-thumbnail {
-		
+
 		@media (max-width: 768px){
 			height: 66px;
 		}
@@ -514,6 +512,10 @@ input[type="file"] {
 .alert a {
 	color: inherit;
 	font-weight: bold;
+}
+
+#current-view {
+    padding-top: 85px;
 }
 
 @import 'events.scss';
