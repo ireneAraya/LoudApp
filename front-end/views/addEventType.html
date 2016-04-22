@@ -17,18 +17,19 @@
 			          	<input type="text" name="eventType" ng-model="eventType" class="form-control" required>
 			          	<div ng-messages="addEventTypeForm.eventType.$error" ng-if="addEventTypeForm.eventType.$touched && addEventTypeForm.eventType.$invalid" class="validate-messages">
 			          	    <div ng-messages-include="error-messages"></div>
-			          	</div><!--ng-messages-->
-			        </div><!--.form-group .col-xs-12-->	
-				</div><!--.row-->
+			          	</div>
+			        </div>	
+				</div>
+				
 				<div class="row">
 					<div class="form-group col-xs-6">
 					  <a href="#/eventTypesList" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
-					</div><!--.form-group .col-xs-12-->	
+					</div>
 					<div class="form-group col-xs-6">
 					  <button class="btn next-btn align-right" ng-click="addEventType()" ng-disabled="addEventTypeForm.$invalid">{{ translation.ADD }}</button>
-					</div><!--.form-group .col-xs-12-->
+					</div>
 				</div>
 			</form>
-		</div><!--.col-xs-12 .col-lg-8 .col-lg-offset-2-->
-	</div><!--.row-->
+		</div>
+	</div>
 </main>

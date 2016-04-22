@@ -15,7 +15,8 @@
 					   	<i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
 					</label>
 					<input id="file-upload" ng-model="editItem._attachments_uri.image" type="file" accept="image/*" app-filereader class="btn file-input"></input>
-			    </div><!--.col-xs-2-->
+			    </div>
+
 		        <div class="col-xs-12 col-md-9">
 					<div class="form-group col-xs-12">
 			          	<label for="">{{ translation.LOCATION }}</label>
@@ -24,6 +25,7 @@
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
 			        </div>
+
 			        <div class="form-group col-xs-12">
 			          	<label for="">{{ translation.REGISTRATION.PHONE }}</label>
 			          	<input type="text" name="phone" ng-model="phone" placeholder="2222-2222" class="form-control" valid-number required>
@@ -31,6 +33,7 @@
 			          		<div ng-messages-include="error-messages"></div>
 			          	</div>
 			        </div>
+
 			        <div class="form-group col-xs-12">
 			          	<label for="">{{ translation.CAPACITY }}</label>
 			          	<input type="number" name="capacity" ng-model="capacity" placeholder="10000" class="form-control" required>
@@ -38,6 +41,7 @@
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
 			        </div>
+
 			        <div class="form-group col-xs-12">
 			          	<label for="">{{ translation.GEOGRAPHIC_LOCATION }}</label>
 			          	<input type="text" name="geographicLoc" ng-model="geographicLoc" placeholder="2.222222, -2.222222" class="form-control" valid-geol required>
@@ -45,6 +49,7 @@
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
 			        </div>
+
 			        <div class="form-group col-xs-12">
 			          	<label for="">{{ translation.ADDRESS }}</label>
 			          	<textarea type="text" name="address" ng-model="address" placeholder="{{ translation.LOCATION_ADDRESS }}" class="form-control event-info" required></textarea>
@@ -52,14 +57,15 @@
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
 			        </div>
+			        
 			        <div class="form-group col-xs-6">
 			          <a href="#/locationsList" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
-			        </div><!--.form-group .col-xs-12-->	
+			        </div>	
 			        <div class="form-group col-xs-6">
 					  <button class="btn next-btn align-right" ng-click="addLocation()" ng-disabled="addLocationForm.$invalid">{{ translation.ADD }}</button>
 					</div>
 				</div>
 			</form>
 		</div>
-	</div><!--.row-->
+	</div>
 </main>
