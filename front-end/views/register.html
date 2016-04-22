@@ -5,7 +5,7 @@
             <li class="col-xs-6 text-center active"><a href="#/register">{{ translation.REGISTER }}</a></li>
         </ul>
     </div>
-
+    <hr>
     <div class="container">
 
         <div class="row" ng-if="emailSent">
@@ -18,32 +18,15 @@
 
         <form role="form" id="registerForm" name="registerForm" class="general-form row" ng-if="!emailSent" ng-submit="signUp()" novalidate autocomplete="false">
             <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 register-photo">
                     <img id="userImage" ng-src="{{ editItem._attachments_uri.image || 'front-end/img/users/profilePlaceholder.png' }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
                     <label for="file-upload" class="custom-file-upload">
                         <i class="fa fa-camera"></i> {{ translation.CHANGE_PHOTO_BUTTON_TEXT }}
                     </label>
                     <input id="file-upload" type="file" ng-model="editItem._attachments_uri.image" accept="image/*" app-filereader class="btn file-input"/>
                 </div><!--.col-xs-2-->
-                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10">
+                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10 register-form">
                     <div id="response" class="alert alert-danger" tabindex="0" role="alert" ng-if="error">{{ error }}</div>
-
-                    <div class="col-xs-12">
-                        <div class="form-gender">
-                            <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
-                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="1" name="identificationType" required>{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="3" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}</label>
-                        </div>
-                    </div><!--.form-group .col-xs-12-->
-
-                    <div class="form-group col-xs-12">
-                        <label for="identification">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
-                        <input id="identification" type="text" name="identification" ng-model="user.identification" class="form-control" required>
-                        <div ng-messages="registerForm.identification.$error" ng-if="registerForm.identification.$touched && registerForm.identification.$invalid" class="validate-messages">
-                            <div ng-messages-include="error-messages"></div>
-                        </div><!--ng-messages-->
-                    </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
                         <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>
@@ -73,6 +56,68 @@
                         <label for="secondSurname">{{ translation.REGISTRATION.SECOND_SURNAME }}</label>
                         <input id="secondSurname" type="text" name="secondSurname" ng-model="user.secondSurname" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
                         <div ng-messages="registerForm.secondSurname.$error" ng-if="registerForm.secondSurname.$touched && registerForm.secondSurname.$invalid" class="validate-messages">
+                            <div ng-messages-include="error-messages"></div>
+                        </div><!--ng-messages-->
+                    </div><!--.form-group .col-xs-12-->
+
+                    <div class="col-xs-12">
+                        <style>
+                            .checkbox-label {
+                              cursor: pointer;
+                              user-select: none;
+                              -webkit-user-select: none;
+                              -webkit-touch-callout: none;
+                                  margin-right: 17px;
+                            }
+
+                            .checkbox-label > input {
+                              visibility: hidden;
+                              position: absolute;
+                            }
+
+                            .checkbox-label > i {
+                                  display: inline-block;
+                                vertical-align: middle;
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                transition: 0.2s;
+                                box-shadow: inset 0 0 0 8px #d7d3d3;
+                                background: #acacac;
+                                    margin-right: 11px;
+                            }
+
+                            .checkbox-label:hover > i {
+                              box-shadow: inset 0 0 0 5px #e57368;
+                              background: #d3362d;
+                            }
+
+                            .checkbox-label > input:checked + i {
+                                  box-shadow: inset 0 0 0 8px #e57368;
+                                    background: #d3362d;
+                            }
+                        </style>
+                        <div class="form-gender">
+                            <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
+                            <label class="checkbox-label">
+                                <input type="radio" ng-model="user.identificationType" value="1" name="identificationType" required>
+                                <i></i> {{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" ng-model="user.identificationType" value="2" name="identificationType">
+                                <i></i> {{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" ng-model="user.identificationType" value="3" name="identificationType">
+                                <i></i> {{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}
+                            </label>
+                        </div>
+                    </div><!--.form-group .col-xs-12-->
+
+                    <div class="form-group col-xs-12">
+                        <label for="identification">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
+                        <input id="identification" type="text" name="identification" ng-model="user.identification" class="form-control" required>
+                        <div ng-messages="registerForm.identification.$error" ng-if="registerForm.identification.$touched && registerForm.identification.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div><!--ng-messages-->
                     </div><!--.form-group .col-xs-12-->
