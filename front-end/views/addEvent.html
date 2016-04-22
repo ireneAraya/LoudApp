@@ -63,6 +63,18 @@
 						  	  	<span class="alert alert-danger">{{ translation.NO_RESULTS }}</span>
 						  	</div>
 						</div><!--.form-group .typeahead .col-xs-12-->
+
+						<div class="form-group typeahead col-xs-12" ng-controller="TypeaheadCtrl">
+						  	<label for="">{{ translation.REGISTRATION.COMPANY }}</label>
+						  	<input type="text" name="company" ng-model="event.company" placeholder="{{ translation.SEARCH_COMPANY }}" uib-typeahead="company as company.company for company in events | filter:{description:$viewValue}" typeahead-popup-template-url="front-end/views/customPopupTemplate.html" typeahead-on-select="getSelectedType($item)" typeahead-editable="false" class="form-control" typeahead-no-results="noResults" required>
+						  	<div ng-messages="addEventForm.company.$error" ng-if="addEventForm.company.$touched && addEventForm.company.$invalid" class="validate-messages">
+				          	    <div ng-messages-include="error-messages"></div>
+				          	</div><!--ng-messages-->
+				          	<div ng-if="noResults" class="validate-messages">
+						  	  	<span class="alert alert-danger">{{ translation.NO_RESULTS }}</span>
+						  	</div>
+						</div><!--.form-group .typeahead .col-xs-12-->
+
 						<div class="form-group col-xs-12">
 				          	<label for="">{{ translation.DESCRIPTION }}</label>
 				          	<textarea type="text" name="description" ng-model="event.description" placeholder="{{ translation.EVENT_DESCRIPTION }}" class="form-control" required>></textarea>

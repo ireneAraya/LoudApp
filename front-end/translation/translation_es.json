@@ -115,6 +115,7 @@
     "EVENT_TYPE" : "Tipo de evento",
     "ADD_EVENT_TYPE" : "Agregar Tipo de Evento",
     "SEARCH_EVENT_TYPE" : "Busque el tipo de evento aquí",
+    "SEARCH_COMPANY" : "Busque la compañía aquí",
     "DESCRIPTION" : "Descripción",
     "EVENT_DESCRIPTION" : "Descripción del evento",
     "SELECT_DATE": "Seleccione una fecha",
@@ -132,10 +133,10 @@
     "PROMOTER_NAME": "Nombre del promotor",
     "ADD_CASHIER": "Agregar Cajero",
     "TODO_TITTLE": "¿Qué desea hacer?",
-    "SEE_EVENTS": "Ver lista de eventos",
-    "SEE_LOCATIONS": "Ver lista de sitios",
-    "SEE_EVENT_TYPES": "Ver lista de tipos de eventos",
-    "SEE_PROMOTERS": "Ver lista de promotores",
-    "SEE_CASHIERS": "Ver lista de cajeros",
+    "SEE_EVENTS": "Ver eventos",
+    "SEE_LOCATIONS": "Ver sitios",
+    "SEE_EVENT_TYPES": "Ver tipos de eventos",
+    "SEE_PROMOTERS": "Ver promotores",
+    "SEE_CASHIERS": "Ver cajeros",
     "SEE_REPORTS": "Ver reportes"
 }

@@ -17,31 +17,9 @@ angular.module ('loudApp.controllers')
             });
         };
 
-        // $scope.init = function() {
-        //     $scope.event = {};
-
-        //     var eventExists = $q(function (resolve, reject) {
-        //         var res = LoudService.verifyEvent();
-
-        //         $timeout(
-        //             function() {
-        //                 resolve(res)
-        //             }, Math.random() * 2000 + 1000);
-        //     });
-
-        //     eventExists.then(function (response) {
-        //         if (response.success && response.data) {
-        //             $location.path("/");
-        //         } else {
-        //             // Calbacks
-        //             otherFunctions();
-        //         }
-        //     });
-        // };
-
 
         function otherFunctions () {
-            // $scope.eventsCol = $scope.data.events;
+            $scope.eventsCol = $scope.data.events;
 
             $scope.getEventLocation = function (index, key) {
                 // Se repiten los llamados
