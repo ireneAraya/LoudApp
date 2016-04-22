@@ -125,6 +125,9 @@ angular.module('loudApp',[
             .when('/cashiersMenu', {
                 templateUrl: 'front-end/views/cashiersMenu.html'
             })
+            .when('/contact', {
+                templateUrl: 'front-end/views/contact.html'
+            })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'
             });
