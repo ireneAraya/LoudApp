@@ -21,10 +21,8 @@ angular.module ('loudApp.controllers')
             });
 
             LoudService.getSeatDataFromJS().then(function(response) {
-                // $scope.seats = angular.fromJson(response.seats);
-                // otherFunctions();
-                $scope.testing = response.data;
-                console.log($scope.testing);
+                $scope.sections = response.data;
+                console.log($scope.sections);
 
             }, function(razon) {
                 $scope.error = razon;
@@ -120,162 +118,16 @@ angular.module ('loudApp.controllers')
                 getTotalSum();
             };
 
-            $scope.sections = [
-                {area: 'VIP-2', name: 1, dataAtr: 'A-1', id: 'A', class: 'seat-letter'},
-                {area: 'VIP-2', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-2', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-2', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-2', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-2', name: 1, dataAtr: 'B-1', id: 'B', class: 'seat-letter'},
-                {area: 'VIP-2', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-2', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-2', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-2', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-2', name: 1, dataAtr: 'C-1', id: 'C', class: 'seat-letter'},
-                {area: 'VIP-2', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-2', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-2', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-2', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-3', name: 1, dataAtr: 'A-1', id: 'A', class: 'seat-letter'},
-                {area: 'VIP-3', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-3', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-3', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-3', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-3', name: 1, dataAtr: 'B-1', id: 'B', class: 'seat-letter'},
-                {area: 'VIP-3', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-3', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-3', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-3', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-3', name: 1, dataAtr: 'C-1', id: 'C', class: 'seat-letter'},
-                {area: 'VIP-3', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-3', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-3', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-3', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-4', name: 1, dataAtr: 'A-1', id: 'A'},
-                {area: 'VIP-4', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-4', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-4', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-4', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-4', name: 1, dataAtr: 'B-1', id: 'B'},
-                {area: 'VIP-4', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-4', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-4', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-4', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-4', name: 1, dataAtr: 'C-1', id: 'C'},
-                {area: 'VIP-4', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-4', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-4', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-4', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-5', name: 1, dataAtr: 'A-1', id: 'A'},
-                {area: 'VIP-5', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-5', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-5', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-5', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-5', name: 1, dataAtr: 'B-1', id: 'B'},
-                {area: 'VIP-5', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-5', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-5', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-5', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-5', name: 1, dataAtr: 'C-1', id: 'C'},
-                {area: 'VIP-5', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-5', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-5', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-5', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-6', name: 1, dataAtr: 'A-1', id: 'A', class: 'seat-letter'},
-                {area: 'VIP-6', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-6', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-6', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-6', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-6', name: 1, dataAtr: 'B-1', id: 'B', class: 'seat-letter'},
-                {area: 'VIP-6', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-6', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-6', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-6', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-6', name: 1, dataAtr: 'C-1', id: 'C', class: 'seat-letter'},
-                {area: 'VIP-6', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-6', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-6', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-6', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-7', name: 1, dataAtr: 'A-1', id: 'A', class: 'seat-letter'},
-                {area: 'VIP-7', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-7', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-7', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-7', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-7', name: 1, dataAtr: 'B-1', id: 'B', class: 'seat-letter'},
-                {area: 'VIP-7', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-7', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-7', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-7', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-7', name: 1, dataAtr: 'C-1', id: 'C', class: 'seat-letter'},
-                {area: 'VIP-7', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-7', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-7', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-7', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-8', name: 1, dataAtr: 'A-1', id: 'A', class: 'seat-letter'},
-                {area: 'VIP-8', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-8', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-8', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-8', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-8', name: 1, dataAtr: 'B-1', id: 'B', class: 'seat-letter'},
-                {area: 'VIP-8', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-8', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-8', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-8', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-8', name: 1, dataAtr: 'C-1', id: 'C', class: 'seat-letter'},
-                {area: 'VIP-8', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-8', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-8', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-8', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-9', name: 1, dataAtr: 'A-1', id: 'A', class: 'seat-letter'},
-                {area: 'VIP-9', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-9', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-9', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-9', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-9', name: 1, dataAtr: 'B-1', id: 'B', class: 'seat-letter'},
-                {area: 'VIP-9', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-9', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-9', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-9', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-9', name: 1, dataAtr: 'C-1', id: 'C', class: 'seat-letter'},
-                {area: 'VIP-9', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-9', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-9', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-9', name: 5, dataAtr: 'C-5'},
-
-                {area: 'VIP-10', name: 1, dataAtr: 'A-1', id: 'A', class: 'seat-letter'},
-                {area: 'VIP-10', name: 2, dataAtr: 'A-2'},
-                {area: 'VIP-10', name: 3, dataAtr: 'A-3'},
-                {area: 'VIP-10', name: 4, dataAtr: 'A-4'},
-                {area: 'VIP-10', name: 5, dataAtr: 'A-5'},
-                {area: 'VIP-10', name: 1, dataAtr: 'B-1', id: 'B', class: 'seat-letter'},
-                {area: 'VIP-10', name: 2, dataAtr: 'B-2'},
-                {area: 'VIP-10', name: 3, dataAtr: 'B-3'},
-                {area: 'VIP-10', name: 4, dataAtr: 'B-4'},
-                {area: 'VIP-10', name: 5, dataAtr: 'B-5'},
-                {area: 'VIP-10', name: 1, dataAtr: 'C-1', id: 'C', class: 'seat-letter'},
-                {area: 'VIP-10', name: 2, dataAtr: 'C-2'},
-                {area: 'VIP-10', name: 3, dataAtr: 'C-3'},
-                {area: 'VIP-10', name: 4, dataAtr: 'C-4'},
-                {area: 'VIP-10', name: 5, dataAtr: 'C-5'},
-
-            ];
-
-            $scope.setMaster = function(section) {
-                if (section.isSelected) {
-                    section.isSelected = false;
+            // Select seats and add selected class
+            $scope.toogleSelectedSeat = function(section) {
+                if (section.isSeatSelected) {
+                    section.isSeatSelected = false;
                 } else {
-                    section.isSelected = true;
+                    section.isSeatSelected = true;
                 }
             }
 
-            $scope.isSelected = function(section) {
+            $scope.isSeatSelected = function(section) {
                 return $scope.selected === section;
             }
 

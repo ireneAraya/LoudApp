@@ -8,7 +8,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -60,7 +62,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -112,7 +116,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -164,7 +170,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -216,7 +224,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -268,7 +278,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -320,7 +332,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -372,7 +386,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -424,7 +440,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -476,7 +494,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -528,7 +548,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -580,7 +602,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -632,7 +656,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -684,7 +710,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -736,7 +764,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -788,7 +818,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -840,7 +872,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -892,7 +926,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -944,7 +980,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -996,7 +1034,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -1048,7 +1088,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -1100,7 +1142,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -1152,7 +1196,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -1204,7 +1250,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 
@@ -1256,7 +1304,9 @@
 
       "dataAtr": "A-1",
 
-      "id": "A"
+      "id": "A",
+
+      "class" : "seat-letter"
 
    },
 
@@ -1308,7 +1358,9 @@
 
       "dataAtr": "B-1",
 
-      "id": "B"
+      "id": "B",
+
+      "class" : "seat-letter"
 
    },
 
@@ -1360,7 +1412,9 @@
 
       "dataAtr": "C-1",
 
-      "id": "C"
+      "id": "C",
+
+      "class" : "seat-letter"
 
    },
 

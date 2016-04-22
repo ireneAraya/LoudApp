@@ -281,9 +281,9 @@
                     <div class="modal-body">
                         <div class="seat-row vip-row vip-1">
                           <ul class="list-holder">
-                              <li ng-repeat="section in sections | filter: areaName" ng-class="{active : section.isSelected}">
+                              <li ng-repeat="section in sections | filter: areaName" ng-class="{active : section.isSeatSelected}">
                                   <span class="text-uppercase {{section.class}}">{{section.id}}</span>
-                                  <a data-description="{{section.dataAtr}}" ng-click="setMaster(section); getSeatNumber($event);">{{section.name}}</a>
+                                  <a data-description="{{section.dataAtr}}" ng-click="toogleSelectedSeat(section); getSeatNumber($event);">{{section.name}}</a>
                               </li>
                           </ul>
                         </div>
