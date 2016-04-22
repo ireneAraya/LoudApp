@@ -9,6 +9,13 @@ angular.module ('loudApp.services')
             });
         };
 
+        var getSeatDataFromJS = function () {
+            return $http({
+                method: "GET",
+                url: 'front-end/js/seats.json'
+            });
+        };
+
         /**
          * Logs in a user to the system
          * @param  {string} email    The user's email
@@ -205,7 +212,8 @@ angular.module ('loudApp.services')
             requestNewPassword : requestNewPassword,
             registerUser       : registerUser,
             getCollection      : getCollection,
-            getItemDB          : getItemDB
+            getItemDB          : getItemDB,
+            getSeatDataFromJS  : getSeatDataFromJS
         };
     }
 ]);
