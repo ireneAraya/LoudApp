@@ -73,7 +73,7 @@ class UserController {
             $result["error"] = true;
             $result["message"] = $verifyResult["message"];
         } else {
-            setcookie($this->cookieName, true, time()-604800);
+            setcookie($this->cookieName, '', time()-1);
             $result["success"] = true;
             $result["message"] = $verifyResult["message"];
         }
@@ -109,9 +109,12 @@ class UserController {
                     "id" => $passwordResult["data"]["id"],
                     "email" => $passwordResult["data"]["email"],
                     "firstName" => $passwordResult["data"]["firstName"],
-                    "password" => $recoverPassword,
+                    "password" => $recoverPassword
                 ];
             }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide an email address to continue.";
         }
 
         return $result;

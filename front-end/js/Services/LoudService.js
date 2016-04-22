@@ -111,10 +111,7 @@ angular.module ('loudApp.services')
         };
 
         var requestNewPassword = function (userEmail) {
-            var result = {
-                success : false,
-                message : null
-            };
+            var defer = $q.defer();
 
             $http({
                 method: 'POST',
@@ -123,17 +120,36 @@ angular.module ('loudApp.services')
                 },
                 url: 'back-end/user/forgot-password'
             }).then(function successCallback(response) {
-                if (!response.data.error) {
-                    result.success = true;
-                    result.message = response.data.message;
-                } else {
-                    result.message = response.data.message;
-                }
+                defer.resolve(response.data);
             }, function errorCallback(response) {
-                result.message = response.data.message;
+                defer.reject(response);
             });
 
-            return result;
+            return defer.promise;
+
+            // var result = {
+            //     success : false,
+            //     message : null
+            // };
+
+            // $http({
+            //     method: 'POST',
+            //     data : {
+            //         email : userEmail
+            //     },
+            //     url: 'back-end/user/forgot-password'
+            // }).then(function successCallback(response) {
+            //     if (!response.data.error) {
+            //         result.success = true;
+            //         result.message = response.data.message;
+            //     } else {
+            //         result.message = response.data.message;
+            //     }
+            // }, function errorCallback(response) {
+            //     result.message = response.data.message;
+            // });
+
+            // return result;
         };
 
         var save = function (key, object) {

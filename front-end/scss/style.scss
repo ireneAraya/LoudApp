@@ -34,7 +34,7 @@ body{
 
 		&.todo-btn{
 			width: 100%;
-			
+
 			&:hover{
 				border: 1px solid $light-red;
 			}
@@ -53,10 +53,10 @@ body{
 	    margin-bottom: 40px;
 	}
 
-	input[type=number]::-webkit-inner-spin-button, 
-	input[type=number]::-webkit-outer-spin-button { 
-	  -webkit-appearance: none; 
-	  margin: 0; 
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
 	}
 
 	.language-select {
@@ -348,7 +348,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 		&.two-lines{
 			padding-top: 15px;
-			
+
 			@media (max-width: 768px) {
 				padding-top: 15px;
 			}
@@ -362,7 +362,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	.info-td{
 		padding-left: 20px;
 		border-right: 0.5px solid #ffffff;
-		
+
 		@media (max-width: 768px) {
 			padding-left: 0;
 			padding-right: 10px;
@@ -404,7 +404,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 td {
 	.circle-thumbnail {
-		
+
 		@media (max-width: 768px){
 			height: 66px;
 		}
