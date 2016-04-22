@@ -13,8 +13,6 @@ angular.module ('loudApp.controllers')
 
         $scope.init = function() {
 
-            $scope.testing = [];
-
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
                 otherFunctions();
@@ -22,23 +20,15 @@ angular.module ('loudApp.controllers')
                 $scope.error = razon;
             });
 
-
             LoudService.getSeatDataFromJS().then(function(response) {
-                $scope.seats = angular.fromJson(response.seats);
+                // $scope.seats = angular.fromJson(response.seats);
                 // otherFunctions();
-                // console.log(response);
+                $scope.testing = response.data;
+                console.log($scope.testing);
 
             }, function(razon) {
                 $scope.error = razon;
             });
-
-            $scope.testing = response.seats;
-
-            console.log($scope.testing);
-
-
-
-
         };
 
         // $scope.sumValues = function () {
