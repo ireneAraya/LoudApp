@@ -10,10 +10,6 @@ angular.module ('loudApp.controllers')
             $scope.locations = [];
             $scope.loadingData = true;
 
-            $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
-            $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
-            $scope.zonesCol = LoudService.verify('LoudApp__Zones') || {};
-
             var getEvents = $q(function (resolve, reject) {
                 var res = LoudService.getCollection("events");
 
@@ -40,22 +36,46 @@ angular.module ('loudApp.controllers')
                         if (responseLocations && responseLocations.data) {
                             $scope.locations = responseLocations.data;
 
-                            for (var i = 0; i < $scope.eventsCol.length; i++) {
-                                var event = $scope.eventsCol[i];
-                                event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
-                                event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
-                                event.date = new Date(event.date).toISOString();
-                            }
+                            var getPlaces = $q(function (resolve, reject) {
+                                var res = LoudService.getCollection("price_places");
 
-                            if ($routeParams.id) {
-                                var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
+                                $timeout(
+                                    function() {
+                                        resolve(res)
+                                    }, Math.random() * 2000 + 1000);
+                            });
 
-                                $scope.event = $scope.eventsCol[targetEvent];
+                            getPlaces.then(function (responsePlaces) {
+                                if (responsePlaces && responsePlaces.data) {
+                                    $scope.rates = responsePlaces.data;
+                                }
 
-                                console.log($scope.event);
-                            }
+                                for (var i = 0; i < $scope.eventsCol.length; i++) {
+                                    var event = $scope.eventsCol[i];
+                                    event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
+                                    event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
+                                    event.date = new Date(event.date).toISOString();
 
-                            $scope.loadingData = false;
+                                    var rates = [];
+
+                                    for (var f = 0; f < $scope.rates.length; f++) {
+                                        var rate = $scope.rates[f];
+
+                                        if (rate.eventId == event.id) {
+                                            rates.push(rate);
+                                        }
+                                    }
+
+                                    event.rates = rates;
+                                }
+
+                                if ($routeParams.id) {
+                                    var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
+                                    $scope.event = $scope.eventsCol[targetEvent];
+                                }
+
+                                $scope.loadingData = false;
+                            });
                         }
                     });
                 }
@@ -120,10 +140,8 @@ angular.module ('loudApp.controllers')
                     description     : $scope.description,
                     prices          : $scope.zonesCol
                 }
-                $scope.eventsCol.push(event);
 
-                console.log($scope.eventsCol);
-                console.log($scope.zonesCol);
+                $scope.eventsCol.push(event);
 
                 // Limpia el formulario, tanto en valores como en estado de variables
                 if ($scope.addLocationForm) {
