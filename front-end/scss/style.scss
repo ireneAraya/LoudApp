@@ -37,7 +37,7 @@ body{
 		width: 100%;
 		padding-top: 10px;
 		font-weight: 100;
-		
+
 		&:hover {
 			border: 1px solid $light-red;
 		}
@@ -524,7 +524,7 @@ input[type="file"] {
 
 .loading{
 	color: $light-red;
-	
+
 	p {
 		padding: 10px;
 		color: $light-red;
