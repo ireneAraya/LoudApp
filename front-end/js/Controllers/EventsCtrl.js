@@ -44,6 +44,7 @@ angular.module ('loudApp.controllers')
                                 var event = $scope.eventsCol[i];
                                 event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
                                 event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
+                                event.date = new Date(event.date).toISOString();
                             }
 
                             if ($routeParams.id) {
