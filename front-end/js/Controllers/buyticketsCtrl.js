@@ -12,12 +12,33 @@ angular.module ('loudApp.controllers')
         // $scope.itemPrice = 3500;
 
         $scope.init = function() {
+
+            $scope.testing = [];
+
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
                 otherFunctions();
             }, function(razon) {
                 $scope.error = razon;
             });
+
+
+            LoudService.getSeatDataFromJS().then(function(response) {
+                $scope.seats = angular.fromJson(response.seats);
+                // otherFunctions();
+                // console.log(response);
+
+            }, function(razon) {
+                $scope.error = razon;
+            });
+
+            $scope.testing = response.seats;
+
+            console.log($scope.testing);
+
+
+
+
         };
 
         // $scope.sumValues = function () {
