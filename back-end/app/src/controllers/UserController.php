@@ -170,4 +170,27 @@ class UserController {
 
         return $result;
     }
+
+    public function getCollection ($request) {
+        $result = [];
+
+        $collectionName = $request->getAttribute("collectionName", null);
+
+        if (isset($collectionName)) {
+            $getCollectionResult = $this->userService->getCollection($collectionName);
+
+            if (array_key_exists("error", $getCollectionResult)) {
+                $result["error"] = true;
+                $result["message"] = $getCollectionResult["message"];
+            } else {
+                $result["success"] = true;
+                $result["data"] = $getCollectionResult["data"];
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name of the collection to get.";
+        }
+
+        return $result;
+    }
 }

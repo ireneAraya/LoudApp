@@ -101,6 +101,17 @@ $app->get(
     }
 );
 
+$app->get(
+    '/objects/collection/{collectionName}',
+    function ($request, $response) {
+        /** @var Request $request */
+        /** @var Response $response */
+        $userController = new App\Controllers\UserController();
+        $result = $userController->getCollection($request);
+        return $response->withJson($result);
+    }
+);
+
 $app->post(
     '/user/logout',
     function ($request, $response) {

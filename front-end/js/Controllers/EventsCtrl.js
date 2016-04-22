@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('EventsCtrl', [
-	'$scope', '$routeParams', '$location', 'LoudService', '$timeout',
-	function($scope, $routeParams, $location, LoudService, $timeout) {
+	'$scope', '$routeParams', '$location', 'LoudService', '$timeout', '$q',
+	function($scope, $routeParams, $location, LoudService, $timeout, $q) {
         $scope.eventsCol = LoudService.verify('LoudApp__Events') || {};
         $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
         $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
@@ -14,6 +14,19 @@ angular.module ('loudApp.controllers')
                 otherFunctions();
             }, function(razon) {
                 $scope.error = razon;
+            });
+
+            var getEvents = $q(function (resolve, reject) {
+                var res = LoudService.getCollection("events");
+
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
+
+            getEvents.then(function (response) {
+                console.log(response);
             });
         };
 

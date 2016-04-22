@@ -117,30 +117,6 @@ angular.module ('loudApp.services')
             });
 
             return defer.promise;
-
-            // var result = {
-            //     success : false,
-            //     message : null
-            // };
-
-            // $http({
-            //     method: 'POST',
-            //     data : {
-            //         email : userEmail
-            //     },
-            //     url: 'back-end/user/forgot-password'
-            // }).then(function successCallback(response) {
-            //     if (!response.data.error) {
-            //         result.success = true;
-            //         result.message = response.data.message;
-            //     } else {
-            //         result.message = response.data.message;
-            //     }
-            // }, function errorCallback(response) {
-            //     result.message = response.data.message;
-            // });
-
-            // return result;
         };
 
         var save = function (key, object) {
@@ -153,6 +129,21 @@ angular.module ('loudApp.services')
 
         var verify = function (key) {
             return angular.fromJson( localStorage.getItem(key) );
+        };
+
+        var getCollection = function (colName) {
+            var defer = $q.defer();
+
+            $http({
+                method: 'GET',
+                url: 'back-end/objects/collection' + colName
+            }).then(function successCallback(response) {
+                defer.resolve(response.data);
+            }, function errorCallback(response) {
+                defer.reject(response);
+            });
+
+            return defer.promise;
         };
 
         /**
@@ -199,7 +190,8 @@ angular.module ('loudApp.services')
             verifyUser         : verifyUser,
             logoutUser         : logoutUser,
             requestNewPassword : requestNewPassword,
-            registerUser         : registerUser
+            registerUser         : registerUser,
+            getCollection      : getCollection
         };
 
     }

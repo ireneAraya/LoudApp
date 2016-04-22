@@ -363,4 +363,36 @@ class UserService {
         return $result;
     }
 
+    public function getCollection ($collectionName) {
+        $result = [];
+
+        if ($collectionName != "") {
+            // $allow_objects = ["events","orders","reservations"];
+
+            if ($collectionName === "events" OR $collectionName === "users" OR $collectionName === "orders" OR $collectionName === "reservations") {
+                $collectionName = strtolower($collectionName);
+
+                $query = "SELECT * FROM loud_$collectionName";
+
+                $query_result = $this->storage->query($query, [], "SELECT");
+
+                if (count($query_result['data']) > 0) {
+                    $result["success"] = true;
+                    $result["data"] = $query_result['data'];
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "The object you are requesting is empty.";
+                }
+            } else {
+                $result["error"] = true;
+                $result["message"] = "The action you want to perform is not allowed.";
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name of the collection to get.";
+        }
+
+        return $result;
+    }
+
 }
