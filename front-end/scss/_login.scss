@@ -10,6 +10,16 @@ p {
     margin-left: 8%;
 }
 
+#loginForm {
+    #btnSubmit {
+        width: 23%;
+        margin-left: 22%;
+    }
+    .input-group {
+        margin-bottom: 11px;
+    }
+}
+
 .register-form {
 
     width: 50%;
@@ -160,5 +170,12 @@ hr.devider-light {
     }
     .register-form .checkbox-label {
         margin-right: 7px;
+    }
+    #loginForm #btnSubmit {
+        width: 68%;
+        margin-left: 16%;
+    }
+    .container-login {
+        width: 100%;
     }
 }
