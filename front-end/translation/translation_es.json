@@ -75,21 +75,21 @@
         "WRONG_LOCALID": "El formato para la cédula debe ser: N0NNNN0NNN"
     },
     "REGISTRATION" : {
-        "FIRST_NAME" : "Primer nombre:",
-        "MIDDLE_NAME" : "Segundo nombre:",
-        "LAST_NAME" : "Primer apellido:",
-        "SECOND_SURNAME" : "Segundo apellido:",
-        "NICKNAME" : "Alias:",
-        "EMAIL" : "Correo electrónico:",
-        "PHONE" : "Teléfono:",
-        "PASSWORD" : "Contraseña:",
-        "VERIFY_PASSWORD" : "Verificación de contraseña:",
-        "IDENTIFICATION" : "Identificación personal:",
-        "BIRTHDATE" : "Fecha de nacimiento:",
-        "COMPANY" : "Compañía:",
-        "SALES_POINT" : "Punto de venta:",
+        "FIRST_NAME" : "Primer nombre",
+        "MIDDLE_NAME" : "Segundo nombre",
+        "LAST_NAME" : "Primer apellido",
+        "SECOND_SURNAME" : "Segundo apellido",
+        "NICKNAME" : "Alias",
+        "EMAIL" : "Correo electrónico",
+        "PHONE" : "Teléfono",
+        "PASSWORD" : "Contraseña",
+        "VERIFY_PASSWORD" : "Verificación de contraseña",
+        "IDENTIFICATION" : "Identificación personal",
+        "BIRTHDATE" : "Fecha de nacimiento",
+        "COMPANY" : "Compañía",
+        "SALES_POINT" : "Punto de venta",
         "GENDER" : {
-            "LABEL" : "Género:",
+            "LABEL" : "Género",
             "MALE" : "Masculino",
             "FEMALE" : "Femenino",
             "OTHER" : "Otro"
@@ -145,4 +145,6 @@
     "SEE_REPORTS": "Ver reportes",
     "DELETE" : "Eliminar",
     "DELETE_CONFIRM": "¿Está seguro que quiere continuar?",
+    "MESSAGE": "Mensaje",
+    "SEND" : "Enviar"
 }
