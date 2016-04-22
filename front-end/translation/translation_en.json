@@ -4,6 +4,7 @@
     "SIGNIN_REGISTER" : "Sign In/Register",
     "BUY_MENU" : "Buy",
     "BUY_TICKETS" : "Buy tickets",
+    "REDEEM_TICKETS" : "Redeem tickets",
     "SELECT_EVENT" : "Select the event you want to attend",
     "SEARCH_EVENT" : "Search the event here",
     "EVENT_DATE" : "Event date",
@@ -132,11 +133,15 @@
     "ADD_PROMOTER": "Add Promoter",
     "PROMOTER_NAME": "Promoter's Name",
     "ADD_CASHIER": "Add Cashier",
+    "CASHIERS" : "Cashiers",
     "TODO_TITTLE": "¿What do you want to do?",
     "SEE_EVENTS": "See events",
     "SEE_LOCATIONS": "See locations",
     "SEE_EVENT_TYPES": "See event types",
+    "PROMOTERS" : "Promoters",
     "SEE_PROMOTERS": "See promoters",
     "SEE_CASHIERS": "See cashiers",
-    "SEE_REPORTS": "See reports"
+    "SEE_REPORTS": "See reports",
+    "DELETE" : "Delete",
+    "DELETE_CONFIRM": "¿Are you sure you want to continue?"
 }

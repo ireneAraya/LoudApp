@@ -33,24 +33,28 @@ body{
 		}
 	}
 
-	.todo-btn{
+	.todo-btn {
 		width: 100%;
 		padding-top: 10px;
 		font-weight: 100;
 		
-		&:hover{
+		&:hover {
 			border: 1px solid $light-red;
 		}
 
-		.fa{
+		.fa {
 			margin: 30px 0;
 			padding: 40px 40px;
 			border: 2px solid $medium-red;
 			border-radius: 100px;
 		}
 
-		.fa-map-marker{
+		.fa-map-marker {
 			padding: 40px 50px;
+		}
+
+		.fa-credit-card-alt {
+			padding: 40px 30px;
 		}
 	}
 

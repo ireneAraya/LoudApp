@@ -4,6 +4,7 @@
     "SIGNIN_REGISTER" : "Ingresar/Registrar",
     "BUY_MENU" : "Comprar",
     "BUY_TICKETS" : "Compra de entradas",
+    "REDEEM_TICKETS" : "Redimir entradas",
     "SELECT_EVENT" : "Seleccione el evento al que quiere asistir",
     "SEARCH_EVENT" : "Busque el evento aquí",
     "EVENT_DATE" : "Fecha del evento",
@@ -132,11 +133,15 @@
     "ADD_PROMOTER": "Agregar Promotor",
     "PROMOTER_NAME": "Nombre del promotor",
     "ADD_CASHIER": "Agregar Cajero",
+    "CASHIERS" : "Cajeros",
     "TODO_TITTLE": "¿Qué desea hacer?",
     "SEE_EVENTS": "Ver eventos",
     "SEE_LOCATIONS": "Ver sitios",
     "SEE_EVENT_TYPES": "Ver tipos de eventos",
+    "PROMOTERS" : "Promotores",
     "SEE_PROMOTERS": "Ver promotores",
     "SEE_CASHIERS": "Ver cajeros",
-    "SEE_REPORTS": "Ver reportes"
+    "SEE_REPORTS": "Ver reportes",
+    "DELETE" : "Eliminar",
+    "DELETE_CONFIRM": "¿Está seguro que quiere continuar?"
 }

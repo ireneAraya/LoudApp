@@ -172,7 +172,7 @@
 			"eventType"		: 0,
 			"description"	: "Mark Anthony en Costa Rica",
 			"location"		: 0,
-			"company"		: "Dream Events",
+			"company"		: 2,
 			"prices"		: 	[
 									{
 										"place"		: "Sombra",
@@ -197,7 +197,7 @@
 			"eventType"		: 1,
 			"description"	: "Actividad bailable con música en vivo",
 			"location"		: 1,
-			"company"		: "Majestic Events",
+			"company"		: 1,
 			"prices"		: 	[
 									{
 										"place"		: "General",
@@ -218,7 +218,7 @@
 			"eventType"		: 0,
 			"description"	: "Gira mundial",
 			"location"		: 0,
-			"company"		: "Majestic Events",
+			"company"		: 2,
 			"prices"		: 	[
 									{
 										"place"		: "Platea",
@@ -242,8 +242,8 @@
 			"startHour"		: "06:00 PM",
 			"eventType"		: 2,
 			"description"	: "Apoyar a la Sele, el equipo de todos",
-			"company"		: "Sports Events",
 			"location"		: 2,
+			"company"		: 1,
 			"prices"		: 	[
 									{
 										"place"		: "Platea",

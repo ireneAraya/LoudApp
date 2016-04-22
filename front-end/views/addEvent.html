@@ -66,7 +66,7 @@
 
 						<div class="form-group typeahead col-xs-12" ng-controller="TypeaheadCtrl">
 						  	<label for="">{{ translation.REGISTRATION.COMPANY }}</label>
-						  	<input type="text" name="company" ng-model="event.company" placeholder="{{ translation.SEARCH_COMPANY }}" uib-typeahead="company as company.company for company in events | filter:{description:$viewValue}" typeahead-popup-template-url="front-end/views/customPopupTemplate.html" typeahead-on-select="getSelectedType($item)" typeahead-editable="false" class="form-control" typeahead-no-results="noResults" required>
+						  	<input type="text" name="company" ng-model="event.company" placeholder="{{ translation.SEARCH_COMPANY }}" uib-typeahead="company as company.company for company in users | filter:{description:$viewValue}" typeahead-popup-template-url="front-end/views/customPopupTemplate.html" typeahead-on-select="getSelectedType($item)" typeahead-editable="false" class="form-control" typeahead-no-results="noResults" required>
 						  	<div ng-messages="addEventForm.company.$error" ng-if="addEventForm.company.$touched && addEventForm.company.$invalid" class="validate-messages">
 				          	    <div ng-messages-include="error-messages"></div>
 				          	</div><!--ng-messages-->
