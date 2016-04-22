@@ -13,7 +13,7 @@ angular.module ('loudApp.controllers')
 
         $scope.init = function() {
 
-            var $scope.lastSeatAdded = " ";
+            $scope.lastSeatAdded = "";
 
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
@@ -100,7 +100,7 @@ angular.module ('loudApp.controllers')
 
             $scope.getSeatNumber = function (item) {
 
-                var $scope.lastSeatAdded = item.currentTarget.getAttribute("data-description");
+                $scope.lastSeatAdded = item.currentTarget.getAttribute("data-description");
 
                 fullOption.total = 0;
 
@@ -304,7 +304,7 @@ angular.module ('loudApp.controllers')
             LoudService.save("LoudApp__SelectedEventInfo", newValue);
         }, true);
 
-        $scope.$watch(‘lastSeatAdded’, function(newValue, oldValue) {
+        $scope.$watch('lastSeatAdded', function(newValue, oldValue) {
             $scope.lastSeatAdded = newValue;
         }, true);
 
