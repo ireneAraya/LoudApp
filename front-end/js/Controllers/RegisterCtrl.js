@@ -64,9 +64,7 @@ angular.module ('loudApp.controllers')
             });
 
             createUserServiceFunction.then(function (response) {
-                console.log(response);
-
-                if (response.success) {
+                if (response && response.success) {
                     $scope.processing = false;
                     $scope.error = null;
                     $scope.emailSent = true;

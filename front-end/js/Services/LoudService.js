@@ -95,31 +95,19 @@ angular.module ('loudApp.services')
         };
 
         var registerUser = function (objUser) {
-            var result = {
-                success : false,
-                message : null
-            };
+            var defer = $q.defer();
 
             $http({
                 method: 'POST',
                 data : objUser,
                 url: 'back-end/user/register'
             }).then(function successCallback(response) {
-
-                if (response.data.success) {
-                    result.success = true;
-                    result.message = response.data.message;
-                } else {
-                    result.success = false;
-                    result.message = response.data.message;
-                }
-
+                defer.resolve(response.data);
             }, function errorCallback(response) {
-                result.success = false;
-                result.message = "There was an error creating your account, please try again.";
+                defer.reject(response);
             });
 
-            return result;
+            return defer.promise;
         };
 
         var requestNewPassword = function (userEmail) {
