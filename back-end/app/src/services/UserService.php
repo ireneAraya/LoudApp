@@ -369,7 +369,7 @@ class UserService {
         if ($collectionName != "") {
             // $allow_objects = ["events","orders","reservations"];
 
-            if ($collectionName === "events" OR $collectionName === "users" OR $collectionName === "orders" OR $collectionName === "reservations") {
+            if ($collectionName === "events" OR $collectionName === "users" OR $collectionName === "orders" OR $collectionName === "reservations" OR $collectionName === "locations") {
                 $collectionName = strtolower($collectionName);
 
                 $query = "SELECT * FROM loud_$collectionName";

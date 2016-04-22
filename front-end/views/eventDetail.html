@@ -4,64 +4,70 @@
 			<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
 		</div><!--.col-xs-6-->
 	</div><!--.row-->
-	<div class="row">
-		<h1 class="text-center">{{ event.name | uppercase}}</h1>
-	</div><!--.row-->
-	<div class="row event-info">
-		<div class="row info-block">
-			<div class="col-xs-12 col-md-12 col-lg-6">
-				<img ng-src="{{event.image}}" alt="Fotografía del Evento" class="img-responsive" width="100%">
-			</div><!--.col-xs-12 .col-md-12 .col-lg-6-->
-			<div class="col-xs-12 col-md-12 col-lg-6">
-				<div class="row event-detail">
-					<div class="col-xs-12 col-sm-6">
-						<h4><i class="fa fa-map-marker"></i> {{ getEventLocation(event.location, 'name') }}</h4>
-					</div><!--.col-xs-6-->
-					<div class="col-xs-6 col-sm-2">
-						<h4><i class="fa fa-clock-o"></i> {{ event.startHour }}</h4>
-					</div><!--.col-xs-2-->
-					<div class="col-xs-4">
-						<h4 class="pull-right"><i class="fa fa-calendar-check-o"></i> {{ event.date }}</h4>
-					</div><!--.col-xs-4-->
-				</div><!--.row-->
-				<div class="row">
-					<div class="col-xs-12">
-						<ng-map scrollwheel="false" center="{{ getEventLocation(event.location, 'geographicLoc') }}" zoom="16">
-			  			    <marker position="{{ getEventLocation(event.location, 'geographicLoc') }}" optimized="true">
-			  			    </marker>
-			  			</ng-map>
-					</div><!--.col-xs-12-->
-				</div><!--.row-->
-			</div><!--.col-xs-12 .col-md-12 .col-lg-6-->
-		</div><!--.row .info-block-->
-		<div class="row info-block">
-			<div class="col-xs-12 col-md-6">
-				<div class="info-item">
-					<h4>{{ translation.PRICES_TEXT }}</h4>
-					<table class="list-group">
-						<tr>
-							<td ng-repeat="price in event.prices">{{ price.place }} : {{ price.amount | currency:'¢' }}</td>
-						</tr>
-					</table>
-				</div><!--.info-item-->
-			</div><!--.col-xs-6-->
-			<div class="col-xs-12 col-md-6">
-				<div class="info-item info-description">
-					<h4>{{ translation.DESCRIPTION_TEXT }}</h4>
-					<p>{{ event.description }}</p>
-				</div><!--.info-item-->
-			</div><!--.col-xs-6-->
-		</div><!--.row .info-block-->
-		<div class="row info-block">
-			<div class="col-md-12 col-lg-4">
-				<button class="btn"><i class="fa fa-unlock-alt"></i> {{ translation.RESERVE_BUTTON_TEXT }}</button>
-			</div><!--.col-xs-4-->
-			<div class="col-md-12 col-lg-4">
-				<a href="#/buyTickets" class="btn"><i class="fa fa-credit-card"></i> {{ translation.BUY_BUTTON_TEXT }}</a>
-			</div><!--.col-xs-4-->
-			<div class="col-md-12 col-lg-4">
-				<button href="" class="btn"><i class="fa fa-facebook"></i> {{ translation.SHARE_BUTTON_TEXT }}</button>
-			</div><!--.col-xs-4-->
-		</div><!--.row .info-block-->
-	</div><!--.row .event-info-->
+	<div ng-if="loadingData">
+		<br><br><br>
+		<small class="text-center" style="color: white; display: block;">Loading the event...</small>
+	</div>
+	<div ng-if="loadingData === false">
+		<div class="row">
+			<h1 class="text-center">{{ event.name | uppercase}}</h1>
+		</div><!--.row-->
+		<div class="row event-info">
+			<div class="row info-block">
+				<div class="col-xs-12 col-md-12 col-lg-6">
+					<img ng-src="{{event.image}}" alt="Fotografía del Evento" class="img-responsive" width="100%">
+				</div><!--.col-xs-12 .col-md-12 .col-lg-6-->
+				<div class="col-xs-12 col-md-12 col-lg-6">
+					<div class="row event-detail">
+						<div class="col-xs-12 col-sm-6">
+							<h4><i class="fa fa-map-marker"></i> {{ event.locationName }}</h4>
+						</div><!--.col-xs-6-->
+						<div class="col-xs-6 col-sm-2">
+							<h4><i class="fa fa-clock-o"></i> {{ event.date | date:'hh:mm' }}</h4>
+						</div><!--.col-xs-2-->
+						<div class="col-xs-4">
+							<h4 class="pull-right"><i class="fa fa-calendar-check-o"></i> {{ event.date }}</h4>
+						</div><!--.col-xs-4-->
+					</div><!--.row-->
+					<div class="row">
+						<div class="col-xs-12">
+							<ng-map scrollwheel="false" center="{{ event.geolocation }}" zoom="16">
+				  			    <marker position="{{ event.geolocation }}" optimized="true">
+				  			    </marker>
+				  			</ng-map>
+						</div><!--.col-xs-12-->
+					</div><!--.row-->
+				</div><!--.col-xs-12 .col-md-12 .col-lg-6-->
+			</div><!--.row .info-block-->
+			<div class="row info-block">
+				<div class="col-xs-12 col-md-6">
+					<div class="info-item">
+						<h4>{{ translation.PRICES_TEXT }}</h4>
+						<table class="list-group">
+							<tr>
+								<td ng-repeat="price in event.rates">{{ price.place }} : {{ price.amount | currency:'¢' }}</td>
+							</tr>
+						</table>
+					</div><!--.info-item-->
+				</div><!--.col-xs-6-->
+				<div class="col-xs-12 col-md-6">
+					<div class="info-item info-description">
+						<h4>{{ translation.DESCRIPTION_TEXT }}</h4>
+						<p>{{ event.description }}</p>
+					</div><!--.info-item-->
+				</div><!--.col-xs-6-->
+			</div><!--.row .info-block-->
+			<div class="row info-block">
+				<div class="col-md-12 col-lg-4">
+					<button class="btn"><i class="fa fa-unlock-alt"></i> {{ translation.RESERVE_BUTTON_TEXT }}</button>
+				</div><!--.col-xs-4-->
+				<div class="col-md-12 col-lg-4">
+					<a href="#/buyTickets" class="btn"><i class="fa fa-credit-card"></i> {{ translation.BUY_BUTTON_TEXT }}</a>
+				</div><!--.col-xs-4-->
+				<div class="col-md-12 col-lg-4">
+					<button href="" class="btn"><i class="fa fa-facebook"></i> {{ translation.SHARE_BUTTON_TEXT }}</button>
+				</div><!--.col-xs-4-->
+			</div><!--.row .info-block-->
+		</div><!--.row .event-info-->
+	</div>
 </main>

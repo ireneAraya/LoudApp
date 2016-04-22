@@ -6,22 +6,13 @@ angular.module ('loudApp.controllers')
 
         $scope.init = function() {
 
-            // $scope.eventsCol = LoudService.verify('LoudApp__Events') || {};
-            //
-            //
+            $scope.eventsCol = [];
+            $scope.locations = [];
             $scope.loadingData = true;
-            $scope.flag = false;
 
             $scope.locationsCol = LoudService.verify('LoudApp__Locations') || {};
             $scope.eventTypesCol = LoudService.verify('LoudApp__EventTypes') || {};
             $scope.zonesCol = LoudService.verify('LoudApp__Zones') || {};
-
-            LoudService.getDataFromJS().then(function(response) {
-                $scope.data = angular.fromJson(response.data);
-                // otherFunctions();
-            }, function(razon) {
-                $scope.error = razon;
-            });
 
             var getEvents = $q(function (resolve, reject) {
                 var res = LoudService.getCollection("events");
@@ -33,43 +24,41 @@ angular.module ('loudApp.controllers')
             });
 
             getEvents.then(function (response) {
-                $scope.eventsCol = response.data;
-                $scope.flag = true;
-                $scope.loadingData = false;
+                if (response && response.data) {
+                    $scope.eventsCol = response.data;
+
+                    var getLocations = $q(function (resolve, reject) {
+                        var res = LoudService.getCollection("locations");
+
+                        $timeout(
+                            function() {
+                                resolve(res)
+                            }, Math.random() * 2000 + 1000);
+                    });
+
+                    getLocations.then(function (responseLocations) {
+                        if (responseLocations && responseLocations.data) {
+                            $scope.locations = responseLocations.data;
+
+                            for (var i = 0; i < $scope.eventsCol.length; i++) {
+                                var event = $scope.eventsCol[i];
+                                event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
+                                event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
+                            }
+
+                            if ($routeParams.id) {
+                                var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
+
+                                $scope.event = $scope.eventsCol[targetEvent];
+
+                                console.log($scope.event);
+                            }
+
+                            $scope.loadingData = false;
+                        }
+                    });
+                }
             });
-        };
-
-
-        // function otherFunctions () {
-            //$scope.eventsCol = $scope.data.events;
-
-        $scope.getEventLocation = function (id) {
-            var location = "";
-
-            if ($scope.flag) {
-                var getLocation = $q(function (resolve, reject) {
-                    var res = LoudService.getItemDB("events", id, "locationId");
-
-                    $timeout(
-                        function() {
-                            resolve(res)
-                        }, Math.random() * 2000 + 1000);
-                });
-
-                getLocation.then(function (response) {
-
-                    console.log(response);
-
-                    // if (response && response.success) {
-                    //     location = response.data;
-                    //     $scope.loadingData = false;
-                    // } else {
-                    //     location = "NULL";
-                    // }
-                });
-            }
-
-            return location;
         };
 
             //Agregar inputs de precio y lugar
@@ -176,10 +165,6 @@ angular.module ('loudApp.controllers')
             }
 
         // };
-
-        $scope.$watch('zonesCol', function(newValue, oldValue) {
-            LoudService.save("LoudApp__Zones", newValue);
-        }, true);
 
         $scope.init();
 	}
