@@ -522,6 +522,10 @@ input[type="file"] {
     padding-top: 85px;
 }
 
+.loading{
+	color: $light-red;
+}
+
 @import 'events.scss';
 @import 'tickets.scss';
 @import 'login.scss';
