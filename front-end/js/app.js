@@ -102,11 +102,14 @@ angular.module('loudApp',[
             //Users
             .when('/addPromoter', {
                 templateUrl: 'front-end/views/addPromoter.html',
-                controller: 'UsersCtrl'
+                controller: 'PromotersCtrl'
             })
             .when('/addCashier', {
                 templateUrl: 'front-end/views/addCashier.html',
                 controller: 'CashiersCtrl'
+            })
+            .when('/adminMenu', {
+                templateUrl: 'front-end/views/adminMenu.html'
             })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'

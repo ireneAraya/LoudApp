@@ -32,18 +32,26 @@
                         <div class="form-gender">
                             <label for="">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LABEL }}</label><br>
                             <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="1" name="identificationType" required>{{ translation.REGISTRATION.IDENTIFICATION_TYPE.LOCAL }}</label>
-                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.FOREIGN }}</label>
+                            <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="2" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.RESIDENT }}</label>
                             <label class="radio-inline"><input type="radio" ng-model="user.identificationType" value="3" name="identificationType">{{ translation.REGISTRATION.IDENTIFICATION_TYPE.OTHER }}</label>
                         </div>
                     </div><!--.form-group .col-xs-12-->
 
-                    <div class="form-group col-xs-12">
-                        <label for="identification">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
-                        <input id="identification" type="text" name="identification" ng-model="user.identification" class="form-control" required>
-                        <div ng-messages="registerForm.identification.$error" ng-if="registerForm.identification.$touched && registerForm.identification.$invalid" class="validate-messages">
-                            <div ng-messages-include="error-messages"></div>
-                        </div><!--ng-messages-->
-                    </div><!--.form-group .col-xs-12-->
+                    <div class="form-group col-xs-12" ng-show="user.identificationType == 1">
+                            <label for="">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
+                            <input id="identification" type="number" name="localID" ng-model="user.identification" class="form-control" local-id ng-required="user.identificationType == 1">
+                            <div ng-messages="addCashierForm.localID.$error" ng-if="addCashierForm.localID.$touched && addCashierForm.localID.$invalid" class="validate-messages">
+                                <div ng-messages-include="error-messages"></div>
+                            </div><!--ng-messages-->
+                        </div><!--.form-group .col-xs-12-->
+
+                        <div class="form-group col-xs-12" ng-show="user.identificationType == 2 || user.identificationType == 3">
+                            <label for="">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
+                            <input id="identification" type="text" name="otherID" ng-model="user.identification" class="form-control" ng-required="user.identificationType == 2 || user.identificationType == 3">
+                            <div ng-messages="addCashierForm.otherID.$error" ng-if="addCashierForm.otherID.$touched && addCashierForm.otherID.$invalid" class="validate-messages">
+                                <div ng-messages-include="error-messages"></div>
+                            </div><!--ng-messages-->
+                        </div><!--.form-group .col-xs-12-->
 
                     <div class="form-group col-xs-12">
                         <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>

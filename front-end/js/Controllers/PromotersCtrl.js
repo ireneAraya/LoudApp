@@ -1,6 +1,6 @@
 angular.module ('loudApp.controllers')
 
-.controller('CashiersCtrl', [
+.controller('PromotersCtrl', [
     '$scope', 'LoudService', '$location', '$q', '$timeout',
     function($scope, LoudService, $location, $q, $timeout) {
 
@@ -19,7 +19,7 @@ angular.module ('loudApp.controllers')
 
             userExists.then(function (response) {
                 if (response.success && response.data) {
-                    $location.path('/');
+                    $location.path("/");
                 } else {
                     // Calbacks
                     otherFunctions();
@@ -27,27 +27,27 @@ angular.module ('loudApp.controllers')
             });
         };
 
-        $scope.addCashier = function () {
+        $scope.addPromoter = function () {
             // Disables the register button while processing
             $scope.processing = true;
             $scope.error = null;
 
             // Creates the user object
             var userToCreate = {
-                'rol' : 4,
-                'identification' : $scope.user.identification,
-                'identificationType' : $scope.user.identificationType,
-                'firstName' : $scope.user.firstName,
-                'middleName' : $scope.user.middleName,
-                'lastName' : $scope.user.lastName,
-                'secondSurname' : $scope.user.secondSurname,
-                'email' : $scope.user.email,
-                'salesPoint': $scope.user.salesPoint,
-                'hash' : $scope.user.hash,
-                'verifyPassword' : $scope.user.verifyPassword,
-                'phone' : $scope.user.phone,
-                'locale' : "EN",
-                'photoURL' : document.getElementById('cashierImage').getAttribute('src')
+                "rol" : 4,
+                "identification" : $scope.user.identification,
+                "identificationType" : $scope.user.identificationType,
+                "firstName" : $scope.user.firstName,
+                "middleName" : $scope.user.middleName,
+                "lastName" : $scope.user.lastName,
+                "secondSurname" : $scope.user.secondSurname,
+                "email" : $scope.user.email,
+                "company": $scope.user.company,
+                "hash" : $scope.user.hash,
+                "verifyPassword" : $scope.user.verifyPassword,
+                "phone" : $scope.user.phone,
+                "locale" : "EN",
+                "photoURL" : document.getElementById("promoterImage").getAttribute("src")
             };
 
             console.log(userToCreate);
