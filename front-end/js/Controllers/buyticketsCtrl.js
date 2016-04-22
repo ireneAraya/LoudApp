@@ -8,9 +8,6 @@ angular.module ('loudApp.controllers')
         $scope.user = LoudService.verify('LoudApp__User') || {};
         $scope.areaName = '';
 
-        // $scope.initialAmount = 0;
-        // $scope.itemPrice = 3500;
-
         $scope.init = function() {
 
             LoudService.getDataFromJS().then(function(response) {
@@ -22,25 +19,10 @@ angular.module ('loudApp.controllers')
 
             LoudService.getSeatDataFromJS().then(function(response) {
                 $scope.sections = response.data;
-                console.log($scope.sections);
-
             }, function(razon) {
                 $scope.error = razon;
             });
         };
-
-        // $scope.sumValues = function () {
-        //     $scope.initialAmount += $scope.itemPrice;
-        // }
-
-        // $scope.differenceValues = function () {
-        //     $scope.initialAmount -= $scope.itemPrice;
-
-        //     // No deja que de resultados negativos
-        //     if ($scope.initialAmount <= 0) {
-        //         $scope.initialAmount = 0;
-        //     }
-        // }
 
         function otherFunctions() {
 
@@ -94,7 +76,6 @@ angular.module ('loudApp.controllers')
                 fullOption.area = "";
                 fullOption.area = item.currentTarget.getAttribute("data-description");
                 $scope.areaName = fullOption.area;
-                console.log($scope.areaName);
                 var areaString = fullOption.area;
                 var areaResult = areaString.substring(0, 3);
                 if (areaResult == "VIP") {
