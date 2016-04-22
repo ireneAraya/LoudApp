@@ -1,7 +1,12 @@
 <main class="wrapper container">
-	<div ng-if="loadingData">
+
+		<div ng-if="loadingData">
 		<br><br><br>
-		<small class="text-center" style="color: white; display: block;">Loading events...</small>
+		<div class="text-center loading">
+			<i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom"></i>
+			<br>
+			<p>Loading events...</p>
+		</div>
 	</div>
 
 	<div class="row" ng-if="loadingData === false">
