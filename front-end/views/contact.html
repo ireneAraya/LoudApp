@@ -12,54 +12,43 @@
 				<div class="form-group col-xs-12">
 	                <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>
 	                <input id="firstName" type="text" name="firstName" ng-model="user.firstName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
-	                <div ng-messages="addCashierForm.firstName.$error" ng-if="addCashierForm.firstName.$touched && addCashierForm.firstName.$invalid" class="validate-messages">
+	                <div ng-messages="contactForm.firstName.$error" ng-if="contactForm.firstName.$touched && contactForm.firstName.$invalid" class="validate-messages">
 	                    <div ng-messages-include="error-messages"></div>
 	                </div>
 	            </div>
 				<div class="form-group col-xs-12">
 	                <label for="lastName">{{ translation.REGISTRATION.LAST_NAME }}</label>
 	                <input id="lastName" type="text" name="lastName" ng-model="user.lastName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
-	                <div ng-messages="addCashierForm.lastName.$error" ng-if="addCashierForm.lastName.$touched && addCashierForm.lastName.$invalid" class="validate-messages">
+	                <div ng-messages="contactForm.lastName.$error" ng-if="contactForm.lastName.$touched && contactForm.lastName.$invalid" class="validate-messages">
 	                    <div ng-messages-include="error-messages"></div>
 	                </div>
 	            </div>
-				<div class="form-group col-xs-12">
-	                <label for="secondSurname">{{ translation.REGISTRATION.SECOND_SURNAME }}</label>
-	                <input id="secondSurname" type="text" name="secondSurname" ng-model="user.secondSurname" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
-	                <div ng-messages="addCashierForm.secondSurname.$error" ng-if="addCashierForm.secondSurname.$touched && addCashierForm.secondSurname.$invalid" class="validate-messages">
-	                    <div ng-messages-include="error-messages"></div>
-	                </div>
-	            </div>
-
 	            <div class="form-group col-xs-12">
 	                <label for="">{{ translation.REGISTRATION.EMAIL }}</label>
 	                <input type="text" class="form-control" ng-model="user.email" name="email" placeholder="email@me.com" valid-email required>
-	                <div ng-messages="addCashierForm.email.$error" ng-if="addCashierForm.email.$touched && addCashierForm.email.$invalid" class="validate-messages">
+	                <div ng-messages="contactForm.email.$error" ng-if="contactForm.email.$touched && contactForm.email.$invalid" class="validate-messages">
 	                    <div ng-messages-include="error-messages"></div>
 	                </div>
 	            </div>
-
 	            <div class="form-group col-xs-12">
 	                <label for="">{{ translation.REGISTRATION.PHONE }}</label>
 	                <input type="text" class="form-control" ng-model="user.phone" name="phone" valid-number required>
-	                <div ng-messages="addCashierForm.phone.$error" ng-if="addCashierForm.phone.$touched && addCashierForm.phone.$invalid" class="validate-messages">
+	                <div ng-messages="contactForm.phone.$error" ng-if="contactForm.phone.$touched && contactForm.phone.$invalid" class="validate-messages">
 	                    <div ng-messages-include="error-messages"></div>
 	                </div>
 	            </div>
-
 	            <div class="form-group col-xs-12">
 		          	<label for="">{{ translation.MESSAGE }}</label>
-		          	<textarea type="text" name="description" ng-model="event.description" class="form-control" required>></textarea>
+		          	<textarea type="text" name="description" ng-model="event.description" class="form-control" required></textarea>
 		          	<div ng-messages="addEventForm.description.$error" ng-if="addEventForm.description.$touched && addEventForm.description.$invalid" class="validate-messages">
 		          	    <div ng-messages-include="error-messages"></div>
 		          	</div>
 		        </div>
-				
 				<div class="form-group col-xs-6">
-				  <a href="#/eventTypesList" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
+				  <a href="#/" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
 				</div>
 				<div class="form-group col-xs-6">
-				  <button class="btn next-btn align-right" ng-click="addEventType()" ng-disabled="addEventTypeForm.$invalid">{{ translation.SEND }}</button>
+				  <button class="btn next-btn align-right" ng-disabled="contactForm.$invalid">{{ translation.SEND }}</button>
 				</div>
 			</form>
 		</div>
