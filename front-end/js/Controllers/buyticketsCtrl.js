@@ -9,7 +9,6 @@ angular.module ('loudApp.controllers')
         $scope.areaName = '';
 
         $scope.init = function() {
-
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
                 otherFunctions();
@@ -45,27 +44,23 @@ angular.module ('loudApp.controllers')
             fullOption.seats = [];
             $scope.price = 0;
 
-
             $scope.getSelectedValue = function (value) {
                 $scope.eventsBuy = value;
             };
 
-            $scope.getEventLocation = function (index, key) {
-                var location = LoudService.getItem($scope.data.locations, "id", index);
-                return location[key];
-            };
-
             $scope.showLocationView = function () {
 
-                var locationID = $scope.eventsBuy.location;
+                var locationID = $scope.eventsBuy.locationId;
                 var locationPath = '';
 
-                if (locationID == 0) {
-                    locationPath = '/buyTickets/tickets/seats';
-                } else if (locationID == 1) {
-
+                if (locationID == 1) {
+                    // Estadio Nacional
                     locationPath = '/buyTickets/tickets/seats';
                 } else if (locationID == 2) {
+                    // Saprissa
+                    locationPath = '/buyTickets/tickets/seats';
+                } else if (locationID == 3) {
+                    // Peppers
                     locationPath = '/addEvent';
                 }
 
@@ -79,7 +74,7 @@ angular.module ('loudApp.controllers')
                 var areaString = fullOption.area;
                 var areaResult = areaString.substring(0, 3);
                 if (areaResult == "VIP") {
-                    $scope.price = $scope.eventsBuy.prices[2].amount;
+                    $scope.price = Number($scope.eventsBuy.rates[2].price);
                 }
             };
 
@@ -135,6 +130,5 @@ angular.module ('loudApp.controllers')
         $scope.$watch('eventsBuy', function(newValue, oldValue) {
             LoudService.save("LoudApp__SelectedEventInfo", newValue);
         }, true);
-
     }
 ]);

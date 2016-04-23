@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-xs-6">
       <a href="#/buyTickets/tickets/seats"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
-    </div><!--.col-xs-6-->
-  </div><!--.row-->
+    </div>
+  </div>
   <h1 class="text-center">{{ translation.BUY_TICKETS }}</h1>
   <hr>
   <div class="row row-centered">
@@ -14,15 +14,15 @@
         <div class="detail-buy-container">
           <div class="details">
             <h3>{{eventsBuy.name}}</h3>
-            <p>{{ translation.EVENT_DATE }}: <span>{{eventsBuy.date}}</span></p>
-            <p>{{ translation.EVENT_TIME }}: <span>{{eventsBuy.startHour}}</span></p>
-            <p>{{ translation.EVENT_PLACE }}: <span>{{ getEventLocation(eventsBuy.location, 'name') }}</span></p>
+            <p>{{ translation.EVENT_DATE }}: <span>{{eventsBuy.date | date:'longDate' }}</span></p>
+            <p>{{ translation.EVENT_TIME }}: <span>{{eventsBuy.date | date:'hh:mm a' }}</span></p>
+            <p>{{ translation.EVENT_PLACE }}: <span>{{ eventsBuy.locationName }}</span></p>
             <div>
               <!-- <p>Asientos:</p> -->
               <div ng-repeat="option in eventsBuy.options">
                 <p class="selected-area">Area: {{ option.area }}</p>
                 <p class="selected-seats">{{ translation.EVENT_CLIENT_SEATS }}: {{ option.seats.join(", "); }}</p>
-                <p>Total: <span>{{ option.total }}</span></p>
+                <p>Total: <span>{{ option.total | currency:'¢' }}</span></p>
               </div>
             </div>
           </div>
