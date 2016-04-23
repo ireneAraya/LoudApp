@@ -22,7 +22,7 @@
               <div ng-repeat="option in eventsBuy.options">
                 <p class="selected-area">Area: {{ option.area }}</p>
                 <p class="selected-seats">{{ translation.EVENT_CLIENT_SEATS }}: {{ option.seats.join(", "); }}</p>
-                <p>Total: <span>{{ option.total }}</span></p>
+                <p>Total: <span>{{ option.total | currency:'¢' }}</span></p>
               </div>
             </div>
           </div>

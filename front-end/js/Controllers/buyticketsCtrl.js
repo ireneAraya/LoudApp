@@ -46,12 +46,6 @@ angular.module ('loudApp.controllers')
 
             $scope.getSelectedValue = function (value) {
                 $scope.eventsBuy = value;
-                console.log(value);
-            };
-
-            $scope.getEventLocation = function (index, key) {
-                var location = LoudService.getItem($scope.data.locations, "id", index);
-                return location[key];
             };
 
             $scope.showLocationView = function () {
@@ -80,7 +74,7 @@ angular.module ('loudApp.controllers')
                 var areaString = fullOption.area;
                 var areaResult = areaString.substring(0, 3);
                 if (areaResult == "VIP") {
-                    $scope.price = $scope.eventsBuy.prices[2].amount;
+                    $scope.price = Number($scope.eventsBuy.rates[2].price);
                 }
             };
 
