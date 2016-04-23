@@ -23,8 +23,6 @@ angular.module ('loudApp.controllers')
                 if (response && response.data) {
                     $scope.eventsCol = response.data;
 
-                    console.log($scope.eventsCol);
-
                     var getLocations = $q(function (resolve, reject) {
                         var res = LoudService.getCollection("locations");
 
@@ -50,31 +48,32 @@ angular.module ('loudApp.controllers')
                             getPlaces.then(function (responsePlaces) {
                                 if (responsePlaces && responsePlaces.data) {
                                     $scope.rates = responsePlaces.data;
-                                }
 
-                                for (var i = 0; i < $scope.eventsCol.length; i++) {
-                                    var event = $scope.eventsCol[i];
-                                    event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
-                                    event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
-                                    event.date = new Date(event.date).toISOString();
+                                    for (var i = 0; i < $scope.eventsCol.length; i++) {
+                                        var event = $scope.eventsCol[i];
+                                        event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
+                                        event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
+                                        event.date = new Date(event.date).toISOString();
 
-                                    var rates = [];
+                                        var rates = [];
 
-                                    for (var f = 0; f < $scope.rates.length; f++) {
-                                        var rate = $scope.rates[f];
+                                        for (var f = 0; f < $scope.rates.length; f++) {
+                                            var rate = $scope.rates[f];
 
-                                        if (rate.eventId == event.id) {
-                                            rates.push(rate);
+                                            if (rate.eventId == event.id) {
+                                                rates.push(rate);
+                                            }
                                         }
+
+                                        event.rates = rates;
                                     }
 
-                                    event.rates = rates;
+                                    if ($routeParams.id) {
+                                        var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
+                                        $scope.event = $scope.eventsCol[targetEvent];
+                                    }
                                 }
 
-                                if ($routeParams.id) {
-                                    var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
-                                    $scope.event = $scope.eventsCol[targetEvent];
-                                }
 
                                 $scope.loadingData = false;
                             });
