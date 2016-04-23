@@ -9,13 +9,6 @@ angular.module ('loudApp.controllers')
         $scope.areaName = '';
 
         $scope.init = function() {
-            LoudService.getDataFromJS().then(function(response) {
-                $scope.data = angular.fromJson(response.data);
-                otherFunctions();
-            }, function(razon) {
-                $scope.error = razon;
-            });
-
             LoudService.getSeatDataFromJS().then(function(response) {
                 $scope.sections = response.data;
             }, function(razon) {
