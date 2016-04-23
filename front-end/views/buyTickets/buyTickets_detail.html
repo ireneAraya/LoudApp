@@ -14,9 +14,9 @@
         <div class="detail-buy-container">
           <div class="details">
             <h3>{{eventsBuy.name}}</h3>
-            <p>{{ translation.EVENT_DATE }}: <span>{{eventsBuy.date}}</span></p>
-            <p>{{ translation.EVENT_TIME }}: <span>{{eventsBuy.startHour}}</span></p>
-            <p>{{ translation.EVENT_PLACE }}: <span>{{ getEventLocation(eventsBuy.location, 'name') }}</span></p>
+            <p>{{ translation.EVENT_DATE }}: <span>{{eventsBuy.date | date:'longDate' }}</span></p>
+            <p>{{ translation.EVENT_TIME }}: <span>{{eventsBuy.date | date:'hh:mm a' }}</span></p>
+            <p>{{ translation.EVENT_PLACE }}: <span>{{ eventsBuy.locationName }}</span></p>
             <div>
               <!-- <p>Asientos:</p> -->
               <div ng-repeat="option in eventsBuy.options">

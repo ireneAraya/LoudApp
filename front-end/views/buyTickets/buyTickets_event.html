@@ -1,46 +1,41 @@
 <main class="container">
-  <div class="row">
-    <div class="col-xs-6">
-      <a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
-    </div><!--.col-xs-6-->
-  </div><!--.row-->
-  <h1 class="text-center">{{translation.BUY_TICKETS}}</h1>
-  <hr>
-  <div class="row row-centered">
-    <div class="col-md-6 col-centered">
-      <form role="form" class="general-form" name="buyEventForm" novalidate autocomplete="false">
-        <div class="form-group typeahead" ng-controller="TypeaheadCtrl">
-          <label for="select_event"><i class="fa fa-hand-peace-o"></i> {{ translation.SELECT_EVENT }}</label>
-          <div ng-if="noResults" class="alert alert-danger">
-            <span>{{ translation.NO_RESULTS }}</span>
+
+  <div ng-if="loadingData">
+    <br><br><br>
+    <div class="text-center loading">
+      <i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom"></i>
+      <br>
+      <p>Loading events...</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="row">
+      <div class="col-xs-6">
+        <a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
+      </div><!--.col-xs-6-->
+    </div><!--.row-->
+    <h1 class="text-center">{{translation.BUY_TICKETS}}</h1>
+    <hr>
+    <div class="row row-centered">
+      <div class="col-md-6 col-centered">
+        <form role="form" class="general-form" name="buyEventForm" novalidate autocomplete="false">
+          <div class="form-group typeahead" ng-controller="TypeaheadCtrl">
+            <label for="select_event"><i class="fa fa-hand-peace-o"></i> {{ translation.SELECT_EVENT }}</label>
+            <div ng-if="noResults" class="alert alert-danger">
+              <span>{{ translation.NO_RESULTS }}</span>
+            </div>
+            <input id="select_event" type="text" placeholder="{{translation.SEARCH_EVENT}}" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}" typeahead-on-select="getSelectedValue($item)" ng-model="selected" typeahead-editable="false" typeahead-popup-template-url="front-end/views/customPopupTemplate.html" class="form-control" typeahead-no-results="noResults" required>
+            <label for=""><i class="fa fa-calendar"></i> {{translation.EVENT_DATE}}</label>
+            <span class="form-control event-info">{{ selected.date | date:'longDate' }}</span>
+            <label for=""><i class="fa fa-clock-o"></i> {{translation.EVENT_TIME}}</label>
+            <span class="form-control event-info">{{ selected.date | date:'hh:mm a' }}</span>
           </div>
-          <input id="select_event" type="text" placeholder="{{translation.SEARCH_EVENT}}" uib-typeahead="event as event.name for event in events | filter:{name:$viewValue}" typeahead-on-select="getSelectedValue($item)" ng-model="selected" typeahead-editable="false" typeahead-popup-template-url="front-end/views/customPopupTemplate.html" class="form-control" typeahead-no-results="noResults" required>
-          <label for=""><i class="fa fa-calendar"></i> {{translation.EVENT_DATE}}</label>
-          <span class="form-control event-info">{{selected.date}}</span>
-          <label for=""><i class="fa fa-clock-o"></i> {{translation.EVENT_TIME}}</label>
-          <span class="form-control event-info">{{selected.startHour}}</span>
-        </div>
-        <!-- <div class="form-group" ng-controller="DatepickerCtrl">
-          <label for="">Seleccione una fecha</label>
-          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-          <span class="input-group-btn">
-            <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-        </div> -->
-        <!-- <div class="form-group" ng-controller="buyticketsCtrl">
-          <label for="">Seleccione una hora</label>
-          <div>
-            <a href="" class="hours-btn">09:00</a>
-            <a href="" class="hours-btn">13:00</a>
-            <a href="" class="hours-btn">15:00</a>
-            <a href="" class="hours-btn">19:00</a>
-            <a href="" class="hours-btn">21:00</a>
+          <div class="form-group">
+            <button class="btn next-btn align-right" ng-click="showLocationView();" ng-disabled="buyEventForm.$invalid">{{translation.NEXT}}</button>
           </div>
-        </div> -->
-        <div class="form-group">
-          <button class="btn next-btn align-right" ng-click="showLocationView();" ng-disabled="buyEventForm.$invalid">{{translation.NEXT}}</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </main>

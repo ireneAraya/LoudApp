@@ -9,7 +9,6 @@ angular.module ('loudApp.controllers')
         $scope.areaName = '';
 
         $scope.init = function() {
-
             LoudService.getDataFromJS().then(function(response) {
                 $scope.data = angular.fromJson(response.data);
                 otherFunctions();
@@ -45,9 +44,9 @@ angular.module ('loudApp.controllers')
             fullOption.seats = [];
             $scope.price = 0;
 
-
             $scope.getSelectedValue = function (value) {
                 $scope.eventsBuy = value;
+                console.log(value);
             };
 
             $scope.getEventLocation = function (index, key) {
@@ -57,15 +56,17 @@ angular.module ('loudApp.controllers')
 
             $scope.showLocationView = function () {
 
-                var locationID = $scope.eventsBuy.location;
+                var locationID = $scope.eventsBuy.locationId;
                 var locationPath = '';
 
-                if (locationID == 0) {
-                    locationPath = '/buyTickets/tickets/seats';
-                } else if (locationID == 1) {
-
+                if (locationID == 1) {
+                    // Estadio Nacional
                     locationPath = '/buyTickets/tickets/seats';
                 } else if (locationID == 2) {
+                    // Saprissa
+                    locationPath = '/buyTickets/tickets/seats';
+                } else if (locationID == 3) {
+                    // Peppers
                     locationPath = '/addEvent';
                 }
 
@@ -135,6 +136,5 @@ angular.module ('loudApp.controllers')
         $scope.$watch('eventsBuy', function(newValue, oldValue) {
             LoudService.save("LoudApp__SelectedEventInfo", newValue);
         }, true);
-
     }
 ]);

@@ -82,29 +82,25 @@ angular.module ('loudApp.controllers')
             });
         };
 
-            //Agregar inputs de precio y lugar
-            $scope.zonesCol = [
-                { id    : 0}
-            ];
 
-            $scope.addZone = function () {
-                var newZone = $scope.zonesCol.length+1;
-                var newId = 0;
+        $scope.addZone = function () {
+            var newZone = $scope.zonesCol.length+1;
+            var newId = 0;
 
-                for (var i = 0; i < $scope.zonesCol.length; i++) {
-                    newId = (i +1);
-                };
-
-                var zone = {
-                    id      : newId,
-                    place   : $scope.place,
-                    amount  : $scope.amount
-                }
-
-                $scope.zonesCol.push(zone);
-
-                LoudService.save("LoudApp__Zones", $scope.zonesCol);
+            for (var i = 0; i < $scope.zonesCol.length; i++) {
+                newId = (i +1);
             };
+
+            var zone = {
+                id      : newId,
+                place   : $scope.place,
+                amount  : $scope.amount
+            }
+
+            $scope.zonesCol.push(zone);
+
+            LoudService.save("LoudApp__Zones", $scope.zonesCol);
+        };
 
             $scope.deleteZone = function () {
                 var lastZoneItem = $scope.zonesCol.length-1;
