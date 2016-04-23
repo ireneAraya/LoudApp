@@ -135,6 +135,17 @@ $app->post(
 );
 
 $app->post(
+    '/item/add/{itemName}',
+    function ($request, $response) {
+        /** @var Request $request */
+        /** @var Response $response */
+        $userController = new App\Controllers\UserController();
+        $result = $userController->deleteItem($request);
+        return $response->withJson($result);
+    }
+);
+
+$app->post(
     '/user/logout',
     function ($request, $response) {
         /** @var Request $request */
