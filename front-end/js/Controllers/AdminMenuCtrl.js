@@ -6,7 +6,7 @@ function ($scope, LoudService){
         $scope.isAdmin = false;
         $scope.user = LoudService.verify("LoudApp__User");
 
-        if ($scope.user && $scope.user.rol) {
+        if ($scope.user && $scope.user.rol === "1") {
             $scope.isAdmin = true;
         }
     };

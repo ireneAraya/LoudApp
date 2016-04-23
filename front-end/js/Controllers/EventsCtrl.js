@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('EventsCtrl', [
-	'$scope', '$routeParams', '$location', 'LoudService', '$timeout', '$q',
-	function($scope, $routeParams, $location, LoudService, $timeout, $q) {
+	'$scope', '$routeParams', '$location', 'LoudService', '$timeout', '$q', '$window',
+	function($scope, $routeParams, $location, LoudService, $timeout, $q, $window) {
 
         $scope.init = function() {
 
@@ -170,7 +170,7 @@ angular.module ('loudApp.controllers')
 
             deleteEvent.then(function (response) {
                 if (response && response.success) {
-                    $location.reload();
+                    $window.location.reload();
                 }
             });
         }

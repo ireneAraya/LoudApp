@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('LocationsCtrl', [
-	'$scope', '$routeParams', '$location', 'LoudService', '$timeout', '$q',
-	function($scope, $routeParams, $location, LoudService, $timeout, $q) {
+	'$scope', '$routeParams', '$location', 'LoudService', '$timeout', '$q', '$window',
+	function($scope, $routeParams, $location, LoudService, $timeout, $q, $window) {
 
         $scope.init = function() {
 
@@ -21,12 +21,13 @@ angular.module ('loudApp.controllers')
             getLocations.then(function (response) {
                 if (response && response.data) {
                     $scope.locationsCol = response.data;
-                }    
+                }
 
                 $scope.loadingData = false;
             });
         };
 
+<<<<<<< HEAD
         //Agregar locación
             $scope.addLocation = function () {
                 // Disables the register button while processing
@@ -69,5 +70,25 @@ angular.module ('loudApp.controllers')
 
             $scope.init();
         };
+=======
+        $scope.erraseLocation = function (locationId) {
+            var deleteEvent = $q(function (resolve, reject) {
+                var res = LoudService.deleteItem("locations", locationId);
+
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
+
+            deleteEvent.then(function (response) {
+                if (response && response.success) {
+                    $window.location.reload();
+                }
+            });
+        };
+
+        $scope.init();
+>>>>>>> 654c6512cda526ad82ad89b711057d0770b18c4d
 	}
 ])

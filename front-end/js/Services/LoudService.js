@@ -108,6 +108,22 @@ angular.module ('loudApp.services')
             return defer.promise;
         };
 
+        var addItem = function (objectToCreate) {
+            var defer = $q.defer();
+
+            $http({
+                method: 'POST',
+                data : objectToCreate,
+                url: 'back-end/item/add/locations'
+            }).then(function successCallback(response) {
+                defer.resolve(response.data);
+            }, function errorCallback(response) {
+                defer.reject(response);
+            });
+
+            return defer.promise;
+        };
+
         var requestNewPassword = function (userEmail) {
             var defer = $q.defer();
 
@@ -233,7 +249,8 @@ angular.module ('loudApp.services')
             getCollection      : getCollection,
             getItemDB          : getItemDB,
             getSeatDataFromJS  : getSeatDataFromJS,
-            deleteItem         : deleteItem
+            deleteItem         : deleteItem,
+            addItem            : addItem
         };
     }
 ]);

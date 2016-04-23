@@ -227,6 +227,44 @@ class UserController {
         return $result;
     }
 
+    public function addItem ($request) {
+        $result = [];
+
+        $itemName = $request->getAttribute("itemName", null);
+        $formData = $request->getParsedBody();
+
+        if (isset($itemName)) {
+            $errors = "";
+
+            foreach ($requestData as $key => $value) {
+                if (empty($value) AND $key != "image") {
+                    $errors .= "The field ".$key." is required. ";
+                }
+            }
+
+            if ($errors != "") {
+                $getAddResult = $this->userService->addItem($itemName, $formData);
+
+                if (array_key_exists("error", $getAddResult)) {
+                    $result["error"] = true;
+                    $result["message"] = $getAddResult["message"];
+                } else {
+                    $result["success"] = true;
+                    $result["message"] = $getAddResult["message"];
+                }
+            } else {
+                $result["error"] = true;
+                $result["message"] = $errors;
+            }
+
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name and the item you want to add.";
+        }
+
+        return $result;
+    }
+
     public function getItem ($request) {
         $result = [];
 

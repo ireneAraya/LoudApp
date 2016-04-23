@@ -434,6 +434,59 @@ class UserService {
         return $result;
     }
 
+    public function addItem ($itemName = "locations", $formData) {
+        $result = [];
+
+        if ($itemName != "") {
+            if ($itemName === "locations") {
+
+                // Saves the Profile IMG
+                $photoURLPath = "";
+                if ($formData['image'] != "front-end/img/photo.png") {
+                    $filename_path = md5(time().uniqid()).".jpg";
+                    $image = explode('base64,', $formData['image']);
+                    $decoded = base64_decode($image[1]);
+                    file_put_contents(str_replace("UserService.php", "", __FILE__)."../../../../front-end/img/". $filename_path, $decoded);
+
+                    $photoURLPath = "/front-end/img/" . $filename_path;
+                } else {
+                    $photoURLPath = "/front-end/img/photo.png";
+                }
+
+                $query = "INSERT INTO loud_locations (name, capacity, contactName, contactPhone, address, geolocation, image, active) VALUES (:name, :capacity, :contactName, :contactPhone, :address, :geolocation, :image, 1)";
+
+                $param = [
+                    ":name" => $formData["name"],
+                    ":capacity" => intval($formData["capacity"]),
+                    ":contactName" => $formData["contactName"],
+                    ":contactPhone" => $formData["contactPhone"],
+                    ":address" => $formData["address"],
+                    ":geolocation" => $formData["geolocation"],
+                    ":image" => $photoURLPath
+                ];
+
+                $query_result = $this->storage->query($query, $param, "INSERT");
+
+                if (count($query_result['data']) > 0) {
+                    $result["success"] = true;
+                    $result["message"] = "The item has been successfully created.";
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "The item has been already removed.";
+                }
+
+            } else {
+                $result["error"] = true;
+                $result["message"] = "The action you want to perform is not allowed.";
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name of the collection to get.";
+        }
+
+        return $result;
+    }
+
     public function getItem ($itemName = "", $id = "", $key = "") {
         $result = [];
 
