@@ -99,6 +99,20 @@
                         <input id="nickname" type="text" name="nickname" ng-model="user.nickname" class="form-control">
                     </div>
 
+                    <div class="col-xs-12">
+                            <div class="form-gender" ng-init="user.locale='ES'">
+                                <label for="">{{ translation.LANGUAGE }}</label><br>
+                                <label class="checkbox-label">
+                                    <input type="radio" ng-model="user.locale" value="ES" name="locale" required>
+                                    <i></i> {{ translation.SPANISH }}
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" ng-model="user.locale" value="EN" name="identificationType">
+                                    <i></i> {{ translation.ENGLISH }}
+                                </label>
+                            </div>
+                        </div>
+
                     <div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
                         <label for="">{{ translation.REGISTRATION.BIRTHDATE }}</label>
                         <input id="selectedDate" type="text" class="form-control" name="birthDate" placeholder="{{translation.SELECT_DATE}}" ng-model="birthDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions_RegisterUser" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
