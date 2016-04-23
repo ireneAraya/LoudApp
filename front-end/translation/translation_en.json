@@ -119,7 +119,7 @@
     "SEARCH_EVENT_TYPE" : "Search for event type here",
     "SEARCH_COMPANY" : "Search for company here",
     "DESCRIPTION" : "Description",
-    "EVENT_DESCRIPTION" : "Event's description",        
+    "EVENT_DESCRIPTION" : "Event's description",
     "SELECT_DATE": "Select a Date",
     "SELECT_VALUE": "Select a value from the list",
     "ZONE": "Zone",
@@ -148,4 +148,9 @@
     "DELETE_CONFIRM": "¿Are you sure you want to continue?",
     "MESSAGE": "Message",
     "SEND" : "Send",
+<<<<<<< HEAD
+    "FORBIDDEN_VIEW_TITLE" : "Forbidden",
+    "FORBIDDEN_VIEW_TEXT" : "The action you're trying to perform cannot be done."
+=======
+>>>>>>> d1c60c7fc50e57bb7dd6003c9a3ab57bdbfd8f1d
 }

@@ -1,44 +1,49 @@
 <main class="wrapper container">
-	<h1 class="text-center">{{ translation.TODO_TITTLE }}</h1>
-
-	<hr>
-
-	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<a href="/#eventsList" class="btn todo-btn">
-				<h3>{{ translation.SEE_EVENTS }}</h3> 
-				<i class="fa fa-hand-peace-o fa-5x"></i>
-			</a>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<a href="/#locationsList" class="btn todo-btn">
-				<h3>{{ translation.SEE_LOCATIONS }}</h3>
-				<i class="fa fa-map-marker fa-5x"></i>
-			</a>	 
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<a href="/#eventTypesList" class="btn todo-btn">
-				<h3>{{ translation.SEE_EVENT_TYPES }}</h3>
-				<i class="fa fa-ticket fa-5x"></i>
-			</a>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<a href="/#" class="btn todo-btn">
-				<h3>{{ translation.SEE_PROMOTERS }}</h3>
-				<i class="fa fa-user fa-5x"></i>
-			</a>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<a href="/#" class="btn todo-btn">
-				<h3>{{ translation.SEE_CASHIERS }}</h3>
-				<i class="fa fa-money fa-5x"></i>
-			</a>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<a href="/#" class="btn todo-btn">
-				<h3>{{ translation.SEE_REPORTS }}</h3>
-				<i class="fa fa-pie-chart fa-5x"></i>
-			</a>
+	<div ng-if="user.rol !== '1'" class="row text-center">
+		<h2>{{ translation.FORBIDDEN_VIEW_TITLE }}</h2>
+		<i class="fa fa-ban fa-5x"></i>
+		<p>{{ translation.FORBIDDEN_VIEW_TEXT }}</p>
+	</div>
+	<div ng-if="user.rol === '1'">
+		<h1 class="text-center">{{ translation.TODO_TITTLE }}</h1>
+		<hr>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a href="/#eventsList" class="btn todo-btn">
+					<h3>{{ translation.SEE_EVENTS }}</h3>
+					<i class="fa fa-hand-peace-o fa-5x"></i>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a href="/#locationsList" class="btn todo-btn">
+					<h3>{{ translation.SEE_LOCATIONS }}</h3>
+					<i class="fa fa-map-marker fa-5x"></i>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a href="/#eventTypesList" class="btn todo-btn">
+					<h3>{{ translation.SEE_EVENT_TYPES }}</h3>
+					<i class="fa fa-ticket fa-5x"></i>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a href="/#" class="btn todo-btn">
+					<h3>{{ translation.SEE_PROMOTERS }}</h3>
+					<i class="fa fa-user fa-5x"></i>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a href="/#" class="btn todo-btn">
+					<h3>{{ translation.SEE_CASHIERS }}</h3>
+					<i class="fa fa-money fa-5x"></i>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<a href="/#" class="btn todo-btn">
+					<h3>{{ translation.SEE_REPORTS }}</h3>
+					<i class="fa fa-pie-chart fa-5x"></i>
+				</a>
+			</div>
 		</div>
 	</div>
 </main>
