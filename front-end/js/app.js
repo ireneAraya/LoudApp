@@ -120,7 +120,8 @@ angular.module('loudApp',[
                 templateUrl: 'front-end/views/contact.html'
             })
             .when('/adminMenu', {
-                templateUrl: 'front-end/views/adminMenu.html'
+                templateUrl: 'front-end/views/adminMenu.html',
+                controller: 'AdminMenuCtrl'
             })
             .when('/promotersMenu', {
                 templateUrl: 'front-end/views/promotersMenu.html'

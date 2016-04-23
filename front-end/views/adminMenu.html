@@ -1,10 +1,10 @@
 <main class="wrapper container">
-	<div ng-if="user.rol !== '1'" class="row text-center">
+	<div ng-show="isAdmin === false" class="row text-center">
 		<h2>{{ translation.FORBIDDEN_VIEW_TITLE }}</h2>
 		<i class="fa fa-ban fa-5x"></i>
 		<p>{{ translation.FORBIDDEN_VIEW_TEXT }}</p>
 	</div>
-	<div ng-if="user.rol === '1'">
+	<div ng-if="isAdmin">
 		<h1 class="text-center">{{ translation.TODO_TITTLE }}</h1>
 		<hr>
 		<div class="row">

@@ -48,31 +48,32 @@ angular.module ('loudApp.controllers')
                             getPlaces.then(function (responsePlaces) {
                                 if (responsePlaces && responsePlaces.data) {
                                     $scope.rates = responsePlaces.data;
-                                }
 
-                                for (var i = 0; i < $scope.eventsCol.length; i++) {
-                                    var event = $scope.eventsCol[i];
-                                    event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
-                                    event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
-                                    event.date = new Date(event.date).toISOString();
+                                    for (var i = 0; i < $scope.eventsCol.length; i++) {
+                                        var event = $scope.eventsCol[i];
+                                        event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
+                                        event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
+                                        event.date = new Date(event.date).toISOString();
 
-                                    var rates = [];
+                                        var rates = [];
 
-                                    for (var f = 0; f < $scope.rates.length; f++) {
-                                        var rate = $scope.rates[f];
+                                        for (var f = 0; f < $scope.rates.length; f++) {
+                                            var rate = $scope.rates[f];
 
-                                        if (rate.eventId == event.id) {
-                                            rates.push(rate);
+                                            if (rate.eventId == event.id) {
+                                                rates.push(rate);
+                                            }
                                         }
+
+                                        event.rates = rates;
                                     }
 
-                                    event.rates = rates;
+                                    if ($routeParams.id) {
+                                        var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
+                                        $scope.event = $scope.eventsCol[targetEvent];
+                                    }
                                 }
 
-                                if ($routeParams.id) {
-                                    var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
-                                    $scope.event = $scope.eventsCol[targetEvent];
-                                }
 
                                 $scope.loadingData = false;
                             });
@@ -102,84 +103,77 @@ angular.module ('loudApp.controllers')
             LoudService.save("LoudApp__Zones", $scope.zonesCol);
         };
 
-            $scope.deleteZone = function () {
-                var lastZoneItem = $scope.zonesCol.length-1;
-                $scope.zonesCol.splice(lastZoneItem, 1);
-            };
+        $scope.deleteZone = function () {
+            var lastZoneItem = $scope.zonesCol.length-1;
+            $scope.zonesCol.splice(lastZoneItem, 1);
+        };
 
-            //Seleccionar el valor del typeahead
-            $scope.getSelectedLocation = function (value) {
-                $scope.location = value;
-            };
+        //Seleccionar el valor del typeahead
+        $scope.getSelectedLocation = function (value) {
+            $scope.location = value;
+        };
 
-            $scope.getSelectedType = function (value) {
-                $scope.eventType = value;
-            };
+        $scope.getSelectedType = function (value) {
+            $scope.eventType = value;
+        };
 
             //Agregar Evento
-            $scope.addEvent = function () {
-                var lastID = 0;
+        $scope.addEvent = function () {
+            var lastID = 0;
 
-                for (var i = 0; i < $scope.eventsCol.length; i++) {
-                    lastID = (i +1);
-                };
+            for (var i = 0; i < $scope.eventsCol.length; i++) {
+                lastID = (i +1);
+            };
 
-                //crea el objeto y lo agrega a la colección
-                var event = {
-                    id              : lastID,
-                    image           : document.getElementById("eventImage").getAttribute("src"),
-                    name            : $scope.eventName,
-                    date            : document.getElementById("selectedDate").value,
-                    startHour       : $scope.startHour,
-                    location        : $scope.location.id,
-                    eventType       : $scope.eventType.id,
-                    description     : $scope.description,
-                    prices          : $scope.zonesCol
-                }
-
-                $scope.eventsCol.push(event);
-
-                // Limpia el formulario, tanto en valores como en estado de variables
-                if ($scope.addLocationForm) {
-                  $scope.addLocationForm.$setPristine();
-                  $scope.addLocationForm.$setUntouched();
-                  $scope.event = "";
-                  $scope.date = "";
-                  $scope.startHour = "";
-                  $scope.location = "";
-                  $scope.eventType = "";
-                  $scope.description = "";
-                  $scope.place = "";
-                  $scope.amount = "";
-                }
-
-                $location.path('/eventsList');
+            //crea el objeto y lo agrega a la colección
+            var event = {
+                id              : lastID,
+                image           : document.getElementById("eventImage").getAttribute("src"),
+                name            : $scope.eventName,
+                date            : document.getElementById("selectedDate").value,
+                startHour       : $scope.startHour,
+                location        : $scope.location.id,
+                eventType       : $scope.eventType.id,
+                description     : $scope.description,
+                prices          : $scope.zonesCol
             }
 
-            //Borrar evento
-            $scope.erraseEvent = function ($index) {
-                var target = LoudService.getItemIndex($scope.eventsCol, $index);
+            $scope.eventsCol.push(event);
 
-                if ($scope.eventsCol.length == 1) {
-                    $scope.eventsCol = [];
-                } else {
-                    $scope.eventsCol.splice(target, 1);
-                }
-
-                // $timeout(function () {
-                    var parent = document.getElementsByTagName("body")[0],
-                        child = parent.lastChild;
-
-                    parent.removeChild(child);
-                // }, 1000);
-
-
-                LoudService.save("LoudApp__Events", $scope.eventsCol);
-
-                $location.path('/eventsList');
+            // Limpia el formulario, tanto en valores como en estado de variables
+            if ($scope.addLocationForm) {
+              $scope.addLocationForm.$setPristine();
+              $scope.addLocationForm.$setUntouched();
+              $scope.event = "";
+              $scope.date = "";
+              $scope.startHour = "";
+              $scope.location = "";
+              $scope.eventType = "";
+              $scope.description = "";
+              $scope.place = "";
+              $scope.amount = "";
             }
 
-        // };
+            $location.path('/eventsList');
+        }
+
+        //Borrar evento
+        $scope.erraseEvent = function (eventId) {
+            var deleteEvent = $q(function (resolve, reject) {
+                var res = LoudService.deleteItem("events", eventId);
+
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
+
+            deleteEvent.then(function (response) {
+                if (response && response.success) {
+                    $location.reload();
+                }
+            });
+        }
 
         $scope.init();
 	}

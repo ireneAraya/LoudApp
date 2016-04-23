@@ -1,60 +1,72 @@
 <main class="container">
-	<div class="row">
-		<div class="col-xs-6">
-			<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
-		</div><!--.col-xs-6-->
-	</div><!--.row-->
-	<h1 class="text-center">{{translation.EVENTS}}</h1>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12 col-lg-8 col-lg-offset-2">
-			<table class="table table-striped">
-				<tr class="row" ng-repeat="event in eventsCol | orderBy: '-date' ">
-					<td class="col-xs-3 col-md-2 col-lg-2">
-						<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
-					</td>
-					<td class="col-xs-8 col-md-8 col-lg-8">
-						<div class="info-td">
-							<h4>{{ event.name }}</h4>
-							<p>{{ event.date }}</p>
-							<p>{{ event.startHour }}</p>
-						</div>
-					</td>
-					<td class="col-xs-1 col-md-2 col-lg-2">
-						<div class="row">
-							<a href="#/editEvent/{{ event.id }}" class="col-xs-12 text-center two-lines"><i class="fa fa-pencil-square-o fa-2x"></i></a>
-						</div>
-						<div class="row">
-							<a class="col-xs-12 text-center two-lines"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventModal-{{$index}}"></i></a>
-						</div>
-					</td>
-					<td>
-						<div class="modal fade" id="erraseEventModal-{{$index}}" tabindex="0" aria-labelledby="Confimación de borrar" role="dialog">
-						  	<div class="modal-dialog">
-							    <div class="modal-content">
-							        <div class="modal-header">
-							          	<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
-							        </div>
-							        <div class="modal-body">
-							        	<h4 class="text-center">{{ event.name }}</h4>
-							        	<p class="text-center">{{ translation.DELETE_CONFIRM }}</p>
-							        </div>
-							        <div class="modal-footer">
-							          	<button type="button" class="btn" data-dismiss="modal">{{ translation.CANCEL }}</button>
-							          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEvent($index)">{{ translation.DELETE }}</button>
-							        </div>
-							    </div>
-						  	</div>
-						</div>
-					</td>
-				</tr>
-			</table>
+
+	<div ng-if="loadingData">
+		<br><br><br>
+		<div class="text-center loading">
+			<i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom"></i>
+			<br>
+			<p>Loading events...</p>
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-xs-12 col-lg-2 col-lg-offset-2">
-			<a href="#/addEvent" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>{{ translation.ADD_EVENT }}</a>
+	<div ng-if="loadingData === false">
+		<div class="row">
+			<div class="col-xs-6">
+				<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
+			</div><!--.col-xs-6-->
+		</div><!--.row-->
+		<h1 class="text-center">{{translation.EVENTS}}</h1>
+		<hr>
+		<div class="row">
+			<div class="col-xs-12 col-lg-8 col-lg-offset-2">
+				<table class="table table-striped">
+					<tr class="row" ng-repeat="event in eventsCol | orderBy: '-date' ">
+						<td class="col-xs-3 col-md-2 col-lg-2">
+							<figure class="circle-thumbnail image-responsive center-block" style="background: #ecf0f1 url({{ event.image }}) 0 0 no-repeat; background-size: cover;"></figure>
+						</td>
+						<td class="col-xs-8 col-md-8 col-lg-8">
+							<div class="info-td">
+								<h4>{{ event.name }}</h4>
+								<p>{{ event.date | date:'longDate' }}</p>
+								<p>{{ event.date | date:'hh:mm a' }}</p>
+							</div>
+						</td>
+						<td class="col-xs-1 col-md-2 col-lg-2">
+							<div class="row">
+								<a href="#/editEvent/{{ event.id }}" class="col-xs-12 text-center two-lines"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+							</div>
+							<div class="row">
+								<a class="col-xs-12 text-center two-lines"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventModal-{{event.id}}"></i></a>
+							</div>
+						</td>
+						<td>
+							<div class="modal fade" id="erraseEventModal-{{event.id}}" tabindex="0" aria-labelledby="Confimación de borrar" role="dialog">
+							  	<div class="modal-dialog">
+								    <div class="modal-content">
+								        <div class="modal-header">
+								          	<img ng-src="{{ event.image }}" alt="Fotografía del Evento" class="circle-thumbnail img-responsive">
+								        </div>
+								        <div class="modal-body">
+								        	<h4 class="text-center">{{ event.name }}</h4>
+								        	<p class="text-center">{{ translation.DELETE_CONFIRM }}</p>
+								        </div>
+								        <div class="modal-footer">
+								          	<button type="button" class="btn" data-dismiss="modal">{{ translation.CANCEL }}</button>
+								          	<button type="button" class="btn" ng-click="erraseEvent(event.id)">{{ translation.DELETE }}</button>
+								        </div>
+								    </div>
+							  	</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-lg-2 col-lg-offset-2">
+				<a href="#/addEvent" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>{{ translation.ADD_EVENT }}</a>
+			</div>
 		</div>
 	</div>
 </main>

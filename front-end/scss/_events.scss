@@ -10,10 +10,17 @@
 	}
 }
 
-.terms {
+.terms, .privacy {
 	h4 {
 		padding-top: 10px;
 		color: #ffffff;
+	}
+}
+
+.privacy {
+	li {
+		color: #ffffff;
+		list-style-type: disc;
 	}
 }
 

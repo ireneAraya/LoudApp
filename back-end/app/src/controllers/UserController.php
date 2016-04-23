@@ -194,6 +194,39 @@ class UserController {
         return $result;
     }
 
+    public function deleteItem ($request) {
+        $result = [];
+
+        $formData = $request->getParsedBody();
+        $collectionName = null;
+        $itemId = null;
+
+        if (array_key_exists("collectionName", $formData)) {
+            $collectionName = $formData["collectionName"];
+        }
+
+        if (array_key_exists("itemId", $formData)) {
+            $itemId = $formData["itemId"];
+        }
+
+        if (isset($collectionName, $itemId)) {
+            $getDeleteResult = $this->userService->deleteItem($collectionName, $itemId);
+
+            if (array_key_exists("error", $getDeleteResult)) {
+                $result["error"] = true;
+                $result["message"] = $getDeleteResult["message"];
+            } else {
+                $result["success"] = true;
+                $result["message"] = $getDeleteResult["message"];
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name and the itemId to continue.";
+        }
+
+        return $result;
+    }
+
     public function getItem ($request) {
         $result = [];
 
