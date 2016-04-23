@@ -1,6 +1,7 @@
 {
     "ENGLISH" : "English",
     "SPANISH" : "Spanish",
+    "LANGUAGE": "Languaje",
     "SIGNIN_REGISTER" : "Sign In/Register",
     "BUY_MENU" : "Buy",
     "BUY_TICKETS" : "Buy tickets",
