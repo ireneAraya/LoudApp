@@ -81,13 +81,10 @@ angular.module ('loudApp.controllers')
                 var locationPath = '';
 
                 if (locationID == 1) {
-                    // Estadio Nacional
                     locationPath = '/buyTickets/tickets/seats';
                 } else if (locationID == 2) {
-                    // Saprissa
                     locationPath = '/buyTickets/tickets/seats';
                 } else if (locationID == 3) {
-                    // Peppers
                     locationPath = '/buyTickets/tickets';
                 }
 

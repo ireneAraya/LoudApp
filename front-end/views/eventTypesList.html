@@ -30,11 +30,11 @@
 						<td class="col-xs-4">
 							<div class="row">
 								<a href="#/addEventType/{{ eventType.id }}" class="col-xs-6 text-center inline"><i class="fa fa-pencil-square-o fa-2x"></i></a>
-								<a href="" class="col-xs-6 text-center inline"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventTypeModal-{{$index}}"></i></a>
+								<a href="" class="col-xs-6 text-center inline"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventTypeModal-{{eventType.id}}"></i></a>
 							</div>
 						</td>
 						<td>
-							<div class="modal fade" id="erraseEventTypeModal-{{$index}}" tabindex="0" aria-labelledby="Confimación de borrar" role="dialog">
+							<div class="modal fade" id="erraseEventTypeModal-{{ eventType.id }}" tabindex="0" aria-labelledby="Confimación de borrar" role="dialog">
 							  	<div class="modal-dialog">
 								    <div class="modal-content">
 								        <div class="modal-body">
@@ -43,7 +43,7 @@
 								        </div>
 								        <div class="modal-footer">
 								          	<button type="button" class="btn" data-dismiss="modal">{{ translation.CANCEL }}</button>
-								          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEventType($index)">{{ translation.DELETE }}</button>
+								          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEventType(eventType.id)">{{ translation.DELETE }}</button>
 								        </div>
 								    </div>
 							  	</div>

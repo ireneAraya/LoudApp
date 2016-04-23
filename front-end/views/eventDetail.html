@@ -9,7 +9,8 @@
 		<br><br><br>
 		<div class="loading text-center">
 			<i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom"></i>
-			<span class="sr-only">Loading...</span>
+			<br>
+			<p>Loading event...</p>
 		</div>
 	</div>
 
@@ -63,14 +64,8 @@
 				</div>
 			</div>
 			<div class="row info-block">
-				<div class="col-md-12 col-lg-4">
-					<a href="#/reserveTickets/{{ event.id }}" class="btn"><i class="fa fa-unlock-alt"></i> {{ translation.RESERVE_BUTTON_TEXT }}</a>
-				</div>
-				<div class="col-md-12 col-lg-4">
+				<div class="col-xs-12">
 					<a href="#/buyTickets/{{ event.id }}" class="btn"><i class="fa fa-credit-card"></i> {{ translation.BUY_BUTTON_TEXT }}</a>
-				</div>
-				<div class="col-md-12 col-lg-4">
-					<button href="" class="btn"><i class="fa fa-facebook"></i> {{ translation.SHARE_BUTTON_TEXT }}</button>
 				</div>
 			</div>
 		</div>
