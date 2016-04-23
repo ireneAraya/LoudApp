@@ -32,7 +32,7 @@
 						    <label for="">{{ translation.EVENT_DATE }}</label>
 						    <input id="selectedDate" type="text" class="form-control" name="date" placeholder="{{translation.SELECT_DATE}}" ng-model="event.date" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
 						    <span class="input-group-btn">
-						        <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+						        <button type="button" class="btn datepicker-btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
 						    </span>
 						    <div ng-messages="addEventForm.date.$error" ng-if="addEventForm.date.$touched && addEventForm.date.$invalid" class="validate-messages">
 				          	    <div ng-messages-include="error-messages"></div>

@@ -292,6 +292,43 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 			margin-bottom: 10px;
 		}
 	}
+
+	.checkbox-label {
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        margin-right: 17px;
+
+        input {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        input:checked + i {
+            box-shadow: inset 0 0 0 8px #e57368;
+            background: #d3362d;
+        }
+
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: 0.2s;
+            box-shadow: inset 0 0 0 8px #d7d3d3;
+            background: #acacac;
+            margin-right: 11px;
+        }
+    }
+
+    .checkbox-label:hover {
+        i {
+            box-shadow: inset 0 0 0 5px #e57368;
+            background: #d3362d;
+        }
+    }
 }
 
 /* TypeAhead */
