@@ -9,6 +9,7 @@ angular.module ('loudApp.controllers')
         $scope.areaName = '';
 
         $scope.init = function() {
+            otherFunctions();
             LoudService.getSeatDataFromJS().then(function(response) {
                 $scope.sections = response.data;
             }, function(razon) {
@@ -28,6 +29,39 @@ angular.module ('loudApp.controllers')
                 $scope.detailUser = " ";
             } else {
                 $scope.detailUser = fullName;
+            }
+
+            $scope.initialAmount = 0;
+            $scope.initialAmount2 = 0;
+
+            $scope.sumValues = function (id, placeName) {
+
+                if (id == 0 && placeName == 'General') {
+                    $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
+                    $scope.initialAmount += $scope.price;
+                } else if (id == 1 && placeName == 'VIP') {
+                    $scope.price = parseInt($scope.eventsBuy.rates[1].price, 10);
+                    $scope.initialAmount2 += $scope.price;
+                }
+
+            }
+
+            $scope.differenceValues = function (id, placeName) {
+                if (id == 0 && placeName == 'General') {
+                    $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
+                    $scope.initialAmount -= $scope.price;
+                } else if (id == 1 && placeName == 'VIP') {
+                    $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
+                    $scope.initialAmount2 -= $scope.price;
+                }
+
+                if ($scope.initialAmount <= 0) {
+                    $scope.initialAmount = 0;
+                }
+
+                if ($scope.initialAmount2 <= 0) {
+                    $scope.initialAmount2 = 0;
+                }
             }
 
             $scope.detailEmail = $scope.user.email || "";
@@ -54,7 +88,7 @@ angular.module ('loudApp.controllers')
                     locationPath = '/buyTickets/tickets/seats';
                 } else if (locationID == 3) {
                     // Peppers
-                    locationPath = '/addEvent';
+                    locationPath = '/buyTickets/tickets';
                 }
 
                 $location.path( locationPath );
