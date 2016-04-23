@@ -506,6 +506,11 @@
                     padding: 17px 22px;
                 }
             }
+            ul {
+                li {
+                    margin-right: 8px;
+                }
+            }
         }
         .select-area-seats {
             margin-left: 84px;
@@ -513,7 +518,7 @@
         .center-area {
             width: 179px;
             height: 236px;
-            margin-left: 87px;
+            margin-left: 106px;
             .scenario-row {
                 width: 71px;
                 height: 32px;
@@ -548,7 +553,7 @@
                 width: 146px;
                 height: 72px;
                 margin: 6px 16px;
-                span {
+                a {
                     margin-top: 24px;
                     font-size: 12px;
                 }
@@ -556,7 +561,7 @@
         }
         .right-area {
             margin-top: -174px;
-            margin-right: 4px;
+            margin-right: 29px;
             .row {
                 margin-right: -15px;
                 margin-left: -15px;
@@ -579,10 +584,10 @@
             }
         }
         .left-left {
-            margin-left: 0;
+            margin-left: 20px;
             margin-top: -100px;
             .row {
-                margin-top: -121px;
+                margin-top: -127px;
                 .seat-stadium-col {
                 }
             }
@@ -596,7 +601,7 @@
             }
         }
         .bottom-area {
-            margin-left: 44px;
+            margin-left: 21px;
             margin-top: 24px;
             .row {
                 .seat-stadium-col {
