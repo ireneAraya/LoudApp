@@ -581,6 +581,11 @@ input[type="file"] {
     }
 }
 
+.general-form .form-group textarea {
+    max-width: 100%;
+    resize: vertical;
+}
+
 @import 'events.scss';
 @import 'tickets.scss';
 @import 'login.scss';
