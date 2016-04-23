@@ -194,6 +194,30 @@ class UserController {
         return $result;
     }
 
+    public function deleteItem ($request) {
+        $result = [];
+
+        $collectionName = $request->getAttribute("collectionName", null);
+        $itemId = $request->getAttribute("itemId", null);
+
+        if (isset($collectionName, $itemId)) {
+            $getDeleteResult = $this->userService->deleteItem($collectionName, $itemId);
+
+            if (array_key_exists("error", $getDeleteResult)) {
+                $result["error"] = true;
+                $result["message"] = $getDeleteResult["message"];
+            } else {
+                $result["success"] = true;
+                $result["message"] = $getDeleteResult["message"];
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name of the collection to get.";
+        }
+
+        return $result;
+    }
+
     public function getItem ($request) {
         $result = [];
 

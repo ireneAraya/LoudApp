@@ -1,5 +1,5 @@
 <main class="container">
-	
+
 	<div ng-if="loadingData">
 		<br><br><br>
 		<div class="text-center loading">
@@ -36,11 +36,11 @@
 								<a href="#/editEvent/{{ event.id }}" class="col-xs-12 text-center two-lines"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 							</div>
 							<div class="row">
-								<a class="col-xs-12 text-center two-lines"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventModal-{{$index}}"></i></a>
+								<a class="col-xs-12 text-center two-lines"><i class="fa fa-trash fa-2x" data-toggle="modal" data-target="#erraseEventModal-{{event.id}}"></i></a>
 							</div>
 						</td>
 						<td>
-							<div class="modal fade" id="erraseEventModal-{{$index}}" tabindex="0" aria-labelledby="Confimación de borrar" role="dialog">
+							<div class="modal fade" id="erraseEventModal-{{event.id}}" tabindex="0" aria-labelledby="Confimación de borrar" role="dialog">
 							  	<div class="modal-dialog">
 								    <div class="modal-content">
 								        <div class="modal-header">
@@ -52,7 +52,7 @@
 								        </div>
 								        <div class="modal-footer">
 								          	<button type="button" class="btn" data-dismiss="modal">{{ translation.CANCEL }}</button>
-								          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEvent($index)">{{ translation.DELETE }}</button>
+								          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEvent(event.id)">{{ translation.DELETE }}</button>
 								        </div>
 								    </div>
 							  	</div>
@@ -68,5 +68,5 @@
 				<a href="#/addEvent" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>{{ translation.ADD_EVENT }}</a>
 			</div>
 		</div>
-	</div>	
+	</div>
 </main>

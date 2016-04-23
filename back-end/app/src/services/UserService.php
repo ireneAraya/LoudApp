@@ -27,7 +27,7 @@ class UserService {
         if (strlen(trim($email)) > 0) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 if (strlen(trim($password)) > 0) {
-                    $query_for_hash = "SELECT id, hash FROM loud_users WHERE email = :email AND verified = 1 LIMIT 1";
+                    $query_for_hash = "SELECT id, hash FROM loud_users WHERE email = :email AND active = 1 LIMIT 1";
 
                     $params_for_hash = [":email" => $email];
 
@@ -38,7 +38,7 @@ class UserService {
                             $user = $result['data'][0];
 
                             if (hash_equals($user['hash'], crypt($password, $user['hash']))) {
-                                $query = "UPDATE loud_users SET active = 1 WHERE id = :id";
+                                $query = "UPDATE loud_users SET logged = 1 WHERE id = :id";
                                 $param = [":id" => $user["id"]];
 
                                 $result = $this->storage->query($query, $param, "UPDATE");
@@ -89,7 +89,7 @@ class UserService {
             $result["success"] = true;
             $result["message"] = "The user ".$_SESSION['user_id']." has an active session.";
 
-            $query = "SELECT id, rol, nickname, firstName, middleName, lastName, secondSurname, email, phone, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, company FROM loud_users WHERE id = :id AND verified = 1 LIMIT 1";
+            $query = "SELECT id, rol, nickname, firstName, middleName, lastName, secondSurname, email, phone, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, company FROM loud_users WHERE id = :id AND active = 1 LIMIT 1";
             $param = ["id" => intVal($_SESSION['user_id'])];
 
             $query_result = $this->storage->query($query, $param, "SELECT");
@@ -129,7 +129,7 @@ class UserService {
         session_start();
 
         if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
-            $query = "UPDATE loud_users SET active = 0 WHERE id = :id";
+            $query = "UPDATE loud_users SET logged = 0 WHERE id = :id";
             $param = [":id" => intval($_SESSION['user_id'])];
 
             $result = $this->storage->query($query, $param, "UPDATE");
@@ -158,7 +158,7 @@ class UserService {
             $email = strtolower($email);
             $email = trim($email);
 
-            $query = "SELECT id, firstName, email FROM loud_users WHERE email = :email AND verified = 1 LIMIT 1";
+            $query = "SELECT id, firstName, email FROM loud_users WHERE email = :email AND active = 1 LIMIT 1";
 
             $param = [":email" => $email];
 
@@ -172,7 +172,7 @@ class UserService {
 
                 $user = $selectUserResult['data'][0];
 
-                $query = "UPDATE loud_users SET hash = :newPassword, active = 0 WHERE id = :id";
+                $query = "UPDATE loud_users SET hash = :newPassword, logged = 0 WHERE id = :id";
                 $param = [
                     ":newPassword" => $hash,
                     ":id" => $user["id"]
@@ -215,7 +215,7 @@ class UserService {
     public function register($formData) {
         $result = [];
 
-        $query = "SELECT id FROM loud_users WHERE email = :email AND verified = 1 LIMIT 1";
+        $query = "SELECT id FROM loud_users WHERE email = :email AND active = 1 LIMIT 1";
         $param = [":email" => strtolower(trim($formData["email"]))];
         $isExistingUserResult = $this->storage->query($query, $param, "SELECT");
 
@@ -311,7 +311,7 @@ class UserService {
                                     $locale = "EN";
                                 }
 
-                                $query = "INSERT INTO loud_users (rol, nickname, firstName, middleName, lastName, secondSurname, email, phone, hash, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, active, verified) VALUES (2, :nickname, :firstName, :middleName, :lastName, :secondSurname, :email, :phone, :hash, :identification, :identificationType, :locale, :birthDate, :gender, :disability, :specialCondition, :photoURL, 0, 1)";
+                                $query = "INSERT INTO loud_users (rol, nickname, firstName, middleName, lastName, secondSurname, email, phone, hash, identification, identificationType, locale, birthDate, gender, disability, specialCondition, photoURL, active, logged, verified) VALUES (2, :nickname, :firstName, :middleName, :lastName, :secondSurname, :email, :phone, :hash, :identification, :identificationType, :locale, :birthDate, :gender, :disability, :specialCondition, :photoURL, 1, 0, 1)";
                                 $params = [
                                     ":nickname" => $nickname,
                                     ":firstName" => $formData["firstName"],
@@ -369,10 +369,10 @@ class UserService {
         if ($collectionName != "") {
             // $allow_objects = ["events","orders","reservations"];
 
-            if ($collectionName === "price_places" OR $collectionName === "events" OR $collectionName === "users" OR $collectionName === "orders" OR $collectionName === "reservations" OR $collectionName === "locations") {
+            if ($collectionName === "price_places" OR $collectionName === "events" OR $collectionName === "orders" OR $collectionName === "reservations" OR $collectionName === "locations") {
                 $collectionName = strtolower($collectionName);
 
-                $query = "SELECT * FROM loud_$collectionName";
+                $query = "SELECT * FROM loud_$collectionName WHERE active = 1";
 
                 $query_result = $this->storage->query($query, [], "SELECT");
 
@@ -386,6 +386,44 @@ class UserService {
             } else {
                 $result["error"] = true;
                 $result["message"] = "The action you want to perform is not allowed.";
+            }
+        } else {
+            $result["error"] = true;
+            $result["message"] = "Please provide the name of the collection to get.";
+        }
+
+        return $result;
+    }
+
+    public function deleteItem ($collectionName, $itemId) {
+        $result = [];
+
+        if ($collectionName != "") {
+            if ($itemId != "") {
+                if ($collectionName === "events" OR $collectionName === "locations" OR $collectionName === "users") {
+                    $collectionName = strtolower($collectionName);
+
+                    $query = "UPDATE loud_$collectionName set active = 0 WHERE id = :id";
+
+                    $param = [":id" => intval($itemId)];
+
+                    $query_result = $this->storage->query($query, $param, "UPDATE");
+
+                    if (count($query_result['data']) > 0) {
+                        $result["success"] = true;
+                        $result["message"] = "The item id #$itemId from Collection: ".strtoupper($collectionName)." has been successfully removed";
+                    } else {
+                        $result["error"] = true;
+                        $result["message"] = "The item has been already removed.";
+                    }
+
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "The action you want to perform is not allowed.";
+                }
+            } else {
+                $result["error"] = true;
+                $result["message"] = "Please provide the id of the item from the collection.";
             }
         } else {
             $result["error"] = true;

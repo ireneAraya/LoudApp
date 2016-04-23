@@ -134,6 +134,25 @@ angular.module ('loudApp.services')
             localStorage.removeItem( keyName );
         };
 
+        var deleteItem = function (itemCollectionName, itemId) {
+            var defer = $q.defer();
+
+            $http({
+                method: 'POST',
+                data : {
+                    collection : itemCollectionName,
+                    id : itemId
+                },
+                url: 'back-end/item/delete'
+            }).then(function successCallback(response) {
+                defer.resolve(response.data);
+            }, function errorCallback(response) {
+                defer.reject(response);
+            });
+
+            return defer.promise;
+        };
+
         var verify = function (key) {
             return angular.fromJson( localStorage.getItem(key) );
         };
@@ -213,7 +232,8 @@ angular.module ('loudApp.services')
             registerUser       : registerUser,
             getCollection      : getCollection,
             getItemDB          : getItemDB,
-            getSeatDataFromJS  : getSeatDataFromJS
+            getSeatDataFromJS  : getSeatDataFromJS,
+            deleteItem         : deleteItem
         };
     }
 ]);
