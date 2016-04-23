@@ -72,10 +72,17 @@ angular.module ('loudApp.controllers')
                 fullOption.area = item.currentTarget.getAttribute("data-description");
                 $scope.areaName = fullOption.area;
                 var areaString = fullOption.area;
+
                 var areaResult = areaString.substring(0, 3);
+
+                var areaResultOthers = areaString.charAt(0);
+
                 if (areaResult == "VIP") {
                     $scope.price = Number($scope.eventsBuy.rates[2].price);
+                } else if (areaResultOthers == "F" | areaResultOthers == "E" | areaResultOthers == "S" ) {
+                    $scope.price = Number($scope.eventsBuy.rates[0].price);
                 }
+
             };
 
             $scope.getSeatNumber = function (item) {
