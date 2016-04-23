@@ -116,6 +116,9 @@ angular.module('loudApp',[
                 templateUrl: 'front-end/views/cashiersList.html',
                 controller: 'CashiersCtrl'
             })
+            .when('/contact', {
+                templateUrl: 'front-end/views/contact.html'
+            })
             .when('/adminMenu', {
                 templateUrl: 'front-end/views/adminMenu.html'
             })
@@ -125,8 +128,11 @@ angular.module('loudApp',[
             .when('/cashiersMenu', {
                 templateUrl: 'front-end/views/cashiersMenu.html'
             })
-            .when('/contact', {
-                templateUrl: 'front-end/views/contact.html'
+            .when('/terms', {
+                templateUrl: 'front-end/views/terms.html'
+            })
+            .when('/privacy', {
+                templateUrl: 'front-end/views/privacy.html'
             })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'

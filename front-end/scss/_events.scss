@@ -1,21 +1,28 @@
 
-.panel{
+.panel {
 	border: none;
 	border-radius: 0;
 	background: $medium-red;
 	color: #ffffff;
 	
-	h4{
+	h4 {
 		padding: 15px;
 	}
 }
 
-.event-info{
+.terms {
+	h4 {
+		padding-top: 10px;
+		color: #ffffff;
+	}
+}
+
+.event-info {
 	padding: 20px 0;
 	background: $medium-red;
 	color: #ffffff;
 	
-	.event-detail{
+	.event-detail {
 		padding-bottom: 20px;
 		
 		@media (max-width: 768px){
@@ -25,22 +32,22 @@
 		}
 	}	
 	
-	td{
+	td {
 		padding-left: 30px;
 		
 	}
 	
-	.info-block{
+	.info-block {
 		margin: 30px 0 10px 0;
 	}
 
-	.info-description{
+	.info-description {
 		@media(max-width: 768px){
 			padding-top: 20px;
 		}
 	}
 
-	.btn{
+	.btn {
 		width: 100%;
 	}
 
@@ -55,7 +62,7 @@
 	}
 }
 
-.plus-btn, .min-btn{
+.plus-btn, .min-btn {
     border: 2px solid $light-red;
     border-radius: 50%;
     width: 40px;
@@ -64,13 +71,13 @@
     background: none;
     color: $light-red;
     
-    &:hover{
+    &:hover {
     	color: $medium-red;
     	border-color: $medium-red;
     }
 }
 
-.plus-btn{
+.plus-btn {
 	margin: 10px 0 10px 30px;
 	
 	i{
@@ -78,7 +85,7 @@
     }
 }
 
-.min-btn{
+.min-btn {
 	margin-top: 10px;
 	padding: 0 5px;
 }
