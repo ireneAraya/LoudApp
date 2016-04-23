@@ -119,8 +119,20 @@ angular.module('loudApp',[
             .when('/contact', {
                 templateUrl: 'front-end/views/contact.html'
             })
+            .when('/adminMenu', {
+                templateUrl: 'front-end/views/adminMenu.html'
+            })
+            .when('/promotersMenu', {
+                templateUrl: 'front-end/views/promotersMenu.html'
+            })
+            .when('/cashiersMenu', {
+                templateUrl: 'front-end/views/cashiersMenu.html'
+            })
             .when('/terms', {
                 templateUrl: 'front-end/views/terms.html'
+            })
+            .when('/privacy', {
+                templateUrl: 'front-end/views/privacy.html'
             })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'
