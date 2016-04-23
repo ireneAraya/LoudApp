@@ -74,22 +74,22 @@
         "WRONG_LOCALID": "Local ID should be: N0NNNN0NNN"
     },
     "REGISTRATION" : {
-        "FIRST_NAME" : "First name:",
-        "MIDDLE_NAME" : "Middle name:",
-        "LAST_NAME" : "Last name:",
-        "SECOND_SURNAME" : "Second surname:",
-        "NICKNAME" : "Nickname:",
-        "EMAIL" : "E-mail address:",
-        "PHONE" : "Telephone:",
-        "PASSWORD" : "Password:",
-        "VERIFY_PASSWORD" : "Verify the password:",
-        "IDENTIFICATION" : "Personal ID:",
-        "BIRTHDATE" : "Birth date:",
+        "FIRST_NAME" : "First name",
+        "MIDDLE_NAME" : "Middle name",
+        "LAST_NAME" : "Last name",
+        "SECOND_SURNAME" : "Second surname",
+        "NICKNAME" : "Nickname",
+        "EMAIL" : "E-mail address",
+        "PHONE" : "Telephone",
+        "PASSWORD" : "Password",
+        "VERIFY_PASSWORD" : "Verify the password",
+        "IDENTIFICATION" : "Personal ID",
+        "BIRTHDATE" : "Birth date",
         "COMPANY" : "Company:",
-        "SALES_POINT" : "Sales Point:",
+        "SALES_POINT" : "Sales Point",
         "NEW_ACCOUNT_SUCCESS" : "Thank your siging up in Loud App. We have sent you an email with your new account information.",
         "GENDER" : {
-            "LABEL" : "Gender:",
+            "LABEL" : "Gender",
             "MALE" : "Male",
             "FEMALE" : "Female",
             "OTHER" : "Other"
@@ -144,5 +144,7 @@
     "SEE_CASHIERS": "See cashiers",
     "SEE_REPORTS": "See reports",
     "DELETE" : "Delete",
-    "DELETE_CONFIRM": "¿Are you sure you want to continue?"
+    "DELETE_CONFIRM": "¿Are you sure you want to continue?",
+    "MESSAGE": "Message",
+    "SEND" : "Send"
 }
