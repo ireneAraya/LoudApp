@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
           <label for="security_code">{{ translation.EVENT_CLIENT_CARD_CODE }}</label>
-          <input id="security_code" type="number" class="form-control" ng-model="securityCode" name="securityCode" ng-maxlength="3" ng-minlength="3" required>
+          <input id="security_code" type="number" class="form-control" ng-model="securityCode" name="securityCode" ng-maxlength="4" ng-minlength="3" required>
           <div ng-messages="cardInfoForm.securityCode.$error" ng-if="cardInfoForm.securityCode.$touched && cardInfoForm.securityCode.$invalid" class="validate-messages">
               <div ng-messages-include="error-messages"></div>
           </div>
