@@ -197,8 +197,17 @@ class UserController {
     public function deleteItem ($request) {
         $result = [];
 
-        $collectionName = $request->getAttribute("collectionName", null);
-        $itemId = $request->getAttribute("itemId", null);
+        $formData = $request->getParsedBody();
+        $collectionName = null;
+        $itemId = null;
+
+        if (array_key_exists("collectionName", $formData)) {
+            $collectionName = $formData["collectionName"];
+        }
+
+        if (array_key_exists("itemId", $formData)) {
+            $itemId = $formData["itemId"];
+        }
 
         if (isset($collectionName, $itemId)) {
             $getDeleteResult = $this->userService->deleteItem($collectionName, $itemId);
@@ -212,7 +221,7 @@ class UserController {
             }
         } else {
             $result["error"] = true;
-            $result["message"] = "Please provide the name of the collection to get.";
+            $result["message"] = "Please provide the name and the itemId to continue.";
         }
 
         return $result;

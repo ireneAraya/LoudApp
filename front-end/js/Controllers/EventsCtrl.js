@@ -23,6 +23,8 @@ angular.module ('loudApp.controllers')
                 if (response && response.data) {
                     $scope.eventsCol = response.data;
 
+                    console.log($scope.eventsCol);
+
                     var getLocations = $q(function (resolve, reject) {
                         var res = LoudService.getCollection("locations");
 
@@ -158,8 +160,6 @@ angular.module ('loudApp.controllers')
 
         //Borrar evento
         $scope.erraseEvent = function (eventId) {
-            eventId = Number(eventId); // Gets the event id according to it's index
-
             var deleteEvent = $q(function (resolve, reject) {
                 var res = LoudService.deleteItem("events", eventId);
 
@@ -170,7 +170,9 @@ angular.module ('loudApp.controllers')
             });
 
             deleteEvent.then(function (response) {
-                console.log(response);
+                if (response && response.success) {
+                    $location.reload();
+                }
             });
         }
 

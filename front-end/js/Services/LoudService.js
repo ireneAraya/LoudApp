@@ -140,8 +140,8 @@ angular.module ('loudApp.services')
             $http({
                 method: 'POST',
                 data : {
-                    collection : itemCollectionName,
-                    id : itemId
+                    collectionName : itemCollectionName,
+                    itemId : itemId
                 },
                 url: 'back-end/item/delete'
             }).then(function successCallback(response) {
