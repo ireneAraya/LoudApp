@@ -148,6 +148,9 @@
     "DELETE_CONFIRM": "¿Are you sure you want to continue?",
     "MESSAGE": "Message",
     "SEND" : "Send",
+<<<<<<< HEAD
     "FORBIDDEN_VIEW_TITLE" : "Forbidden",
     "FORBIDDEN_VIEW_TEXT" : "The action you're trying to perform cannot be done."
+=======
+>>>>>>> d1c60c7fc50e57bb7dd6003c9a3ab57bdbfd8f1d
 }
