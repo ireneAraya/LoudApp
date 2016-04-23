@@ -103,7 +103,7 @@
                         <label for="">{{ translation.REGISTRATION.BIRTHDATE }}</label>
                         <input id="selectedDate" type="text" class="form-control" name="birthDate" placeholder="{{translation.SELECT_DATE}}" ng-model="birthDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions_RegisterUser" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
                         <span class="input-group-btn">
-                            <button type="button" class="btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn datepicker-btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
                         <div ng-messages="registerForm.birthDate.$error" ng-if="registerForm.birthDate.$touched && registerForm.birthDate.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
