@@ -1,4 +1,14 @@
 .general-form {
+    .subtotal-general{
+        margin: -27% 0 0 37%;
+        position: absolute;
+        color: #fff;
+    }
+    .subtotal-VIP{
+        margin: -10% 0 0 37%;
+        position: absolute;
+        color: #fff;
+    }
     .card-number {
         label {
             display: inline-block;
@@ -272,6 +282,13 @@
     }
 
     .general-form {
+        .subtotal-general{
+            margin: -39% 0 0 33%;
+        }
+        .subtotal-VIP {
+            margin: -14% 0 0 32%;
+        }
+
         .form-group {
             .btn {
                 padding: 0 10px;
