@@ -18,8 +18,6 @@ angular.module ('loudApp.controllers')
             });
 
             userExists.then(function (response) {
-                console.log(response);
-
                 if (response.success) {
                     $scope.user = response.data;
                     $scope.user.facebook = false;
@@ -27,7 +25,7 @@ angular.module ('loudApp.controllers')
                     // Tells the HeaderCtrl that a user has logged in a session
                     $rootScope.$broadcast('userIsLoggedIn', { "user" : $scope.user });
 
-                    if ($scope.user.rol === 1) {
+                    if ($scope.user.rol === "1") {
                         $location.path("/adminMenu");
                     } else {
                         $location.path("/");
@@ -71,7 +69,12 @@ angular.module ('loudApp.controllers')
 
                             // Tells the HeaderCtrl that a user has logged in a session
                             $rootScope.$broadcast('userIsLoggedIn', { "user" : $scope.user });
-                            $location.path("/");
+
+                            if ($scope.user.rol === "1") {
+                              $location.path("/adminMenu");
+                            } else {
+                              $location.path("/");
+                            }
                         }
                     });
                 }

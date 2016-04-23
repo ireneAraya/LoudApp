@@ -147,5 +147,7 @@
     "DELETE" : "Eliminar",
     "DELETE_CONFIRM": "¿Está seguro que quiere continuar?",
     "MESSAGE": "Mensaje",
-    "SEND" : "Enviar"
+    "SEND" : "Enviar",
+    "FORBIDDEN_VIEW_TITLE" : "Prohibido",
+    "FORBIDDEN_VIEW_TEXT" : "La acción que ha solicitado no se puede completar."
 }
