@@ -11,7 +11,7 @@
       <form role="form" class="general-form" name="cardInfoForm" novalidate autocomplete="false">
         <div class="form-group">
           <label for="client_name">{{ translation.EVENT_CLIENT_CARD_NAME }}</label>
-          <input id="client_name" type="text" class="form-control" name="cardOwner" ng-model="cardOwner" ng-pattern="/^[a-zA-Z]*$/" required>
+          <input id="client_name" type="text" class="form-control" name="cardOwner" ng-model="cardOwner" required>
             <div ng-messages="cardInfoForm.cardOwner.$error" ng-if="cardInfoForm.cardOwner.$touched && cardInfoForm.cardOwner.$invalid" class="validate-messages">
                 <div ng-messages-include="error-messages"></div>
             </div>
