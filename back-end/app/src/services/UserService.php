@@ -369,13 +369,9 @@ class UserService {
         if ($collectionName != "") {
             // $allow_objects = ["events","orders","reservations"];
 
-<<<<<<< HEAD
+
             if ($collectionName === "price_places" OR $collectionName === "events" OR $collectionName === "users" OR $collectionName === "orders" OR $collectionName === "reservations" OR $collectionName === "locations" OR $collectionName === "eventTypes") {
                 // $collectionName = strtolower($collectionName);
-=======
-            if ($collectionName === "price_places" OR $collectionName === "events" OR $collectionName === "orders" OR $collectionName === "reservations" OR $collectionName === "locations") {
-                $collectionName = strtolower($collectionName);
->>>>>>> f5492c2797bb9ee96c71f48e6404772998f5072a
 
                 $query = "SELECT * FROM loud_$collectionName WHERE active = 1";
 
