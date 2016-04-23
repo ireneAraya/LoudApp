@@ -116,17 +116,11 @@ angular.module('loudApp',[
                 templateUrl: 'front-end/views/cashiersList.html',
                 controller: 'CashiersCtrl'
             })
-            .when('/adminMenu', {
-                templateUrl: 'front-end/views/adminMenu.html'
-            })
-            .when('/promotersMenu', {
-                templateUrl: 'front-end/views/promotersMenu.html'
-            })
-            .when('/cashiersMenu', {
-                templateUrl: 'front-end/views/cashiersMenu.html'
-            })
             .when('/contact', {
                 templateUrl: 'front-end/views/contact.html'
+            })
+            .when('/terms', {
+                templateUrl: 'front-end/views/terms.html'
             })
             .otherwise({
         	   templateUrl: 'front-end/views/404.html'
