@@ -16,8 +16,8 @@
             <button type="button" class="btn cant-tickets-btn" value="2000" ng-click="sumValues($index, rate.ubicationName);"><i class="fa fa-plus"></i></button>
           </span>
         </div>
-        <span class="subtotal-qty">Subtotal: <span>{{ initialAmount | currency:"CRC " }}</span></span>
-        <span class="subtotal-qty">Subtotal: <span>{{ initialAmount2 | currency:"CRC " }}</span></span>
+        <span class="subtotal-qty subtotal-general">Subtotal: <span>{{ initialAmount | currency:"CRC " }}</span></span>
+        <span class="subtotal-qty subtotal-VIP">Subtotal: <span>{{ initialAmount2 | currency:"CRC " }}</span></span>
         <div class="form-group">
           <a ng-click="go('/buyTickets/tickets/seats/detail')" class="btn next-btn align-right">{{translation.NEXT}}</a>
         </div>
