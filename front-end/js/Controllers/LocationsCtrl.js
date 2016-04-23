@@ -27,50 +27,41 @@ angular.module ('loudApp.controllers')
             });
         };
 
-<<<<<<< HEAD
-        //Agregar locación
-            $scope.addLocation = function () {
-                // Disables the register button while processing
-                $scope.processing = true;
-                $scope.error = null;
+        //Add location
+        $scope.addLocation = function () {
+            // Disables the register button while processing
+            $scope.processing = true;
+            $scope.error = null;
 
-                // Creates the object
-                var locationToCreate = {
-                    image           : document.getElementById("locationImage").getAttribute("src"),
-                    name            : $scope.location.name,
-                    contactPhone    : $scope.location.contactPhone,
-                    capacity        : $scope.location.capacity,
-                    geolocation     : $scope.location.geolocation,
-                    address         : $scope.location.address
+            // Creates the object
+            var locationToCreate = {
+                image           : document.getElementById("locationImage").getAttribute("src"),
+                name            : $scope.location.name,
+                contactPhone    : $scope.location.contactPhone,
+                capacity        : $scope.location.capacity,
+                geolocation     : $scope.location.geolocation,
+                address         : $scope.location.address
+            };
+
+            var addItem = $q(function (resolve, reject) {
+                var res = LoudService.addItem(locationToCreate);
+
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
+
+            addItem.then(function (response) {
+                console.log(response);
+
+                if (response && response.success) {
+                    $location.path("/locationsList");
                 }
-                
-                $location.path('/locationsList');
-            }
+            });
 
-                var addItem = $q(function (resolve, reject) {
-                    var res = LoudService.addItem(locationToCreate);
+        }
 
-                    $timeout(
-                        function() {
-                            resolve(res)
-                        }, Math.random() * 2000 + 1000);
-                });
-
-                addItem.then(function (response) {
-                    if (response && response.success) {
-                        $scope.processing = false;
-                        $scope.error = null;
-                        $scope.emailSent = true;
-                    } else {
-                        $scope.processing = false;
-                        $scope.error = response.message;
-                    }
-                });
-            }
-
-            $scope.init();
-        };
-=======
         $scope.erraseLocation = function (locationId) {
             var deleteEvent = $q(function (resolve, reject) {
                 var res = LoudService.deleteItem("locations", locationId);
@@ -89,6 +80,5 @@ angular.module ('loudApp.controllers')
         };
 
         $scope.init();
->>>>>>> 654c6512cda526ad82ad89b711057d0770b18c4d
 	}
 ])

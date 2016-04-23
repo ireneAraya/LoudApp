@@ -236,13 +236,13 @@ class UserController {
         if (isset($itemName)) {
             $errors = "";
 
-            foreach ($requestData as $key => $value) {
+            foreach ($formData as $key => $value) {
                 if (empty($value) AND $key != "image") {
                     $errors .= "The field ".$key." is required. ";
                 }
             }
 
-            if ($errors != "") {
+            if ($errors == "") {
                 $getAddResult = $this->userService->addItem($itemName, $formData);
 
                 if (array_key_exists("error", $getAddResult)) {

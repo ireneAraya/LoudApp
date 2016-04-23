@@ -140,7 +140,7 @@ $app->post(
         /** @var Request $request */
         /** @var Response $response */
         $userController = new App\Controllers\UserController();
-        $result = $userController->deleteItem($request);
+        $result = $userController->addItem($request);
         return $response->withJson($result);
     }
 );

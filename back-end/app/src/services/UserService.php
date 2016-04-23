@@ -453,12 +453,18 @@ class UserService {
                     $photoURLPath = "/front-end/img/photo.png";
                 }
 
+                if (isset($formData["contactName"])) {
+                    $contactName = $formData["contactName"];
+                } else {
+                    $contactName = "NULL";
+                }
+
                 $query = "INSERT INTO loud_locations (name, capacity, contactName, contactPhone, address, geolocation, image, active) VALUES (:name, :capacity, :contactName, :contactPhone, :address, :geolocation, :image, 1)";
 
                 $param = [
                     ":name" => $formData["name"],
                     ":capacity" => intval($formData["capacity"]),
-                    ":contactName" => $formData["contactName"],
+                    ":contactName" => $contactName,
                     ":contactPhone" => $formData["contactPhone"],
                     ":address" => $formData["address"],
                     ":geolocation" => $formData["geolocation"],
