@@ -8,23 +8,28 @@ angular.module ('loudApp.controllers')
 
             $scope.locationsCol = [];
             $scope.loadingData = true;
+            $scope.allowedUser = false;
 
-            var getLocations = $q(function (resolve, reject) {
-                var res = LoudService.getCollection("locations");
+            if (LoudService.isAllowedUser()) {
+                $scope.allowedUser = true;
 
-                $timeout(
-                    function() {
-                        resolve(res)
-                    }, Math.random() * 2000 + 1000);
-            });
+                var getLocations = $q(function (resolve, reject) {
+                    var res = LoudService.getCollection("locations");
 
-            getLocations.then(function (response) {
-                if (response && response.data) {
-                    $scope.locationsCol = response.data;
-                }
+                    $timeout(
+                        function() {
+                            resolve(res)
+                        }, Math.random() * 2000 + 1000);
+                });
 
-                $scope.loadingData = false;
-            });
+                getLocations.then(function (response) {
+                    if (response && response.data) {
+                        $scope.locationsCol = response.data;
+                    }
+
+                    $scope.loadingData = false;
+                });
+            }
         };
 
         //Add location
@@ -37,6 +42,7 @@ angular.module ('loudApp.controllers')
             var locationToCreate = {
                 image           : document.getElementById("locationImage").getAttribute("src"),
                 name            : $scope.location.name,
+                contactName    : $scope.location.contactName,
                 contactPhone    : $scope.location.contactPhone,
                 capacity        : $scope.location.capacity,
                 geolocation     : $scope.location.geolocation,
@@ -53,13 +59,13 @@ angular.module ('loudApp.controllers')
             });
 
             addItem.then(function (response) {
-                console.log(response);
-
                 if (response && response.success) {
                     $location.path("/locationsList");
+                } else {
+                    $scope.error = true;
+                    $scope.message = response.message;
                 }
             });
-
         }
 
         $scope.erraseLocation = function (locationId) {

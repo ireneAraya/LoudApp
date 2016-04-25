@@ -4,12 +4,11 @@ angular.module ('loudApp.controllers')
   '$scope', '$routeParams', '$location', 'LoudService', '$filter',
     function($scope, $routeParams, $location, LoudService, $filter) {
 
-        $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
-        $scope.user = LoudService.verify('LoudApp__User') || {};
-        $scope.areaName = '';
-
         $scope.init = function() {
-            otherFunctions();
+            $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
+            $scope.user = LoudService.verify('LoudApp__User') || {};
+            $scope.areaName = '';
+
             LoudService.getSeatDataFromJS().then(function(response) {
                 $scope.sections = response.data;
             }, function(razon) {
@@ -17,143 +16,139 @@ angular.module ('loudApp.controllers')
             });
         };
 
-        function otherFunctions() {
+        // function otherFunctions() {
 
-            var firstName = $scope.user.firstName || $scope.user.first_name;
-            var separator = " ";
-            var lastName = $scope.user.lastName || $scope.user.last_name;
+        // var firstName = $scope.user.firstName || $scope.user.first_name;
+        // var separator = " ";
+        // var lastName = $scope.user.lastName || $scope.user.last_name;
 
-            var fullName =  firstName + separator + lastName;
+        // var fullName =  firstName + separator + lastName;
 
-            if (fullName == "undefined undefined") {
-                $scope.detailUser = " ";
+        // if (fullName == "undefined undefined") {
+        //     $scope.detailUser = " ";
+        // } else {
+        //     $scope.detailUser = fullName;
+        // }
+        // $scope.detailEmail = $scope.user.email || "";
+
+        $scope.initialAmount = 0;
+        $scope.initialAmount2 = 0;
+
+        $scope.sumValues = function (id, placeName) {
+
+            if (id == 0 && placeName == 'General') {
+                $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
+                $scope.initialAmount += $scope.price;
+            } else if (id == 1 && placeName == 'VIP') {
+                $scope.price = parseInt($scope.eventsBuy.rates[1].price, 10);
+                $scope.initialAmount2 += $scope.price;
+            }
+
+        }
+
+        $scope.differenceValues = function (id, placeName) {
+            if (id == 0 && placeName == 'General') {
+                $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
+                $scope.initialAmount -= $scope.price;
+            } else if (id == 1 && placeName == 'VIP') {
+                $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
+                $scope.initialAmount2 -= $scope.price;
+            }
+
+            if ($scope.initialAmount <= 0) {
+                $scope.initialAmount = 0;
+            }
+
+            if ($scope.initialAmount2 <= 0) {
+                $scope.initialAmount2 = 0;
+            }
+        }
+
+        var areaAndSeats = [];
+        var fullOption = {};
+        fullOption.seats = [];
+        $scope.price = 0;
+
+        $scope.getSelectedValue = function (value) {
+            $scope.eventsBuy = value;
+        };
+
+        $scope.showLocationView = function () {
+
+            var locationType = $scope.eventsBuy.type;
+            var locationPath = '';
+
+            if (locationType === "Dance") {
+                locationPath = '/buyTickets/tickets';
             } else {
-                $scope.detailUser = fullName;
+                locationPath = '/buyTickets/tickets/seats';
             }
 
-            $scope.initialAmount = 0;
-            $scope.initialAmount2 = 0;
+            $location.path( locationPath );
+        }
 
-            $scope.sumValues = function (id, placeName) {
+        $scope.getAreaValue = function (item) {
+            fullOption.area = "";
+            fullOption.area = item.currentTarget.getAttribute("data-description");
+            $scope.areaName = fullOption.area;
+            var areaString = fullOption.area;
 
-                if (id == 0 && placeName == 'General') {
-                    $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
-                    $scope.initialAmount += $scope.price;
-                } else if (id == 1 && placeName == 'VIP') {
-                    $scope.price = parseInt($scope.eventsBuy.rates[1].price, 10);
-                    $scope.initialAmount2 += $scope.price;
-                }
+            var areaResult = areaString.substring(0, 3);
 
+            var areaResultOthers = areaString.charAt(0);
+
+            if (areaResult == "VIP") {
+                $scope.price = Number($scope.eventsBuy.rates[2].price);
+            } else if (areaResultOthers == "F" | areaResultOthers == "E" | areaResultOthers == "S" ) {
+                $scope.price = Number($scope.eventsBuy.rates[0].price);
             }
 
-            $scope.differenceValues = function (id, placeName) {
-                if (id == 0 && placeName == 'General') {
-                    $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
-                    $scope.initialAmount -= $scope.price;
-                } else if (id == 1 && placeName == 'VIP') {
-                    $scope.price = parseInt($scope.eventsBuy.rates[0].price, 10);
-                    $scope.initialAmount2 -= $scope.price;
-                }
+        };
 
-                if ($scope.initialAmount <= 0) {
-                    $scope.initialAmount = 0;
-                }
+        $scope.getSeatNumber = function (item) {
 
-                if ($scope.initialAmount2 <= 0) {
-                    $scope.initialAmount2 = 0;
-                }
+            fullOption.total = 0;
+
+            var array = fullOption.seats || [];
+
+            fullOption.seats.push(item.currentTarget.getAttribute("data-description"));
+
+            var cantSeats = fullOption.seats.length;
+
+            function getTotalSum () {
+                fullOption.total = cantSeats * $scope.price;
             }
+            getTotalSum();
+        };
 
-            $scope.detailEmail = $scope.user.email || "";
+        // Select seats and add selected class
+        $scope.toogleSelectedSeat = function(section) {
+            if (section.isSeatSelected) {
+                section.isSeatSelected = false;
+            } else {
+                section.isSeatSelected = true;
+            }
+        }
 
-            var areaAndSeats = [];
-            var fullOption = {};
+        $scope.isSeatSelected = function(section) {
+            return $scope.selected === section;
+        }
+
+        $scope.buyButon = function () {
+            areaAndSeats = areaAndSeats || LoudService.verify("LoudApp__SelectedOptions");
+            areaAndSeats.push(fullOption);
+
+            LoudService.save("LoudApp__SelectedOptions", areaAndSeats);
+            $scope.eventsBuy.options = areaAndSeats;
+            LoudService.remove("LoudApp__SelectedOptions");
+
+            fullOption = {};
             fullOption.seats = [];
-            $scope.price = 0;
+        };
 
-            $scope.getSelectedValue = function (value) {
-                $scope.eventsBuy = value;
-            };
-
-            $scope.showLocationView = function () {
-
-                var locationID = $scope.eventsBuy.locationId;
-                var locationPath = '';
-
-                if (locationID == 1) {
-                    locationPath = '/buyTickets/tickets/seats';
-                } else if (locationID == 2) {
-                    locationPath = '/buyTickets/tickets/seats';
-                } else if (locationID == 3) {
-                    locationPath = '/buyTickets/tickets';
-                }
-
-                $location.path( locationPath );
-            }
-
-            $scope.getAreaValue = function (item) {
-                fullOption.area = "";
-                fullOption.area = item.currentTarget.getAttribute("data-description");
-                $scope.areaName = fullOption.area;
-                var areaString = fullOption.area;
-
-                var areaResult = areaString.substring(0, 3);
-
-                var areaResultOthers = areaString.charAt(0);
-
-                if (areaResult == "VIP") {
-                    $scope.price = Number($scope.eventsBuy.rates[2].price);
-                } else if (areaResultOthers == "F" | areaResultOthers == "E" | areaResultOthers == "S" ) {
-                    $scope.price = Number($scope.eventsBuy.rates[0].price);
-                }
-
-            };
-
-            $scope.getSeatNumber = function (item) {
-
-                fullOption.total = 0;
-
-                var array = fullOption.seats || [];
-
-                fullOption.seats.push(item.currentTarget.getAttribute("data-description"));
-
-                var cantSeats = fullOption.seats.length;
-
-                function getTotalSum () {
-                    fullOption.total = cantSeats * $scope.price;
-                }
-                getTotalSum();
-            };
-
-            // Select seats and add selected class
-            $scope.toogleSelectedSeat = function(section) {
-                if (section.isSeatSelected) {
-                    section.isSeatSelected = false;
-                } else {
-                    section.isSeatSelected = true;
-                }
-            }
-
-            $scope.isSeatSelected = function(section) {
-                return $scope.selected === section;
-            }
-
-            $scope.buyButon = function () {
-                areaAndSeats = areaAndSeats || LoudService.verify("LoudApp__SelectedOptions");
-                areaAndSeats.push(fullOption);
-
-                LoudService.save("LoudApp__SelectedOptions", areaAndSeats);
-                $scope.eventsBuy.options = areaAndSeats;
-                LoudService.remove("LoudApp__SelectedOptions");
-
-                fullOption = {};
-                fullOption.seats = [];
-            };
-
-            //Next-buttons
-            $scope.go = function ( path ) {
-                $location.path( path );
-            };
+        //Next-buttons
+        $scope.go = function ( path ) {
+            $location.path( path );
         };
 
         $scope.init();

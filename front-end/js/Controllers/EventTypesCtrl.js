@@ -8,23 +8,28 @@ angular.module ('loudApp.controllers')
 
             $scope.eventTypesCol = [];
             $scope.loadingData = true;
+            $scope.allowedUser = false;
 
-            var getEventTypes = $q(function (resolve, reject) {
-                var res = LoudService.getCollection("eventTypes");
+            if (LoudService.isAllowedUser()) {
+                $scope.allowedUser = true;
 
-                $timeout(
-                    function() {
-                        resolve(res)
-                    }, Math.random() * 2000 + 1000);
-            });
+                var getEventTypes = $q(function (resolve, reject) {
+                    var res = LoudService.getCollection("eventTypes");
 
-            getEventTypes.then(function (response) {
-                if (response && response.data) {
-                    $scope.eventTypesCol = response.data;
-                }    
+                    $timeout(
+                        function() {
+                            resolve(res)
+                        }, Math.random() * 2000 + 1000);
+                });
 
-                $scope.loadingData = false;
-            });
+                getEventTypes.then(function (response) {
+                    if (response && response.data) {
+                        $scope.eventTypesCol = response.data;
+                    }
+
+                    $scope.loadingData = false;
+                });
+            }
         };
 
         $scope.erraseEventType = function (eventTypeId) {

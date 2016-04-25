@@ -149,5 +149,9 @@
     "MESSAGE": "Mensaje",
     "SEND" : "Enviar",
     "FORBIDDEN_VIEW_TITLE" : "Prohibido",
-    "FORBIDDEN_VIEW_TEXT" : "La acción que ha solicitado no se puede completar."
+    "FORBIDDEN_VIEW_TEXT" : "La acción que ha solicitado no se puede completar.",
+    "ONLY_NUMBERS" : "Solo se aceptan números",
+    "CONTACT_NAME" : "Nombre del contacto",
+    "CONTACT_PHONE" : "Teléfono del contacto",
+    "ADMIN_PANEL" : "Panel de Administración"
 }

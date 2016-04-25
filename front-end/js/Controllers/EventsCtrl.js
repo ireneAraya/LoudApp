@@ -23,8 +23,8 @@ angular.module ('loudApp.controllers')
                 if (response && response.data) {
                     $scope.eventsCol = response.data;
 
-                    var getLocations = $q(function (resolve, reject) {
-                        var res = LoudService.getCollection("locations");
+                    var getPrices = $q(function (resolve, reject) {
+                        var res = LoudService.getCollection("price_places");
 
                         $timeout(
                             function() {
@@ -32,52 +32,34 @@ angular.module ('loudApp.controllers')
                             }, Math.random() * 2000 + 1000);
                     });
 
-                    getLocations.then(function (responseLocations) {
-                        if (responseLocations && responseLocations.data) {
-                            $scope.locations = responseLocations.data;
+                    getPrices.then(function (responseRates) {
+                        if (responseRates && responseRates.data) {
+                            $scope.rates = responseRates.data;
 
-                            var getPlaces = $q(function (resolve, reject) {
-                                var res = LoudService.getCollection("price_places");
+                            for (var i = 0; i < $scope.eventsCol.length; i++) {
+                                var event = $scope.eventsCol[i];
 
-                                $timeout(
-                                    function() {
-                                        resolve(res)
-                                    }, Math.random() * 2000 + 1000);
-                            });
+                                event.date = new Date(event.date).toISOString();
 
-                            getPlaces.then(function (responsePlaces) {
-                                if (responsePlaces && responsePlaces.data) {
-                                    $scope.rates = responsePlaces.data;
+                                var rates = [];
+                                for (var f = 0; f < $scope.rates.length; f++) {
+                                    var rate = $scope.rates[f];
 
-                                    for (var i = 0; i < $scope.eventsCol.length; i++) {
-                                        var event = $scope.eventsCol[i];
-                                        event.locationName = LoudService.getItem($scope.locations, "id", event.locationId)["name"];
-                                        event.geolocation = LoudService.getItem($scope.locations, "id", event.locationId)["geolocation"];
-                                        event.date = new Date(event.date).toISOString();
-
-                                        var rates = [];
-
-                                        for (var f = 0; f < $scope.rates.length; f++) {
-                                            var rate = $scope.rates[f];
-
-                                            if (rate.eventId == event.id) {
-                                                rates.push(rate);
-                                            }
-                                        }
-
-                                        event.rates = rates;
-                                    }
-
-                                    if ($routeParams.id) {
-                                        var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
-                                        $scope.event = $scope.eventsCol[targetEvent];
+                                    if (rate.eventId == event.id) {
+                                        rates.push(rate);
                                     }
                                 }
 
+                                event.rates = rates;
+                            }
 
-                                $scope.loadingData = false;
-                            });
+                            if ($routeParams.id) {
+                                var targetEvent = LoudService.getItemIndex($scope.eventsCol, $routeParams.id);
+                                $scope.event = $scope.eventsCol[targetEvent];
+                            }
                         }
+
+                        $scope.loadingData = false;
                     });
                 }
             });
@@ -117,17 +99,10 @@ angular.module ('loudApp.controllers')
             $scope.eventType = value;
         };
 
-            //Agregar Evento
+        //Agregar Evento
         $scope.addEvent = function () {
-            var lastID = 0;
-
-            for (var i = 0; i < $scope.eventsCol.length; i++) {
-                lastID = (i +1);
-            };
-
             //crea el objeto y lo agrega a la colección
-            var event = {
-                id              : lastID,
+            var eventToCreate = {
                 image           : document.getElementById("eventImage").getAttribute("src"),
                 name            : $scope.eventName,
                 date            : document.getElementById("selectedDate").value,
@@ -138,23 +113,7 @@ angular.module ('loudApp.controllers')
                 prices          : $scope.zonesCol
             }
 
-            $scope.eventsCol.push(event);
-
-            // Limpia el formulario, tanto en valores como en estado de variables
-            if ($scope.addLocationForm) {
-              $scope.addLocationForm.$setPristine();
-              $scope.addLocationForm.$setUntouched();
-              $scope.event = "";
-              $scope.date = "";
-              $scope.startHour = "";
-              $scope.location = "";
-              $scope.eventType = "";
-              $scope.description = "";
-              $scope.place = "";
-              $scope.amount = "";
-            }
-
-            $location.path('/eventsList');
+            console.log(eventToCreate);
         }
 
         //Borrar evento

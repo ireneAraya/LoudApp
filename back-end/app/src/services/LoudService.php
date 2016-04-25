@@ -367,22 +367,64 @@ class LoudService {
         $result = [];
 
         if ($collectionName != "") {
-            // $allow_objects = ["events","orders","reservations"];
+            if ($collectionName === "price_places" OR $collectionName === "events" OR $collectionName === "locations" OR $collectionName === "eventTypes") {
 
+                if ($collectionName === "events") {
+                    $query = "SELECT loud_events.id AS id, loud_events.name AS name, loud_events.description AS description, loud_events.date AS date, loud_events.image AS image, loud_eventTypes.name AS type, loud_locations.name AS location, loud_locations.geolocation AS geolocation FROM loud_events INNER JOIN loud_eventTypes ON loud_events.typeId = loud_eventTypes.id INNER JOIN loud_locations ON loud_events.locationId = loud_locations.id WHERE loud_events.active = 1";
+                    $query_result = $this->storage->query($query, [], "SELECT");
 
-            if ($collectionName === "price_places" OR $collectionName === "events" OR $collectionName === "users" OR $collectionName === "orders" OR $collectionName === "reservations" OR $collectionName === "locations" OR $collectionName === "eventTypes") {
-                // $collectionName = strtolower($collectionName);
+                    if (count($query_result['data']) > 0) {
+                        $events = $query_result['data'];
 
-                $query = "SELECT * FROM loud_$collectionName WHERE active = 1";
+                        $result["success"] = true;
+                        $result["data"] = $events;
+                    } else {
+                        $result["error"] = true;
+                        $result["message"] = "The collection you are requesting is empty.";
+                    }
 
-                $query_result = $this->storage->query($query, [], "SELECT");
+                } else if ($collectionName === "eventTypes") {
+                    $query = "SELECT id, name from loud_eventTypes WHERE active = 1";
+                    $query_result = $this->$storage->query($query, [], "SELECT");
 
-                if (count($query_result['data']) > 0) {
-                    $result["success"] = true;
-                    $result["data"] = $query_result['data'];
+                    if (count($query_result['data']) > 0) {
+                        $types = $query_result['data'];
+
+                        $result["success"] = true;
+                        $result["data"] = $types;
+                    } else {
+                        $result["error"] = true;
+                        $result["message"] = "The collection you are requesting is empty.";
+                    }
+
+                } else if ($collectionName === "locations") {
+                    $query = "SELECT id, name, capacity, contactName, contactPhone, address, geolocation, image FROM loud_locations WHERE active = 1";
+                    $query_result = $this->storage->query($query, [], "SELECT");
+
+                    if (count($query_result['data']) > 0) {
+                        $locations = $query_result['data'];
+
+                        $result["success"] = true;
+                        $result["data"] = $locations;
+                    } else {
+                        $result["error"] = true;
+                        $result["message"] = "The collection you are requesting is empty.";
+                    }
+
+                } else if ($collectionName === "price_places") {
+                    $query = "SELECT id, eventId, ubicationName, price FROM loud_price_places WHERE active = 1";
+                    $query_result = $this->storage->query($query, [], "SELECT");
+
+                    if (count($query_result['data']) > 0) {
+                        $rates = $query_result['data'];
+
+                        $result["success"] = true;
+                        $result["data"] = $rates;
+                    }
+
                 } else {
                     $result["error"] = true;
-                    $result["message"] = "The object you are requesting is empty.";
+                    $result["message"] = "The action you want to perform is not allowed.";
                 }
             } else {
                 $result["error"] = true;
@@ -499,7 +541,7 @@ class LoudService {
         if ($itemName != "") {
             if ($id != "") {
                 if ($key != "") {
-                    if ($itemName === "events" OR $itemName === "users" OR $itemName === "orders" OR $itemName === "reservations" OR $itemName === "eventTypes" OR $itemName === "locations") {
+                    if ($itemName === "events" OR $itemName === "users" OR $itemName === "orders" OR $itemName === "orders" OR $itemName === "eventTypes" OR $itemName === "locations") {
                         $itemName = strtolower($itemName);
 
                         $query = "SELECT $key FROM loud_$itemName WHERE id = :id LIMIT 1";

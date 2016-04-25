@@ -234,6 +234,12 @@ angular.module ('loudApp.services')
             return index;
         };
 
+        var isAllowedUser = function () {
+            var user = JSON.parse(localStorage.getItem("LoudApp__User"));
+            var flag = ((user && user.rol === "1") || (user && user.rol === "3")) ? true : false;
+            return flag;
+        };
+
         return {
             save               : save,
             remove             : remove,
@@ -250,7 +256,8 @@ angular.module ('loudApp.services')
             getItemDB          : getItemDB,
             getSeatDataFromJS  : getSeatDataFromJS,
             deleteItem         : deleteItem,
-            addItem            : addItem
+            addItem            : addItem,
+            isAllowedUser      : isAllowedUser
         };
     }
 ]);

@@ -149,5 +149,9 @@
     "MESSAGE": "Message",
     "SEND" : "Send",
     "FORBIDDEN_VIEW_TITLE" : "Forbidden",
-    "FORBIDDEN_VIEW_TEXT" : "The action you're trying to perform cannot be done."
+    "FORBIDDEN_VIEW_TEXT" : "The action you're trying to perform cannot be done.",
+    "ONLY_NUMBERS" : "Only numbers allowed",
+    "CONTACT_NAME" : "Contact name",
+    "CONTACT_PHONE" : "Contact phone",
+    "ADMIN_PANEL" : "Administration Panel"
 }

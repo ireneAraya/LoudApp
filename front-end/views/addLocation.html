@@ -20,23 +20,15 @@
 		        <div class="col-xs-12 col-md-9">
 					<div class="form-group col-xs-12">
 			          	<label for="">{{ translation.LOCATION }}</label>
-			          	<input type="text" name="location" ng-model="location.name" placeholder="{{translation.LOCATION_NAME}}" class="form-control" required>
+			          	<input autocomplete="off" type="text" name="location" ng-model="location.name" class="form-control" required>
 			          	<div ng-messages="addLocationForm.location.$error" ng-if="addLocationForm.location.$touched && addLocationForm.location.$invalid" class="validate-messages">
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
 			        </div>
 
 			        <div class="form-group col-xs-12">
-			          	<label for="">{{ translation.REGISTRATION.PHONE }}</label>
-			          	<input type="text" name="phone" ng-model="location.contactPhone" placeholder="2222-2222" class="form-control" valid-number required>
-			          	<div ng-messages="addLocationForm.phone.$error" ng-if="addLocationForm.phone.$touched && addLocationForm.phone.$invalid" class="validate-messages">
-			          		<div ng-messages-include="error-messages"></div>
-			          	</div>
-			        </div>
-
-			        <div class="form-group col-xs-12">
 			          	<label for="">{{ translation.CAPACITY }}</label>
-			          	<input type="number" name="capacity" ng-model="location.capacity" placeholder="10000" class="form-control" required>
+			          	<input autocomplete="off" type="number" name="capacity" placeholder="{{ translation.ONLY_NUMBERS }}" ng-model="location.capacity" class="form-control" required>
 			          	<div ng-messages="addLocationForm.capacity.$error" ng-if="addLocationForm.capacity.$touched && addLocationForm.capacity.$invalid" class="validate-messages">
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
@@ -44,7 +36,7 @@
 
 			        <div class="form-group col-xs-12">
 			          	<label for="">{{ translation.GEOGRAPHIC_LOCATION }}</label>
-			          	<input type="text" name="geographicLoc" ng-model="location.geolocation" placeholder="2.222222, -2.222222" class="form-control" valid-geol required>
+			          	<input autocomplete="off" type="text" name="geographicLoc" ng-model="location.geolocation" placeholder="2.222222, -2.222222" class="form-control" valid-geol required>
 			          	<div ng-messages="addLocationForm.geographicLoc.$error" ng-if="addLocationForm.geographicLoc.$touched && addLocationForm.geographicLoc.$invalid" class="validate-messages">
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
@@ -52,17 +44,30 @@
 
 			        <div class="form-group col-xs-12">
 			          	<label for="">{{ translation.ADDRESS }}</label>
-			          	<textarea type="text" name="address" ng-model="location.address" placeholder="{{ translation.LOCATION_ADDRESS }}" class="form-control event-info" required></textarea>
+			          	<textarea autocomplete="off" type="text" name="address" ng-model="location.address" class="form-control" required></textarea>
 			          	<div ng-messages="addLocationForm.address.$error" ng-if="addLocationForm.address.$touched && addLocationForm.address.$invalid" class="validate-messages">
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
 			        </div>
-			        
+
+			        <div class="form-group col-xs-12">
+			          	<label for="">{{ translation.CONTACT_NAME }}</label>
+			          	<input autocomplete="off" type="text" name="contactName" ng-model="location.contactName" class="form-control">
+			        </div>
+
+			        <div class="form-group col-xs-12">
+			          	<label for="">{{ translation.CONTACT_PHONE }}</label>
+			          	<input autocomplete="off" type="text" name="phone" ng-model="location.contactPhone" class="form-control" valid-number required>
+			          	<div ng-messages="addLocationForm.phone.$error" ng-if="addLocationForm.phone.$touched && addLocationForm.phone.$invalid" class="validate-messages">
+			          		<div ng-messages-include="error-messages"></div>
+			          	</div>
+			        </div>
+
 			        <div class="form-group col-xs-6">
 			          <a href="#/locationsList" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
-			        </div>	
+			        </div>
 			        <div class="form-group col-xs-6">
-					  <button class="btn next-btn align-right" ng-click="addLocation()" ng-disabled="addLocationForm.$invalid">{{ translation.ADD }}</button>
+					  <button class="btn next-btn align-right" ng-click="addLocation()" ng-disabled="addLocationForm.$invalid || processing">{{ translation.ADD }}</button>
 					</div>
 				</div>
 			</form>
