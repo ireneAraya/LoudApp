@@ -112,6 +112,10 @@ angular.module('loudApp',[
                 templateUrl: 'front-end/views/addCashier.html',
                 controller: 'CashiersCtrl'
             })
+            .when('/editCashier/:id', {
+                templateUrl: 'views/editCashier.html',
+                controller : 'CashiersCtrl'
+            })
             .when('/cashiersList', {
                 templateUrl: 'front-end/views/cashiersList.html',
                 controller: 'CashiersCtrl'
