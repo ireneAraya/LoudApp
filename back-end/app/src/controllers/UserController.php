@@ -234,29 +234,15 @@ class UserController {
         $formData = $request->getParsedBody();
 
         if (isset($itemName)) {
-            $errors = "";
+            $getAddResult = $this->LoudService->addItem($itemName, $formData);
 
-            foreach ($formData as $key => $value) {
-                if (empty($value) AND $key != "image") {
-                    $errors .= "The field ".$key." is required. ";
-                }
-            }
-
-            if ($errors == "") {
-                $getAddResult = $this->LoudService->addItem($itemName, $formData);
-
-                if (array_key_exists("error", $getAddResult)) {
-                    $result["error"] = true;
-                    $result["message"] = $getAddResult["message"];
-                } else {
-                    $result["success"] = true;
-                    $result["message"] = $getAddResult["message"];
-                }
-            } else {
+            if (array_key_exists("error", $getAddResult)) {
                 $result["error"] = true;
-                $result["message"] = $errors;
+                $result["message"] = $getAddResult["message"];
+            } else {
+                $result["success"] = true;
+                $result["message"] = $getAddResult["message"];
             }
-
         } else {
             $result["error"] = true;
             $result["message"] = "Please provide the name and the item you want to add.";

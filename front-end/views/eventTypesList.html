@@ -1,6 +1,6 @@
 <main class="container">
 
-	
+
 	<div ng-if="loadingData">
 		<br><br><br>
 		<div class="text-center loading">
@@ -42,8 +42,8 @@
 								        	<p class="text-center">{{ translation.DELETE_CONFIRM }}</p>
 								        </div>
 								        <div class="modal-footer">
-								          	<button type="button" class="btn" data-dismiss="modal">{{ translation.CANCEL }}</button>
-								          	<button type="button" class="btn" data-dismiss="modal" ng-click="erraseEventType(eventType.id)">{{ translation.DELETE }}</button>
+								          	<button type="button" class="btn" data-dismiss="modal" ng-disabled="processing">{{ translation.CANCEL }}</button>
+								          	<button type="button" class="btn" ng-click="erraseEventType(eventType.id)" ng-disabled="processing">{{ translation.DELETE }}</button>
 								        </div>
 								    </div>
 							  	</div>
@@ -58,5 +58,5 @@
 				<a href="#/addEventType" type="button" class="btn plus-btn"><i class="fa fa-plus"></i>{{ translation.ADD_EVENT_TYPE }}</a>
 			</div>
 		</div>
-	</div>	
+	</div>
 </main>

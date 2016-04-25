@@ -50,7 +50,7 @@ angular.module ('loudApp.controllers')
             };
 
             var addItem = $q(function (resolve, reject) {
-                var res = LoudService.addItem(locationToCreate);
+                var res = LoudService.addItem("locations", locationToCreate);
 
                 $timeout(
                     function() {
@@ -60,7 +60,7 @@ angular.module ('loudApp.controllers')
 
             addItem.then(function (response) {
                 if (response && response.success) {
-                    $location.path("/locationsList");
+                    $location.path("#/locationsList");
                 } else {
                     $scope.error = true;
                     $scope.message = response.message;

@@ -385,7 +385,7 @@ class LoudService {
 
                 } else if ($collectionName === "eventTypes") {
                     $query = "SELECT id, name from loud_eventTypes WHERE active = 1";
-                    $query_result = $this->$storage->query($query, [], "SELECT");
+                    $query_result = $this->storage->query($query, [], "SELECT");
 
                     if (count($query_result['data']) > 0) {
                         $types = $query_result['data'];
@@ -443,7 +443,7 @@ class LoudService {
 
         if ($collectionName != "") {
             if ($itemId != "") {
-                if ($collectionName === "events" OR $collectionName === "locations" OR $collectionName === "users") {
+                if ($collectionName === "events" OR $collectionName === "locations" OR $collectionName === "users" OR $collectionName === "eventTypes") {
                     $collectionName = strtolower($collectionName);
 
                     $query = "UPDATE loud_$collectionName set active = 0 WHERE id = :id";
@@ -476,7 +476,7 @@ class LoudService {
         return $result;
     }
 
-    public function addItem ($itemName = "locations", $formData) {
+    public function addItem ($itemName = "", $formData) {
         $result = [];
 
         if ($itemName != "") {
@@ -523,6 +523,21 @@ class LoudService {
                     $result["message"] = "The item has been already removed.";
                 }
 
+            } else if ($itemName === "eventTypes") {
+                $query = "INSERT INTO loud_eventTypes (name, active) VALUES (:eventTypeName, 1)";
+                $param = [
+                    ":eventTypeName" => $formData["name"]
+                ];
+
+                $query_result = $this->storage->query($query, $param, "INSERT");
+
+                if (count($query_result['data']) > 0) {
+                    $result["success"] = true;
+                    $result["message"] = "The item has been successfully created.";
+                } else {
+                    $result["error"] = true;
+                    $result["message"] = "The item has been already removed.";
+                }
             } else {
                 $result["error"] = true;
                 $result["message"] = "The action you want to perform is not allowed.";

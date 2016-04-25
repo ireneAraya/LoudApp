@@ -7,24 +7,6 @@ angular.module ('loudApp.controllers')
         $scope.init = function() {
             $scope.emailSent = false;
             $scope.user = {};
-
-            var userExists = $q(function (resolve, reject) {
-                var res = LoudService.verifyUser();
-
-                $timeout(
-                    function() {
-                        resolve(res)
-                    }, Math.random() * 2000 + 1000);
-            });
-
-            userExists.then(function (response) {
-                if (response.success && response.data) {
-                    $location.path('/');
-                } else {
-                    // Calbacks
-                    otherFunctions();
-                }
-            });
         };
 
         $scope.addCashier = function () {
@@ -74,9 +56,6 @@ angular.module ('loudApp.controllers')
                     $scope.error = response.message;
                 }
             });
-        };
-
-        function otherFunctions () {
         };
 
         $scope.init();

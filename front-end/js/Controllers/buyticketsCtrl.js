@@ -8,6 +8,7 @@ angular.module ('loudApp.controllers')
             $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
             $scope.user = LoudService.verify('LoudApp__User') || {};
             $scope.areaName = '';
+            $scope.detailEmail = $scope.user.email || "";
 
             LoudService.getSeatDataFromJS().then(function(response) {
                 $scope.sections = response.data;
@@ -29,7 +30,6 @@ angular.module ('loudApp.controllers')
         // } else {
         //     $scope.detailUser = fullName;
         // }
-        // $scope.detailEmail = $scope.user.email || "";
 
         $scope.initialAmount = 0;
         $scope.initialAmount2 = 0;

@@ -44,8 +44,6 @@ angular.module ('loudApp.controllers')
             });
 
             session.then(function (response) {
-                console.log(response);
-
                 if (response && response.success) {
                     $location.path("/login");
                     $scope.user = {};

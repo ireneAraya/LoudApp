@@ -108,13 +108,13 @@ angular.module ('loudApp.services')
             return defer.promise;
         };
 
-        var addItem = function (objectToCreate) {
+        var addItem = function (itemName, objectToCreate) {
             var defer = $q.defer();
 
             $http({
                 method: 'POST',
                 data : objectToCreate,
-                url: 'back-end/item/add/locations'
+                url: 'back-end/item/add/' + itemName
             }).then(function successCallback(response) {
                 defer.resolve(response.data);
             }, function errorCallback(response) {

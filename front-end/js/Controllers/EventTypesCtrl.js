@@ -1,8 +1,8 @@
 angular.module ('loudApp.controllers')
 
 .controller('eventTypesCtrl', [
-	'$scope', '$routeParams', '$location', 'LoudService', '$timeout', '$q',
-	function($scope, $routeParams, $location, LoudService, $timeout, $q) {
+	'$scope', '$routeParams', '$location', 'LoudService', '$timeout', '$q', '$window',
+	function($scope, $routeParams, $location, LoudService, $timeout, $q, $window) {
 
         $scope.init = function() {
 
@@ -33,8 +33,9 @@ angular.module ('loudApp.controllers')
         };
 
         $scope.erraseEventType = function (eventTypeId) {
+            $scope.processing = true;
             var deleteEventType = $q(function (resolve, reject) {
-                var res = LoudService.deleteItem("eventType", eventTypeId);
+                var res = LoudService.deleteItem("eventTypes", eventTypeId);
 
                 $timeout(
                     function() {
@@ -42,12 +43,40 @@ angular.module ('loudApp.controllers')
                     }, Math.random() * 2000 + 1000);
             });
 
-            deleteEvent.then(function (response) {
+            deleteEventType.then(function (response) {
                 if (response && response.success) {
-                    $location.reload();
+                    $window.location.reload();
+                    $scope.processing = false;
                 }
             });
-        }
+        };
+
+        $scope.addEventType = function () {
+            $scope.processing = true;
+
+            var eventTypeToCreate = {
+                "name" : $scope.eventType
+            };
+
+            var addItem = $q(function (resolve, reject) {
+                var res = LoudService.addItem("eventTypes", eventTypeToCreate);
+
+                $timeout(
+                    function() {
+                        resolve(res)
+                    }, Math.random() * 2000 + 1000);
+            });
+
+            addItem.then(function (response) {
+                $scope.processing = false;
+                if (response && response.success) {
+                    $location.path("/eventTypesList");
+                } else {
+                    $scope.error = true;
+                    $scope.message = response.message;
+                }
+            });
+        };
 
         $scope.init();
 	}

@@ -1,7 +1,7 @@
 <main class="container">
 	<div class="row">
 		<div class="col-xs-6">
-			<a href="#/"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
+			<a href="#/eventTypesList"><i class="fa fa-hand-o-left fa-3x btn-back"></i></a>
 		</div><!--.col-xs-6-->
 	</div>
 
@@ -18,15 +18,15 @@
 			          	<div ng-messages="addEventTypeForm.eventType.$error" ng-if="addEventTypeForm.eventType.$touched && addEventTypeForm.eventType.$invalid" class="validate-messages">
 			          	    <div ng-messages-include="error-messages"></div>
 			          	</div>
-			        </div>	
+			        </div>
 				</div>
-				
+
 				<div class="row">
 					<div class="form-group col-xs-6">
 					  <a href="#/eventTypesList" class="btn next-btn align-right">{{ translation.CANCEL }}</a>
 					</div>
 					<div class="form-group col-xs-6">
-					  <button class="btn next-btn align-right" ng-click="addEventType()" ng-disabled="addEventTypeForm.$invalid">{{ translation.ADD }}</button>
+					  <button class="btn next-btn align-right" ng-click="addEventType()" ng-disabled="addEventTypeForm.$invalid || processing">{{ translation.ADD }}</button>
 					</div>
 				</div>
 			</form>
