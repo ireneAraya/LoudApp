@@ -18,11 +18,8 @@ angular.module ('loudApp.controllers')
             });
 
             userExists.then(function (response) {
-                if (response.success && response.data) {
-                    $location.path("/");
-                } else {
-                    // Calbacks
-                    otherFunctions();
+                if (response && response.success && response.data) {
+                    $location.path("/profile");
                 }
             });
         };
@@ -49,7 +46,7 @@ angular.module ('loudApp.controllers')
                 "gender" : $scope.user.gender,
                 "disability" : $scope.user.disability,
                 "specialCondition" : $scope.user.specialCondition,
-                "locale" : "EN",
+                "locale" : $scope.user.locale,
                 "photoURL" : document.getElementById("userImage").getAttribute("src")
             };
 
@@ -73,9 +70,6 @@ angular.module ('loudApp.controllers')
                     $scope.error = response.message;
                 }
             });
-        };
-
-        function otherFunctions () {
         };
 
         $scope.init();

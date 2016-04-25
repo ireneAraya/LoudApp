@@ -39,6 +39,7 @@ angular.module ('loudApp.controllers')
 
         $scope.login = function () {
             $scope.logginUser = true;
+            $scope.error = null;
 
            var callService = $q(function (resolve, reject) {
                 var res = LoudService.loginUser($scope.email, $scope.password);
@@ -50,8 +51,9 @@ angular.module ('loudApp.controllers')
             });
 
             callService.then(function (response) {
-                if (!response.success) {
+                if (response && !response.success) {
                     $scope.error = response.message;
+                    $scope.logginUser = false;
                 } else {
                     var userExists = $q(function (resolve, reject) {
                         var res = LoudService.verifyUser();
@@ -63,7 +65,7 @@ angular.module ('loudApp.controllers')
                     });
 
                     userExists.then(function (response) {
-                        if (response.success) {
+                        if (response && response.success) {
                             $scope.user = response.data;
                             $scope.user.facebook = false;
 

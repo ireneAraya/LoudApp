@@ -62,9 +62,9 @@
     "CHANGE_PHOTO_BUTTON_TEXT" : "Change Photo",
     "VALIDATE" : {
         "REQUIRED_ERROR" : "This field is required.",
-        "WRONG_PATTERN_EMAIL_ERROR" : "The pattern of the email must be xxxx@yyyy.zzz",
+        "WRONG_PATTERN_EMAIL_ERROR" : "The pattern of the email must be: juanperez@gmail.com",
         "WRONG_PATTERN_PASSWORD_ERROR" : "The password must be 8 characters long, combining specials characters and numbers.",
-        "WRONG_PATTERN_PHONE_ERROR" : "The phone number must have the following format: NNNN-NNNN.",
+        "WRONG_PATTERN_PHONE_ERROR" : "The phone number must have the following format: 1234-5678.",
         "HOUR_FORMAT_ERROR": "Please use a 12 hour format",
         "WRONG_PATTERN_GEOLOC_ERROR": "The geographic location must have the following format: +/-N.NNNNNN, +/-N.NNNNNN",
         "WRONG_NAME_ERROR": "This field accept only letters",
@@ -72,7 +72,7 @@
         "WRONG_NOT_NUMBER" : "This field accept only numbers",
         "WRONG_MAXLENGTH": "The value is to long",
         "WRONG_MINLENGTH": "The value is to short",
-        "WRONG_LOCALID": "Local ID should be: N0NNNN0NNN"
+        "WRONG_LOCALID": "Local ID should include the zeros (0) but not the dashes (-). Eg.: 1012340567"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "First name",
@@ -86,7 +86,7 @@
         "VERIFY_PASSWORD" : "Verify the password",
         "IDENTIFICATION" : "Personal ID",
         "BIRTHDATE" : "Birth date",
-        "COMPANY" : "Company:",
+        "COMPANY" : "Company",
         "SALES_POINT" : "Sales Point",
         "NEW_ACCOUNT_SUCCESS" : "Thank your siging up in Loud App. We have sent you an email with your new account information.",
         "GENDER" : {
@@ -96,12 +96,12 @@
             "OTHER" : "Other"
         },
         "IDENTIFICATION_TYPE" : {
-            "LABEL" : "Idenfication Type:",
+            "LABEL" : "Idenfication Type",
             "LOCAL" : "Local",
             "RESIDENT" : "Resident",
             "OTHER" : "Other"
         },
-        "DISABILITY" : "Disabilities:",
+        "DISABILITY" : "Disabilities",
         "SPECIAL_CONDITIONS" : "Special conditions:"
     },
     "EVENTS" : "Events",

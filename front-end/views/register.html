@@ -30,7 +30,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="firstName">{{ translation.REGISTRATION.FIRST_NAME }}</label>
-                        <input id="firstName" type="text" name="firstName" ng-model="user.firstName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
+                        <input autocomplete="off" id="firstName" type="text" name="firstName" ng-model="user.firstName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
                         <div ng-messages="registerForm.firstName.$error" ng-if="registerForm.firstName.$touched && registerForm.firstName.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -38,7 +38,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="middleName">{{ translation.REGISTRATION.MIDDLE_NAME }}</label>
-                        <input id="middleName" type="text" name="middleName" ng-model="user.middleName" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
+                        <input autocomplete="off" id="middleName" type="text" name="middleName" ng-model="user.middleName" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
                         <div ng-messages="registerForm.middleName.$error" ng-if="registerForm.middleName.$touched && registerForm.middleName.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -46,7 +46,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="lastName">{{ translation.REGISTRATION.LAST_NAME }}</label>
-                        <input id="lastName" type="text" name="lastName" ng-model="user.lastName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
+                        <input autocomplete="off" id="lastName" type="text" name="lastName" ng-model="user.lastName" class="form-control" ng-pattern="/^[a-zA-Z]*$/" required>
                         <div ng-messages="registerForm.lastName.$error" ng-if="registerForm.lastName.$touched && registerForm.lastName.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -54,7 +54,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="secondSurname">{{ translation.REGISTRATION.SECOND_SURNAME }}</label>
-                        <input id="secondSurname" type="text" name="secondSurname" ng-model="user.secondSurname" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
+                        <input autocomplete="off" id="secondSurname" type="text" name="secondSurname" ng-model="user.secondSurname" class="form-control" ng-pattern="/^[a-zA-Z]*$/">
                         <div ng-messages="registerForm.secondSurname.$error" ng-if="registerForm.secondSurname.$touched && registerForm.secondSurname.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -80,7 +80,7 @@
 
                     <div class="form-group col-xs-12" ng-show="user.identificationType == 1">
                         <label for="localID">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
-                        <input id="identification" type="number" name="localID" ng-model="user.localID" class="form-control" local-id ng-required="user.identificationType == 1">
+                        <input autocomplete="off" id="identification" type="number" name="localID" ng-model="user.localID" class="form-control" local-id ng-required="user.identificationType == 1">
                         <div ng-messages="registerForm.localID.$error" ng-if="registerForm.localID.$touched && registerForm.localID.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -96,26 +96,26 @@
 
                     <div class="form-group col-xs-12">
                         <label for="nickname">{{ translation.REGISTRATION.NICKNAME }}</label>
-                        <input id="nickname" type="text" name="nickname" ng-model="user.nickname" class="form-control">
+                        <input autocomplete="off" id="nickname" type="text" name="nickname" ng-model="user.nickname" class="form-control">
                     </div>
 
                     <div class="col-xs-12">
-                            <div class="form-gender" ng-init="user.locale='ES'">
+                            <div class="form-gender" ng-init="user.locale='EN'">
                                 <label for="">{{ translation.LANGUAGE }}</label><br>
+                                <label class="checkbox-label">
+                                    <input type="radio" ng-model="user.locale" value="EN" name="locale">
+                                    <i></i> {{ translation.ENGLISH }}
+                                </label>
                                 <label class="checkbox-label">
                                     <input type="radio" ng-model="user.locale" value="ES" name="locale" required>
                                     <i></i> {{ translation.SPANISH }}
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="radio" ng-model="user.locale" value="EN" name="identificationType">
-                                    <i></i> {{ translation.ENGLISH }}
                                 </label>
                             </div>
                         </div>
 
                     <div class="form-group col-xs-12" ng-controller="DatepickerCtrl">
                         <label for="">{{ translation.REGISTRATION.BIRTHDATE }}</label>
-                        <input id="selectedDate" type="text" class="form-control" name="birthDate" placeholder="{{translation.SELECT_DATE}}" ng-model="birthDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions_RegisterUser" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                        <input autocomplete="off" id="selectedDate" type="text" class="form-control" name="birthDate" placeholder="{{translation.SELECT_DATE}}" ng-model="birthDate" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions_RegisterUser" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
                         <span class="input-group-btn">
                             <button type="button" class="btn datepicker-btn" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
@@ -126,7 +126,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.EMAIL }}</label>
-                        <input type="text" class="form-control" ng-model="user.email" name="email" placeholder="email@me.com" valid-email required>
+                        <input autocomplete="off" type="text" class="form-control" ng-model="user.email" name="email" placeholder="email@me.com" valid-email required>
                         <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched && registerForm.email.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -134,7 +134,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.PASSWORD }}</label>
-                        <input type="password" class="form-control" ng-model="user.hash" name="hash" valid-password required>
+                        <input autocomplete="off" type="password" class="form-control" ng-model="user.hash" name="hash" valid-password required>
                         <div ng-messages="registerForm.hash.$error" ng-if="registerForm.hash.$touched && registerForm.hash.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -142,7 +142,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.VERIFY_PASSWORD }}</label>
-                        <input type="password" class="form-control" ng-model="user.verifyPassword" name="verifyPassword" compare-to="user.hash" required>
+                        <input autocomplete="off" type="password" class="form-control" ng-model="user.verifyPassword" name="verifyPassword" compare-to="user.hash" required>
                         <div ng-messages="registerForm.verifyPassword.$error" ng-if="registerForm.verifyPassword.$touched && registerForm.verifyPassword.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -150,7 +150,7 @@
 
                     <div class="form-group col-xs-12">
                         <label for="">{{ translation.REGISTRATION.PHONE }}</label>
-                        <input type="text" class="form-control" ng-model="user.phone" name="phone" valid-number required>
+                        <input autocomplete="off" type="text" class="form-control" ng-model="user.phone" name="phone" valid-number required>
                         <div ng-messages="registerForm.phone.$error" ng-if="registerForm.phone.$touched && registerForm.phone.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>
@@ -176,12 +176,12 @@
 
                     <div class="form-group col-xs-12">
                         <label for="disability">{{ translation.REGISTRATION.DISABILITY }}</label>
-                        <input id="disability" type="text" name="disability" ng-model="user.disability" class="form-control">
+                        <input autocomplete="off" id="disability" type="text" name="disability" ng-model="user.disability" class="form-control">
                     </div>
 
                     <div class="form-group col-xs-12">
                         <label for="specialCondition">{{ translation.REGISTRATION.SPECIAL_CONDITIONS }}</label>
-                        <input id="specialCondition" type="text" name="specialCondition" ng-model="user.specialCondition" class="form-control">
+                        <input autocomplete="off" id="specialCondition" type="text" name="specialCondition" ng-model="user.specialCondition" class="form-control">
                     </div>
 
                     <div class="form-group col-xs-12">

@@ -15,7 +15,7 @@
 				</div>
 
 				<div class="panel-body row text-center">
-					<a class="btn" ng-show="!user.facebook" href="#/editProfile/{{ user.id }}"><i class="fa fa-pencil"></i> {{ translation.EDIT_BUTTON_TEXT }}</a>
+					<a class="btn" ng-show="!user.facebook" href="#/editProfile/{{ user.id }}" ng-disabled="endingSession"><i class="fa fa-pencil"></i> {{ translation.EDIT_BUTTON_TEXT }}</a>
 					<button class="btn" ng-click="logout()" ng-hide="user.facebook" ng-disabled="endingSession"><i class="fa fa-power-off"></i> {{ translation.LOGOUT_BUTTON_TEXT }}</button>
 					<button class="btn" ng-click="logoutFB()" ng-show="user.facebook" ng-disabled="endingSession"><i class="fa fa-power-off"></i> {{ translation.LOGOUT_BUTTON_TEXT }}</button>
 				</div>

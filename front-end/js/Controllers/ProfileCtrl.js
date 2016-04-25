@@ -17,13 +17,13 @@ angular.module ('loudApp.controllers')
             } else {
                 $scope.user_fullName = $scope.user.firstName;
 
-                if ($scope.user.middleName !== "") {
+                if ($scope.user.middleName !== "" && $scope.user.middleName !== null) {
                     $scope.user_fullName += " " + $scope.user.middleName;
                 }
 
                 $scope.user_fullName += " " + $scope.user.lastName;
 
-                if ($scope.user.secondSurname !== "") {
+                if ($scope.user.secondSurname !== "" && $scope.user.secondSurname !== null) {
                     $scope.user_fullName += " " + $scope.user.secondSurname;
                 }
             }
@@ -47,7 +47,7 @@ angular.module ('loudApp.controllers')
                 console.log(response);
 
                 if (response && response.success) {
-                    $location.path("/");
+                    $location.path("/login");
                     $scope.user = {};
                     $rootScope.$broadcast('userIsLoggedIn', { user : null });
                     LoudService.remove("LoudApp__User");
@@ -73,7 +73,7 @@ angular.module ('loudApp.controllers')
                         $rootScope.$broadcast('userIsLoggedIn', { user : null });
 
                         // Redirects to the Homepage
-                        $location.path("/");
+                        $location.path("/login");
                     });
                 }
             });

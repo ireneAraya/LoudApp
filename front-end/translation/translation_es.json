@@ -63,7 +63,7 @@
     "CHANGE_PHOTO_BUTTON_TEXT" : "Cambiar Foto",
     "VALIDATE" : {
         "REQUIRED_ERROR" : "Este campo es obligatorio.",
-        "WRONG_PATTERN_EMAIL_ERROR" : "El formato del email debe ser xxxx@yyyy.zzz",
+        "WRONG_PATTERN_EMAIL_ERROR" : "El formato del email debe ser juanperez@gmail.com",
         "WRONG_PATTERN_PASSWORD_ERROR" : "La contraseña debe ser de al menos 8 caracteres, combinando entre caracteres especiales y números.",
         "WRONG_PATTERN_PHONE_ERROR" : "El número de teléfono debe tener el siguiente formato: NNNN-NNNN.",
         "HOUR_FORMAT_ERROR": "Por favor use el formato de 12 horas",
@@ -73,7 +73,7 @@
         "WRONG_NOT_NUMBER": "Este espacio acepta únicamente números",
         "WRONG_MAXLENGTH": "El valor es muy largo",
         "WRONG_MINLENGTH": "El valor es muy corto",
-        "WRONG_LOCALID": "El formato para la cédula debe ser: N0NNNN0NNN"
+        "WRONG_LOCALID": "El formato para la cédula debe ser: 1012340567"
     },
     "REGISTRATION" : {
         "FIRST_NAME" : "Primer nombre",
@@ -96,12 +96,12 @@
             "OTHER" : "Otro"
         },
         "IDENTIFICATION_TYPE" : {
-            "LABEL" : "Tipo de identificación:",
+            "LABEL" : "Tipo de identificación",
             "LOCAL" : "Local",
             "RESIDENT" : "Residente",
             "OTHER" : "Otro"
         },
-        "DISABILITY" : "Discapacidades:",
+        "DISABILITY" : "Discapacidades",
         "SPECIAL_CONDITIONS" : "Condiciones especiales:"
     },
     "EVENTS" : "Eventos",

@@ -20,11 +20,11 @@ angular.module ('loudApp.controllers')
 
           $scope.user = response.data;
 
-          if ($scope.user.rol === "1") {
-            $scope.link = "#/adminMenu";
-          } else {
+          // if ($scope.user.rol === "1") {
+          //   $scope.link = "#/adminMenu";
+          // } else {
             $scope.link = "#/profile";
-          }
+          // }
 
           if (isFacebookUser($scope.user)) {
             $scope.user_fullName = $scope.user.first_name + " " + $scope.user.last_name;
@@ -44,11 +44,11 @@ angular.module ('loudApp.controllers')
 
         if ($scope.user.id) {
 
-          if ($scope.user.rol === "1") {
-            $scope.link = "#/adminMenu";
-          } else {
+          // if ($scope.user.rol === "1") {
+          //   $scope.link = "#/adminMenu";
+          // } else {
             $scope.link = "#/profile";
-          }
+          // }
 
           if (isFacebookUser($scope.user)) {
             $scope.user_fullName = $scope.user.first_name + " " + $scope.user.last_name;

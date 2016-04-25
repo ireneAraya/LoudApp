@@ -2,16 +2,16 @@
 
 namespace App\Controllers;
 
-use App\Services\UserService;
+use App\Services\LoudService;
 use Slim\Http\Request;
 
 class UserController {
 
-    private $userService;
+    private $LoudService;
     private $cookieName = "userLoggedIn";
 
     public function __construct() {
-        $this->userService = new UserService();
+        $this->LoudService = new LoudService();
     }
 
     public function login($request) {
@@ -30,7 +30,7 @@ class UserController {
         }
 
         if (isset($email, $password)) {
-            $loginResult = $this->userService->login($email, $password);
+            $loginResult = $this->LoudService->login($email, $password);
 
             if (array_key_exists("error", $loginResult)) {
                 $result["error"] = true;
@@ -50,7 +50,7 @@ class UserController {
     public function verifyUser () {
         $result = [];
 
-        $verifyResult = $this->userService->verifyUser();
+        $verifyResult = $this->LoudService->verifyUser();
 
         if (array_key_exists("error", $verifyResult)) {
             $result["error"] = true;
@@ -67,7 +67,7 @@ class UserController {
     public function logout () {
         $result = [];
 
-        $verifyResult = $this->userService->logout();
+        $verifyResult = $this->LoudService->logout();
 
         if (array_key_exists("error", $verifyResult)) {
             $result["error"] = true;
@@ -98,7 +98,7 @@ class UserController {
         if (isset($email)) {
             $recoverPassword = trim(randomPassword());
 
-            $passwordResult = $this->userService->changeUserPassword($email, $recoverPassword);
+            $passwordResult = $this->LoudService->changeUserPassword($email, $recoverPassword);
 
             if (array_key_exists("error", $passwordResult)) {
                 $result["error"] = true;
@@ -130,7 +130,7 @@ class UserController {
             if (array_key_exists("hash", $formData)) {
                 if (array_key_exists("verifyPassword", $formData)) {
                     if (array_key_exists("firstName", $formData)) {
-                        $registerUser = $this->userService->register($formData);
+                        $registerUser = $this->LoudService->register($formData);
 
                         if (array_key_exists("error", $registerUser)) {
                             $result["error"] = true;
@@ -177,7 +177,7 @@ class UserController {
         $collectionName = $request->getAttribute("collectionName", null);
 
         if (isset($collectionName)) {
-            $getCollectionResult = $this->userService->getCollection($collectionName);
+            $getCollectionResult = $this->LoudService->getCollection($collectionName);
 
             if (array_key_exists("error", $getCollectionResult)) {
                 $result["error"] = true;
@@ -210,7 +210,7 @@ class UserController {
         }
 
         if (isset($collectionName, $itemId)) {
-            $getDeleteResult = $this->userService->deleteItem($collectionName, $itemId);
+            $getDeleteResult = $this->LoudService->deleteItem($collectionName, $itemId);
 
             if (array_key_exists("error", $getDeleteResult)) {
                 $result["error"] = true;
@@ -243,7 +243,7 @@ class UserController {
             }
 
             if ($errors == "") {
-                $getAddResult = $this->userService->addItem($itemName, $formData);
+                $getAddResult = $this->LoudService->addItem($itemName, $formData);
 
                 if (array_key_exists("error", $getAddResult)) {
                     $result["error"] = true;
@@ -275,7 +275,7 @@ class UserController {
         if (isset($itemName)) {
             if (isset($id)) {
                 if (isset($key)) {
-                    $getItemResult = $this->userService->getItem($itemName, $id, $key);
+                    $getItemResult = $this->LoudService->getItem($itemName, $id, $key);
 
                     if (array_key_exists("error", $getItemResult)) {
                         $result["error"] = true;

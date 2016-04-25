@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class UserService {
+class LoudService {
 
     private $storage;
     private $isDBReady = true;
@@ -268,7 +268,7 @@ class UserService {
                                     $filename_path = md5(time().uniqid()).".jpg";
                                     $image = explode('base64,', $formData['photoURL']);
                                     $decoded = base64_decode($image[1]);
-                                    file_put_contents(str_replace("UserService.php", "", __FILE__)."../../../../front-end/img/users/". $filename_path, $decoded);
+                                    file_put_contents(str_replace("LoudService.php", "", __FILE__)."../../../../front-end/img/users/". $filename_path, $decoded);
 
                                     $photoURLPath = "/front-end/img/users/" . $filename_path;
                                 } else {
@@ -446,7 +446,7 @@ class UserService {
                     $filename_path = md5(time().uniqid()).".jpg";
                     $image = explode('base64,', $formData['image']);
                     $decoded = base64_decode($image[1]);
-                    file_put_contents(str_replace("UserService.php", "", __FILE__)."../../../../front-end/img/". $filename_path, $decoded);
+                    file_put_contents(str_replace("LoudService.php", "", __FILE__)."../../../../front-end/img/". $filename_path, $decoded);
 
                     $photoURLPath = "/front-end/img/" . $filename_path;
                 } else {
