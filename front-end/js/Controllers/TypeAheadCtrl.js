@@ -61,6 +61,36 @@ angular.module ('loudApp.controllers')
                 });
             }
         });
+
+        var getEventTypes = $q(function (resolve, reject) {
+            var res = LoudService.getCollection("eventTypes");
+
+            $timeout(
+                function() {
+                    resolve(res)
+                }, Math.random() * 2000 + 1000);
+        });
+
+        getEventTypes.then(function (responseEventTypes) {
+            if (responseEventTypes && responseEventTypes.data) {
+                $scope.eventTypesCol = responseEventTypes.data;
+            }
+        });
+
+        var getLocationsCol = $q(function (resolve, reject) {
+            var res = LoudService.getCollection("locations");
+
+            $timeout(
+                function() {
+                    resolve(res)
+                }, Math.random() * 2000 + 1000);
+        });
+
+        getLocationsCol.then(function (responseLocations) {
+            if (responseLocations && responseLocations.data) {
+                $scope.locationsCol = responseLocations.data;
+            }
+        });
       };
 
       $scope.modelOptions = {

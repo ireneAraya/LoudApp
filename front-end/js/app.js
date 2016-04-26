@@ -75,7 +75,7 @@ angular.module('loudApp',[
             })
             .when('/addEvent', {
                 templateUrl: 'front-end/views/addEvent.html',
-                controller: 'EventsCtrl'
+                controller: 'addEventCtrl'
             })
             // Locations
             .when('/locationsList', {
