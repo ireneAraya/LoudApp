@@ -6,6 +6,7 @@ angular.module ('loudApp.controllers')
 
         $scope.init = function() {
             $scope.eventsBuy = LoudService.verify('LoudApp__SelectedEventInfo') || {};
+            $scope.selectedSeats = LoudService.verify('LoudApp__SelectedSeats') || {};
             $scope.user = LoudService.verify('LoudApp__User') || {};
             $scope.areaName = '';
             $scope.detailEmail = $scope.user.email || "";
@@ -15,24 +16,22 @@ angular.module ('loudApp.controllers')
             }, function(razon) {
                 $scope.error = razon;
             });
+
+            var firstName = $scope.user.firstName || $scope.user.first_name;
+            var separator = " ";
+            var lastName = $scope.user.lastName || $scope.user.last_name;
+
+            var fullName =  firstName + separator + lastName;
+
+            if (fullName == "undefined undefined") {
+                $scope.detailUser = " ";
+            } else {
+                $scope.detailUser = fullName;
+            }
+
+            $scope.initialAmount = 0;
+            $scope.initialAmount2 = 0;
         };
-
-        // function otherFunctions() {
-
-        // var firstName = $scope.user.firstName || $scope.user.first_name;
-        // var separator = " ";
-        // var lastName = $scope.user.lastName || $scope.user.last_name;
-
-        // var fullName =  firstName + separator + lastName;
-
-        // if (fullName == "undefined undefined") {
-        //     $scope.detailUser = " ";
-        // } else {
-        //     $scope.detailUser = fullName;
-        // }
-
-        $scope.initialAmount = 0;
-        $scope.initialAmount2 = 0;
 
         $scope.sumValues = function (id, placeName) {
 
@@ -130,14 +129,47 @@ angular.module ('loudApp.controllers')
         }
 
         $scope.isSeatSelected = function(section) {
-            return $scope.selected === section;
-        };
+
+            var isSelected = false,
+                keepGoing = true;
+
+            if ($scope.selectedSeats) {
+                angular.forEach($scope.selectedSeats, function(value, key) {
+                    if (key == section.area && (value.indexOf(section.dataAtr) !== -1)) {
+                        isSelected = true;
+                    }
+                });
+            }
+
+            if (section.isSeatSelected || isSelected) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
 
         $scope.buyButon = function () {
+
             areaAndSeats = areaAndSeats || LoudService.verify("LoudApp__SelectedOptions");
             areaAndSeats.push(fullOption);
 
             LoudService.save("LoudApp__SelectedOptions", areaAndSeats);
+
+            angular.forEach(areaAndSeats, function(value, key) {
+                if (!$scope.selectedSeats.hasOwnProperty(value.area)) {
+                    $scope.selectedSeats[value.area] = value.seats;
+                } else {
+                    angular.forEach(value.seats, function(seat) {
+                        if ($scope.selectedSeats[value.area].indexOf(seat) == -1) {
+                            $scope.selectedSeats[value.area].push(seat);
+                        }
+                    });
+                }
+            });
+
+            LoudService.save("LoudApp__SelectedSeats", $scope.selectedSeats);
+
             $scope.eventsBuy.options = areaAndSeats;
             LoudService.remove("LoudApp__SelectedOptions");
 
@@ -154,6 +186,10 @@ angular.module ('loudApp.controllers')
 
         $scope.$watch('eventsBuy', function(newValue, oldValue) {
             LoudService.save("LoudApp__SelectedEventInfo", newValue);
+        }, true);
+
+        $scope.$watch('selectedSeats', function(newValue, oldValue) {
+            LoudService.save("LoudApp__SelectedSeats", newValue);
         }, true);
     }
 ]);
