@@ -370,7 +370,7 @@ class LoudService {
             if ($collectionName === "price_places" OR $collectionName === "events" OR $collectionName === "locations" OR $collectionName === "eventTypes") {
 
                 if ($collectionName === "events") {
-                    $query = "SELECT loud_events.id AS id, loud_events.name AS name, loud_events.description AS description, loud_events.date AS date, loud_events.image AS image, loud_eventTypes.name AS type, loud_locations.name AS location, loud_locations.geolocation AS geolocation FROM loud_events INNER JOIN loud_eventTypes ON loud_events.typeId = loud_eventTypes.id INNER JOIN loud_locations ON loud_events.locationId = loud_locations.id WHERE loud_events.active = 1";
+                    $query = "SELECT loud_events.id AS id, loud_events.name AS name, loud_events.description AS description, loud_events.date AS date, loud_events.image AS image, loud_eventTypes.name AS type, loud_locations.name AS location, loud_locations.geolocation AS geolocation, loud_locations.id AS locationId FROM loud_events INNER JOIN loud_eventTypes ON loud_events.typeId = loud_eventTypes.id INNER JOIN loud_locations ON loud_events.locationId = loud_locations.id WHERE loud_events.active = 1";
                     $query_result = $this->storage->query($query, [], "SELECT");
 
                     if (count($query_result['data']) > 0) {

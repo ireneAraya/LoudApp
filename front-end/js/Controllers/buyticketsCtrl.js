@@ -74,18 +74,17 @@ angular.module ('loudApp.controllers')
         };
 
         $scope.showLocationView = function () {
-
-            var locationType = $scope.eventsBuy.type;
+            var locationType = Number($scope.eventsBuy.locationId);
             var locationPath = '';
 
-            if (locationType === "Dance") {
+            if (locationType === 3) {
                 locationPath = '/buyTickets/tickets';
             } else {
                 locationPath = '/buyTickets/tickets/seats';
             }
 
             $location.path( locationPath );
-        }
+        };
 
         $scope.getAreaValue = function (item) {
             fullOption.area = "";
@@ -132,7 +131,7 @@ angular.module ('loudApp.controllers')
 
         $scope.isSeatSelected = function(section) {
             return $scope.selected === section;
-        }
+        };
 
         $scope.buyButon = function () {
             areaAndSeats = areaAndSeats || LoudService.verify("LoudApp__SelectedOptions");
