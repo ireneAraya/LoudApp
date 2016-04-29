@@ -53,7 +53,8 @@
     "USER" : {
         "FULL_NAME_TEXT" : "Your full name is:",
         "PERSONALID_TEXT" : "Your identification ID is:",
-        "BIRTHDATE_TEXT" : "Your birth date is:"
+        "BIRTHDATE_TEXT" : "Your birth date is:",
+        "LANGUAGE" : "Language"
     },
     "PAGE_NOT_FOUND" : {
         "TITLE" : "Page Not Found! :(",

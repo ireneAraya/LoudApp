@@ -80,7 +80,7 @@
 
                     <div class="form-group col-xs-12" ng-show="user.identificationType == 1">
                         <label for="localID">{{ translation.REGISTRATION.IDENTIFICATION }}</label>
-                        <input autocomplete="off" id="identification" type="number" name="localID" ng-model="user.localID" class="form-control" local-id ng-required="user.identificationType == 1">
+                        <input autocomplete="off" id="identification" type="number" name="localID" ng-model="user.identification" class="form-control" local-id ng-required="user.identificationType == 1">
                         <div ng-messages="registerForm.localID.$error" ng-if="registerForm.localID.$touched && registerForm.localID.$invalid" class="validate-messages">
                             <div ng-messages-include="error-messages"></div>
                         </div>

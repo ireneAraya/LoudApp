@@ -54,7 +54,8 @@
     "USER" : {
         "FULL_NAME_TEXT" : "Su nombre completo es:",
         "PERSONALID_TEXT" : "Su identificación personal es:",
-        "BIRTHDATE_TEXT" : "Su fecha de nacimiento es:"
+        "BIRTHDATE_TEXT" : "Su fecha de nacimiento es:",
+        "LANGUAGE" : "Idioma:"
     },
     "PAGE_NOT_FOUND" : {
         "TITLE" : "¡Página no Encontrada! :(",
